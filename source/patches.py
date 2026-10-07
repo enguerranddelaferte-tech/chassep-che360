@@ -146,3 +146,14 @@ rep('a=setTimeout(()=>i.abort(),3500)','a=setTimeout(()=>i.abort(),9000)')
 rep('try{a=await $o(t,r)}catch{a=Co(t,r)}','try{a=await $o(t,r)}catch(e1){try{a=await $o(t,r)}catch(e2){a=Co(t,r);a.error=(e2&&e2.name==="AbortError")?"délai dépassé":String(e2&&e2.message||e2).slice(0,80)}}')
 rep('Cr.set(n,{at:Date.now(),data:a})','Cr.set(n,{at:a.source==="simulation"?Date.now()-Pr+2e4:Date.now(),data:a})')
 rep(r'"estimation (service m\xE9t\xE9o injoignable)"', r'"estimation (service m\xE9t\xE9o injoignable"+(n.error?" : "+n.error:"")+")"')
+
+# 20) Calculateur carte : bouton Réinitialiser dans l'en-tête ; Tableau de chasse
+js_bag=open(D+'js_bag.js',encoding='utf-8').read()
+rep('subtitle:"Visez : l’appli vous dit si le tir est interdit vers un voisin ou une zone. Gratuit pour tous."},',
+    'subtitle:"Visez : l’appli vous dit si le tir est interdit vers un voisin ou une zone. Gratuit pour tous.",actions:[x("Réinitialiser",{icon:"target",kind:"ghost",onClick:()=>RZ()})]},')
+rep('function $(){$0();o&&C(p,zl())}',
+    'function RZ(){o=null;l=null;mz=[];f&&(m.removeLayer(f),f=null);g&&(m.removeLayer(g),g=null);S.clearLayers();W(p);C(p,e("p.small.muted",{style:{margin:0}},"Aucun calcul en cours."));T();E();A("Calcul réinitialisé : choisissez un nouveau point de calcul.")}function $(){$0();o&&C(p,zl())}')
+rep('var wl,Hi=H(()=>{wl=Ui({', js_bag+'\nvar wl,Hi=H(()=>{wl=Ui({"./views/bag.js":()=>Promise.resolve().then(()=>(BagI(),BagM)),')
+rep('Z("/carnet",te("logbook"));','Z("/carnet",te("logbook"));Z("/tableau-de-chasse",te("bag"));')
+rep(r'["/prelevements","Pr\xE9l\xE8vements","tag"]]}', r'["/prelevements","Pr\xE9l\xE8vements","tag"],["/tableau-de-chasse","Tableau de chasse","book"]]}')
+rep('z==="peche"&&q.startsWith("/battues")?ge("/carnet")','z==="peche"&&(q.startsWith("/battues")||q.startsWith("/tableau-de-chasse"))?ge("/carnet")')
