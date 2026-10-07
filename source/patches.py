@@ -190,3 +190,6 @@ rep('\nBe.get("/articles",(t,r)=>{ArtSeed()', '\n'+js_ads_srv+'\nBe.get("/articl
 rep('var wl,Hi=H(()=>{wl=Ui({', js_ads+'\nvar wl,Hi=H(()=>{wl=Ui({"./views/annonces.js":()=>Promise.resolve().then(()=>(HaI(),HaM)),')
 rep('Z("/bourse",te("market"));','Z("/bourse",te("market"));Z("/annonces-chasse",te("annonces"));')
 rep(r'["/bourse","Bourse de proximit\xE9","swap"],', r'["/bourse","Bourse de proximit\xE9","swap"],["/annonces-chasse","Annonces de chasse","flag"],')
+
+# 24) Annonces de chasse : publication réservée aux abonnés
+rep('"territory.export":["chasse","peche","combo"]}', '"territory.export":["chasse","peche","combo"],"huntads.post":["chasse","peche","combo"]}')
