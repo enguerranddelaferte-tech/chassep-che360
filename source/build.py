@@ -37,6 +37,7 @@ rep('</style>\n','</style>\n',1) if False else None
 s=s.replace('</style>\n<','<style>'+EYE_CSS+'</style>\n<',1) if False else s
 
 exec(open(D+'patches.py',encoding='utf-8').read()) if os.path.exists(D+'patches.py') else None
+exec(open(D+'post.py',encoding='utf-8').read()) if os.path.exists(D+'post.py') else None
 
 open(D+'v2.html','w',encoding='utf-8').write(s)
 inj='<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><script>window.__REAL=1;if("serviceWorker" in navigator&&location.protocol==="https:")addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))</script></head>'

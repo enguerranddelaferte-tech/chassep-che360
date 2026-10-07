@@ -882,3 +882,7 @@ table.data td, table.data th { vertical-align: middle; }
 /* Cône de direction du point GPS */
 .me-cone { pointer-events: none; }
 .me-cone-in { width: 130px; height: 130px; transform-origin: 50% 50%; transition: transform .12s linear; }
+/* ===== Performance : pas de flou d'arrière-plan sur les éléments qui bougent (barres, cartes sur la carte) ===== */
+.topbar, .tabbar, .map-card { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+.topbar, .tabbar { background: color-mix(in srgb, var(--surface) 97%, transparent); }
+.map-card { background: color-mix(in srgb, var(--surface) 97%, transparent); }

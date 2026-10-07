@@ -17,7 +17,7 @@ res.appendChild(listBox);drawList(all)}
 let listBox=e("div.stack");
 function drawList(all){W(listBox);let f=qtxt.trim().toLowerCase(),list=f?all.filter(r=>(r[0]+" "+r[2]+" "+r[1]).toLowerCase().includes(f)):all;
 if(!list.length){C(listBox,e("div.small.muted","Aucun résultat."));return}
-list.forEach(r=>C(listBox,e("div.row",{style:{gap:"10px",alignItems:"center",flexWrap:"wrap",padding:"10px 0",borderTop:"1px solid var(--line,#0001)"}},
+list.forEach(r=>C(listBox,e("div.row",{style:{gap:"10px",alignItems:"center",flexWrap:"wrap",padding:"10px 0",borderTop:"1px solid var(--line,#0001)",contentVisibility:"auto",containIntrinsicSize:"auto 64px"}},
 e("div.small",{style:{flex:"1 1 160px",minWidth:0}},e("b",r[0]),e("div.tiny.muted",r[2]+" ("+r[1]+")")),
 e("div.row",{style:{gap:"8px",flexWrap:"wrap"}},r[3]?phone(r[3]):null,r[4]?phone(r[4]):null))))}
 function drawMine(){W(mine);let a=SgLoad();
