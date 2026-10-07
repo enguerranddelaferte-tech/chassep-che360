@@ -180,3 +180,13 @@ rep('function yi(t,r){let n=', 'function yi(t,r){(t.category==="venaison"||t.cat
 # 22) Vignettes réelles YouTube dans le fil et sur les pages ambassadeurs
 rep('e("a.amb-video",lk,e("div",{class:"amb-thumb"+(t.activity==="peche"?" peche":"")},b("play"),', 'e("a.amb-video",lk,e("div",{class:"amb-thumb"+(t.activity==="peche"?" peche":"")},YtThumb(d.url),b("play"),')
 rep('e("div",{class:"amb-thumb"+(d.season==="peche"?" peche":"")},b("play"),', 'e("div",{class:"amb-thumb"+(d.season==="peche"?" peche":"")},YtThumb(d.url),b("play"),')
+
+# 23) Annonces de chasse (journée / action de chasse), menu Cuisine & commerce
+js_ads=open(D+'js_ads.js',encoding='utf-8').read()
+js_ads_srv=open(D+'js_ads_server.js',encoding='utf-8').read()
+rep('livesessions:"liv"},Xn=class','livesessions:"liv",huntads:"hda"},Xn=class')
+rep('"livesessions"];$i.forEach','"livesessions","huntads"];$i.forEach')
+rep('\nBe.get("/articles",(t,r)=>{ArtSeed()', '\n'+js_ads_srv+'\nBe.get("/articles",(t,r)=>{ArtSeed()')
+rep('var wl,Hi=H(()=>{wl=Ui({', js_ads+'\nvar wl,Hi=H(()=>{wl=Ui({"./views/annonces.js":()=>Promise.resolve().then(()=>(HaI(),HaM)),')
+rep('Z("/bourse",te("market"));','Z("/bourse",te("market"));Z("/annonces-chasse",te("annonces"));')
+rep(r'["/bourse","Bourse de proximit\xE9","swap"],', r'["/bourse","Bourse de proximit\xE9","swap"],["/annonces-chasse","Annonces de chasse","flag"],')
