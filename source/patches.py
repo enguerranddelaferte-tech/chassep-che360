@@ -140,3 +140,9 @@ js_ang30=open(D+'js_ang30.js',encoding='utf-8').read()
 rep('var wl,Hi=H(()=>{wl=Ui({', js_ang30+'\nvar wl,Hi=H(()=>{wl=Ui({"./views/ang30.js":()=>Promise.resolve().then(()=>(A30I(),A30M)),')
 rep('Z("/angle-30",te("angle30"));','Z("/angle-30",te("ang30"));Z("/angle-30-carte",te("angle30"));')
 rep(r'["/angle-30","Calculateur 30\xB0","target"]', r'["/angle-30","Viseur 30\xB0","target"],["/angle-30-carte","Calculateur 30\xB0 (carte)","map"]')
+
+# 19) Météo : délai plus long, une nouvelle tentative, simulation non mise en cache, raison de l'échec affichée
+rep('a=setTimeout(()=>i.abort(),3500)','a=setTimeout(()=>i.abort(),9000)')
+rep('try{a=await $o(t,r)}catch{a=Co(t,r)}','try{a=await $o(t,r)}catch(e1){try{a=await $o(t,r)}catch(e2){a=Co(t,r);a.error=(e2&&e2.name==="AbortError")?"délai dépassé":String(e2&&e2.message||e2).slice(0,80)}}')
+rep('Cr.set(n,{at:Date.now(),data:a})','Cr.set(n,{at:a.source==="simulation"?Date.now()-Pr+2e4:Date.now(),data:a})')
+rep(r'"estimation (service m\xE9t\xE9o injoignable)"', r'"estimation (service m\xE9t\xE9o injoignable"+(n.error?" : "+n.error:"")+")"')
