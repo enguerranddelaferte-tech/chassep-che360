@@ -193,3 +193,8 @@ rep(r'["/bourse","Bourse de proximit\xE9","swap"],', r'["/bourse","Bourse de pro
 
 # 24) Annonces de chasse : publication réservée aux abonnés
 rep('"territory.export":["chasse","peche","combo"]}', '"territory.export":["chasse","peche","combo"],"huntads.post":["chasse","peche","combo"]}')
+
+
+# 25) Tableaux : cellules courtes sur une seule ligne
+rep('e("td",{class:a.num?"num":""},a.render?a.render(i):i[a.key]??"\\u2014")','NwTd(a.num?"num":"",a.render?a.render(i):i[a.key]??"\\u2014")')
+rep('function $e(t,r,{empty:n=', 'function NwTd(c,ct){let d=e("td",{class:c},ct);(d.textContent||"").length<=20&&(d.style.whiteSpace="nowrap");return d}function $e(t,r,{empty:n=')

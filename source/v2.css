@@ -809,3 +809,38 @@ a.adm-todo.on { border-color: var(--accent); background: var(--accent-soft); col
 .amb-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .amb-thumb svg { position: relative; z-index: 1; filter: drop-shadow(0 2px 6px rgba(0,0,0,.55)); }
 .amb-thumb .amb-dur { z-index: 1; }
+
+/* ---- Passe ergonomie (3.1) : chevauchements et débordements ---- */
+/* Sélecteurs segmentés : jamais en « bulle » déformée quand le libellé est long */
+.seg { border-radius: 16px; max-width: 100%; }
+.seg button { border-radius: 12px; padding: 9px 14px; line-height: 1.15; text-align: center; }
+.field .seg, .form-grid .seg { display: flex; width: 100%; }
+.field .seg button { flex: 1 1 0; min-width: 0; white-space: normal; }
+@media (max-width: 700px) { .seg { overflow-x: visible; } .seg button { flex: 1 1 auto; } }
+/* Titres de page sur plusieurs lignes : interligne lisible */
+.page-head h1 { line-height: 1.12; }
+/* Boutons et champs : jamais collés au champ qui précède */
+.field + .btn, .field + button, .form-grid + .btn, .form-grid + button, .stack > textarea + .btn { margin-top: 16px; }
+textarea.input { display: block; }
+.panel form > .btn.block, .panel .field + .btn.block { margin-top: 16px; }
+/* Carte : outils flottants lisibles sur le fond de carte, sans chevauchement */
+.map-tools .row { flex-wrap: wrap; gap: 8px; }
+.map-tools .btn { min-height: 44px; }
+.map-tools .btn.ghost, .map-tools .btn:not(.primary) { background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); color: var(--text); }
+.map-tools .btn.primary { box-shadow: var(--shadow-sm); }
+.map-mode { max-width: 100%; }
+/* Fil d'actualité : l'en-tête d'une publication passe à la ligne au lieu de se chevaucher */
+.post-head { flex-wrap: wrap; row-gap: 6px; }
+.post-head .grow { flex: 1 1 150px; min-width: 0; }
+.post-head .badge { flex: none; }
+/* Tableaux : colonnes courtes sur une seule ligne, défilement horizontal sinon */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+table.data td, table.data th { vertical-align: middle; }
+/* Notifications (toasts) : en bas sur téléphone pour ne plus masquer les titres et les boutons */
+@media (max-width: 700px) { .toasts { top: auto !important; bottom: calc(96px + env(safe-area-inset-bottom, 0px)) !important; left: 12px !important; right: 12px !important; } }
+.panel > * + .btn.block, .panel > * + button.btn.block, textarea + .btn, textarea + button.btn { margin-top: 16px; }
+@media (max-width: 700px) {
+  table.data th, table.data td { padding: 10px 7px; font-size: 14px; }
+  .post-head .icon-btn { margin-left: auto; }
+}
+@media (max-width: 480px) { table.data th, table.data td { padding: 9px 4px; font-size: 13px; } table.data td svg { width: 16px; height: 16px; } table.data th:first-child, table.data td:first-child { padding-left: 10px; } table.data th:last-child, table.data td:last-child { padding-right: 10px; } }
