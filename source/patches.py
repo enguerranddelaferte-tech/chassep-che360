@@ -279,3 +279,8 @@ rep(r'let dn=e("div.map-float.map-right",J,Rn("locate","Me localiser",async()=>{
  r'''C(TL,IsLaunch()?x("Mon territoire",{icon:"pin",kind:"primary",size:"block",onClick:Mo(()=>TerrMenu())}):null,x("Signaler un danger",{icon:"alert",kind:"ghost",size:"block",onClick:Mo(()=>st())}),x("Zone hors ligne",{icon:"download",kind:"ghost",size:"block",onClick:Mo(()=>Jn())}),window.cp360Real?x("Diagnostic de la carte",{icon:"alert",kind:"ghost",size:"block",onClick:Mo(()=>MapDiagOpen(l))}):null);
 let dn=e("div.map-float.map-right",J,Rn("layers","Couches de la carte",()=>{D.hidden=!D.hidden;TL.hidden=!0}),Rn("locate","Me localiser",async()=>{let h=await Ee();l.setView([h.lat,h.lng],16)}),Rn("plus","Plus d’actions",()=>{TL.hidden=!TL.hidden;D.hidden=!0}));''')
 rep('C(a,N,dn,IsLaunch()?null:Bt);','C(a,N,pop,dn,IsLaunch()?null:Bt);')
+
+# 35) Territoire : import d'un fichier GeoJSON / JSON
+_tf=open(D+'js_terrfile.js',encoding='utf-8').read()
+rep('\nfunction TerrDraw(o){o=o||{};if(l._draw)return l._draw;let L_=_e(),pm=!1,', '\n'+_tf+'\nfunction TerrDraw(o){o=o||{};if(l._draw)return l._draw;let L_=_e(),pm=!1,')
+rep('x("Importer une image du territoire",{icon:"camera",size:"block",onClick:()=>{m.close();TerrImage()}}),', 'x("Importer une image du territoire",{icon:"camera",size:"block",onClick:()=>{m.close();TerrImage()}}),x("Importer un fichier (GeoJSON)",{icon:"download",size:"block",onClick:()=>{m.close();TerrFile()}}),')
