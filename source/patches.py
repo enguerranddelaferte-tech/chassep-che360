@@ -226,3 +226,6 @@ rep(r'"PMA : 3 par jour, 30 par saison. Carnet obligatoire."', r'"PMA nationale 
 rep('function c(){RegNatDraw(n);let p=f=>', 'function c(){RegNatDraw(n);RegDeptDraw(n,r,o,i);return;let p=f=>')
 rep('a.departments.map(p=>e("option"', 'RegDeptList().map(p=>e("option"')
 rep(r'p.covered?(r=p.code,u()):A(`${p.name} n\u2019est pas encore couvert : affichage du ${r}.`,"warn")', '(r=p.code,u())')
+
+# 30) Réglementation : tableaux d'espèces chassables / poissons (en tête des règles nationales)
+rep('var wl,Hi=H(()=>{wl=Ui({', open(D+'js_species.js',encoding='utf-8').read()+'\nvar wl,Hi=H(()=>{wl=Ui({')
