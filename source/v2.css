@@ -804,3 +804,8 @@ a.adm-todo.on { border-color: var(--accent); background: var(--accent-soft); col
 .donut-wrap { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .donut-legend { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 150px; font-size: 14px; }
 .grid.g-2 svg text { font-family: var(--font); }
+
+.amb-thumb { overflow: hidden; }
+.amb-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.amb-thumb svg { position: relative; z-index: 1; filter: drop-shadow(0 2px 6px rgba(0,0,0,.55)); }
+.amb-thumb .amb-dur { z-index: 1; }

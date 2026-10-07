@@ -28,6 +28,16 @@ all=async()=>{save();let tot=0,bad=[],ok=list.filter(a=>{let r=YT.ref(a);return 
 for(let a of ok){try{tot+=await YT.sync(a)}catch(er){bad.push(a.name+" : "+er.message)}}
 if(bad.length)A(bad.join(" · "),"err");if(tot||!bad.length)A(tot+" vidéo(s) synchronisée(s)"+(skip?" · "+skip+" ambassadeur(s) fictif(s) ignoré(s)":"")+".");
 if(tot)Ie();else if(!bad.length)say("Aucune chaîne réelle à synchroniser.")};
-return k({title:"Synchronisation YouTube",sub:"API YouTube Data v3 : récupère les dernières vidéos de chaque chaîne."},e("div.stack",e("label.small",{style:{fontWeight:"600"}},"Clé API YouTube"),inp,st,
+return e("div.stack",YtLinks(list),k({title:"Synchronisation YouTube",sub:"API YouTube Data v3 : récupère les dernières vidéos de chaque chaîne."},e("div.stack",e("label.small",{style:{fontWeight:"600"}},"Clé API YouTube"),inp,st,
 e("div.row",{style:{gap:"8px",flexWrap:"wrap"}},x("Enregistrer",{size:"sm",kind:"ghost",onClick:save}),x("Tester la clé",{size:"sm",kind:"ghost",onClick:test}),x("Tout synchroniser",{icon:"play",size:"sm",kind:"primary",onClick:all})),
-e("div.tiny.muted","La clé reste dans ce navigateur. Limitez-la à l’API YouTube Data v3 et à l’adresse de votre site (voir YOUTUBE.md).")))}
+e("div.tiny.muted","La clé reste dans ce navigateur. Limitez-la à l’API YouTube Data v3 et à l’adresse de votre site (voir YOUTUBE.md)."))))}
+
+function YtId(u){let s=String(u||"").trim(),m=/(?:[?&]v=|youtu\.be\/|\/shorts\/|\/embed\/)([\w-]{11})/.exec(s);return m?m[1]:(/^[\w-]{11}$/.test(s)?s:null)}
+function YtThumb(u){let id=YtId(u);if(!id)return null;let im=e("img",{src:"https://img.youtube.com/vi/"+id+"/hqdefault.jpg",alt:"",loading:"lazy",referrerpolicy:"no-referrer"});im.onerror=()=>im.remove();return im}
+function YtLinks(list){let real=(list||[]).filter(a=>a.real||a.channelUrl&&/youtube\.com\/(@|channel)/.test(a.channelUrl)),sel=e("select.input",(real.length?real:list||[]).map(a=>e("option",{value:a.id,selected:a.id==="amb_feliew"},a.name))),ta=e("textarea.input",{rows:5,placeholder:"https://www.youtube.com/watch?v=…\nhttps://youtu.be/…\n(un lien par ligne)",style:{width:"100%"}}),st=e("div.small.muted","");
+let go=async()=>{let ids=[...new Set(ta.value.split(/\s+/).map(YtId).filter(Boolean))];if(!ids.length){W(st);C(st,"Aucun lien YouTube reconnu.");return}
+W(st);C(st,"Import de "+ids.length+" vidéo(s)…");let vids=[],noTitle=0;
+for(let id of ids){let url="https://www.youtube.com/watch?v="+id,title=null;try{let r=await fetch("https://www.youtube.com/oembed?format=json&url="+encodeURIComponent(url));if(r.ok){let j=await r.json();title=j.title}}catch{}
+if(!title){noTitle++;title="Vidéo YouTube ("+id+")"}vids.push({url,title})}
+try{await v.post("/admin/ambassadors/"+sel.value+"/videos/sync",{videos:vids});A(vids.length+" vidéo(s) ajoutée(s)"+(noTitle?" · "+noTitle+" sans titre (YouTube injoignable depuis ce navigateur)":"")+".");ta.value="";Ie()}catch(er){W(st);C(st,er.message);st.style.color="#B3261E"}};
+return k({title:"Importer des liens de vidéos",sub:"Sans clé API : collez les liens, les vignettes viennent de YouTube."},e("div.stack",e("label.small",{style:{fontWeight:"600"}},"Ambassadeur"),sel,ta,st,x("Importer les vidéos",{icon:"play",size:"sm",kind:"primary",onClick:go}),e("div.tiny.muted","Les titres sont lus via YouTube (oEmbed). La date n’est pas fournie : elle correspond au jour de l’import. Pour les vraies dates, utilisez la clé API.")))}

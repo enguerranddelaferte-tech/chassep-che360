@@ -175,3 +175,8 @@ rep(r'if(i==="cession"&&+o>150)throw new ct(400,"La cession entre particuliers r
 rep(r'type:"cession",category:"venaison"', r'type:"don",category:"venaison"')
 rep(r'conserv\xE9 en chambre froide.",price:40,', r'conserv\xE9 en chambre froide.",price:0,')
 rep('function yi(t,r){let n=', 'function yi(t,r){(t.category==="venaison"||t.category==="poisson")&&(t={...t,type:"don",price:0});let n=')
+
+
+# 22) Vignettes réelles YouTube dans le fil et sur les pages ambassadeurs
+rep('e("a.amb-video",lk,e("div",{class:"amb-thumb"+(t.activity==="peche"?" peche":"")},b("play"),', 'e("a.amb-video",lk,e("div",{class:"amb-thumb"+(t.activity==="peche"?" peche":"")},YtThumb(d.url),b("play"),')
+rep('e("div",{class:"amb-thumb"+(d.season==="peche"?" peche":"")},b("play"),', 'e("div",{class:"amb-thumb"+(d.season==="peche"?" peche":"")},YtThumb(d.url),b("play"),')
