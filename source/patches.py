@@ -257,3 +257,25 @@ rep('"map.offline":["chasse","peche","combo"]', '"map.offline":["chasse","peche"
 rep(r'vent anim\xE9 (Chasse), bathym\xE9trie (P\xEAche).', r'vent anim\xE9 et choix des parcelles cadastrales (Chasse ou P\xEAche), bathym\xE9trie (P\xEAche).')
 rep(r'"Photo a\xE9rienne et cadastre","M\xE9t\xE9o d\xE9taill\xE9e et vent sur la carte"', r'"Photo a\xE9rienne et cadastre","Territoire par parcelles cadastrales","M\xE9t\xE9o d\xE9taill\xE9e et vent anim\xE9 sur la carte"')
 rep(r'"Bathym\xE9trie et photo a\xE9rienne","Carnet illimit\xE9 et statistiques"', r'"Bathym\xE9trie et photo a\xE9rienne","Territoire par parcelles cadastrales, vent anim\xE9","Carnet illimit\xE9 et statistiques"')
+
+# 34) Carte : ergonomie (une seule action principale, boussole réduite, couches / outils repliés dans la colonne de droite)
+_a=s.index('let N=e("div.map-float.map-tools",e("div.map-card.map-mode"')
+_b=s.index('}})),D),J=e("div.map-card"',_a)
+_p0=s.index('w.season==="peche"?x(e("span",e("span.lg"',_a)
+_pa=s[_p0:_b+3]
+_new=('let pa='+_pa+',TL=e("div.map-card.map-more",{hidden:!0}),Mo=f=>()=>{TL.hidden=!0;f()},'
+ 'N=e("div.map-float.map-tools",pa),pop=e("div.map-float.map-pop",D,TL),'
+ 'LyBtn=null,MoreBtn=null,J=e("div.map-card.map-compass"')
+s=s[:_a]+_new+s[_b+len('}})),D),J=e("div.map-card"'):]
+# boussole compacte
+rep('{style:{padding:"10px",textAlign:"center"}}),Y=','{}),Y=')
+rep('width:"84px",height:"84px",margin:"0 auto"','width:"52px",height:"52px",margin:"0 auto"')
+rep('translate(0,-34px) rotate(${-fe*90}deg)','translate(0,-21px) rotate(${-fe*90}deg)')
+rep('fontWeight:700,fontSize:"13px",color:U==="N"','fontWeight:700,fontSize:"10px",color:U==="N"')
+rep('inset:"24px",display:"grid"','inset:"15px",display:"grid"')
+rep(r'C(J,O,e("div.tiny.muted",{style:{marginTop:"6px"}},h==null?"Boussole":`${Math.round(h)}\xB0`),I?e("div.tiny",`Vent ${I.label} ${I.speed} km/h`):ze("wind.overlay")?null:e("div.tiny.muted",b("lock")," Vent"))', r'C(J,O,I?e("div.tiny",{style:{marginTop:"2px",fontWeight:600}},`${I.speed} km/h`):null),J.title=I?`Vent ${I.label} ${I.speed} km/h`:"Boussole"')
+# colonne de droite : boussole, couches, localiser, outils
+rep(r'let dn=e("div.map-float.map-right",J,Rn("locate","Me localiser",async()=>{let h=await Ee();l.setView([h.lat,h.lng],16)}),Rn("alert","Signaler",()=>st()),Rn("download","T\xE9l\xE9charger la zone pour le hors ligne",()=>Jn()));',
+ r'''C(TL,IsLaunch()?x("Mon territoire",{icon:"pin",kind:"primary",size:"block",onClick:Mo(()=>TerrMenu())}):null,x("Signaler un danger",{icon:"alert",kind:"ghost",size:"block",onClick:Mo(()=>st())}),x("Zone hors ligne",{icon:"download",kind:"ghost",size:"block",onClick:Mo(()=>Jn())}),window.cp360Real?x("Diagnostic de la carte",{icon:"alert",kind:"ghost",size:"block",onClick:Mo(()=>MapDiagOpen(l))}):null);
+let dn=e("div.map-float.map-right",J,Rn("layers","Couches de la carte",()=>{D.hidden=!D.hidden;TL.hidden=!0}),Rn("locate","Me localiser",async()=>{let h=await Ee();l.setView([h.lat,h.lng],16)}),Rn("plus","Plus d’actions",()=>{TL.hidden=!TL.hidden;D.hidden=!0}));''')
+rep('C(a,N,dn,IsLaunch()?null:Bt);','C(a,N,pop,dn,IsLaunch()?null:Bt);')

@@ -863,3 +863,19 @@ table.data td, table.data th { vertical-align: middle; }
 .wind-ramp i:first-child { margin-left: 0; }
 .map-page.terr-on .wind-canvas, .map-page.terr-on .wind-legend { display: none; }
 @media (max-width: 760px) { .wind-legend { bottom: 84px; } }
+/* ===== Carte : ergonomie (action principale en haut à gauche, colonne d'outils à droite) ===== */
+.map-tools { flex-direction: row; max-width: none; }
+.map-tools .btn { min-height: 48px; box-shadow: var(--shadow); }
+.map-pop { top: 16px; right: 84px; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; max-width: calc(100% - 100px); }
+.map-pop .map-layers { max-height: calc(100% - 40px); }
+.map-more { display: flex; flex-direction: column; gap: 8px; width: 230px; padding: 10px; }
+.map-more[hidden], .map-layers[hidden] { display: none !important; }
+.map-compass { padding: 5px !important; width: 62px; text-align: center; border-radius: 999px; }
+.map-right { gap: 8px; }
+@media (max-width: 760px) {
+  .map-tools { max-width: calc(100% - 100px); }
+  .map-pop { right: 76px; }
+  .map-right .map-card { zoom: 1; }
+}
+@media (pointer: coarse) { .map-page .leaflet-control-zoom { display: none; } }
+.map-page.terr-on .map-pop, .map-page.terr-on .map-tools { display: none !important; }
