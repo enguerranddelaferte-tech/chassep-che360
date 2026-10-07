@@ -198,3 +198,10 @@ rep('"territory.export":["chasse","peche","combo"]}', '"territory.export":["chas
 # 25) Tableaux : cellules courtes sur une seule ligne
 rep('e("td",{class:a.num?"num":""},a.render?a.render(i):i[a.key]??"\\u2014")','NwTd(a.num?"num":"",a.render?a.render(i):i[a.key]??"\\u2014")')
 rep('function $e(t,r,{empty:n=', 'function NwTd(c,ct){let d=e("td",{class:c},ct);(d.textContent||"").length<=20&&(d.style.whiteSpace="nowrap");return d}function $e(t,r,{empty:n=')
+
+
+# 26) Fond de saison (printemps / été / automne / hiver)
+js_saison=open(D+'js_saison.js',encoding='utf-8').read()
+rep('var wl,Hi=H(()=>{wl=Ui({', js_saison+'\nvar wl,Hi=H(()=>{wl=Ui({')
+rep(r'e("div.field",{style:{marginTop:"12px"}},e("label","Saison active"),ke([["chasse","Chasse"],["peche","P\xEAche"]],w.season,an)),', r'e("div.field",{style:{marginTop:"12px"}},e("label","Saison active"),ke([["chasse","Chasse"],["peche","P\xEAche"]],w.season,an)),SaisonField(),')
+rep('</head>','<script>(function(){try{var o=JSON.parse(localStorage.getItem("cp360.saison")||"\\"auto\\"");var d=new Date(),v=(d.getMonth()+1)*100+d.getDate(),s=v>=321&&v<621?"printemps":v>=621&&v<923?"ete":v>=923&&v<1221?"automne":"hiver";if(["printemps","ete","automne","hiver"].indexOf(o)>=0)s=o;document.documentElement.dataset.saison=s}catch(e){}})()</script></head>')

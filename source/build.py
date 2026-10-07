@@ -2,6 +2,8 @@ import re,sys,os
 D=os.path.dirname(os.path.abspath(__file__))+'/'
 lines=open(D+'v1.html',encoding='utf-8').read().split('\n')
 css=open(D+'v2.css',encoding='utf-8').read()
+import os as _o
+css+=open(D+'saison.css',encoding='utf-8').read() if _o.path.exists(D+'saison.css') else ''
 head='\n'.join(lines[:672])            # lignes 1..672 : tête + CSS Leaflet
 tail='\n'.join(lines[1344:])          # ligne 1345 : </head> ...
 s=head+'\n<style>'+css+'</style>\n'+tail
