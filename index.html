@@ -2021,6 +2021,7 @@ hl=(a,b0)=>((b0-a+540)%360)-180,inArc=(h,f,to)=>((h-f+360)%360)<=((to-f+360)%360
 cur=()=>sm!=null&&Date.now()-lastEv<3000?sm:null,
 dir=()=>{let c=cur();return c!=null?c:hm};
 vd.muted=!0;vd.autoplay=!0;vd.setAttribute("playsinline","");
+let rb=e("button",{type:"button","aria-label":"Réinitialiser l’angle",onclick:()=>reset(),style:{position:"absolute",right:"10px",top:"44px",display:"none",border:"0",borderRadius:"999px",padding:"8px 14px",background:"rgba(19,27,25,.72)",color:"#fff",font:"600 14px Barlow, sans-serif",cursor:"pointer"}},"↺ Réinitialiser");C(stage,rb);
 onEv=ev=>{let h=A30Heading(ev);if(h==null||!isFinite(h))return;lastEv=Date.now();sm=sm==null?h:(sm+.3*hl(sm,h)+360)%360};
 cv.onpointermove=ev=>{cur()==null&&ev.buttons&&(hm=((hm-ev.movementX*FV/cv.clientWidth)%360+360)%360)};
 async function startSensors(){navigator.wakeLock&&!wl&&navigator.wakeLock.request("screen").then(s=>{wl=s}).catch(()=>{});
@@ -2045,7 +2046,7 @@ c.fillStyle=col;c.fillRect(0,0,W,34);c.fillStyle="#fff";c.font="700 18px Barlow 
 if(noCam){c.font="600 12px Barlow, sans-serif";c.fillStyle="rgba(255,255,255,.8)";c.fillText("Caméra indisponible : visée sur fond neutre",W/2,H-44)}
 if(cur()==null){c.font="600 12px Barlow, sans-serif";c.fillStyle="#FFD27A";c.fillText("Boussole indisponible : faites glisser pour tourner",W/2,H/2-44)}
 live&&live._needle(cur());rf=requestAnimationFrame(draw)}
-function intro(){step=0;stopSensors();W(host);live=null;top0();
+function intro(){step=0;stopSensors();W(host);live=null;top0();rb.style.display="none";
 let nb=(n,tx)=>e("div.row",{style:{gap:"12px",alignItems:"flex-start"}},e("span",{style:{flex:"none",width:"30px",height:"30px",borderRadius:"50%",background:"var(--blaze,#D95A10)",color:"#fff",display:"grid",placeItems:"center",fontWeight:"700"}},String(n)),e("div",tx));
 C(host,e("div.grid.g-main",e("div.stack",
 x("Commencer",{icon:"camera",kind:"primary",size:"block",onClick:async()=>{await startSensors();aim(1)}}),
@@ -2059,13 +2060,15 @@ e("div.stack",k({title:"Exemple vu de dessus"},A30Plan(300,60,m),e("div.sector-l
 e("p.tiny.muted",{style:{margin:"8px 0 0"}},"Exemple : obstacles à 300° et 60° (écart de 120°) : il reste une zone de tir de "+Math.max(0,Math.round(A30Calc(300,60,m).width))+"°.")),
 e("a.btn.ghost.block",{href:"#/angle-30-carte",style:{textAlign:"center"}},"Calculateur sur carte (voisins GPS)"),
 e("p.tiny.muted",{style:{margin:0}},"Aide visuelle : elle ne remplace ni les consignes du chef de ligne, ni l’identification de la cible et de l’arrière-plan (routes, habitations, promeneurs)."))))}
+function reset(){Lh=null;Rh=null;pf=!1;A("Angle réinitialisé : visez de nouveau l’obstacle de gauche.");aim(1)}
 function top0(){try{window.scrollTo(0,0);let c=document.getElementById("content");c&&(c.scrollTop=0)}catch{}}
-function aim(n){step=n;W(host);live=null;top0();
+function aim(n){step=n;W(host);live=null;top0();rb.style.display=n===1&&Lh==null?"none":"block";
 let rd=e("div.small.muted",{style:{textAlign:"center",margin:"2px 0"}},n===1?"Placez le réticule sur le dernier obstacle à gauche.":"Placez le réticule sur le dernier obstacle à droite."),
 go=x(n===1?"Valider : obstacle de gauche":"Valider : obstacle de droite",{icon:"check",kind:"primary",size:"block",onClick:()=>{let h=dir();if(n===1){Lh=h;aim(2)}else{Rh=h;result()}}}),
 back=x(n===1?"Annuler":"Retour",{kind:"ghost",size:"block",onClick:()=>n===1?intro():aim(1)});
-C(host,e("div.stack",stage,rd,go,back,e("p.tiny.muted",{style:{margin:0,textAlign:"center"}},"La caméra sert d’écran de visée : elle ne détecte ni personnes, ni routes, ni habitations.")))}
-function result(){step=3;W(host);top0();let res=A30Calc(Lh,Rh,m),f0=a=>Math.round(((a%360)+360)%360),warn=[];
+let rs=n===2?x("Réinitialiser l’angle",{icon:"target",kind:"ghost",size:"block",onClick:reset}):null;
+C(host,e("div.stack",stage,rd,go,back,rs,e("p.tiny.muted",{style:{margin:0,textAlign:"center"}},"La caméra sert d’écran de visée : elle ne détecte ni personnes, ni routes, ni habitations.")))}
+function result(){step=3;W(host);top0();rb.style.display="block";let res=A30Calc(Lh,Rh,m),f0=a=>Math.round(((a%360)+360)%360),warn=[];
 live=A30Plan(Lh,Rh,m);pf=!1;
 if(res.span>180)warn.push("Les deux obstacles sont à plus de 180° l’un de l’autre : vérifiez que vous avez bien visé la gauche en premier, puis la droite. Au besoin, refaites.");
 if(res.span<10)warn.push("Les deux visées sont presque identiques : refaites en visant deux obstacles différents.");
@@ -2073,7 +2076,7 @@ if(cur()==null)warn.push("La boussole n’a pas répondu : les directions vienne
 let head=res.free?e("div.panel",{style:{background:"#3F7A55",color:"#fff",borderColor:"transparent"}},e("div.display",{style:{fontSize:"26px",fontWeight:700,lineHeight:1.1}},"Zone de tir : "+f0(res.free[0])+"° → "+f0(res.free[1])+"°"),e("div.small",{style:{marginTop:"4px"}},"Largeur "+Math.round(res.width)+"° · direction centrale "+f0(res.free[0]+res.width/2)+"° ("+A30Nl(res.free[0]+res.width/2)+"). Hors de cette zone : ne tirez pas.")):e("div.panel",{style:{background:"#D2513F",color:"#fff",borderColor:"transparent"}},e("div.display",{style:{fontSize:"26px",fontWeight:700,lineHeight:1.1}},"Aucune zone de tir ici"),e("div.small",{style:{marginTop:"4px"}},"Vos deux obstacles sont trop proches ("+Math.round(res.span)+"° d’écart, il en faut plus de "+(2*res.ex)+"°). Ne tirez pas à ce poste, ou prévenez le chef de ligne."));
 C(host,e("div.grid.g-main",e("div.stack",stage,head,warn.map(z=>e("div.panel",{style:{borderColor:"var(--ember,#E08A2E)"}},e("div.small",z)))),
 e("div.stack",k({title:"Vue de dessus"},live,e("div.sector-legend",{style:{marginTop:"10px"}},e("span",e("i",{style:{background:"#D2513F"}}),"Interdit : "+res.ex+"° de part et d’autre, et tout le reste"),e("span",e("i",{style:{background:"#3F7A55"}}),"Zone de tir")),e("p.tiny.muted",{style:{margin:"8px 0 0"}},"Gauche "+f0(Lh)+"° · droite "+f0(Rh)+"° · marge boussole "+m+"°.")),
-x("Refaire (nouveau poste)",{icon:"target",kind:"primary",size:"block",onClick:()=>aim(1)}),x("Terminer",{kind:"ghost",size:"block",onClick:intro}),
+x("Réinitialiser l’angle (nouveau poste)",{icon:"target",kind:"primary",size:"block",onClick:reset}),x("Terminer",{kind:"ghost",size:"block",onClick:intro}),
 e("p.tiny.muted",{style:{margin:0}},"Aide visuelle : elle ne remplace ni les consignes du chef de ligne, ni l’identification de la cible et de l’arrière-plan."))))}
 C(t,q({title:"Angle de 30°",subtitle:"Visez vos deux voisins : l’application calcule votre zone de tir. Gratuit pour tous."},host));
 intro();
