@@ -1,0 +1,190 @@
+{
+ "dpt": "02",
+ "reads": 2,
+ "count": 26,
+ "unconfirmed": [],
+ "rows": [
+  {
+   "name": "ASTIER Daniel",
+   "cp": "02150",
+   "ville": "LAPPION",
+   "tel1": "09 54 28 77 03",
+   "tel2": "06 15 92 63 95"
+  },
+  {
+   "name": "BONIFACE Nadine",
+   "cp": "02450",
+   "ville": "OISY",
+   "tel1": "06 89 34 87 20",
+   "tel2": "03 23 60 01 92"
+  },
+  {
+   "name": "CAGNIARD Sophie",
+   "cp": "02270",
+   "ville": "MONCEAU LES LEUPS",
+   "tel1": "06 81 09 35 55",
+   "tel2": ""
+  },
+  {
+   "name": "CAMUS Laurent",
+   "cp": "02290",
+   "ville": "MONTIGNY LENGRAIN",
+   "tel1": "06 82 94 41 12",
+   "tel2": ""
+  },
+  {
+   "name": "COCHET Laurent",
+   "cp": "02600",
+   "ville": "CORCY",
+   "tel1": "06 17 04 13 92",
+   "tel2": ""
+  },
+  {
+   "name": "DAUSSIN Geoffrey",
+   "cp": "02410",
+   "ville": "SAINT GOBAIN",
+   "tel1": "06 77 67 72 16",
+   "tel2": ""
+  },
+  {
+   "name": "DELIGNY Dominique",
+   "cp": "02000",
+   "ville": "CHEVREGNY",
+   "tel1": "06 25 31 90 64",
+   "tel2": "03 23 21 66 54"
+  },
+  {
+   "name": "DORENGE Vincent",
+   "cp": "02130",
+   "ville": "MAREUIL EN DOLE",
+   "tel1": "07 85 62 73 30",
+   "tel2": ""
+  },
+  {
+   "name": "DUPRE Dominique",
+   "cp": "02000",
+   "ville": "CHAILLEVOIS",
+   "tel1": "03 23 21 65 15",
+   "tel2": "06 73 71 38 26"
+  },
+  {
+   "name": "DUPRE Jacky",
+   "cp": "02320",
+   "ville": "ANIZY LE GRAND",
+   "tel1": "03 23 80 49 30",
+   "tel2": "06 78 23 40 91"
+  },
+  {
+   "name": "FALAMPIN Céline",
+   "cp": "02290",
+   "ville": "MONTIGNY LENGRAIN",
+   "tel1": "06 49 21 82 48",
+   "tel2": ""
+  },
+  {
+   "name": "FERREIRA Bernard",
+   "cp": "02410",
+   "ville": "SEPTVAUX",
+   "tel1": "03 23 52 88 46",
+   "tel2": "06 84 09 41 43"
+  },
+  {
+   "name": "FERREIRA Sébastien",
+   "cp": "02410",
+   "ville": "SEPTVAUX",
+   "tel1": "03 23 38 26 76",
+   "tel2": "07 87 16 65 42"
+  },
+  {
+   "name": "FRANÇOISE Sébastien",
+   "cp": "02190",
+   "ville": "JUVINCOURT ET DAMARY",
+   "tel1": "06 87 89 76 63",
+   "tel2": ""
+  },
+  {
+   "name": "HELLEQUIN David",
+   "cp": "02170",
+   "ville": "LESCHELLES",
+   "tel1": "06 88 30 75 86",
+   "tel2": ""
+  },
+  {
+   "name": "LAHOUSSE Romain",
+   "cp": "02270",
+   "ville": "MONCEAU LES LEUPS",
+   "tel1": "06 80 92 57 78",
+   "tel2": ""
+  },
+  {
+   "name": "MANSUEL Benoit",
+   "cp": "02500",
+   "ville": "HIRSON",
+   "tel1": "03 23 58 43 21",
+   "tel2": "06 85 15 68 10"
+  },
+  {
+   "name": "MONCHET Pascal",
+   "cp": "02500",
+   "ville": "AUBENTON",
+   "tel1": "06 72 83 47 67",
+   "tel2": ""
+  },
+  {
+   "name": "MORON Emmanuel",
+   "cp": "02800",
+   "ville": "CHARMES",
+   "tel1": "06 69 64 58 98",
+   "tel2": ""
+  },
+  {
+   "name": "PETITDEMANGE Laurent",
+   "cp": "02820",
+   "ville": "COURTRIZY ET FUSSIGNY",
+   "tel1": "06 82 76 27 22",
+   "tel2": ""
+  },
+  {
+   "name": "PIETTON Ludovic",
+   "cp": "02580",
+   "ville": "SORBAIS",
+   "tel1": "06 79 46 33 54",
+   "tel2": "03 60 48 90 96"
+  },
+  {
+   "name": "RIGAUT Julie",
+   "cp": "02200",
+   "ville": "PASLY",
+   "tel1": "06 59 66 30 79",
+   "tel2": ""
+  },
+  {
+   "name": "SIMON Laurent",
+   "cp": "02810",
+   "ville": "CHEZY EN ORXOIS",
+   "tel1": "03 23 71 46 65",
+   "tel2": "06 85 92 59 28"
+  },
+  {
+   "name": "SOUDANT Quentin",
+   "cp": "02190",
+   "ville": "JUVINCOURT ET DAMARY",
+   "tel1": "06 20 42 89 98",
+   "tel2": ""
+  },
+  {
+   "name": "TEILLER Simon",
+   "cp": "51100",
+   "ville": "REIMS",
+   "tel1": "06 80 65 06 45",
+   "tel2": ""
+  },
+  {
+   "name": "VIEVILLE Jean-Luc",
+   "cp": "02410",
+   "ville": "SEPTVAUX",
+   "tel1": "03 23 52 85 27",
+   "tel2": "06 16 53 34 67"
+  }
+ ]
+}

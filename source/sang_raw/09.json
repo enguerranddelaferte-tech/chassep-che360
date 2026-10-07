@@ -1,0 +1,36 @@
+{
+ "dpt": "09",
+ "reads": 2,
+ "count": 4,
+ "unconfirmed": [],
+ "rows": [
+  {
+   "name": "PEDOUSSAUT Stéphane",
+   "cp": "09100",
+   "ville": "PAMIERS",
+   "tel1": "06 89 77 15 41",
+   "tel2": ""
+  },
+  {
+   "name": "RAUZY-TORT Clara",
+   "cp": "09140",
+   "ville": "USTOU",
+   "tel1": "06 87 68 60 72",
+   "tel2": ""
+  },
+  {
+   "name": "SERENA Georges",
+   "cp": "09120",
+   "ville": "SEGURA",
+   "tel1": "05 34 01 13 90",
+   "tel2": "06 71 54 01 93"
+  },
+  {
+   "name": "THIRY Maxime",
+   "cp": "09100",
+   "ville": "LA TOUR DU CRIEU",
+   "tel1": "06 32 39 00 85",
+   "tel2": ""
+  }
+ ]
+}

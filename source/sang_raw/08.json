@@ -1,0 +1,207 @@
+{
+ "dpt": "08",
+ "reads": 2,
+ "count": 28,
+ "unconfirmed": [
+  "DETHIER Hugues | B-5660 | COUVIN | +32476922193 |  (numéro non conforme à 10 chiffres)",
+  "ENGELBEEN Katleen | B-9270 | KALKEN | 32474379468 |  (numéro non conforme à 10 chiffres)"
+ ],
+ "rows": [
+  {
+   "name": "CANON Philippe",
+   "cp": "08700",
+   "ville": "LA GRANDVILLE",
+   "tel1": "06 22 10 52 35",
+   "tel2": ""
+  },
+  {
+   "name": "CELLI Philippe",
+   "cp": "08170",
+   "ville": "HARGNIES",
+   "tel1": "03 29 41 62 93",
+   "tel2": "06 71 38 63 86"
+  },
+  {
+   "name": "DARGENT Francy",
+   "cp": "08290",
+   "ville": "LIART",
+   "tel1": "03 24 27 93 54",
+   "tel2": "06 60 86 36 16"
+  },
+  {
+   "name": "DAY Nicolas",
+   "cp": "08300",
+   "ville": "HAUTEVILLE",
+   "tel1": "06 06 88 03 93",
+   "tel2": ""
+  },
+  {
+   "name": "DEFAUWE Daniel",
+   "cp": "08190",
+   "ville": "VILLERS DEVANT LE THOUR",
+   "tel1": "07 51 65 28 86",
+   "tel2": ""
+  },
+  {
+   "name": "DOZIERES Emmanuel",
+   "cp": "08140",
+   "ville": "BREVILLY",
+   "tel1": "03 24 26 10 61",
+   "tel2": "06 28 98 20 79"
+  },
+  {
+   "name": "EVRARD Denis",
+   "cp": "08160",
+   "ville": "BALAIVES ET BUTZ",
+   "tel1": "03 24 54 68 59",
+   "tel2": "06 14 09 43 90"
+  },
+  {
+   "name": "FALCIONI Olivier",
+   "cp": "08320",
+   "ville": "VIREUX WALLERAND",
+   "tel1": "07 69 72 55 42",
+   "tel2": ""
+  },
+  {
+   "name": "FERAUGE Nicolas",
+   "cp": "08170",
+   "ville": "HARGNIES",
+   "tel1": "07 87 11 36 83",
+   "tel2": ""
+  },
+  {
+   "name": "GERAUD Pierre",
+   "cp": "08130",
+   "ville": "GUINCOURT",
+   "tel1": "06 81 10 24 69",
+   "tel2": ""
+  },
+  {
+   "name": "GUYOT Maxime",
+   "cp": "51800",
+   "ville": "GRATREUIL",
+   "tel1": "06 09 08 18 65",
+   "tel2": ""
+  },
+  {
+   "name": "HIVER Erick",
+   "cp": "08600",
+   "ville": "CHARNOIS",
+   "tel1": "03 24 42 28 01",
+   "tel2": "06 18 42 49 68"
+  },
+  {
+   "name": "HUBERT Aurore",
+   "cp": "08200",
+   "ville": "ILLY",
+   "tel1": "03 24 29 04 34",
+   "tel2": "06 83 54 90 30"
+  },
+  {
+   "name": "HUBERT Claude",
+   "cp": "08200",
+   "ville": "LA CHAPELLE",
+   "tel1": "03 24 29 53 33",
+   "tel2": "06 07 80 47 47"
+  },
+  {
+   "name": "HUBERT Denis",
+   "cp": "08200",
+   "ville": "ILLY",
+   "tel1": "03 24 29 04 34",
+   "tel2": "06 30 75 19 10"
+  },
+  {
+   "name": "JAISSON Pierre",
+   "cp": "08200",
+   "ville": "ILLY",
+   "tel1": "06 85 73 71 54",
+   "tel2": ""
+  },
+  {
+   "name": "KLEISCH Dany",
+   "cp": "08320",
+   "ville": "VIREUX MOLHAIN",
+   "tel1": "06 85 24 96 60",
+   "tel2": ""
+  },
+  {
+   "name": "LAMBERT Stéphane",
+   "cp": "08800",
+   "ville": "MONTHERME",
+   "tel1": "03 24 26 77 51",
+   "tel2": "06 56 88 11 62"
+  },
+  {
+   "name": "LANGE Didier",
+   "cp": "08250",
+   "ville": "SECHAULT",
+   "tel1": "06 08 40 33 61",
+   "tel2": ""
+  },
+  {
+   "name": "MARLIER Wilhelm",
+   "cp": "08290",
+   "ville": "HANNAPPES",
+   "tel1": "03 24 35 53 82",
+   "tel2": "06 32 21 37 47"
+  },
+  {
+   "name": "MARTINS Christophe",
+   "cp": "08160",
+   "ville": "CHALANDRY ELAIRE",
+   "tel1": "06 83 10 08 69",
+   "tel2": "03 24 54 02 37"
+  },
+  {
+   "name": "PISVIN Jêrome",
+   "cp": "08380",
+   "ville": "FLIGNY",
+   "tel1": "07 72 38 60 63",
+   "tel2": ""
+  },
+  {
+   "name": "PORTEBOIS Joël",
+   "cp": "08150",
+   "ville": "HARCY",
+   "tel1": "03 24 35 11 40",
+   "tel2": "06 77 60 26 69"
+  },
+  {
+   "name": "PRZYLECKI Franck",
+   "cp": "08090",
+   "ville": "HAUDRECY",
+   "tel1": "03 24 29 21 36",
+   "tel2": "06 76 60 17 73"
+  },
+  {
+   "name": "SANTANGELO Gianni",
+   "cp": "08170",
+   "ville": "HARGNIES",
+   "tel1": "06 03 06 88 01",
+   "tel2": ""
+  },
+  {
+   "name": "SERIS Esther",
+   "cp": "08130",
+   "ville": "ALLAND HUY ET SAUSSEUIL",
+   "tel1": "06 20 99 71 04",
+   "tel2": ""
+  },
+  {
+   "name": "TASSIN Didier",
+   "cp": "08160",
+   "ville": "HANNOGNE SAINT MARTIN",
+   "tel1": "03 24 54 01 44",
+   "tel2": "06 74 65 79 36"
+  },
+  {
+   "name": "ZAÏA Nicolas",
+   "cp": "08250",
+   "ville": "OLIZY PRIMAT",
+   "tel1": "03 24 30 64 90",
+   "tel2": "06 09 20 54 61"
+  }
+ ]
+}

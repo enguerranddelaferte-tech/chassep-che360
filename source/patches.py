@@ -207,7 +207,7 @@ rep(r'e("div.field",{style:{marginTop:"12px"}},e("label","Saison active"),ke([["
 rep('</head>','<script>(function(){try{var o=JSON.parse(localStorage.getItem("cp360.saison")||"\\"auto\\"");var d=new Date(),v=(d.getMonth()+1)*100+d.getDate(),s=v>=321&&v<621?"printemps":v>=621&&v<923?"ete":v>=923&&v<1221?"automne":"hiver";if(["printemps","ete","automne","hiver"].indexOf(o)>=0)s=o;document.documentElement.dataset.saison=s}catch(e){}})()</script></head>')
 
 # 27) Conducteurs de chien de sang (menu Chasse)
-js_sang=open(D+'js_sang.js',encoding='utf-8').read()
+js_sang=open(D+'js_sang_data.js',encoding='utf-8').read()+open(D+'js_sang.js',encoding='utf-8').read()
 rep('var wl,Hi=H(()=>{wl=Ui({', js_sang+'\nvar wl,Hi=H(()=>{wl=Ui({"./views/sang.js":()=>Promise.resolve().then(()=>(SgI(),SgM)),')
 rep('Z("/bourse",te("market"));','Z("/bourse",te("market"));Z("/chien-de-sang",te("sang"));')
 rep(r'["/tableau-de-chasse","Tableau de chasse","book"]]}', r'["/tableau-de-chasse","Tableau de chasse","book"],["/chien-de-sang","Chien de sang","shield"]]}')

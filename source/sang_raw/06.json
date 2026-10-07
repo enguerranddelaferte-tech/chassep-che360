@@ -1,0 +1,92 @@
+{
+ "dpt": "06",
+ "reads": 2,
+ "count": 12,
+ "unconfirmed": [],
+ "rows": [
+  {
+   "name": "CIAIS Olivier",
+   "cp": "06450",
+   "ville": "UTELLE",
+   "tel1": "06 11 82 69 45",
+   "tel2": ""
+  },
+  {
+   "name": "DAFFINO Alain",
+   "cp": "06140",
+   "ville": "TOURETTE SUR LOUP",
+   "tel1": "06 73 64 10 95",
+   "tel2": ""
+  },
+  {
+   "name": "DELETANG Florian",
+   "cp": "06420",
+   "ville": "ROUBION",
+   "tel1": "06 64 50 76 95",
+   "tel2": ""
+  },
+  {
+   "name": "DELOOSE Thierry",
+   "cp": "06360",
+   "ville": "EZE VILLAGE",
+   "tel1": "04 93 41 17 20",
+   "tel2": "06 75 06 13 35"
+  },
+  {
+   "name": "FOSSAT Gilles",
+   "cp": "06670",
+   "ville": "COLOMARS",
+   "tel1": "06 83 57 22 58",
+   "tel2": ""
+  },
+  {
+   "name": "GARDANNE Gilles",
+   "cp": "06260",
+   "ville": "LA CROIX SUR ROUDOULE",
+   "tel1": "06 43 91 00 26",
+   "tel2": ""
+  },
+  {
+   "name": "GIUGE Jean-François",
+   "cp": "06420",
+   "ville": "MARIE",
+   "tel1": "06 19 22 70 26",
+   "tel2": ""
+  },
+  {
+   "name": "MANGIN Jean-Claude",
+   "cp": "06500",
+   "ville": "CASTELLAR",
+   "tel1": "04 93 28 83 18",
+   "tel2": "06 08 57 70 23"
+  },
+  {
+   "name": "MANGIN Jean-Claude",
+   "cp": "06500",
+   "ville": "CASTELLAR",
+   "tel1": "04 93 28 83 18",
+   "tel2": "06 08 57 70 23"
+  },
+  {
+   "name": "MICHEL Rudy",
+   "cp": "06670",
+   "ville": "LEVENS",
+   "tel1": "06 34 60 95 91",
+   "tel2": ""
+  },
+  {
+   "name": "PASTORELLI Philippe",
+   "cp": "06540",
+   "ville": "SAORGE",
+   "tel1": "06 18 47 06 81",
+   "tel2": ""
+  },
+  {
+   "name": "WITEK Didier",
+   "cp": "06000",
+   "ville": "NICE",
+   "tel1": "06 03 17 64 84",
+   "tel2": ""
+  }
+ ]
+}

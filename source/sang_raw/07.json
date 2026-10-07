@@ -1,0 +1,36 @@
+{
+ "dpt": "07",
+ "reads": 2,
+ "count": 4,
+ "unconfirmed": [],
+ "rows": [
+  {
+   "name": "GUERBY Hervé",
+   "cp": "07220",
+   "ville": "VIVIERS",
+   "tel1": "04 75 49 83 67",
+   "tel2": "06 71 52 08 49"
+  },
+  {
+   "name": "JEANSON Gérard",
+   "cp": "07140",
+   "ville": "MALBOSC",
+   "tel1": "06 03 18 47 69",
+   "tel2": ""
+  },
+  {
+   "name": "OLLIVIER Frédéric",
+   "cp": "07290",
+   "ville": "PREAUX",
+   "tel1": "06 60 54 42 65",
+   "tel2": ""
+  },
+  {
+   "name": "VAILLANT Daniel",
+   "cp": "07000",
+   "ville": "SAINT JULIEN EN SAINT ALBAN",
+   "tel1": "06 28 30 82 36",
+   "tel2": ""
+  }
+ ]
+}

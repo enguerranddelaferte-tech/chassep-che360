@@ -1,0 +1,29 @@
+{
+ "dpt": "11",
+ "reads": 2,
+ "count": 3,
+ "unconfirmed": [],
+ "rows": [
+  {
+   "name": "BARTHAS Benoit",
+   "cp": "11300",
+   "ville": "LIMOUX",
+   "tel1": "07 88 36 14 60",
+   "tel2": ""
+  },
+  {
+   "name": "GENIS Georges",
+   "cp": "11170",
+   "ville": "ALZONNE",
+   "tel1": "04 68 76 01 98",
+   "tel2": "06 32 93 44 30"
+  },
+  {
+   "name": "LE MOING Stéphane",
+   "cp": "11330",
+   "ville": "DAVEJEAN",
+   "tel1": "06 49 00 74 53",
+   "tel2": "04 68 46 86 15"
+  }
+ ]
+}

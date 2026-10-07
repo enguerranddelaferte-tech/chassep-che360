@@ -1,0 +1,57 @@
+{
+ "dpt": "03",
+ "reads": 2,
+ "count": 7,
+ "unconfirmed": [],
+ "rows": [
+  {
+   "name": "BOUILLER Michel",
+   "cp": "03000",
+   "ville": "AVERMES",
+   "tel1": "06 30 37 65 59",
+   "tel2": ""
+  },
+  {
+   "name": "DAUMAIN Aurélien",
+   "cp": "03600",
+   "ville": "LA CELLE",
+   "tel1": "06 63 31 88 13",
+   "tel2": ""
+  },
+  {
+   "name": "DEPALLES Lucie",
+   "cp": "03500",
+   "ville": "CESSET",
+   "tel1": "06 31 31 85 17",
+   "tel2": ""
+  },
+  {
+   "name": "GENEST Gilles",
+   "cp": "03400",
+   "ville": "TOULON SUR ALLIER",
+   "tel1": "06 81 06 34 13",
+   "tel2": "04 70 20 99 10"
+  },
+  {
+   "name": "PICOT Olivier",
+   "cp": "03400",
+   "ville": "YZEURE",
+   "tel1": "04 70 44 42 42",
+   "tel2": "06 42 78 81 12"
+  },
+  {
+   "name": "POMMIER Serge",
+   "cp": "03230",
+   "ville": "CHEVAGNES",
+   "tel1": "04 70 42 61 85",
+   "tel2": "06 84 37 27 47"
+  },
+  {
+   "name": "POMMIER Valerie",
+   "cp": "03230",
+   "ville": "CHEVAGNES",
+   "tel1": "04 70 42 61 85",
+   "tel2": "06 86 61 11 09"
+  }
+ ]
+}

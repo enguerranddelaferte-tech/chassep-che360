@@ -1,0 +1,36 @@
+{
+ "dpt": "05",
+ "reads": 2,
+ "count": 4,
+ "unconfirmed": [],
+ "rows": [
+  {
+   "name": "ALLARD Michel",
+   "cp": "05310",
+   "ville": "LA ROCHE DE RAME",
+   "tel1": "06 30 16 77 52",
+   "tel2": ""
+  },
+  {
+   "name": "ASTIER Roger",
+   "cp": "05330",
+   "ville": "SAINT CHAFFREY",
+   "tel1": "06 79 55 87 44",
+   "tel2": ""
+  },
+  {
+   "name": "REYNAUD Jean-André",
+   "cp": "05600",
+   "ville": "EYGLIERS",
+   "tel1": "06 23 60 27 14",
+   "tel2": ""
+  },
+  {
+   "name": "SPERANDIO Philippe",
+   "cp": "05400",
+   "ville": "LA ROCHE DES ARNAUDS",
+   "tel1": "06 50 58 86 45",
+   "tel2": ""
+  }
+ ]
+}

@@ -1,0 +1,101 @@
+{
+ "dpt": "01",
+ "reads": 2,
+ "count": 13,
+ "unconfirmed": [
+  "PERRUCHOUD Jean-Pierre | 01210 | FERNEY VOLTAIRE | 0041794770929 | 06 74 55 52 32 (numéro non conforme à 10 chiffres)"
+ ],
+ "rows": [
+  {
+   "name": "AUGOYARD Christophe",
+   "cp": "01370",
+   "ville": "SAINT ETIENNE DU BOIS",
+   "tel1": "06 87 94 96 39",
+   "tel2": "06 87 94 96 39"
+  },
+  {
+   "name": "CLERTANT Julien",
+   "cp": "01330",
+   "ville": "VERSAILLEUX",
+   "tel1": "06 73 97 38 33",
+   "tel2": ""
+  },
+  {
+   "name": "DELUERMOZ Maurice",
+   "cp": "01200",
+   "ville": "CHATILLON EN MICHAILLE",
+   "tel1": "04 50 48 18 13",
+   "tel2": "06 24 26 34 12"
+  },
+  {
+   "name": "DEON Eric",
+   "cp": "01220",
+   "ville": "GRILLY",
+   "tel1": "04 50 41 56 18",
+   "tel2": "06 11 37 85 82"
+  },
+  {
+   "name": "DUCRET Didier",
+   "cp": "01410",
+   "ville": "CHAMPFROMIER",
+   "tel1": "04 50 56 97 76",
+   "tel2": "06 82 72 44 65"
+  },
+  {
+   "name": "DUCROT Basile",
+   "cp": "01700",
+   "ville": "BEYNOST",
+   "tel1": "06 80 67 24 45",
+   "tel2": ""
+  },
+  {
+   "name": "GAVARD-LONCHAY Nicolas",
+   "cp": "01200",
+   "ville": "LEAZ",
+   "tel1": "06 23 36 30 36",
+   "tel2": ""
+  },
+  {
+   "name": "GERMAIN Guy",
+   "cp": "01250",
+   "ville": "JASSERON",
+   "tel1": "06 70 03 12 04",
+   "tel2": ""
+  },
+  {
+   "name": "MAUCHAMP Gilles",
+   "cp": "01250",
+   "ville": "CORVEISSIAT",
+   "tel1": "04 74 50 70 40",
+   "tel2": "06 21 92 34 16"
+  },
+  {
+   "name": "MONTOLOY Eric",
+   "cp": "01220",
+   "ville": "DIVONNE LES BAINS",
+   "tel1": "04 50 13 11 89",
+   "tel2": "06 71 90 52 61"
+  },
+  {
+   "name": "ORCET Georges",
+   "cp": "01160",
+   "ville": "PRIAY",
+   "tel1": "04 74 39 15 82",
+   "tel2": "06 18 22 72 14"
+  },
+  {
+   "name": "PALLUET Daniel",
+   "cp": "01480",
+   "ville": "VILLENEUVE",
+   "tel1": "06 86 70 23 61",
+   "tel2": ""
+  },
+  {
+   "name": "TREMBLEY Odile",
+   "cp": "01140",
+   "ville": "SAINT ETIENNE SUR CHALARONNE",
+   "tel1": "06 76 01 78 53",
+   "tel2": ""
+  }
+ ]
+}

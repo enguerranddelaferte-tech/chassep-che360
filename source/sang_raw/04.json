@@ -1,0 +1,43 @@
+{
+ "dpt": "04",
+ "reads": 2,
+ "count": 5,
+ "unconfirmed": [],
+ "rows": [
+  {
+   "name": "ANDRE Guillaume",
+   "cp": "04240",
+   "ville": "MEAILLES",
+   "tel1": "06 89 16 37 96",
+   "tel2": ""
+  },
+  {
+   "name": "BONY Kevin",
+   "cp": "04400",
+   "ville": "LES THUILES",
+   "tel1": "06 13 91 59 91",
+   "tel2": ""
+  },
+  {
+   "name": "BOREL Patrice",
+   "cp": "04140",
+   "ville": "SEYNE LES ALPES",
+   "tel1": "06 84 30 61 91",
+   "tel2": ""
+  },
+  {
+   "name": "CAVALLO Yannick",
+   "cp": "04170",
+   "ville": "LA MURE ARGENS",
+   "tel1": "04 92 89 14 61",
+   "tel2": "06 70 63 34 49"
+  },
+  {
+   "name": "DEMOLIERE Lancelot",
+   "cp": "04170",
+   "ville": "VERGONS",
+   "tel1": "06 68 33 99 63",
+   "tel2": ""
+  }
+ ]
+}
