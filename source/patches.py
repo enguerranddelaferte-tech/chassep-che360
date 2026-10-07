@@ -230,11 +230,17 @@ rep(r'p.covered?(r=p.code,u()):A(`${p.name} n\u2019est pas encore couvert : affi
 # 30) Réglementation : tableaux d'espèces chassables / poissons (en tête des règles nationales)
 rep('var wl,Hi=H(()=>{wl=Ui({', open(D+'js_species.js',encoding='utf-8').read()+'\nvar wl,Hi=H(()=>{wl=Ui({')
 
-# 31) Territoire : sélection de parcelles cadastrales (API Carto IGN) dans l'outil de délimitation
+# 31) Territoire : sélection de parcelles cadastrales (API Carto IGN) + écran de création épuré pour téléphone
 _pc_helpers=open(D+'js_parcelles.js',encoding='utf-8').read()
-_pc_inner=open('/tmp/pc_inner.js',encoding='utf-8').read() if False else open(D+'js_parcelles_inner.js',encoding='utf-8').read()
+_pc_inner=open(D+'js_parcelles_inner.js',encoding='utf-8').read()
 rep('function TerrDraw(o){o=o||{};if(l._draw)return l._draw;let L_=_e(),pts=', _pc_helpers+'\nfunction TerrDraw(o){o=o||{};if(l._draw)return l._draw;let L_=_e(),pm=!1,pcg=L_.layerGroup().addTo(l),sel=new Map(),cad=null,pts=')
-rep('onClick=ev=>{pts.push([ev.latlng.lat,ev.latlng.lng]);redraw()},stop=()=>{l.off("click",onClick);g.remove();pg.remove();bar.remove();l._draw=null},', 'onClick=ev=>{if(pm)return PcClick(ev);pts.push([ev.latlng.lat,ev.latlng.lng]);redraw()},stop=()=>{l.off("click",onClick);pm&&PcMode(!1);pcg.remove();g.remove();pg.remove();bar.remove();l._draw=null},')
+rep('onClick=ev=>{pts.push([ev.latlng.lat,ev.latlng.lng]);redraw()},stop=()=>{l.off("click",onClick);g.remove();pg.remove();bar.remove();l._draw=null},', 'onClick=ev=>{if(pm)return PcClick(ev);pts.push([ev.latlng.lat,ev.latlng.lng]);redraw()},stop=()=>{l.off("click",onClick);pm&&PcMode(!1);pcg.remove();g.remove();pg.remove();bar.remove();topBar.remove();l.getContainer().parentElement.classList.remove("terr-on");l._draw=null},')
 rep('fin=x(edit?"Enregistrer":"Terminer"', _pc_inner+'\nfin=x(edit?"Enregistrer":"Terminer"')
-rep('inf,note,e("div.row",{style:{gap:"8px",flexWrap:"wrap",marginTop:"8px"}},x("Annuler le point"', 'inf,note,pinf2,e("div.row",{style:{gap:"8px",flexWrap:"wrap",marginTop:"8px"}},pmBtn,pcUse,x("Annuler le point"')
+rep('bar=e("div.map-card.draw-bar",{style:{position:"absolute",left:"12px",right:"86px",bottom:"12px",zIndex:600,padding:"10px 12px"}},inf,note,e("div.row",{style:{gap:"8px",flexWrap:"wrap",marginTop:"8px"}},x("Annuler le point",{kind:"ghost",size:"sm",onClick:()=>{pts.pop();redraw()}}),x("Depuis une image",{kind:"ghost",size:"sm",icon:"camera",onClick:()=>TerrImage()}),fin,x("Quitter",{kind:"ghost",size:"sm",onClick:stop})));l.getContainer().parentElement.append(bar);',
+ 'undoBtn=x("Annuler le point",{kind:"ghost",size:"sm",onClick:()=>{pts.pop();redraw()}});fin.style.width="100%";bar=e("div.map-card.draw-bar",{style:{position:"absolute",left:"12px",right:"12px",bottom:"12px",zIndex:600,padding:"12px"}},e("div.stack",{style:{gap:"8px"}},inf,pinf2,note,e("div.row",{style:{gap:"8px",alignItems:"center"}},undoBtn,e("div",{style:{flex:"1 1 0",minWidth:0}},pcUse,fin))));'
+ 'topBar=e("div.map-card.draw-top",{style:{position:"absolute",top:"10px",left:"12px",right:"12px",zIndex:600,padding:"8px",display:"flex",gap:"8px",alignItems:"center"}},x("Quitter",{kind:"ghost",size:"sm",onClick:stop}),segHost,x("Image",{kind:"ghost",size:"sm",icon:"camera",onClick:()=>TerrImage()}));l.getContainer().parentElement.append(topBar,bar);l.getContainer().parentElement.classList.add("terr-on");')
+rep('sess={set(np,npl,nm,nc,nt){', 'sess={set(np,npl,nm,nc,nt){pm&&segSet("trace");')
+rep('l._draw=sess;l.on("click",onClick);redraw();return sess}', 'l._draw=sess;l.on("click",onClick);redraw();segSet(edit||(o.pts&&o.pts.length)?"trace":"parcelles");return sess}')
+rep('pts.forEach((p,i)=>{let mk=', 'pts.length<=60&&pts.forEach((p,i)=>{let mk=')
+rep('bd.length>200', 'bd.length>3000', count=2)
 rep('en posant ses sommets sur la carte, ou importez', 'en posant ses sommets sur la carte, en choisissant ses parcelles cadastrales, ou importez')

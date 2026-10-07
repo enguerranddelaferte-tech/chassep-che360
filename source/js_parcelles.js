@@ -17,9 +17,14 @@ let next=new Map();edges.forEach(([a,b])=>{let k=PcKey(a);(next.get(k)||next.set
 let out=[];while(next.size){let first=next.keys().next().value,ring=[],k=first,guard=0;while(guard++<5000){let lst=next.get(k);if(!lst||!lst.length)break;let[a,b]=lst.shift();if(!lst.length)next.delete(k);ring.push(a);k=PcKey(b);if(k===first)break}
 if(ring.length>=3)out.push(ring);if(guard>=5000)break}
 const flat=r=>{let k=r.slice(),ch=!0;while(ch&&k.length>3){ch=!1;for(let i=0;i<k.length;i++){let a=k[(i+k.length-1)%k.length],c=k[i],b=k[(i+1)%k.length],dx=b[0]-a[0],dy=b[1]-a[1],L=Math.hypot(dx,dy);if(L&&Math.abs(dy*(c[0]-a[0])-dx*(c[1]-a[1]))/L<1e-6){k.splice(i,1);ch=!0;break}}}return k};
-return out.filter(r=>PcArea2(r)>0).map(flat).sort((a,b)=>PcArea2(b)-PcArea2(a))}
+return out.map(flat).sort((a,b)=>Math.abs(PcArea2(b))-Math.abs(PcArea2(a)))}
 function PcSimplify(pts,maxN){if(pts.length<=maxN)return pts;
 const dp=(p,eps)=>{if(p.length<3)return p;let a=p[0],b=p[p.length-1],dmax=0,idx=0,dx=b[0]-a[0],dy=b[1]-a[1],L=Math.hypot(dx,dy);for(let i=1;i<p.length-1;i++){let d=L?Math.abs(dy*(p[i][0]-a[0])-dx*(p[i][1]-a[1]))/L:Math.hypot(p[i][0]-a[0],p[i][1]-a[1]);if(d>dmax){dmax=d;idx=i}}
 return dmax>eps?dp(p.slice(0,idx+1),eps).slice(0,-1).concat(dp(p.slice(idx),eps)):[a,b]};
 let eps=2e-6,r=pts;for(let i=0;i<30&&r.length>maxN;i++,eps*=1.6){let c=dp(pts.concat([pts[0]]),eps);c.pop();r=c}return r.length>=3?r:pts.slice(0,maxN)}
 function PcHull(points){let p=points.slice().sort((a,b)=>a[1]-b[1]||a[0]-b[0]),cr=(o,a,b)=>(a[1]-o[1])*(b[0]-o[0])-(a[0]-o[0])*(b[1]-o[1]),lo=[],up=[];p.forEach(q=>{while(lo.length>1&&cr(lo[lo.length-2],lo[lo.length-1],q)<=0)lo.pop();lo.push(q)});for(let i=p.length-1;i>=0;i--){let q=p[i];while(up.length>1&&cr(up[up.length-2],up[up.length-1],q)<=0)up.pop();up.push(q)}return lo.slice(0,-1).concat(up.slice(0,-1))}
+
+// Relie plusieurs contours (parcelles séparées par une route, enclaves) en un seul contour par des ponts de largeur nulle :
+// la surface et le tracé restent exactement ceux du cadastre.
+function PcJoin(rings){let P=rings[0].slice();for(let k=1;k<rings.length;k++){let R=rings[k],best=1e18,ia=0,ib=0;for(let i=0;i<P.length;i++)for(let j=0;j<R.length;j++){let d=(P[i][0]-R[j][0])**2+(P[i][1]-R[j][1])**2;if(d<best){best=d;ia=i;ib=j}}
+let seq=[];for(let t=0;t<=R.length;t++)seq.push(R[(ib+t)%R.length]);P=P.slice(0,ia+1).concat(seq,[P[ia]],P.slice(ia+1))}return P}
