@@ -229,3 +229,12 @@ rep(r'p.covered?(r=p.code,u()):A(`${p.name} n\u2019est pas encore couvert : affi
 
 # 30) Réglementation : tableaux d'espèces chassables / poissons (en tête des règles nationales)
 rep('var wl,Hi=H(()=>{wl=Ui({', open(D+'js_species.js',encoding='utf-8').read()+'\nvar wl,Hi=H(()=>{wl=Ui({')
+
+# 31) Territoire : sélection de parcelles cadastrales (API Carto IGN) dans l'outil de délimitation
+_pc_helpers=open(D+'js_parcelles.js',encoding='utf-8').read()
+_pc_inner=open('/tmp/pc_inner.js',encoding='utf-8').read() if False else open(D+'js_parcelles_inner.js',encoding='utf-8').read()
+rep('function TerrDraw(o){o=o||{};if(l._draw)return l._draw;let L_=_e(),pts=', _pc_helpers+'\nfunction TerrDraw(o){o=o||{};if(l._draw)return l._draw;let L_=_e(),pm=!1,pcg=L_.layerGroup().addTo(l),sel=new Map(),cad=null,pts=')
+rep('onClick=ev=>{pts.push([ev.latlng.lat,ev.latlng.lng]);redraw()},stop=()=>{l.off("click",onClick);g.remove();pg.remove();bar.remove();l._draw=null},', 'onClick=ev=>{if(pm)return PcClick(ev);pts.push([ev.latlng.lat,ev.latlng.lng]);redraw()},stop=()=>{l.off("click",onClick);pm&&PcMode(!1);pcg.remove();g.remove();pg.remove();bar.remove();l._draw=null},')
+rep('fin=x(edit?"Enregistrer":"Terminer"', _pc_inner+'\nfin=x(edit?"Enregistrer":"Terminer"')
+rep('inf,note,e("div.row",{style:{gap:"8px",flexWrap:"wrap",marginTop:"8px"}},x("Annuler le point"', 'inf,note,pinf2,e("div.row",{style:{gap:"8px",flexWrap:"wrap",marginTop:"8px"}},pmBtn,pcUse,x("Annuler le point"')
+rep('en posant ses sommets sur la carte, ou importez', 'en posant ses sommets sur la carte, en choisissant ses parcelles cadastrales, ou importez')
