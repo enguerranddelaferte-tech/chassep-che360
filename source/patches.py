@@ -291,3 +291,10 @@ rep('g=Ve().marker([w.position.lat,w.position.lng],{icon:ue("me"),zIndexOffset:1
 rep('let je=h=>{let I=h.webkitCompassHeading??(h.alpha!=null?360-h.alpha:null);I!=null&&Y(I,gt)};window.addEventListener("deviceorientation",je);',
  'let je=h=>{if(h.type==="deviceorientation"&&je.abs)return;h.type==="deviceorientationabsolute"&&(je.abs=!0);let I=h.webkitCompassHeading??(h.alpha!=null?(360-h.alpha)%360:null);I!=null&&(Y(I,gt),ConeSet(I))};window.addEventListener("deviceorientation",je);window.addEventListener("deviceorientationabsolute",je);')
 rep('Rn("locate","Me localiser",async()=>{let h=await Ee();l.setView([h.lat,h.lng],16)})', 'Rn("locate","Me localiser",async()=>{try{window.DeviceOrientationEvent&&DeviceOrientationEvent.requestPermission&&await DeviceOrientationEvent.requestPermission()}catch{}let h=await Ee();l.setView([h.lat,h.lng],16)})')
+
+# 37) Carte : territoire bien visible (trait contrasté + remplissage), cadrage automatique et bouton « Voir mon territoire »
+rep('Ve().polygon(h.boundary,{color:"#E3B04B",weight:2,fillOpacity:.05,dashArray:"8 6"}).bindPopup(', 'TerrShape(Ve(),h.boundary,')
+rep('F(),$t()}function F(){Object.entries(u)', 'F(),$t(),o||TerrFit(l,d.territories)}function F(){Object.entries(u)')
+rep('x("Voir",{kind:"ghost",size:"sm",onClick:()=>{m.close();l.setView([q.center.lat,q.center.lng],15)}})', 'x("Voir",{kind:"ghost",size:"sm",onClick:()=>{m.close();TerrFit(l,[q],!0)}})')
+rep('x("Signaler un danger",{icon:"alert",kind:"ghost",size:"block",onClick:Mo(()=>st())})', 'IsLaunch()?x("Voir mon territoire",{icon:"map",kind:"ghost",size:"block",onClick:Mo(()=>d&&d.territories.length?TerrFit(l,d.territories,!0):A("Aucun territoire pour l’instant.","warn"))}):null,x("Signaler un danger",{icon:"alert",kind:"ghost",size:"block",onClick:Mo(()=>st())})')
+rep('pts.length>2?L_.polygon(pts,{color:"#E3B04B",weight:3,dashArray:"6 4",fillColor:"#E3B04B",fillOpacity:.2,interactive:!1}).addTo(pg):', 'pts.length>2?TerrShape(L_,pts,null).addTo(pg):')

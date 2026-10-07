@@ -17,3 +17,11 @@ try{if(f.size>8e6)throw new Error("Fichier trop volumineux (8 Mo maximum).");let
 let ss=l._draw||TerrDraw();ss.set(r.ring,r.places,r.name,r.city,r.note||"Fichier importé : vérifiez le contour avant d’enregistrer.");A("Fichier importé : vérifiez puis touchez « Terminer ».")}
 catch(er){A(er.message&&!/JSON/.test(er.message)?er.message:"Fichier illisible : il faut un GeoJSON valide.","err")}});
 document.body.appendChild(inp);inp.click();setTimeout(()=>inp.remove(),60000)}
+/* ===== Territoire : affichage lisible sur la carte (remplissage + trait contrasté, sans les ponts de jonction) ===== */
+function TerrShape(L_,bd,pop){let ring=bd.slice(),n=ring.length,key=p=>Math.round(p[0]*1e6)+","+Math.round(p[1]*1e6),E=new Set();
+for(let i=0;i<n;i++)E.add(key(ring[i])+">"+key(ring[(i+1)%n]));
+let runs=[],cur=null;for(let i=0;i<n;i++){let a=ring[i],b=ring[(i+1)%n];if(E.has(key(b)+">"+key(a))){cur=null;continue}if(!cur){cur=[a];runs.push(cur)}cur.push(b)}
+let g=L_.featureGroup(),fill=L_.polygon(ring,{stroke:!1,fillColor:"#E3600B",fillOpacity:.22});pop&&fill.bindPopup(pop);fill.addTo(g);
+runs.length&&(L_.polyline(runs,{color:"#fff",weight:6,opacity:.85,interactive:!1,lineJoin:"round"}).addTo(g),L_.polyline(runs,{color:"#D9480F",weight:3,opacity:1,interactive:!1,lineJoin:"round"}).addTo(g));return g}
+function TerrFit(map,terrs,force){let L_=_e(),b=null;terrs.forEach(t=>{if(t&&t.boundary&&t.boundary.length>2){let bb=L_.latLngBounds(t.boundary);b=b?b.extend(bb):bb}});if(!b)return;
+try{if(force||!map._tfit&&!map.getBounds().intersects(b)){map._tfit=1;map.fitBounds(b,{padding:[40,40],maxZoom:16})}}catch{}}
