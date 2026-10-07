@@ -2049,7 +2049,7 @@ live&&live._needle(cur());rf=requestAnimationFrame(draw)}
 function intro(){step=0;stopSensors();W(host);live=null;top0();rb.style.display="none";
 let nb=(n,tx)=>e("div.row",{style:{gap:"12px",alignItems:"flex-start"}},e("span",{style:{flex:"none",width:"30px",height:"30px",borderRadius:"50%",background:"var(--blaze,#D95A10)",color:"#fff",display:"grid",placeItems:"center",fontWeight:"700"}},String(n)),e("div",tx));
 C(host,e("div.grid.g-main",e("div.stack",
-x("Commencer",{icon:"camera",kind:"primary",size:"block",onClick:()=>{startSensors();aim(1)}}),
+x("Commencer",{icon:"camera",kind:"primary",size:"block",onClick:()=>{startSensors();aim(1)}}),hPanel(),
 k({title:"Comment ça marche"},e("div.stack",
 nb(1,e("div",e("b","Visez l’obstacle de gauche")," : le dernier voisin, poste ou obstacle de votre côté gauche. Touchez « Valider ».")),
 nb(2,e("div",e("b","Visez l’obstacle de droite")," : le dernier de l’autre côté. Touchez « Valider ».")),
@@ -2060,7 +2060,14 @@ e("div.stack",k({title:"Exemple vu de dessus"},A30Plan(300,60,m),e("div.sector-l
 e("p.tiny.muted",{style:{margin:"8px 0 0"}},"Exemple : obstacles à 300° et 60° (écart de 120°) : il reste une zone de tir de "+Math.max(0,Math.round(A30Calc(300,60,m).width))+"°.")),
 e("a.btn.ghost.block",{href:"#/angle-30-carte",style:{textAlign:"center"}},"Calculateur sur carte (voisins GPS)"),
 e("p.tiny.muted",{style:{margin:0}},"Aide visuelle : elle ne remplace ni les consignes du chef de ligne, ni l’identification de la cible et de l’arrière-plan (routes, habitations, promeneurs)."))))}
-function reset(){Lh=null;Rh=null;pf=!1;A("Angle réinitialisé : visez de nouveau l’obstacle de gauche.");aim(1)}
+function hLoad(){return Pe.get("ang30:hist",[])}
+function hRemember(){let h=hLoad(),at=lastAt;if(h.length&&h[0].at===at)return;lastAt=Date.now();h.unshift({at:lastAt,L:Lh,R:Rh,m:m,reset:null});Pe.set("ang30:hist",h.slice(0,10))}
+let lastAt=0;
+function hMarkReset(){let h=hLoad();if(h.length&&!h[0].reset){h[0].reset=Date.now();Pe.set("ang30:hist",h)}}
+function restore(z){Lh=z.L;Rh=z.R;m=z.m;startSensors();result()}
+function hPanel(){let h=hLoad();if(!h.length)return null;let f0=a=>Math.round(((a%360)+360)%360),hh=ts=>new Date(ts).toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
+return k({title:"Angles mémorisés",sub:"sur cet appareil"},e("div.stack",h.slice(0,5).map(z=>e("div.row",{style:{gap:"10px",alignItems:"center"}},e("div.grow",e("b",`${f0(z.L)}° → ${f0(z.R)}°`),e("div.small.muted",`Mesuré le ${hh(z.at)}${z.reset?` · réinitialisé le ${hh(z.reset)}`:" · en cours"}`)),x("Reprendre",{size:"sm",onClick:()=>restore(z)})))),e("p.tiny.muted",{style:{margin:"8px 0 0"}},"Chaque réinitialisation garde l’angle précédent ici."))}
+function reset(){let z=(Lh!=null&&Rh!=null)?{L:Lh,R:Rh,m:m}:null;z&&(hRemember(),hMarkReset());Lh=null;Rh=null;pf=!1;let un=z?x("Annuler",{size:"sm",kind:"ghost",onClick:()=>{let h=hLoad();h.length&&(h[0].reset=null,Pe.set("ang30:hist",h));restore(z)}}):null;A(z?"Angle réinitialisé et mémorisé. Visez de nouveau l’obstacle de gauche.":"Angle réinitialisé : visez de nouveau l’obstacle de gauche.","ok",{timeout:9000,action:un});aim(1)}
 function top0(){try{window.scrollTo(0,0);let c=document.getElementById("content");c&&(c.scrollTop=0)}catch{}}
 function aim(n){step=n;W(host);live=null;top0();rb.style.display="block";
 let rd=e("div.small.muted",{style:{textAlign:"center",margin:"2px 0"}},n===1?"Placez le réticule sur le dernier obstacle à gauche.":"Placez le réticule sur le dernier obstacle à droite."),
@@ -2069,7 +2076,7 @@ back=x(n===1?"Annuler":"Retour",{kind:"ghost",size:"block",onClick:()=>n===1?int
 let rs=x("Réinitialiser l’angle",{icon:"target",kind:"ghost",size:"block",onClick:reset});
 C(host,e("div.stack",stage,rd,go,back,rs,e("p.tiny.muted",{style:{margin:0,textAlign:"center"}},"La caméra sert d’écran de visée : elle ne détecte ni personnes, ni routes, ni habitations.")))}
 function result(){step=3;W(host);top0();rb.style.display="block";let res=A30Calc(Lh,Rh,m),f0=a=>Math.round(((a%360)+360)%360),warn=[];
-live=A30Plan(Lh,Rh,m);pf=!1;
+live=A30Plan(Lh,Rh,m);pf=!1;hRemember();
 if(res.span>180)warn.push("Les deux obstacles sont à plus de 180° l’un de l’autre : vérifiez que vous avez bien visé la gauche en premier, puis la droite. Au besoin, refaites.");
 if(res.span<10)warn.push("Les deux visées sont presque identiques : refaites en visant deux obstacles différents.");
 if(cur()==null)warn.push("La boussole n’a pas répondu : les directions viennent de votre glissement à l’écran. Ne vous y fiez pas pour tirer.");
