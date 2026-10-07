@@ -2049,7 +2049,7 @@ live&&live._needle(cur());rf=requestAnimationFrame(draw)}
 function intro(){step=0;stopSensors();W(host);live=null;top0();rb.style.display="none";
 let nb=(n,tx)=>e("div.row",{style:{gap:"12px",alignItems:"flex-start"}},e("span",{style:{flex:"none",width:"30px",height:"30px",borderRadius:"50%",background:"var(--blaze,#D95A10)",color:"#fff",display:"grid",placeItems:"center",fontWeight:"700"}},String(n)),e("div",tx));
 C(host,e("div.grid.g-main",e("div.stack",
-x("Commencer",{icon:"camera",kind:"primary",size:"block",onClick:async()=>{await startSensors();aim(1)}}),
+x("Commencer",{icon:"camera",kind:"primary",size:"block",onClick:()=>{startSensors();aim(1)}}),
 k({title:"Comment ça marche"},e("div.stack",
 nb(1,e("div",e("b","Visez l’obstacle de gauche")," : le dernier voisin, poste ou obstacle de votre côté gauche. Touchez « Valider ».")),
 nb(2,e("div",e("b","Visez l’obstacle de droite")," : le dernier de l’autre côté. Touchez « Valider ».")),
@@ -2062,11 +2062,11 @@ e("a.btn.ghost.block",{href:"#/angle-30-carte",style:{textAlign:"center"}},"Calc
 e("p.tiny.muted",{style:{margin:0}},"Aide visuelle : elle ne remplace ni les consignes du chef de ligne, ni l’identification de la cible et de l’arrière-plan (routes, habitations, promeneurs)."))))}
 function reset(){Lh=null;Rh=null;pf=!1;A("Angle réinitialisé : visez de nouveau l’obstacle de gauche.");aim(1)}
 function top0(){try{window.scrollTo(0,0);let c=document.getElementById("content");c&&(c.scrollTop=0)}catch{}}
-function aim(n){step=n;W(host);live=null;top0();rb.style.display=n===1&&Lh==null?"none":"block";
+function aim(n){step=n;W(host);live=null;top0();rb.style.display="block";
 let rd=e("div.small.muted",{style:{textAlign:"center",margin:"2px 0"}},n===1?"Placez le réticule sur le dernier obstacle à gauche.":"Placez le réticule sur le dernier obstacle à droite."),
 go=x(n===1?"Valider : obstacle de gauche":"Valider : obstacle de droite",{icon:"check",kind:"primary",size:"block",onClick:()=>{let h=dir();if(n===1){Lh=h;aim(2)}else{Rh=h;result()}}}),
 back=x(n===1?"Annuler":"Retour",{kind:"ghost",size:"block",onClick:()=>n===1?intro():aim(1)});
-let rs=n===2?x("Réinitialiser l’angle",{icon:"target",kind:"ghost",size:"block",onClick:reset}):null;
+let rs=x("Réinitialiser l’angle",{icon:"target",kind:"ghost",size:"block",onClick:reset});
 C(host,e("div.stack",stage,rd,go,back,rs,e("p.tiny.muted",{style:{margin:0,textAlign:"center"}},"La caméra sert d’écran de visée : elle ne détecte ni personnes, ni routes, ni habitations.")))}
 function result(){step=3;W(host);top0();rb.style.display="block";let res=A30Calc(Lh,Rh,m),f0=a=>Math.round(((a%360)+360)%360),warn=[];
 live=A30Plan(Lh,Rh,m);pf=!1;
