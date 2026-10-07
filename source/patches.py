@@ -240,7 +240,7 @@ rep('bar=e("div.map-card.draw-bar",{style:{position:"absolute",left:"12px",right
  'undoBtn=x("Annuler le point",{kind:"ghost",size:"sm",onClick:()=>{pts.pop();redraw()}});fin.style.width="100%";bar=e("div.map-card.draw-bar",{style:{position:"absolute",left:"12px",right:"12px",bottom:"12px",zIndex:600,padding:"12px"}},e("div.stack",{style:{gap:"8px"}},inf,pinf2,note,e("div.row",{style:{gap:"8px",alignItems:"center"}},undoBtn,e("div",{style:{flex:"1 1 0",minWidth:0}},pcUse,fin))));'
  'topBar=e("div.map-card.draw-top",{style:{position:"absolute",top:"10px",left:"12px",right:"12px",zIndex:600,padding:"8px",display:"flex",gap:"8px",alignItems:"center"}},x("Quitter",{kind:"ghost",size:"sm",onClick:stop}),segHost,x("Image",{kind:"ghost",size:"sm",icon:"camera",onClick:()=>TerrImage()}));l.getContainer().parentElement.append(topBar,bar);l.getContainer().parentElement.classList.add("terr-on");')
 rep('sess={set(np,npl,nm,nc,nt){', 'sess={set(np,npl,nm,nc,nt){pm&&segSet("trace");')
-rep('l._draw=sess;l.on("click",onClick);redraw();return sess}', 'l._draw=sess;l.on("click",onClick);redraw();segSet(edit||(o.pts&&o.pts.length)?"trace":"parcelles");return sess}')
+rep('l._draw=sess;l.on("click",onClick);redraw();return sess}', 'l._draw=sess;l.on("click",onClick);redraw();segSet(edit||(o.pts&&o.pts.length)||!HasF("territory.parcels")?"trace":"parcelles");return sess}')
 rep('pts.forEach((p,i)=>{let mk=', 'pts.length<=60&&pts.forEach((p,i)=>{let mk=')
 rep('bd.length>200', 'bd.length>3000', count=2)
 rep('en posant ses sommets sur la carte, ou importez', 'en posant ses sommets sur la carte, en choisissant ses parcelles cadastrales, ou importez')
@@ -250,3 +250,10 @@ _wind=open(D+'js_wind.js',encoding='utf-8').read()
 rep(r'relief:{label:"Relief et pentes",premium:!1,make:()=>_e().tileLayer(on("ELEVATION.SLOPES","image/jpeg"),{maxZoom:18,opacity:.35,attribution:qn})}};var DemoRiver=', r'relief:{label:"Relief et pentes",premium:!1,make:()=>_e().tileLayer(on("ELEVATION.SLOPES","image/jpeg"),{maxZoom:18,opacity:.35,attribution:qn})},wind:{label:"Vent anim\xE9",premium:"wind.overlay",make:()=>WindLayer()}};'+chr(10)+_wind+chr(10)+'var DemoRiver=')
 rep('DemoMakers={\nrelief:', 'DemoMakers={wind:()=>WindLayer(),\nrelief:')
 rep(r'photo a\xE9rienne et cadastre (Chasse ou P\xEAche), bathym\xE9trie (P\xEAche).', r'photo a\xE9rienne et cadastre (Chasse ou P\xEAche), vent anim\xE9 (Chasse), bathym\xE9trie (P\xEAche).')
+
+# 33) Offres : parcelles cadastrales = Premium ; vent animé aussi pour Premium Pêche
+rep('"wind.overlay":["chasse","combo"]', '"wind.overlay":["chasse","peche","combo"]')
+rep('"map.offline":["chasse","peche","combo"]', '"map.offline":["chasse","peche","combo"],"territory.parcels":["chasse","peche","combo"]')
+rep(r'vent anim\xE9 (Chasse), bathym\xE9trie (P\xEAche).', r'vent anim\xE9 et choix des parcelles cadastrales (Chasse ou P\xEAche), bathym\xE9trie (P\xEAche).')
+rep(r'"Photo a\xE9rienne et cadastre","M\xE9t\xE9o d\xE9taill\xE9e et vent sur la carte"', r'"Photo a\xE9rienne et cadastre","Territoire par parcelles cadastrales","M\xE9t\xE9o d\xE9taill\xE9e et vent anim\xE9 sur la carte"')
+rep(r'"Bathym\xE9trie et photo a\xE9rienne","Carnet illimit\xE9 et statistiques"', r'"Bathym\xE9trie et photo a\xE9rienne","Territoire par parcelles cadastrales, vent anim\xE9","Carnet illimit\xE9 et statistiques"')
