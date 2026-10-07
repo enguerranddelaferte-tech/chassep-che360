@@ -879,3 +879,6 @@ table.data td, table.data th { vertical-align: middle; }
 }
 @media (pointer: coarse) { .map-page .leaflet-control-zoom { display: none; } }
 .map-page.terr-on .map-pop, .map-page.terr-on .map-tools { display: none !important; }
+/* Cône de direction du point GPS */
+.me-cone { pointer-events: none; }
+.me-cone-in { width: 130px; height: 130px; transform-origin: 50% 50%; transition: transform .12s linear; }
