@@ -134,3 +134,9 @@ rep('xe.delete("/admin/ambassadors/:id/videos/:vid"', js_yt_server+'\nxe.delete(
 rep('async function AdmAmb(t){', js_yt+'\nasync function AdmAmb(t){')
 rep('e("div.stack",full.map(a=>k({},e("div.row"', 'e("div.stack",YtPanel(d.ambassadors),full.map(a=>k({},e("div.row"')
 rep('x("Ajouter une vidéo",{icon:"plus",size:"sm",onClick:()=>addV(a)}),', 'x("Ajouter une vidéo",{icon:"plus",size:"sm",onClick:()=>addV(a)}),YT.key()?x("Synchroniser",{icon:"play",size:"sm",kind:"ghost",onClick:()=>act(()=>YT.sync(a),"Vidéos synchronisées.")}):null,')
+
+# 18) Viseur 30° guidé (gauche / droite / résultat)
+js_ang30=open(D+'js_ang30.js',encoding='utf-8').read()
+rep('var wl,Hi=H(()=>{wl=Ui({', js_ang30+'\nvar wl,Hi=H(()=>{wl=Ui({"./views/ang30.js":()=>Promise.resolve().then(()=>(A30I(),A30M)),')
+rep('Z("/angle-30",te("angle30"));','Z("/angle-30",te("ang30"));Z("/angle-30-carte",te("angle30"));')
+rep(r'["/angle-30","Calculateur 30\xB0","target"]', r'["/angle-30","Viseur 30\xB0","target"],["/angle-30-carte","Calculateur 30\xB0 (carte)","map"]')
