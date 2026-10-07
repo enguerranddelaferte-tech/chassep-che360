@@ -283,7 +283,6 @@ rep('C(a,N,dn,IsLaunch()?null:Bt);','C(a,N,pop,dn,IsLaunch()?null:Bt);')
 # 35) Territoire : import d'un fichier GeoJSON / JSON
 _tf=open(D+'js_terrfile.js',encoding='utf-8').read()
 rep('\nfunction TerrDraw(o){o=o||{};if(l._draw)return l._draw;let L_=_e(),pm=!1,', '\n'+_tf+'\nfunction TerrDraw(o){o=o||{};if(l._draw)return l._draw;let L_=_e(),pm=!1,')
-rep('x("Importer une image du territoire",{icon:"camera",size:"block",onClick:()=>{m.close();TerrImage()}}),', 'x("Importer une image du territoire",{icon:"camera",size:"block",onClick:()=>{m.close();TerrImage()}}),x("Importer un fichier (GeoJSON)",{icon:"download",size:"block",onClick:()=>{m.close();TerrFile()}}),')
 
 # 36) Carte : cône de direction sur le point GPS (boussole du téléphone)
 rep('g=Ve().marker([w.position.lat,w.position.lng],{icon:ue("me"),zIndexOffset:1e3,interactive:!1}).addTo(l),S=j.on("position",h=>g.setLatLng([h.lat,h.lng]))',
