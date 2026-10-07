@@ -1,0 +1,108 @@
+{
+ "dpt": "67",
+ "name": "Bas-Rhin",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.bas-rhin.gouv.fr/index.php/contenu/telechargement/46048/296340/file/avis_annuel_peche_2022.pdf"
+ },
+ "chasse": {
+  "saison": "",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [],
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ },
+ "peche": {
+  "saison": "2022",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": 2,
+    "period": "1re cat. : 12 mars au 18 septembre ; 2e cat. et Rhin : 1er au 30 janvier et 30 avril au 31 décembre.",
+    "note": "Taille minimale 50 cm en 1re catégorie et 60 cm en 2e catégorie ; 2 par jour maximum (3 carnassiers au total en 2e catégorie, dont 2 brochets au plus). Appât, leurre et poisson mort interdits pendant la fermeture du brochet.",
+    "source": "https://www.bas-rhin.gouv.fr/index.php/contenu/telechargement/46048/296340/file/avis_annuel_peche_2022.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1re cat. : 12 mars au 18 septembre ; 2e cat. : 1er au 30 janvier et 1er juin au 31 décembre.",
+    "note": "Compris dans la limite de 3 carnassiers par jour en 2e catégorie.",
+    "source": "https://www.bas-rhin.gouv.fr/index.php/contenu/telechargement/46048/296340/file/avis_annuel_peche_2022.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "1re cat. : 12 mars au 18 septembre ; 2e cat. : 1er au 30 janvier et 25 juin au 31 décembre.",
+    "note": "Compris dans la limite de 3 carnassiers par jour en 2e catégorie.",
+    "source": "https://www.bas-rhin.gouv.fr/index.php/contenu/telechargement/46048/296340/file/avis_annuel_peche_2022.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 25,
+    "dailyQuota": null,
+    "period": "12 mars au 18 septembre ; Rhin (eaux migratrices) : 1er mai au 18 septembre.",
+    "note": "Taille minimale 25 cm, 23 cm ou 20 cm selon les secteurs (20 ou 23 cm dans certains tronçons vosgiens) ; 6 salmonidés par jour (hors saumon et truite de mer).",
+    "source": "https://www.bas-rhin.gouv.fr/index.php/contenu/telechargement/46048/296340/file/avis_annuel_peche_2022.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 35,
+    "dailyQuota": null,
+    "period": "21 mai au 18 septembre en 1re catégorie ; 21 mai au 31 décembre en 2e catégorie et Rhin.",
+    "note": "",
+    "source": "https://www.bas-rhin.gouv.fr/index.php/contenu/telechargement/46048/296340/file/avis_annuel_peche_2022.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "Toutes catégories",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille jaune : 15 avril au 15 septembre ; anguille argentée : pêche interdite.",
+    "note": "Captures à consigner dans un carnet de prises.",
+    "source": "https://www.bas-rhin.gouv.fr/index.php/contenu/telechargement/46048/296340/file/avis_annuel_peche_2022.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses autochtones",
+    "category": "Toutes catégories",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Pêche interdite sur tous les cours d'eau.",
+    "note": "Écrevisses exotiques : 12 mars au 18 septembre en 1re catégorie, toute l'année en 2e catégorie ; transport vivant et remise à l'eau interdits.",
+    "source": "https://www.bas-rhin.gouv.fr/index.php/contenu/telechargement/46048/296340/file/avis_annuel_peche_2022.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Pêche permise de une demi-heure avant le lever du soleil à une demi-heure après son coucher ; pêche en marchant dans l'eau interdite jusqu'au 15 avril inclus en 1re catégorie.",
+    "source": "https://www.bas-rhin.gouv.fr/index.php/contenu/telechargement/46048/296340/file/avis_annuel_peche_2022.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche de la carpe à toute heure autorisée dans certaines eaux de 2e catégorie ; réserves temporaires de pêche sur le Rhin, le contre-canal de drainage et l'Ill.",
+    "source": "https://www.bas-rhin.gouv.fr/index.php/contenu/telechargement/46048/296340/file/avis_annuel_peche_2022.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "note": "Avis annuel 2022 (saison antérieure), à confirmer avec l'avis de la saison en cours."
+ }
+}

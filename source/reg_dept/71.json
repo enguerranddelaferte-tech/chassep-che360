@@ -1,0 +1,40 @@
+{
+ "dpt": "71",
+ "name": "Saône-et-Loire",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.saone-et-loire.gouv.fr/contenu/telechargement/25976/226071/file/Projet_AP-Modifiant_Arrete-Regmementaire-Peche-71.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890"
+  ],
+  "especes": [],
+  "infos": [
+   {
+    "text": "Ouverture générale de la chasse indiquée au 20 septembre 2026 à 8 h (source secondaire, arrêté préfectoral non lu).",
+    "source": "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890",
+    "confidence": "a_verifier"
+   }
+  ],
+  "note": "arrêté préfectoral 2026-2027 non trouvé"
+ },
+ "peche": {
+  "saison": "2022-2023 (arrêté permanent du 22 décembre 2022, projet de modification)",
+  "especes": [],
+  "infos": [
+   {
+    "text": "Un projet de modification de l'arrêté permanent du 22 décembre 2022 ajoute une taille maximale de capture du brochet sur sept plans d'eau (Fourneau à Palinges, réservoirs de la Motte, Bondilly et Longpendu à Écuisses, étang de Brandon, réservoir du Pont du Roi à Tintry, étang de Montchanin).",
+    "source": "https://www.saone-et-loire.gouv.fr/contenu/telechargement/25976/226071/file/Projet_AP-Modifiant_Arrete-Regmementaire-Peche-71.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "note": "valeurs de tailles et quotas non trouvées"
+ }
+}

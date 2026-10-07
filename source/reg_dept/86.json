@@ -1,0 +1,158 @@
+{
+ "dpt": "86",
+ "name": "Vienne",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juillet 2026 au 31 mars 2027",
+    "mode": "Affût, approche ou battue; balle ou arc (chevrotine selon conditions)",
+    "note": "Plan de gestion; bracelet FDC obligatoire. Du 1er juillet au 14 août: autorisation préfectorale requise.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juillet 2026 au 28 février 2027",
+    "mode": "Approche, affût ou battue",
+    "note": "Plan de chasse triennal 2024-2027. Avant le 13 septembre: approche/affût sur autorisation préfectorale individuelle, balle ou arc.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "19 septembre 2026 au 28 février 2027",
+    "mode": "Balle ou arc obligatoire",
+    "note": "Soumis au plan de chasse.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "1er juillet 2026 au 28 février 2027",
+    "mode": "Approche/affût jusqu'au 12 septembre; approche, affût ou battue ensuite",
+    "note": "Plan de chasse; balle ou arc obligatoire.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Mouflon",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "Approche/affût jusqu'au 12 septembre; approche, affût ou battue ensuite",
+    "note": "Plan de chasse; balle ou arc obligatoire.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "4 octobre au 6 décembre 2026",
+    "mode": "Tir",
+    "note": "Plan de gestion: bracelet dateur obligatoire par prélèvement.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix grise",
+    "period": "13 septembre au 6 décembre 2026",
+    "mode": "Tir",
+    "note": "Jusqu'au 24 janvier 2027 dans les communes en plan de gestion faisan.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix rouge",
+    "period": "13 septembre au 6 décembre 2026",
+    "mode": "Tir",
+    "note": "Jusqu'au 24 janvier 2027 dans les communes en plan de gestion faisan.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan commun",
+    "period": "13 septembre 2026 au 24 janvier 2027",
+    "mode": "Tir",
+    "note": "Règles particulières dans les communes à plan de gestion faisan.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "13 septembre 2026 au 20 février 2027",
+    "mode": "Tir",
+    "note": "Maximum 2 par jour, 6 par semaine, 30 par saison; bracelet et carnet ou ChassAdapt.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "13 septembre 2026 au 20 février 2027",
+    "mode": "Tir",
+    "note": "Du 11 au 20 février: poste fixe matérialisé uniquement.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Canard colvert",
+    "period": "21 août 2026 au 31 janvier 2027",
+    "mode": "Tir",
+    "note": "Avant l'ouverture générale: marais non asséchés, cours d'eau et plans d'eau, à 30 m maximum de la nappe.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juillet 2026 au 28 février 2027, puis 1er au 30 juin 2027",
+    "mode": "Tir",
+    "note": "Avant l'ouverture générale: réservé aux personnes autorisées à chasser le chevreuil ou le sanglier.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Aucun jour sans chasse mentionné dans l'arrêté 2026/DDT/231.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse interdite par temps de neige, sauf sanglier, cervidés au plan de chasse, renard, ragondin, rat musqué, corvidés à poste fixe, vénerie.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Grenaille de plomb interdite dans les zones humides et sur 100 m autour.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chevrotine du sanglier: seulement 21 ou 28 grains de 6,20 à 6,30 mm, tir à 15 m maximum.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Vénerie: chasse à courre du 15 septembre 2026 au 31 mars 2027; vénerie sous terre jusqu'au 15 janvier 2027.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

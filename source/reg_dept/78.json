@@ -1,0 +1,20 @@
+{"dpt":"78","name":"Yvelines","verifiedOn":"2026-10-07",
+"liens":{"fdc":"","peche":"","arretes":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027"},
+"chasse":{"saison":"2026-2027","ouverture":"","cloture":"","joursSansChasse":"","sources":["https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027"],
+"especes":[
+{"species":"Sanglier","period":"Affût sur autorisation du 1er juin au 14 août 2026, chasse libre du 15 août au 19 septembre 2026, période normale du 20 septembre 2026 au 28 février 2027, chasse complémentaire en mars 2027, affût de protection des semis en avril et mai 2027.","mode":"Affût sur autorisation avant l'ouverture, battue","note":"Sanglier marqué et déclaré à la FICIF dans les 48 heures.","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"},
+{"species":"Chevreuil","period":"Du 1er juin 2026 au 28 février 2027.","mode":"","note":"","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"},
+{"species":"Daim","period":"Du 1er juin 2026 au 28 février 2027.","mode":"","note":"","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"},
+{"species":"Cerf élaphe","period":"Du 1er septembre 2026 au 28 février 2027.","mode":"","note":"","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"},
+{"species":"Lièvre","period":"À partir du 20 septembre 2026 (date de fin non précisée).","mode":"","note":"","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"},
+{"species":"Perdrix","period":"À partir du 20 septembre 2026 (date de fin non précisée).","mode":"","note":"","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"},
+{"species":"Faisan","period":"À partir du 20 septembre 2026 (date de fin non précisée).","mode":"","note":"","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"}
+],
+"infos":[
+{"text":"Arrêté préfectoral n° 78-2026-05-20-00006 du 20 mai 2026 : tir de toutes espèces du 20 septembre 2026 (9h) au 28 février 2027 (18h).","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"},
+{"text":"Les 259 communes du département sont classées « point noir » sanglier : au moins une journée de battue par mois, d'octobre à fin mars.","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"},
+{"text":"Dispositif expérimental de tir de nuit autorisé sur 21 territoires pour protéger les cultures.","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"},
+{"text":"Bennecourt, Gommecourt et Limetz-Villez : chasse autorisée uniquement les dimanches et jours fériés, avec aménagements pour le gibier d'eau et les battues de sanglier.","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"},
+{"text":"Sur les zones concernées, l'accès du public est fermé de 9h à 18h les jours de chasse, signalé par des panneaux « Chasse en cours ».","source":"https://www.infosyvelines.fr/articles/yvelines-ouverture-chasse-2026-2027","confidence":"a_verifier"}
+]},
+"peche":{"saison":"","especes":[],"infos":[],"note":"aucune source locale trouvée"}}

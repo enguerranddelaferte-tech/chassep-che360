@@ -215,9 +215,14 @@ rep(r'["/tableau-de-chasse","Tableau de chasse","book"]]}', r'["/tableau-de-chas
 # 28) Réglementation : règles nationales vérifiées + corrections des valeurs génériques
 import json as _json
 _reg={"chasse":_json.load(open(D+'reg_chasse.json',encoding='utf-8')),"peche":_json.load(open(D+'reg_peche.json',encoding='utf-8'))}
-js_regnat="const REG_NAT="+_json.dumps(_reg,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')+";\n"+open(D+'js_regnat.js',encoding='utf-8').read()
+js_regnat=open(D+'js_regdept.js',encoding='utf-8').read()+"const REG_NAT="+_json.dumps(_reg,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')+";\n"+open(D+'js_regnat.js',encoding='utf-8').read()
 rep('var wl,Hi=H(()=>{wl=Ui({', js_regnat+'\nvar wl,Hi=H(()=>{wl=Ui({')
 rep('k({flush:!0,cls:""},o),e("div.panel.tint",{style:{marginTop:"18px"}}', 'k({flush:!0,cls:""},o),RegNatBox(),e("div.panel.tint",{style:{marginTop:"18px"}}')
 rep('function c(){let p=f=>(f||"").toLowerCase()', 'function c(){RegNatDraw(n);let p=f=>(f||"").toLowerCase()')
 rep(r'"1er juin \u2192 28 f\xE9vr."', r'"Selon arr\xEAt\xE9 \u2192 fin f\xE9vr."', count=2)
 rep(r'"PMA : 3 par jour, 30 par saison. Carnet obligatoire."', r'"PMA nationale : 30 par saison ; limites par jour ou par semaine fixées par le département. Carnet obligatoire."')
+
+# 29) Réglementation : fiche par département (95 départements), remplace l'ancien tableau générique
+rep('function c(){RegNatDraw(n);let p=f=>', 'function c(){RegNatDraw(n);RegDeptDraw(n,r,o,i);return;let p=f=>')
+rep('a.departments.map(p=>e("option"', 'RegDeptList().map(p=>e("option"')
+rep(r'p.covered?(r=p.code,u()):A(`${p.name} n\u2019est pas encore couvert : affichage du ${r}.`,"warn")', '(r=p.code,u())')

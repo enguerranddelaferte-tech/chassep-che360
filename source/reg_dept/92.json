@@ -1,0 +1,121 @@
+{
+ "dpt": "92",
+ "name": "Hauts-de-Seine",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "15 août 2026 au 31 mars 2027",
+    "mode": "Battue",
+    "note": "Tirs d'été du 1er juin au 14 août à l'affût sur autorisation préfectorale; hors zones de gestion.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "20 septembre 2026 au 28 février 2027",
+    "mode": "Battue",
+    "note": "Soumis au plan de chasse.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "20 septembre 2026 au 28 février 2027",
+    "mode": "Battue",
+    "note": "Plan de chasse; tir d'été du 1er juin à l'ouverture sur autorisation préfectorale, à l'approche ou à l'affût.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "1er juin au 19 septembre 2026 (tir d'été)",
+    "mode": "Approche ou affût, de jour",
+    "note": "Réservé aux détenteurs d'un plan de chasse et d'une autorisation préfectorale de tir d'été.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "20 septembre au 29 novembre 2026",
+    "mode": "Tir",
+    "note": "",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix grise",
+    "period": "20 septembre au 29 novembre 2026",
+    "mode": "Tir",
+    "note": "Hors zones et plans de gestion.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix rouge",
+    "period": "20 septembre 2026 au 31 janvier 2027",
+    "mode": "Tir",
+    "note": "Hors zones et plans de gestion.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan commun",
+    "period": "4 octobre 2026 au 31 janvier 2027",
+    "mode": "Tir",
+    "note": "Poules jusqu'au 13 décembre 2026, coqs jusqu'au 31 janvier 2027; hors zones de gestion.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "Autorisé en tir d'été avec l'autorisation préfectorale",
+    "mode": "Approche ou affût",
+    "note": "Heures: de 1 h avant le lever à 1 h après le coucher du soleil.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Aucun jour sans chasse mentionné dans l'arrêté préfectoral.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Heures: 9 h à 18 h jusqu'au 31 octobre, 9 h à 17 h du 1er novembre au 15 janvier, 9 h à 18 h ensuite.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse interdite par temps de neige, sauf gibier d'eau (30 m de la nappe), plan de chasse, vénerie, renard, sanglier, pigeon ramier, lapin.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lapin de garenne: chasse du 20 septembre 2026 au 28 février 2027.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-92.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

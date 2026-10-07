@@ -1,0 +1,126 @@
+{
+ "dpt": "62",
+ "name": "Pas-de-Calais",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juin 2026 au 28 février 2027, plus les 5 et 19 mars 2027",
+    "mode": "Balle ou flèche uniquement",
+    "note": "Bracelet taxe ou plan de gestion obligatoire, sauf du 1er juin au 14 août 2026 ; du 1er avril au 31 mai 2027, uniquement pour protéger les semis sur autorisation.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juin 2026 au 28 février 2027",
+    "mode": "Approche ou affût avant l'ouverture générale",
+    "note": "Avant l'ouverture générale, réservé aux titulaires d'un plan de chasse ; plomb interdit en zones humides et à moins de 100 m.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "20 septembre 2026 au 28 février 2027",
+    "mode": "Balle ou arc obligatoire",
+    "note": "Cerf sika et daim visés par la même disposition.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juin 2026 au 28 février 2027",
+    "mode": "Tir ; battues du 15 août au 19 septembre sous conditions",
+    "note": "Battues avant l'ouverture : au moins 5 chasseurs, déclaration 72 h à l'avance à la FDC 62.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix",
+    "period": "Rouge : 20 septembre 2026 au 28 février 2027 ; grise : 20 septembre au 6 décembre 2026",
+    "mode": "Tir",
+    "note": "Jours de chasse de la perdrix grise fixés par commune selon le calendrier agréé.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan",
+    "period": "Commun : 4 octobre 2026 au 17 janvier 2027 ; vénéré : 4 octobre 2026 au 28 février 2027",
+    "mode": "Tir",
+    "note": "Poule faisane interdite sauf exceptions ; faisan vénéré uniquement dans les bois d'au moins 3 ha d'un seul tenant ; ouverture anticipée au 27 septembre pour certains adhérents de GIC.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "20 septembre au 29 novembre 2026",
+    "mode": "Tir",
+    "note": "Nombre de jours de chasse fixé par commune (codes L et G), avec une période en plaine puis en bois dans certaines communes.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "Dates fixées par arrêté ministériel",
+    "mode": "Tir",
+    "note": "Maximum 3 oiseaux par jour et 30 par an et par chasseur, avec carnet ou Chass'Adapt.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "Tir dès le 21 septembre 2026",
+    "mode": "Poste fixe, mirador ou hutte",
+    "note": "Avant l'ouverture générale, de 1 h avant le lever du soleil à 9 h ; ensuite jusqu'au 17 janvier 2027 puis après, de la fin d'après-midi à 1 h après le coucher du soleil.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Heures de chasse : 9 h à 17 h jusqu'au 17 janvier 2027, puis 9 h à 18 h à partir du 18 janvier.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse interdite par temps de neige, sauf gibier d'eau, plan de chasse, sanglier, renard et pigeon ramier.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Gilet fluorescent obligatoire en action de chasse, avec exceptions (poste fixe, affût, approche).",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Gibier d'eau : limite de 15 oiseaux par chasseur et 25 par installation, sauf colverts et oies ; chasse à la passée de 2 h avant le lever à 2 h après le coucher du soleil.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse à courre, à cor et à cri du 14 septembre 2026 au 31 mars 2027 ; chasse au vol du 20 septembre 2026 au 28 février 2027.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-62.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

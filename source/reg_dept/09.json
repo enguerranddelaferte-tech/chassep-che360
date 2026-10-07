@@ -1,0 +1,124 @@
+{
+ "dpt": "09",
+ "name": "Ariège",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.chasse-nature-occitanie.fr/ariege/",
+  "peche": "",
+  "arretes": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026 (plaine) ; 20 septembre 2026 (montagne)",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "Mardi et vendredi, sauf jours fériés (hors gibier d'eau, migrateurs et grand gibier à l'affût ou à l'approche sous plan).",
+  "sources": [
+   "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Plaine : 16 août 2026 au 28 février 2027 ; montagne : 30 août 2026 au 28 février 2027",
+    "mode": "Battue (mercredi, samedi, dimanche, jours fériés) ; affût ou approche avant l'ouverture générale",
+    "note": "Battue d'au moins 6 personnes avec chiens. Avant l'ouverture générale, affût ou approche tous les jours sauf mardi et vendredi.",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Ouverture générale au 28 février 2027 ; tir d'été individuel dès le 1er juin 2026",
+    "mode": "Battue (lundi, mercredi, jeudi, samedi, dimanche, jours fériés) ; affût ou approche",
+    "note": "Tir anticipé individuel sans chien sur autorisation individuelle.",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "Ouverture générale au 28 février 2027 ; tir anticipé dès le 1er septembre 2026",
+    "mode": "Battue (lundi, mercredi, jeudi, samedi, dimanche, jours fériés) ; affût ou approche",
+    "note": "Tir anticipé individuel sans chien sur autorisation préfectorale individuelle.",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "Ouverture générale au 28 février 2027 ; tir anticipé dès le 1er juin 2026",
+    "mode": "Affût ou approche individuel sans chien",
+    "note": "Tir anticipé sur autorisation individuelle.",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Isard",
+    "period": "4 au 25 octobre 2026 (plan standard) ; plans différenciés du 1er septembre au 30 novembre 2026 sur territoires désignés",
+    "mode": "Approche ou affût individuel sans chien, mercredi, samedi, dimanche et jours fériés",
+    "note": "Chasse sous plan de chasse ; carnets à retourner ; tir des femelles suitées interdit.",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Mouflon",
+    "period": "Ouverture générale au 28 février 2027",
+    "mode": "Affût ou approche individuel sans chien",
+    "note": "Massif du Tabe : tir des mâles interdit sauf mâles atypiques (robe isabelle ou cornes en parasol).",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "13 septembre au 13 décembre 2026",
+    "mode": "",
+    "note": "Plan de chasse légal dans les communes de l'annexe II de l'arrêté.",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix",
+    "period": "Rouge et grise de plaine : jusqu'au 29 novembre 2026 ; grise de montagne : 4 au 25 octobre 2026",
+    "mode": "Perdrix grise de montagne : mercredi, samedi, dimanche",
+    "note": "Lagopède alpin : 4 au 25 octobre 2026, quotas fixés par arrêté séparé. Grand tétras : chasse suspendue.",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan",
+    "period": "Jusqu'au 3 janvier 2027",
+    "mode": "",
+    "note": "Le lapin est ouvert aux mêmes dates.",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "Ouverture générale au 28 février 2027 ; tir anticipé possible avant",
+    "mode": "Affût ou approche (titulaires d'un permis individuel chevreuil) ; battues sanglier dès le 16 août (plaine) ou 30 août (montagne)",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Chasse sur la neige interdite, sauf gibier d'eau, grand gibier sous plan, renard, battues sanglier (mercredi, samedi, dimanche, jours fériés, 6 personnes minimum avec chiens) et pigeon ramier à poste.",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lac de Montbel : chasse interdite sur le plan d'eau et sur une bande de 3 mètres autour.",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Vénerie sous terre : clôture au 15 janvier 2027.",
+    "source": "https://www.chasse-nature-occitanie.fr/ariege/documents/chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

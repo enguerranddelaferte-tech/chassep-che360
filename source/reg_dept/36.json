@@ -1,0 +1,152 @@
+{
+ "dpt": "36",
+ "name": "Indre",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://fdc36.fr",
+  "peche": "",
+  "arretes": "https://fdc36.fr/documentations/reglementation-et-arretes-2/"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "27 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://fdc36.fr/dates-douvertures-et-de-fermetures/",
+   "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+   "https://fdc36.fr/wp-content/uploads/2025/09/AP-Ouv-Fermeture-2026-2027-signe-et-enregistre-au-RAA.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juillet au 14 août 2026 (détenteurs d'autorisation); 15 août 2026 au 31 mars 2027; 1er au 30 juin 2027 (détenteurs d'autorisation)",
+    "mode": "",
+    "note": "Plan de gestion sanglier départemental via la FDC.",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juillet au 26 septembre 2026 (approche/affût, détenteurs d'autorisation d'été); 27 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Plan de chasse; bilan annuel à la FDC avant le 2 mars 2027.",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er au 26 septembre 2026 (approche/affût); 27 septembre 2026 au 28 février 2027",
+    "mode": "Carabine, battue, approche, affût",
+    "note": "Plan de chasse (CEM1, CEM2); déclaration des prélèvements sous 72 h; bilan avant le 2 mars 2027.",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "1er juillet au 26 septembre 2026 (approche/affût); 27 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Mouflon",
+    "period": "27 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Bilan à la FDC avant le 2 mars 2027.",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "27 septembre au 6 décembre 2026",
+    "mode": "Tir",
+    "note": "",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix",
+    "period": "27 septembre au 6 décembre 2026",
+    "mode": "Tir",
+    "note": "",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan",
+    "period": "27 septembre 2026 au 10 janvier 2027",
+    "mode": "Tir",
+    "note": "Certaines communes exceptées.",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "27 septembre 2026 au 20 février 2027",
+    "mode": "Tir",
+    "note": "3 bécasses par jour dans l'Indre; carnet et marquage obligatoires.",
+    "source": "https://fdc36.fr/dates-douvertures-et-de-fermetures/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "27 septembre 2026 au 20 février 2027",
+    "mode": "Tir",
+    "note": "Dépliant ambigu sur la date de clôture (10 ou 20 février).",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Canard colvert / gibier d'eau",
+    "period": "Canards de surface : 21 août 2026 à 6 h (Brenne : 1er septembre) jusqu'au 31 janvier 2027",
+    "mode": "Tir",
+    "note": "Colvert non cité nommément dans le dépliant.",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juillet au 14 août 2026 (détenteurs d'autorisation); 15 août 2026 au 31 mars 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale le 27 septembre 2026 à 8 h; chasse de nuit interdite sauf grand gibier, sanglier, renard, gibier d'eau, pigeon ramier à poste fixe, ragondin, rat musqué, corvidés.",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Balle obligatoire pour tout le grand gibier; trophées de cerfs mâles à présenter à l'exposition des 10 et 11 avril 2027.",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Barge à queue noire en moratoire; suspension nationale du courlis cendré et de la barge à queue noire (arrêté du 29 juillet 2026).",
+    "source": "https://fdc36.fr/dates-douvertures-et-de-fermetures/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Bécassines des marais et sourde ouvertes dans certaines communes de la Brenne du 27 septembre 2026 au 31 janvier 2027.",
+    "source": "https://fdc36.fr/dates-douvertures-et-de-fermetures/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Le dépliant précise que les modalités sont en cours de modification par le ministère.",
+    "source": "https://fdc36.fr/wp-content/uploads/2026/08/fede-chasse-depliant-2026-2027.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "note": "aucune source locale trouvée",
+  "especes": [],
+  "infos": []
+ }
+}

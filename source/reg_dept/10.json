@@ -1,0 +1,112 @@
+{
+ "dpt": "10",
+ "name": "Aube",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.fdc10.org",
+  "peche": "",
+  "arretes": "https://www.aube.gouv.fr/index.php/Actions-de-l-Etat/Agriculture-Foret-Animaux-Chasse-et-peche/Chasse-et-Peche/Chasse/Saison-cynegetique-en-cours/Arrete-fixant-les-modalites-d-ouverture-de-la-chasse-pour-la-campagne-2026-2027"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-laube/",
+   "https://meschasses.com/aube-10/dates-chasse-2026-2027/"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juin 2026 au 31 mars 2027",
+    "mode": "Approche ou affût anticipé ; battue du 20 septembre 2026 au 31 mars 2027",
+    "note": "Du 1er juin au 14 août : autorisation préfectorale après avis de la FDC ; du 15 août à l'ouverture générale : samedi, dimanche, lundi et jours fériés. Arrêté n° DDT-SAER-2026-452-0004. Relevé sur site secondaire.",
+    "source": "https://meschasses.com/aube-10/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juin 2026 au 28 février 2027",
+    "mode": "Approche ou affût dès le 1er juin ; battue dès le 20 septembre",
+    "note": "Plan de chasse, tir à balle ou à l'arc ; tir anticipé réservé aux titulaires d'un plan de chasse. Relevé sur site secondaire.",
+    "source": "https://meschasses.com/aube-10/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "Approche ou affût en anticipé",
+    "note": "Plan de chasse, tir à balle ou à l'arc. Relevé sur site secondaire.",
+    "source": "https://meschasses.com/aube-10/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "1er juin 2026 au 28 février 2027",
+    "mode": "Approche ou affût en anticipé",
+    "note": "Plan de chasse. Relevé sur site secondaire.",
+    "source": "https://meschasses.com/aube-10/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Mouflon",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "Approche ou affût en anticipé",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/aube-10/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "4 octobre au 7 novembre 2026",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/aube-10/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix",
+    "period": "20 septembre 2026 au 31 janvier 2027",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/aube-10/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "20 septembre 2026 au 31 janvier 2027",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/aube-10/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juin 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/aube-10/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale le 20 septembre 2026 à 8 h 30 et clôture le 28 février 2027 à 17 h 30.",
+    "source": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-laube/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Battues sanglier obligatoires sur Clairvaux Ouest et Clairvaux les 8 novembre 2026, 10 janvier et 13 février 2027, et sur la vallée Seine Sainte-Maure/Barberey le 7 novembre 2026.",
+    "source": "https://meschasses.com/aube-10/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

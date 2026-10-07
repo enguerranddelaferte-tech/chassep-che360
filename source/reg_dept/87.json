@@ -1,0 +1,116 @@
+{
+ "dpt": "87",
+ "name": "Haute-Vienne",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf"
+ },
+ "chasse": {
+  "saison": "2024-2025",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juin 2024 au 31 mars 2025",
+    "mode": "Affût, approche ou battue selon périodes",
+    "note": "Plan de gestion; marquage obligatoire avant transport; battue: 2 jours déclarés à la FDC, sinon samedi et dimanche.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juin 2024 au 28 février 2025",
+    "mode": "Battue, approche ou affût",
+    "note": "Plan de chasse; jusqu'au 7 septembre: brocards à l'approche ou à l'affût.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "12 octobre 2024 au 28 février 2025",
+    "mode": "Battue, approche ou affût; balle ou arc",
+    "note": "Décision individuelle du plan de chasse.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "8 septembre 2024 au 28 février 2025",
+    "mode": "Plan de chasse",
+    "note": "Décision individuelle du plan de chasse.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "6 octobre au 15 décembre 2024",
+    "mode": "Tir",
+    "note": "",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix rouge et grise",
+    "period": "8 septembre au 30 novembre 2024",
+    "mode": "Tir",
+    "note": "Prolongation au 1er janvier 2025 dans cinq communes listées.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan commun",
+    "period": "8 septembre 2024 au 1er janvier 2025",
+    "mode": "Tir",
+    "note": "Tir interdit dans plusieurs communes listées.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "Période générale (non détaillée)",
+    "mode": "Tir",
+    "note": "Maximum 3 par jour et 30 par saison; bracelet et carnet ou ChassAdapt.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "Dès le 1er juin 2024",
+    "mode": "Selon modes chevreuil ou sanglier",
+    "note": "Ouvert aux personnes autorisées à chasser le chevreuil ou le sanglier avant l'ouverture.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale 2024-2025: 8 septembre 2024 à 8 h, clôture le 28 février 2025.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Ouverture générale 2026 annoncée au 13 septembre à 8 h (source secondaire, arrêté 2026-2027 non retrouvé).",
+    "source": "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Petit gibier sédentaire chassable à partir de 8 h seulement; gibier d'eau à la passée uniquement.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/06/FDC_87_APO.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

@@ -1,0 +1,12 @@
+{"dpt":"83","name":"Var","verifiedOn":"2026-10-07",
+"liens":{"fdc":"https://www.fdc83.com/dates-douverture-de-la-chasse/","peche":"","arretes":"https://www.fdc83.com/wp-content/uploads/2026/09/AP_Ouverture-et-cloture-26-27.pdf"},
+"chasse":{"saison":"2026-2027","ouverture":"13 septembre 2026","cloture":"28 février 2027","joursSansChasse":"","note":"Dates par espèce non lisibles (arrêté en PDF image) : seules les dates générales ont été trouvées.","sources":["https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-var/","https://www.fdc83.com/dates-douverture-de-la-chasse/"],
+"especes":[
+{"species":"Sanglier","period":"Chasse possible dès le 01/06 jusqu'à l'ouverture générale, dans des conditions particulières.","mode":"","note":"Ouverture anticipée soumise à autorisations préfectorales.","source":"https://www.fdc83.com/dates-douverture-de-la-chasse/","confidence":"a_verifier"},
+{"species":"Chevreuil","period":"Chasse possible dès le 01/06 jusqu'à l'ouverture générale, dans des conditions particulières.","mode":"","note":"Ouverture anticipée soumise à autorisations préfectorales.","source":"https://www.fdc83.com/dates-douverture-de-la-chasse/","confidence":"a_verifier"}
+],
+"infos":[
+{"text":"Ouverture générale le 13 septembre 2026 à 7h, clôture générale le 28 février 2027 au soir.","source":"https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-var/","confidence":"a_verifier"},
+{"text":"Arrêté préfectoral d'ouverture et de clôture 2026-2027 signé à Toulon (mai 2026) ; dates des oiseaux de passage et du gibier d'eau fixées par le ministère de la Transition écologique.","source":"https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-83.pdf","confidence":"a_verifier"}
+]},
+"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}

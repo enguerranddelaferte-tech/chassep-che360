@@ -1,0 +1,34 @@
+{
+ "dpt": "63",
+ "name": "Puy-de-Dôme",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": ""
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890"
+  ],
+  "especes": [],
+  "infos": [
+   {
+    "text": "Ouverture de la chasse du petit gibier annoncée le 13 septembre 2026 (début à 7 h) (source de presse, arrêté préfectoral non consulté).",
+    "source": "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890",
+    "confidence": "a_verifier"
+   }
+  ],
+  "note": "aucune source officielle locale lue pour les espèces"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

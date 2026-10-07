@@ -1,0 +1,135 @@
+{
+ "dpt": "12",
+ "name": "Aveyron",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.chasse-nature-occitanie.fr/aveyron",
+  "peche": "",
+  "arretes": "https://www.chasse-nature-occitanie.fr/aveyron/documents/ArrA-tA-12-2026-07-16-00005-ou.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "Petit gibier : chasse lundi, mercredi, samedi et dimanche ; mardi, jeudi et vendredi réservés à certains modes (poste fixe, zones humides).",
+  "sources": [
+   "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Anticipé 1er juin au 12 septembre 2026 ; général 13 septembre 2026 au 3 janvier 2027 ; par unité de gestion 4 janvier au 31 mars 2027 ; semis 1er avril au 31 mai 2027",
+    "mode": "Tous modes lundi, mercredi, samedi et dimanche ; affût individuel anticipé",
+    "note": "Affût anticipé sur autorisation préfectorale individuelle ; battues dès le 15 août selon les unités de gestion. Semis : affût, battue exceptionnelle, autorisation préfectorale.",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Anticipé (brocard) 1er juin au 12 septembre 2026 ; 13 septembre 2026 au 28 février 2027",
+    "mode": "Tir à balle ou arc ; approche, affût ou battue tous les jours",
+    "note": "Tir d'été réservé aux bénéficiaires d'un plan de chasse. Plomb en battue possible selon l'arrêté du 16/04/2014.",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "Anticipé (mâle) 1er juin au 12 septembre 2026 ; 13 septembre 2026 au 28 février 2027",
+    "mode": "Tir à balle ou arc ; approche, affût ou battue",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er octobre 2026 au 28 février 2027 ; battues dès le 17 octobre 2026",
+    "mode": "Tir à balle ou arc ; approche, affût ou battue",
+    "note": "Cerf sika soumis aux mêmes dates.",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Mouflon",
+    "period": "Anticipé 1er au 12 septembre 2026 ; 13 septembre 2026 au 28 février 2027",
+    "mode": "Tir à balle ou arc ; approche, affût ou battue",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "27 septembre au 13 décembre 2026",
+    "mode": "Lundi, mercredi, samedi et dimanche",
+    "note": "Sur territoires sous plan de chasse, prélèvements réservés aux bénéficiaires.",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix",
+    "period": "13 septembre au 31 décembre 2026",
+    "mode": "Lundi, mercredi, samedi et dimanche",
+    "note": "Perdrix rouge et grise.",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan",
+    "period": "13 septembre 2026 au 31 janvier 2027",
+    "mode": "Lundi, mercredi, samedi et dimanche",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "13 septembre 2026 au 20 février 2027",
+    "mode": "Samedi, dimanche, lundi et mercredi",
+    "note": "2 par chasseur et par jour ; déclaration sur ChassAdapt ou carnet papier.",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "13 septembre 2026 au 10 février 2027 ; palombe seule du 11 au 20 février 2027",
+    "mode": "Lundi, mercredi, samedi et dimanche ; mardi, jeudi, vendredi à poste fixe ; du 11 au 20 février poste fixe matérialisé avec appelants",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Canard colvert / gibier d'eau",
+    "period": "Anticipé 21 août au 12 septembre 2026 ; 13 septembre 2026 au 31 janvier 2027",
+    "mode": "Tous les jours ; tir à 30 m maximum de la nappe d'eau en ouverture anticipée",
+    "note": "15 par jour et par chasseur (sauf colvert en anticipé), déclaration sur ChassAdapt.",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juin au 12 septembre 2026 ; 13 septembre 2026 au 28 février 2027",
+    "mode": "Tous les jours en période anticipée ; ensuite dans le cadre du plan de chasse, de la chasse au sanglier ou en battues consignées",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Mardi, jeudi et vendredi : bécassine, canard et oie uniquement sur zones humides, à moins de 30 m de l'eau.",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pies, geais, étourneaux et corneille : lundi, mercredi, samedi, dimanche sans condition ; mardi, jeudi, vendredi à poste fixe ou affût matérialisé.",
+    "source": "https://www.chasse-nature-occitanie.fr/aveyron/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

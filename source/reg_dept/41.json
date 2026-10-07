@@ -1,0 +1,61 @@
+{
+ "dpt": "41",
+ "name": "Loir-et-Cher",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://fdc41.com",
+  "peche": "",
+  "arretes": "https://fdc41.com/documentations/reglementation-et-arretes/"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "27 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://fdc41.com/ouvertures-et-fermetures-de-la-chasse/",
+   "https://fdc41.com/wp-content/uploads/2025/12/AP-regulation-du-sanglier-2026-responsables-de-territoire.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Bécasse des bois",
+    "period": "27 septembre 2026 au 20 février 2027",
+    "mode": "",
+    "note": "2 par jour, 3 par semaine, 30 par saison ; carnet de prélèvement et dispositif de marquage obligatoires.",
+    "source": "https://fdc41.com/ouvertures-et-fermetures-de-la-chasse/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sanglier",
+    "period": "1er avril au 31 mai 2027 (régulation sur parcelles agricoles)",
+    "mode": "Affût ou approche de jour ; battue exceptionnelle",
+    "note": "Pour les responsables de territoire et titulaires d'une autorisation préfectorale ; battue déclarée par écrit 48 h avant à la DDT, l'OFB et la FDC41 ; bilan avant le 1er juillet.",
+    "source": "https://fdc41.com/wp-content/uploads/2025/12/AP-regulation-du-sanglier-2026-responsables-de-territoire.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture à partir du 27 septembre 2026 pour les espèces listées par la FDC41, clôture générale le 28 février 2027.",
+    "source": "https://fdc41.com/ouvertures-et-fermetures-de-la-chasse/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Alouette des champs, bécassine et barge rousse : clôture au 31 janvier 2027 ; gibier d'eau chassé du 21 août 2026 en marais non asséchés, cours d'eau, étangs et 30 m alentour avec droit de chasse sur le plan d'eau.",
+    "source": "https://fdc41.com/ouvertures-et-fermetures-de-la-chasse/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Régulation du sanglier : gilet ou vêtement fluorescent obligatoire en battue, et à l'affût entre 9h et 17h ; aucune opération commerciale liée aux prélèvements.",
+    "source": "https://fdc41.com/wp-content/uploads/2025/12/AP-regulation-du-sanglier-2026-responsables-de-territoire.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

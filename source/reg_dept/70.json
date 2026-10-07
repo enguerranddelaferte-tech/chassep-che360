@@ -1,0 +1,121 @@
+{
+ "dpt": "70",
+ "name": "Haute-Saône",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.haute-saone.gouv.fr/contenu/telechargement/42242/337751/file/Affiche-A3-arrete-peche-2024.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890"
+  ],
+  "especes": [],
+  "infos": [
+   {
+    "text": "Ouverture générale de la chasse indiquée au 13 septembre 2026 à 8 h (source secondaire, arrêté préfectoral non lu).",
+    "source": "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890",
+    "confidence": "a_verifier"
+   }
+  ],
+  "note": "arrêté préfectoral 2026-2027 non trouvé"
+ },
+ "peche": {
+  "saison": "2024",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1re cat. : 27 avril au 15 septembre ; 2e cat. : 1er au 28 janvier et 27 avril au 31 décembre.",
+    "note": "Maximum 2 brochets par jour (3 carnassiers au total en 2e catégorie). Appâts et leurres vifs, morts ou artificiels interdits du 29 janvier au 26 avril en 2e catégorie.",
+    "source": "https://www.haute-saone.gouv.fr/contenu/telechargement/42242/337751/file/Affiche-A3-arrete-peche-2024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "27 avril au 15 septembre (fenêtres particulières pour la Saône et d'autres eaux).",
+    "note": "Compris dans la limite de 3 carnassiers par jour en 2e catégorie.",
+    "source": "https://www.haute-saone.gouv.fr/contenu/telechargement/42242/337751/file/Affiche-A3-arrete-peche-2024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Compris dans la limite de 3 carnassiers par jour en 2e catégorie.",
+    "source": "https://www.haute-saone.gouv.fr/contenu/telechargement/42242/337751/file/Affiche-A3-arrete-peche-2024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 25,
+    "dailyQuota": null,
+    "period": "9 mars au 15 septembre.",
+    "note": "Taille minimale réduite à 23 cm dans certaines eaux (Ognon et Miellin en amont de leur confluence, Breuchin en amont du barrage du Clément). 6 salmonidés par jour dont 4 truites fario et ombres au plus.",
+    "source": "https://www.haute-saone.gouv.fr/contenu/telechargement/42242/337751/file/Affiche-A3-arrete-peche-2024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 35,
+    "dailyQuota": null,
+    "period": "18 mai au 15 septembre en 1re catégorie ; 18 mai au 31 décembre en 2e catégorie.",
+    "note": "",
+    "source": "https://www.haute-saone.gouv.fr/contenu/telechargement/42242/337751/file/Affiche-A3-arrete-peche-2024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "Toutes catégories",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Anguille argentée : pêche interdite toute l'année ; anguille jaune : dates fixées par arrêté ministériel.",
+    "note": "Quota 0 valable pour l'anguille argentée uniquement.",
+    "source": "https://www.haute-saone.gouv.fr/contenu/telechargement/42242/337751/file/Affiche-A3-arrete-peche-2024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses autochtones",
+    "category": "Toutes catégories",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Pêche interdite toute l'année pour les écrevisses à pattes rouges, à pattes blanches et des torrents.",
+    "note": "Autres écrevisses : 9 mars au 15 septembre, toute l'année dans certaines eaux.",
+    "source": "https://www.haute-saone.gouv.fr/contenu/telechargement/42242/337751/file/Affiche-A3-arrete-peche-2024.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "1re catégorie : 1 ligne et 6 balances à écrevisses ; 2e catégorie : 4 lignes et 6 balances à écrevisses.",
+    "source": "https://www.haute-saone.gouv.fr/contenu/telechargement/42242/337751/file/Affiche-A3-arrete-peche-2024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche interdite plus de 30 minutes avant le lever et après le coucher du soleil ; réserve naturelle des Ballons comtois : pêche interdite dans les ruisseaux listés.",
+    "source": "https://www.haute-saone.gouv.fr/contenu/telechargement/42242/337751/file/Affiche-A3-arrete-peche-2024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Remonter en marchant dans l'eau interdit du 9 mars au 17 mai dans les secteurs désignés par les AAPPMA.",
+    "source": "https://www.haute-saone.gouv.fr/contenu/telechargement/42242/337751/file/Affiche-A3-arrete-peche-2024.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "note": "Arrêté DDT n° 459 du 15 décembre 2023 (saison 2024), à confirmer pour 2026."
+ }
+}

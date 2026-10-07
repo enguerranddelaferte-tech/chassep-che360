@@ -1,0 +1,63 @@
+{
+ "dpt": "37",
+ "name": "Indre-et-Loire",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://fdc37.fr",
+  "peche": "",
+  "arretes": "https://fdc37.fr/documentations/reglementation-et-arretes/"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026 à 9h",
+  "cloture": "28 février 2027 au soir",
+  "joursSansChasse": "",
+  "sources": [
+   "https://fdc37.fr/ouvertures-et-fermetures-de-la-chasse/",
+   "https://fdc37.fr/documentations/grand-gibier/"
+  ],
+  "especes": [
+   {
+    "species": "Bécasse des bois",
+    "period": "20 septembre 2026 au 20 février 2027",
+    "mode": "",
+    "note": "La page de la FDC affiche 20/09/2025 comme date d'ouverture (probable coquille) ; clôture 20/02/2027.",
+    "source": "https://fdc37.fr/ouvertures-et-fermetures-de-la-chasse/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale le 20 septembre 2026 à 9h, clôture le 28 février 2027 au soir, pour l'ensemble du département.",
+    "source": "https://fdc37.fr/ouvertures-et-fermetures-de-la-chasse/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Vénerie sous terre du blaireau du 15 septembre 2026 au 15 janvier 2027, avec périodes complémentaires du 15 au 30 juin 2026, du 1er juillet au 14 septembre 2026 et du 15 mai au 30 juin 2027.",
+    "source": "https://fdc37.fr/ouvertures-et-fermetures-de-la-chasse/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Le département n'est pas soumis à un plan de chasse sanglier : il faut un plan de gestion sanglier et un bouton de contribution de 40 €.",
+    "source": "https://fdc37.fr/documentations/grand-gibier/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "L'agrainage est interdit, sauf signature d'une charte d'agrainage avec la FDC37 (valable 3 ans).",
+    "source": "https://fdc37.fr/documentations/grand-gibier/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Les demandes de plan de chasse grand gibier sont à retourner avant le 10 mars ; tout animal soumis à bracelet doit être marqué avant tout déplacement.",
+    "source": "https://fdc37.fr/documentations/grand-gibier/",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

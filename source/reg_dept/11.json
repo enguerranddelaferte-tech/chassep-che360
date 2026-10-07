@@ -1,0 +1,144 @@
+{
+ "dpt": "11",
+ "name": "Aude",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.chasse-nature-occitanie.fr/aude",
+  "peche": "",
+  "arretes": "https://www.chasse-nature-occitanie.fr/aude/documents/AP-ouv-clot-2026-2027-signA-.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+   "https://www.chasse-nature-occitanie.fr/aude/documents/AP-ouv-clot-2026-2027-signA-.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juin au 14 août 2026 (anticipé), 15 août 2026 au 31 mars 2027, 1er avril au 31 mai 2027 (semis)",
+    "mode": "Affût tous les jours ; battue mercredi, samedi, dimanche et jours fériés",
+    "note": "Avant le 8 octobre, chasse en vignes soumise à l'accord écrit de l'exploitant. Du 1er avril au 31 mai : protection des semis uniquement, sur autorisation préfectorale.",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juin 2026 au 28 février 2027",
+    "mode": "Affût ou approche tous les jours ; battue mercredi, samedi, dimanche et jours fériés (dès le 13 septembre)",
+    "note": "Brocard seul avec bracelet CHI APP jusqu'au 7 septembre, puis bracelet CHI ou CHI APP.",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "1er juin 2026 au 28 février 2027",
+    "mode": "Affût ou approche tous les jours ; battue mercredi, samedi, dimanche et jours fériés",
+    "note": "Mêmes conditions que le chevreuil.",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "Affût ou approche tous les jours ; battue mercredi, samedi, dimanche et jours fériés",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Isard",
+    "period": "13 septembre 2026 au 28 février 2027",
+    "mode": "Approche ou affût tous les jours",
+    "note": "Battues et chiens interdits.",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Mouflon",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "Approche ou affût tous les jours",
+    "note": "Battues et chiens interdits.",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Zone 1 : 13 septembre au 11 novembre 2026 ; zone 2 : 11 octobre au 20 décembre 2026",
+    "mode": "Mercredi, samedi, dimanche et jours fériés",
+    "note": "1 lièvre par jour de chasse et 8 par saison.",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix",
+    "period": "Rouge : 11 octobre au 13 décembre 2026 ; grise de plaine : 13 septembre au 13 décembre 2026 ; grise de montagne (zone 1) : 4 au 25 octobre 2026",
+    "mode": "Perdrix rouge : samedi, dimanche et jours fériés",
+    "note": "Perdrix rouge : 2 par jour, 14 par saison. Perdrix grise de montagne : 2 par jour, 6 par saison et par chasseur ; plan de chasse sur l'unité de gestion n° 9 Pays de Sault.",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan",
+    "period": "13 septembre 2026 au 28 février 2027",
+    "mode": "Lundi, mercredi, jeudi, samedi, dimanche et jours fériés",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "13 septembre 2026 au 20 février 2027",
+    "mode": "Chien d'arrêt ou de rapport, bois de plus de 3 ha",
+    "note": "3 par jour, 6 par semaine, 30 par an.",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "13 septembre 2026 au 20 février 2027",
+    "mode": "Du 10 au 20 février : poste fixe aménagé à la main",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Canard colvert / gibier d'eau",
+    "period": "21 août 2026 au 31 janvier 2027",
+    "mode": "Arrêté ministériel",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juin au 13 septembre 2026 (anticipé) ; 13 septembre 2026 au 28 février 2027",
+    "mode": "Dans les conditions de la chasse du sanglier et du chevreuil avant l'ouverture",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Lapin : 13 septembre 2026 au 31 janvier 2027 ; furet interdit.",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Tir à plomb autorisé en battue au chevreuil et au daim dans les communes de l'annexe 3 de l'arrêté modificatif.",
+    "source": "https://www.chasse-nature-occitanie.fr/aude/documents/APmodif-ouv-clot-2026-2027-sig1.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

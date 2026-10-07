@@ -1,0 +1,131 @@
+{
+ "dpt": "40",
+ "name": "Landes",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026 à 8h",
+  "cloture": "28 février 2027 au soir",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juin 2026 au 31 mars 2027",
+    "mode": "Battue, affût ou approche",
+    "note": "Projectiles autorisés : balle, flèche ou chevrotine ; classé ESOD sur tout le département (arrêté 2026/190).",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juin au 12 septembre 2026 (affût ou approche) ; 13 septembre 2026 au 28 février 2027",
+    "mode": "Battue, affût ou approche à partir du 13 septembre",
+    "note": "Plan de chasse ; tir de jour entre 1 h avant le lever et 1 h après le coucher du soleil avant l'ouverture.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er au 12 septembre 2026 (affût ou approche) ; 13 septembre 2026 au 28 février 2027",
+    "mode": "Battue, affût ou approche à partir du 13 septembre",
+    "note": "Plan de chasse (cerf et biche).",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "1er juin au 12 septembre 2026 (affût ou approche) ; 13 septembre 2026 au 28 février 2027",
+    "mode": "Battue, affût ou approche à partir du 13 septembre",
+    "note": "Plan de chasse.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "13 septembre au 25 décembre 2026",
+    "mode": "",
+    "note": "Dates ultérieures illisibles dans le texte ; GIC La Lebe : un lièvre par jour de chasse et par équipe de 1 à 5 chasseurs.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix",
+    "period": "13 septembre 2026 au 31 janvier 2027 et 1er au 28 février 2027",
+    "mode": "",
+    "note": "Oiseaux lâchés en territoire commercial clos marqués avant lâcher.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan",
+    "period": "13 septembre 2026 au 31 janvier 2027 et 1er au 28 février 2027",
+    "mode": "",
+    "note": "Oiseaux lâchés en territoire commercial clos marqués avant lâcher.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "",
+    "mode": "",
+    "note": "Plafond national 30 par saison ; localement 2 par jour et 6 par semaine par chasseur, 4 par jour pour un groupe de 2 ou plus ; carnet à retourner avant le 31 mars ou application ChassAdapt.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Canard colvert / gibier d'eau",
+    "period": "",
+    "mode": "",
+    "note": "Maximum 25 canards par installation et par nuit (de midi à midi), oies et foulques non comptées.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale le 13 septembre 2026 à 8h et clôture le 28 février 2027 au soir (arrêté préfectoral 2026/714).",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "En novembre, la chasse de la bécasse est limitée de 8h à 17h30 ; passée et croule interdites.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Palombe : nouveaux postes fixes à au moins 300 m d'un poste existant, agrainage interdit, tir sur terrain récolté non ensemencé interdit à partir du 1er octobre.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse interdite en temps de neige, sauf grand gibier sous plan de chasse, sanglier, renard, ragondin, rat musqué et gibier d'eau dans certaines zones humides.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Vente interdite du colvert, de la perdrix, du faisan et du lièvre du 13 septembre au 10 octobre 2026, et de la palombe du 21 novembre au 20 décembre 2026.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Du 1er juin au 14 août, battue ou affût au sanglier avec déclaration préalable et bilan avant le 15 septembre ; le renard ne se tire pas à la chevrotine.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-40.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

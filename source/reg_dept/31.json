@@ -1,0 +1,146 @@
+{
+ "dpt": "31",
+ "name": "Haute-Garonne",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.chasse-nature-occitanie.fr/haute-garonne",
+  "peche": "",
+  "arretes": "https://www.chasse-nature-occitanie.fr/haute-garonne/ma-fede/actes-officiels.php"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+   "https://www.chasse-nature-occitanie.fr/haute-garonne/documents/2026-Affiche-OUVERTURES-FERMET.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juin au 14 août 2026 (autorisation préfectorale); 15 août 2026 au 31 mars 2027",
+    "mode": "Battue, approche ou affût",
+    "note": "Plan de gestion départemental; agrainage interdit sauf autorisation.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juin au 12 septembre 2026 (anticipée); 13 septembre 2026 au 28 février 2027",
+    "mode": "Approche ou affût en période anticipée (autorisation individuelle)",
+    "note": "Plan de chasse légal; chasse autorisée en temps de neige.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er au 12 septembre 2026 (anticipée); 13 septembre 2026 au 28 février 2027",
+    "mode": "Approche ou affût en période anticipée (autorisation individuelle)",
+    "note": "Plan de chasse légal; chasse autorisée en temps de neige.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "13 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Uniquement dans les enclos.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Isard",
+    "period": "13 septembre 2026 au 28 février 2027",
+    "mode": "Traque et battue interdites",
+    "note": "Présentation obligatoire des prélèvements.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Ouverture 13 septembre 2026, tir du 4 octobre au 20 décembre 2026",
+    "mode": "Tir",
+    "note": "Plan de gestion (Garonne Tarn et Coteaux).",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix rouge et grise de plaine",
+    "period": "13 septembre au 15 novembre 2026",
+    "mode": "Tir",
+    "note": "Plans de gestion GIC Auta et Hers-Ariège; enclos et établissements commerciaux jusqu'à fin février.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan",
+    "period": "13 septembre 2026 au 17 janvier 2027",
+    "mode": "Tir",
+    "note": "Plans de gestion locaux (Nère-Louge, Save-Garonne, Terre Lauragaise, Bure Saudrune).",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "13 septembre 2026 au 20 février 2027",
+    "mode": "Tir",
+    "note": "PMA 30 par an, 6 par semaine, 3 par jour.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "13 septembre 2026 au 10 février 2027, puis 11 au 20 février à poste fixe, au posé",
+    "mode": "Tir",
+    "note": "Une affiche de la FDC indique une ouverture au 29 août 2026 sous réserve du plafond national.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Canard colvert / gibier d'eau",
+    "period": "21 août au 12 septembre 2026 (anticipée, tir à 30 m des nappes d'eau); 13 septembre 2026 au 31 janvier 2027",
+    "mode": "Tir",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juin au 12 septembre 2026 (titulaires d'une autorisation chevreuil/sanglier); 13 septembre 2026 au 28 février 2027",
+    "mode": "Tir",
+    "note": "Chasse tous les jours, temps de neige autorisé.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Tir suspendu les mardis et vendredis pour le gibier sédentaire (hors gibier soumis à plan de chasse, sanglier, renard); galliformes de montagne uniquement mercredi, samedi et dimanche.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/documents/2023-jours-de-chasse-heures-lA.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Chasse de jour de 1 h avant le lever à 1 h après le coucher du soleil au chef-lieu; gibier d'eau à la passée de 2 h avant à 2 h après dans les marais, cours d'eau et plans d'eau (tir à 30 m).",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/documents/2023-jours-de-chasse-heures-lA.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Agrainage et affouragement du grand gibier interdits; chevrotine autorisée seulement dans les communes listées en annexe, aux postes désignés.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/documents/2026-32-SDGC-mesures-reglement.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Perdrix grise de montagne du 4 octobre au 8 novembre 2026; grand tétras suspendu; lagopède suspendu.",
+    "source": "https://www.chasse-nature-occitanie.fr/haute-garonne/documents/2026-Affiche-OUVERTURES-FERMET.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "note": "aucune source locale trouvée",
+  "especes": [],
+  "infos": []
+ }
+}

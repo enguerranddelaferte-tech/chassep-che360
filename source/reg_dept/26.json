@@ -1,0 +1,20 @@
+{"dpt":"26","name":"Drôme","verifiedOn":"2026-10-07",
+"liens":{"fdc":"https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-drome/","peche":"","arretes":"https://www.drome.gouv.fr/Actions-de-l-Etat/Environnement-eau-risques-naturels-et-technologiques/Environnement-eau/Espaces-naturels/La-Chasse/Reglementation/Modalites-d-exercice-de-la-chasse-dates-d-ouverture-fermeture"},
+"chasse":{"saison":"2026-2027","ouverture":"13 septembre 2026","cloture":"28 février 2027","joursSansChasse":"","sources":["https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-drome/","https://meschasses.com/drome-26/dates-chasse-2026-2027/"],
+"especes":[
+{"species":"Cerf élaphe","period":"1er septembre 2026 au 28 février 2027","mode":"","note":"Plan de chasse.","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Daim","period":"1er septembre 2026 au 28 février 2027","mode":"","note":"Plan de chasse.","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Chamois","period":"13 septembre 2026 au 28 février 2027, fermé du 12 novembre au 5 décembre 2026","mode":"","note":"Plan de chasse.","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Lièvre","period":"13 septembre 2026 au 10 janvier 2027","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Perdrix","period":"13 septembre au 13 décembre 2026","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Faisan","period":"13 septembre 2026 au 10 janvier 2027","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Bécasse des bois","period":"13 septembre 2026 au 20 février 2027","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Canard colvert / gibier d'eau","period":"13 septembre 2026 au 31 janvier 2027","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Renard","period":"1er juillet 2026 au 30 juin 2027","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"}
+],
+"infos":[
+{"text":"Ouverture générale le 13 septembre 2026 à partir de 7h, clôture le 28 février 2027 au soir.","source":"https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-drome/","confidence":"a_verifier"},
+{"text":"Arrêté préfectoral de référence cité : n° 26-2026-06-25-00008 ; les dates par espèce proviennent d'une source secondaire et doivent être confirmées dans l'arrêté.","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"text":"Piégeage du sanglier autorisé jusqu'au 30 juin 2027 par un piégeur agréé, sous supervision de la FDC 26, sur la base de l'arrêté préfectoral du 29 juin 2026 classant le sanglier ESOD.","source":"https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-26.pdf","confidence":"a_verifier"}
+]},
+"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}

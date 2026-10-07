@@ -1,0 +1,123 @@
+{
+ "dpt": "45",
+ "name": "Loiret",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://fdc45.fr/",
+  "peche": "",
+  "arretes": "https://fdc45.fr/documentations/les-reglementations-et-arretes/"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://fdc45.fr/dates-douvertures-et-de-fermetures/",
+   "https://meschasses.com/loiret-45/dates-chasse-2026-2027/",
+   "https://fdc45.fr/wp-content/uploads/2026/05/20260513-AP_Chasse_OF_26-27.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Bécasse des bois",
+    "period": "Du 20 septembre 2026 au 20 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://fdc45.fr/dates-douvertures-et-de-fermetures/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sanglier",
+    "period": "Du 1er juin 2026 au 31 mars 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "Autorisation préfectorale requise selon la période.",
+    "source": "https://meschasses.com/loiret-45/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Du 1er juin 2026 au 28 février 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "Autorisation préfectorale requise selon la période.",
+    "source": "https://meschasses.com/loiret-45/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "Du 1er septembre 2026 au 28 février 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "Autorisation préfectorale requise selon la période.",
+    "source": "https://meschasses.com/loiret-45/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "Du 1er septembre 2026 au 28 février 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/loiret-45/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Du 4 octobre 2026 au 6 décembre 2026 (plusieurs périodes)",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://meschasses.com/loiret-45/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix",
+    "period": "Du 20 septembre 2026 au 31 janvier 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/loiret-45/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "Du 20 septembre 2026 au 31 janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/loiret-45/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "Du 20 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/loiret-45/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale le 20 septembre 2026 à 9 h, clôture générale le 28 février 2027 au soir.",
+    "source": "https://fdc45.fr/dates-douvertures-et-de-fermetures/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Blaireau : chasse du 15 septembre 2026 au 15 janvier 2027.",
+    "source": "https://fdc45.fr/dates-douvertures-et-de-fermetures/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Alouette des champs, bécassines et limicoles : fermeture le 31 janvier 2027.",
+    "source": "https://fdc45.fr/dates-douvertures-et-de-fermetures/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse de la barge à queue noire et du courlis cendré suspendue par arrêté du 29 juillet.",
+    "source": "https://fdc45.fr/wp-content/uploads/2026/07/AM-29-juillet-suspension-de-la-chasse-de-la-barge-a-queue-noire-et-du-courlis-cendre.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

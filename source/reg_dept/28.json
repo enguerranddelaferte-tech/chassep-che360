@@ -1,0 +1,20 @@
+{"dpt":"28","name":"Eure-et-Loir","verifiedOn":"2026-10-07",
+"liens":{"fdc":"https://fdc28.fr/ouvertures-et-fermetures-de-la-chasse/","peche":"","arretes":"https://fdc28.fr/documentations/reglementation-et-arretes/"},
+"chasse":{"saison":"2026-2027","ouverture":"27 septembre 2026","cloture":"28 février 2027","joursSansChasse":"","sources":["https://fdc28.fr/ouvertures-et-fermetures-de-la-chasse/","https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-leure-et-loir/"],
+"especes":[
+{"species":"Bécasse des bois","period":"27 septembre 2026 au 20 février 2027","mode":"","note":"","source":"https://fdc28.fr/ouvertures-et-fermetures-de-la-chasse/","confidence":"verifie"},
+{"species":"Renard","period":"Du 20 septembre 2026 à 9h au 28 février 2027","mode":"","note":"Ouvre avec le grand gibier.","source":"https://fdc28.fr/ouvertures-et-fermetures-de-la-chasse/","confidence":"verifie"},
+{"species":"Sanglier","period":"1er juin 2026 au 31 mars 2027, puis 1er avril au 31 mai 2027","mode":"Approche, affût, battue (du 1er avril au 31 mai : approche ou affût)","note":"Plan de gestion sans plan de chasse ; tout prélèvement déclaré sous 72 h ; marquage avant déplacement pour les sangliers de 15 kg et plus.","source":"https://fdc28.fr/documentations/grand-gibier/","confidence":"a_verifier"},
+{"species":"Chevreuil","period":"1er juin 2026 au 28 février 2027 (affût/approche) ; tous modes à partir du 20 septembre 2026","mode":"Approche, affût ; tous modes après ouverture","note":"Plan de chasse ; avant l'ouverture générale, seuls les mâles, avec autorisation préfectorale.","source":"https://meschasses.com/eure-et-loir-28/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Cerf élaphe","period":"1er septembre 2026 au 28 février 2027","mode":"","note":"Plan de chasse ; mâchoires inférieures des bracelets biche à remettre à la fédération au plus tard le 10 mars.","source":"https://meschasses.com/eure-et-loir-28/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Daim","period":"1er juin 2026 au 28 février 2027","mode":"","note":"Plan de chasse.","source":"https://meschasses.com/eure-et-loir-28/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Lièvre","period":"27 septembre au 6 décembre 2026","mode":"","note":"Plan de gestion à deux niveaux : attribution et marquage dans les unités à faible densité, prélèvement libre ailleurs.","source":"https://meschasses.com/eure-et-loir-28/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Faisan","period":"27 septembre 2026 au 31 janvier 2027","mode":"","note":"Plan de gestion avec attribution et marquage ; quotas de poules faisanes avec marquage hors plan local.","source":"https://meschasses.com/eure-et-loir-28/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Perdrix grise","period":"Non chassée","mode":"","note":"Plus chassée dans le département depuis 2010 ; protocole de repeuplement pour certains territoires.","source":"https://fdc28.fr/documentations/petit-gibier/","confidence":"a_verifier"}
+],
+"infos":[
+{"text":"Grand gibier et renard ouvrent le 20 septembre 2026 à 9h ; les autres gibiers sédentaires le 27 septembre 2026 à 9h ; clôture générale le 28 février 2027 à 18h.","source":"https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-leure-et-loir/","confidence":"a_verifier"},
+{"text":"Alouette des champs : 27 septembre 2026 au 31 janvier 2027.","source":"https://fdc28.fr/ouvertures-et-fermetures-de-la-chasse/","confidence":"verifie"},
+{"text":"Arrêté préfectoral de référence cité : DDT-SGREB-2026-112.","source":"https://meschasses.com/eure-et-loir-28/dates-chasse-2026-2027/","confidence":"a_verifier"}
+]},
+"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}

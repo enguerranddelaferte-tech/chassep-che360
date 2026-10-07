@@ -1,0 +1,132 @@
+{
+ "dpt": "88",
+ "name": "Vosges",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf"
+ },
+ "chasse": {
+  "saison": "2025-2026",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Cerf élaphe",
+    "period": "1er septembre 2025 au 28 février 2026",
+    "mode": "Individuelle et silencieuse; battue selon périodes et massifs",
+    "note": "Plan de chasse; bracelet et télédéclaration sous 48 h.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juin 2025 au 28 février 2026",
+    "mode": "Individuelle et silencieuse; battue à partir du 21 septembre",
+    "note": "Plan de chasse; avant le 15 août: mâles seulement.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chamois",
+    "period": "1er septembre 2025 au 28 février 2026",
+    "mode": "Individuelle et silencieuse",
+    "note": "Plan de chasse; notification individuelle.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sanglier",
+    "period": "1er juin 2025 au 31 mars 2026",
+    "mode": "Individuelle et silencieuse, battue selon périodes",
+    "note": "Plan de gestion; notification individuelle jusqu'au 20 septembre.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "1er juin 2025 au 28 février 2026",
+    "mode": "Individuelle et silencieuse jusqu'au 20 septembre; battue ensuite",
+    "note": "Parcs de chasse, titulaires d'un plan de chasse.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Mouflon",
+    "period": "1er juin 2025 au 28 février 2026",
+    "mode": "Individuelle et silencieuse jusqu'au 20 septembre; battue ensuite",
+    "note": "Parcs de chasse, titulaires d'un plan de chasse.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "11 octobre au 1er novembre 2025",
+    "mode": "Tir",
+    "note": "Plan de gestion.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix grise",
+    "period": "21 au 30 septembre 2025",
+    "mode": "Tir",
+    "note": "Plan de gestion.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix rouge",
+    "period": "21 septembre 2025 au 31 janvier 2026",
+    "mode": "Tir",
+    "note": "Plan de gestion.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan commun",
+    "period": "21 septembre 2025 au 31 janvier 2026",
+    "mode": "Tir",
+    "note": "Poules seulement du 21 au 30 septembre.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juin 2025 au 28 février 2026",
+    "mode": "Individuelle; battue à partir du 1er août",
+    "note": "Avant l'ouverture: notification individuelle chevreuil ou sanglier.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale 2025-2026: 21 septembre 2025 à 8 h, clôture le 28 février 2026; aucun jour sans chasse prévu.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Alouette des champs et vanneau huppé: chasse interdite; grenaille de plomb interdite en zones humides.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/06/FDC-88.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Ouverture générale 2026 annoncée au 20 septembre à 8 h (source secondaire, arrêté 2026-2027 non retrouvé).",
+    "source": "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

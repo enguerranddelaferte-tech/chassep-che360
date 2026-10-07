@@ -1,0 +1,34 @@
+{
+ "dpt": "46",
+ "name": "Lot",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-lot/",
+  "peche": "",
+  "arretes": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-lot/"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-lot/"
+  ],
+  "especes": [],
+  "infos": [
+   {
+    "text": "Dates par espèce fixées par arrêté préfectoral ; ouverture générale le 13 septembre 2026 au matin, clôture le 28 février 2027 au soir.",
+    "source": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-lot/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "note": "détail par espèce non lu : arrêté officiel inaccessible"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

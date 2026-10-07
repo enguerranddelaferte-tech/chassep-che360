@@ -1,0 +1,104 @@
+{
+ "dpt": "44",
+ "name": "Loire-Atlantique",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.chasse44.fr/",
+  "peche": "",
+  "arretes": "https://www.chasse44.fr/telechargement/arretes-et-textes"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-loire-atlantique/",
+   "https://meschasses.com/loire-atlantique-44/dates-chasse-2026-2027/"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Du 1er juin 2026 au 31 mars 2027",
+    "mode": "",
+    "note": "Du 1er juin au 14 août 2026 : approche, affût ou battue sur autorisation préfectorale individuelle ; ouverture générale ensuite.",
+    "source": "https://meschasses.com/loire-atlantique-44/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Du 1er juin 2026 au 28 février 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/loire-atlantique-44/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "Du 1er septembre 2026 au 28 février 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/loire-atlantique-44/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "Du 1er juin 2026 au 28 février 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/loire-atlantique-44/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Du 11 octobre 2026 au 17 janvier 2027",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://meschasses.com/loire-atlantique-44/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix",
+    "period": "Du 20 septembre 2026 au 17 janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/loire-atlantique-44/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "Du 20 septembre 2026 au 17 janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/loire-atlantique-44/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "Du 1er juin 2026 au 28 février 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/loire-atlantique-44/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté préfectoral n° 2026/SEE/0063 : ouverture générale le 20 septembre 2026 à 9 h, clôture le 28 février 2027.",
+    "source": "https://meschasses.com/loire-atlantique-44/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Blaireau : chasse du 20 septembre 2026 au 28 février 2027 ; période complémentaire de vénerie sous terre proposée du 15 mai au 14 septembre 2027 (projet d'arrêté).",
+    "source": "https://www.aves.asso.fr/2026/04/loire-atlantique-jusquau-14-avril-2026-consultation-publique-sur-le-projet-darrete-douverture-et-de-cloture-generales-de-la-chasse-pour-la-saison-2026-2027-prevoyant-une-periode-complem/",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

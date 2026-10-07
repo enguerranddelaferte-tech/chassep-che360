@@ -1,0 +1,110 @@
+{
+ "dpt": "69",
+ "name": "Rhône",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf"
+ },
+ "chasse": {
+  "saison": "2024-2025 (saison antérieure, projet d'arrêté)",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf",
+   "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "8 septembre 2024 au 31 mars 2025 (saison 2024-2025)",
+    "mode": "Battue, affût, approche",
+    "note": "Du 1er avril au 31 mai 2025, tir limité à la protection des cultures, à l'affût ou à l'approche, exceptionnellement en battue sur autorisation préfectorale. Marquage sur le lieu de capture et déclaration à la FDC sous 48 h.",
+    "source": "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "8 septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "Balle ou arc",
+    "note": "Réservé aux titulaires d'un plan de chasse ; marquage avant transport et déclaration à la FDC sous 48 h.",
+    "source": "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "8 septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "Balle ou arc",
+    "note": "Réservé aux titulaires d'un plan de chasse.",
+    "source": "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "8 septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "Balle ou arc",
+    "note": "Réservé aux titulaires d'un plan de chasse.",
+    "source": "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "22 septembre au 10 novembre 2024 (saison 2024-2025)",
+    "mode": "Tir",
+    "note": "Certaines unités de gestion ouvrent seulement du 13 octobre au 10 novembre 2024 ; prélèvement limité par unité (marquage dans certaines).",
+    "source": "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix",
+    "period": "8 septembre au 10 novembre 2024 (saison 2024-2025)",
+    "mode": "Tir",
+    "note": "Périodes raccourcies pour la perdrix rouge dans plusieurs unités de gestion.",
+    "source": "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "8 septembre 2024 au 5 janvier 2025 (saison 2024-2025)",
+    "mode": "Tir",
+    "note": "",
+    "source": "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "8 septembre 2024 au 20 février 2025 (saison 2024-2025)",
+    "mode": "Tir",
+    "note": "3 oiseaux par jour et 6 par semaine jusqu'au 31 décembre 2024, puis 3 par semaine ; déclaration des prélèvements obligatoire.",
+    "source": "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Chasse à tir suspendue les mardis et vendredis hors jours fériés, avec exceptions (migrateurs, gibier d'eau, chevreuil, daim, espèces causant des dégâts, sanglier).",
+    "source": "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Battue au grand gibier : 5 chasseurs minimum, 20 ha d'un seul tenant, carnet de battue et vêtement fluorescent.",
+    "source": "https://www.rhone.gouv.fr/contenu/telechargement/59537/405069/file/2024xxxx_AP2024-Axx_Ouverture_2024-2025.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Dates d'ouverture générale 2026 relevées dans une source secondaire : 13 septembre 2026 à 8 h.",
+    "source": "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890",
+    "confidence": "a_verifier"
+   }
+  ],
+  "note": "Seule une version 2024-2025 (projet d'arrêté) a été lue ; l'arrêté 2026-2027 n'a pas été trouvé."
+ },
+ "peche": {
+  "saison": "",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

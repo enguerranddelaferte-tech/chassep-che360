@@ -1,0 +1,42 @@
+{
+ "dpt": "38",
+ "name": "Isère",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2025/07/FDC-38.pdf"
+ },
+ "chasse": {
+  "saison": "2025-2026 (arrêté 2026-2027 non trouvé)",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/wp-content/uploads/2025/07/FDC-38.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "14 septembre 2025 au 28 février 2026 ; 1er au 31 mars 2026 ; 1er avril au 31 mai 2026",
+    "mode": "Toutes méthodes du 14/09 au 28/02 ; battue (une équipe), affût ou approche en mars ; affût ou approche en avril-mai",
+    "note": "Saison 2025-2026 : du 1er juillet au 14 août 2025 et du 1er au 30 juin 2026, approche ou affût sans chien avec autorisation préfectorale. Plan de gestion départemental.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/07/FDC-38.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Le sanglier relève d'un plan de gestion départemental et du SDGC ; le lâcher de sangliers hors enclos de chasse est interdit (arrêté du 26 juin 2025, saison 2025-2026).",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2025/07/FDC-38.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

@@ -1,0 +1,18 @@
+{"dpt":"27","name":"Eure","verifiedOn":"2026-10-07",
+"liens":{"fdc":"https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-leure/","peche":"","arretes":"https://www.eure.gouv.fr/Actions-de-l-Etat/Environnement/Consultations-enquetes-publiques-et-participation-du-public-par-voie-electronique-PPVE/Consultations-publiques/Chasse/CONSULTATIONS-EN-COURS/CLOSE-Projet-relatif-a-l-ouverture-et-a-la-cloture-de-la-chasse-dans-l-Eure-Campagne-2026-2027"},
+"chasse":{"saison":"2026-2027","ouverture":"27 septembre 2026","cloture":"28 février 2027","joursSansChasse":"","sources":["https://meschasses.com/eure-27/dates-chasse-2026-2027/"],
+"especes":[
+{"species":"Chevreuil","period":"Affût/approche du 8 juin 2026 au 28 février 2027 ; tous modes du 11 octobre 2026 au 28 février 2027","mode":"Affût, approche, puis tous modes","note":"Autorisation préfectorale.","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Cerf élaphe","period":"1er septembre 2026 au 28 février 2027","mode":"","note":"Autorisation préfectorale.","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Daim","period":"8 juin 2026 au 28 février 2027","mode":"","note":"Autorisation préfectorale.","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Lièvre","period":"27 septembre au 29 novembre 2026","mode":"","note":"","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Perdrix","period":"27 septembre 2026 au 31 janvier 2027","mode":"","note":"","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Faisan","period":"27 septembre 2026 au 31 janvier 2027","mode":"","note":"","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Pigeon ramier","period":"20 septembre 2026 au 20 février 2027","mode":"Affût, approche avant l'ouverture générale","note":"","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"species":"Renard","period":"8 juin 2026 au 28 février 2027","mode":"","note":"","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"}
+],
+"infos":[
+{"text":"Arrêté préfectoral de référence cité : DDTM/SEBF/2026-120 ; les dates ci-dessus proviennent d'une source secondaire et doivent être confirmées dans l'arrêté.","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
+{"text":"Consultation publique de la préfecture sur le projet d'arrêté d'ouverture et de clôture de la chasse, campagne 2026-2027.","source":"https://www.eure.gouv.fr/Actions-de-l-Etat/Environnement/Consultations-enquetes-publiques-et-participation-du-public-par-voie-electronique-PPVE/Consultations-publiques/Chasse/CONSULTATIONS-EN-COURS/CLOSE-Projet-relatif-a-l-ouverture-et-a-la-cloture-de-la-chasse-dans-l-Eure-Campagne-2026-2027","confidence":"a_verifier"}
+]},
+"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}

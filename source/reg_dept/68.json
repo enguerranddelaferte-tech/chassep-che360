@@ -1,0 +1,26 @@
+{
+ "dpt": "68",
+ "name": "Haut-Rhin",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": ""
+ },
+ "chasse": {
+  "saison": "",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [],
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ },
+ "peche": {
+  "saison": "",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "dpt": "42",
+ "name": "Loire",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juin 2026 au 31 mai 2027 selon phases ; 13 septembre 2026 au 28 février 2027 en saison",
+    "mode": "Battue, affût ou approche",
+    "note": "Plan de gestion sanglier ; avant le 14 août, affût ou approche (battue dès le 1er août) avec autorisation individuelle, balle ou arc ; du 1er avril au 31 mai, protection des semis sur autorisation.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juin au 12 septembre 2026 (mâles adultes) ; 13 septembre 2026 au 28 février 2027",
+    "mode": "Affût ou approche avant l'ouverture ; sans chien ni rabatteur",
+    "note": "Plan de chasse ; autorisation préfectorale individuelle avant l'ouverture ; marquage sur place avant transport.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "13 septembre au 14 octobre 2026 (approche ou affût, mâles) ; 15 octobre 2026 au 28 février 2027",
+    "mode": "Battue, approche ou affût à partir du 15 octobre",
+    "note": "Plan de chasse ; brevet grand gibier ou certificat de capacité exigé ; marquage sur place.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "1er août au 12 septembre 2026 ; 13 septembre 2026 au 28 février 2027",
+    "mode": "Affût ou approche avant l'ouverture",
+    "note": "Plan de chasse ; marquage sur place avant transport.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Mouflon",
+    "period": "13 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Plan de chasse ; marquage sur place avant transport.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "13 septembre 2026 au 31 janvier 2027 au plus tard",
+    "mode": "",
+    "note": "Chasse interdite hors territoires de sociétés membres du plan ; bracelet à la patte avant droite.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "13 septembre 2026 au 28 février 2027 ; départ anticipé dès le 1er juin 2026",
+    "mode": "Approche ou affût avant l'ouverture",
+    "note": "Du 1er juin au 14 août, autorisation individuelle ; du 15 août au 12 septembre, lors des chasses chevreuil ou sanglier.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "13 septembre 2026 au 20 février 2027",
+    "mode": "",
+    "note": "Plafond national 30 par an ; 6 par semaine et 3 par jour jusqu'au 31 décembre 2026, puis 3 par semaine ; bracelet et carnet ou ChassAdapt.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "13 septembre 2026 au 10 février 2027",
+    "mode": "",
+    "note": "Chasse interdite en temps de neige.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Heure de tir : de 1 h avant le lever à 1 h après le coucher du soleil ; gibier d'eau à la passée de 2 h avant le lever à 2 h après le coucher.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lapin de garenne chassé du 13 septembre 2026 au 31 janvier 2027 les samedi, dimanche, lundi, mercredi et jours fériés seulement.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Vénerie sous terre du 15 septembre 2026 au 15 janvier 2027 ; vénerie à courre du 15 septembre 2026 au 31 mars 2027 ; déterrage du blaireau du 1er juin au 15 août 2026.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Gélinotte des bois interdite ; tourterelle des bois suspendue en attendant les règles ministérielles 2026-2027.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

@@ -1,0 +1,99 @@
+{
+ "dpt": "33",
+ "name": "Gironde",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": ""
+ },
+ "chasse": {
+  "saison": "2024-2025 (saison précédente, 2026-2027 non trouvée)",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://chasseurdefrance.com/wp-content/uploads/2024/07/FDC_33_APO.pdf"
+  ],
+  "note": "aucune source locale trouvée pour 2026-2027",
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "15 août 2024 au 31 mars 2025 (saison 2024-2025)",
+    "mode": "",
+    "note": "Bracelet de marquage obligatoire avant tout déplacement.",
+    "source": "https://chasseurdefrance.com/wp-content/uploads/2024/07/FDC_33_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "8 septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "Approche ou affût en période anticipée",
+    "note": "Plan de chasse individuel.",
+    "source": "https://chasseurdefrance.com/wp-content/uploads/2024/07/FDC_33_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "8 septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "",
+    "note": "Plan de chasse individuel.",
+    "source": "https://chasseurdefrance.com/wp-content/uploads/2024/07/FDC_33_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "8 septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "",
+    "note": "Balle obligatoire en cas d'arme à feu.",
+    "source": "https://chasseurdefrance.com/wp-content/uploads/2024/07/FDC_33_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "8 septembre 2024 au 5 janvier 2025 (saison 2024-2025)",
+    "mode": "",
+    "note": "Tir reporté au 2e dimanche d'octobre dans plusieurs cantons.",
+    "source": "https://chasseurdefrance.com/wp-content/uploads/2024/07/FDC_33_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "8 septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "",
+    "note": "",
+    "source": "https://chasseurdefrance.com/wp-content/uploads/2024/07/FDC_33_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "Saison 2024-2025",
+    "mode": "",
+    "note": "PMA 5 oiseaux par semaine; carnet à retourner à la FDC avant le 30 juin 2025.",
+    "source": "https://chasseurdefrance.com/wp-content/uploads/2024/07/FDC_33_APO.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "8 septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "",
+    "note": "",
+    "source": "https://chasseurdefrance.com/wp-content/uploads/2024/07/FDC_33_APO.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Gibier d'eau : plan de 25 pièces par jour et par installation (saison 2024-2025).",
+    "source": "https://chasseurdefrance.com/wp-content/uploads/2024/07/FDC_33_APO.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "note": "aucune source locale trouvée",
+  "especes": [],
+  "infos": []
+ }
+}

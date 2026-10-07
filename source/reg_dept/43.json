@@ -1,0 +1,110 @@
+{
+ "dpt": "43",
+ "name": "Haute-Loire",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-haute-loire/",
+  "peche": "",
+  "arretes": "https://www.haute-loire.gouv.fr/contenu/telechargement/17674/120750/file/ArreteSigne_OuvertureChasse_2026-2027_V04.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "Mardis et vendredis pour le gibier sédentaire (au moins deux jours par semaine selon arrêté préfectoral).",
+  "sources": [
+   "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-haute-loire/",
+   "https://meschasses.com/haute-loire-43/dates-chasse-2026-2027/",
+   "https://www.lacommere43.fr/actualites/item/84882-le-daim-integre-au-plan-de-chasse-en-haute-loire-pour-la-saison-2026-2027.html"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Du 1er juin 2026 au 31 mai 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/haute-loire-43/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Du 1er juin 2026 au 28 février 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "Autorisation préfectorale et plan de chasse.",
+    "source": "https://meschasses.com/haute-loire-43/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "Du 17 octobre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://meschasses.com/haute-loire-43/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "Du 13 septembre 2026 au 28 février 2027",
+    "mode": "Battue, approche ou affût ; arc ou arme à feu avec balle",
+    "note": "Plan de chasse nouveau en 2026-2027 ; bracelet à 50 euros.",
+    "source": "https://www.lacommere43.fr/actualites/item/84882-le-daim-integre-au-plan-de-chasse-en-haute-loire-pour-la-saison-2026-2027.html",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Du 27 septembre 2026 au 6 décembre 2026",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/haute-loire-43/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix",
+    "period": "Du 13 septembre 2026 au 6 décembre 2026 (plusieurs périodes)",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/haute-loire-43/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "Du 13 septembre 2026 au 1er janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/haute-loire-43/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "Du 13 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/haute-loire-43/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté DDT-SEF 2026-139 : ouverture générale le 13 septembre 2026 à 7 h, clôture le 28 février 2027 au soir.",
+    "source": "https://meschasses.com/haute-loire-43/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Jours sans chasse du gibier sédentaire : mardis et vendredis par arrêté préfectoral ; les règlements locaux peuvent être plus stricts.",
+    "source": "https://www.lacommere43.fr/actualites/item/84882-le-daim-integre-au-plan-de-chasse-en-haute-loire-pour-la-saison-2026-2027.html",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Enregistrement obligatoire sur Chassadapt pour les prélèvements de caille des blés, tourterelle des bois et canards.",
+    "source": "https://www.lacommere43.fr/actualites/item/84882-le-daim-integre-au-plan-de-chasse-en-haute-loire-pour-la-saison-2026-2027.html",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "dpt": "58",
+ "name": "Nièvre",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.nievre.gouv.fr/contenu/telechargement/17424/147207/file/A_Chevreuils_2024-2026.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.nievre.gouv.fr/contenu/telechargement/17424/147207/file/A_Chevreuils_2024-2026.pdf"
+  ],
+  "especes": [],
+  "infos": [
+   {
+    "text": "Un plan de chasse triennal chevreuil couvre les campagnes 2024-2025 à 2026-2027 (minimum et maximum annuels en pourcentage de l'attribution globale) ; au moins un bracelet de tir d'été par territoire. Document diffusé à l'état de projet.",
+    "source": "https://www.nievre.gouv.fr/contenu/telechargement/17424/147207/file/A_Chevreuils_2024-2026.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": []
+ },
+ "note": "source locale partielle (plan de chasse chevreuil uniquement)"
+}

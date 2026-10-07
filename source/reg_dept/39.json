@@ -1,0 +1,87 @@
+{
+ "dpt": "39",
+ "name": "Jura",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.jura.gouv.fr/contenu/telechargement/29205/225711/file/PROJET%20AP_ouverture_cloture.pdf"
+ },
+ "chasse": {
+  "saison": "2024-2025 (projet non signé ; arrêté 2026-2027 non trouvé)",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.jura.gouv.fr/contenu/telechargement/29205/225711/file/PROJET%20AP_ouverture_cloture.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "8 septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "Battue, affût ou approche",
+    "note": "Projet d'arrêté non signé de la saison 2024-2025, à actualiser. Chasse anticipée sur autorisation préfectorale du 1er juillet au 7 septembre ; mars : affût ou approche seulement.",
+    "source": "https://www.jura.gouv.fr/contenu/telechargement/29205/225711/file/PROJET%20AP_ouverture_cloture.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chamois",
+    "period": "8 septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "Approche individuelle, sans rabatteur ni chien",
+    "note": "Projet d'arrêté non signé de la saison 2024-2025, à actualiser. Plan de chasse obligatoire.",
+    "source": "https://www.jura.gouv.fr/contenu/telechargement/29205/225711/file/PROJET%20AP_ouverture_cloture.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juillet 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "Affût ou approche avant l'ouverture générale ; toutes méthodes ensuite",
+    "note": "Projet d'arrêté non signé de la saison 2024-2025, à actualiser. Plan de chasse obligatoire.",
+    "source": "https://www.jura.gouv.fr/contenu/telechargement/29205/225711/file/PROJET%20AP_ouverture_cloture.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "Toutes méthodes",
+    "note": "Projet d'arrêté non signé de la saison 2024-2025, à actualiser. Plan de chasse obligatoire.",
+    "source": "https://www.jura.gouv.fr/contenu/telechargement/29205/225711/file/PROJET%20AP_ouverture_cloture.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "8 septembre au 31 décembre 2024 (saison 2024-2025)",
+    "mode": "",
+    "note": "Projet d'arrêté non signé de la saison 2024-2025, à actualiser. Plan de chasse obligatoire ; chaque prise est déclarée le jour même au détenteur du plan.",
+    "source": "https://www.jura.gouv.fr/contenu/telechargement/29205/225711/file/PROJET%20AP_ouverture_cloture.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "8 septembre 2024 au 28 février 2025 (saison 2024-2025)",
+    "mode": "Toutes méthodes, y compris vénerie",
+    "note": "Projet d'arrêté non signé de la saison 2024-2025, à actualiser. Du 1er juin au 7 septembre, réservé aux titulaires d'une autorisation chevreuil ou sanglier.",
+    "source": "https://www.jura.gouv.fr/contenu/telechargement/29205/225711/file/PROJET%20AP_ouverture_cloture.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Projet d'arrêté non signé de la saison 2024-2025, à actualiser. Tir interdit le mardi hors jours fériés ; jeudi et vendredi, chasse à tir sans chien ; battues au sanglier uniquement mercredi, samedi, dimanche et jours fériés.",
+    "source": "https://www.jura.gouv.fr/contenu/telechargement/29205/225711/file/PROJET%20AP_ouverture_cloture.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Projet d'arrêté non signé de la saison 2024-2025, à actualiser. Chasse à l'approche et à l'affût du grand gibier avec carabine à lunette ou arc et attestation de la fédération.",
+    "source": "https://www.jura.gouv.fr/contenu/telechargement/29205/225711/file/PROJET%20AP_ouverture_cloture.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

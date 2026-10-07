@@ -1,0 +1,88 @@
+{
+ "dpt": "07",
+ "name": "Ardèche",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.chasseardeche.fr/",
+  "peche": "",
+  "arretes": "https://www.chasseardeche.fr/arretes-reglementation-chasse-ardeche.html"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-lardeche/",
+   "https://www.chasseardeche.fr/images/20260623_AP_ouverture_fermeture_chasse_2026-2027_departement_ardeche.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Battue du 1er juillet 2026 au 28 février 2027 ; individuel du 13 septembre 2026 au 31 mars 2027 ; semis 1er avril au 31 mai 2027",
+    "mode": "Battue ou affût/approche individuel",
+    "note": "Relevé sur site secondaire ; arrêté préfectoral n° 07-2026-06-23-00001 (PDF non lisible automatiquement).",
+    "source": "https://meschasses.com/ardeche-07/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juillet 2026 au 28 février 2027 (brocards à l'affût ou à l'approche dès le 1er juillet)",
+    "mode": "Tous modes dès le 13 septembre ; plan de chasse triennal 2026-2029",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardeche-07/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "17 octobre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Plan de chasse cerf élaphe 2026-2027 fixé par arrêté préfectoral. Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardeche-07/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "13 septembre au 13 décembre 2026",
+    "mode": "",
+    "note": "Une carte des périodes d'ouverture par secteur existe sur le site de la FDC.",
+    "source": "https://meschasses.com/ardeche-07/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "13 septembre 2026 au 10 janvier 2027",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardeche-07/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juillet 2026 au 28 février 2027",
+    "mode": "Tous modes en ouverture anticipée",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardeche-07/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale le 13 septembre 2026 à 7 h et clôture le 28 février 2027 au soir.",
+    "source": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-lardeche/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Renard et fouine restent classés ESOD en Ardèche sur certaines communes seulement (arrêté ministériel du 10 août 2026).",
+    "source": "https://www.chasseardeche.fr/",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

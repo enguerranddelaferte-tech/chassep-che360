@@ -1,0 +1,25 @@
+{
+ "dpt": "60",
+ "name": "Oise",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": ""
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [],
+  "especes": [],
+  "infos": []
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": []
+ },
+ "note": "aucune source locale trouvée"
+}

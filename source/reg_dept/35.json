@@ -1,0 +1,136 @@
+{
+ "dpt": "35",
+ "name": "Ille-et-Vilaine",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://fdc35.com",
+  "peche": "",
+  "arretes": "https://fdc35.com/documentheque/#47-720-wpfd-arretes-2026-2027"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+   "https://fdc35.com/download/308/modalites-et-periodes-de-chasse-par-especes/4929/modalites-de-chasse-par-espece-2026-2027.pdf",
+   "https://www.domagne.fr/assets/uploads/Publications/Actualit%C3%A9s/2026_06_12_DDTM_AP_ouv-et-clot_2026-2027_compl%C3%A9mentaire_signe.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juin 2026 au 31 mars 2027; 1er avril au 31 mai 2027 pour la protection des semis",
+    "mode": "Battue, approche ou affût",
+    "note": "Plan de gestion; en battue au moins 6 porteurs d'armes et 4 chiens ou 4 traqueurs; bracelets non utilisés à rendre avant le 15 avril 2027.",
+    "source": "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juin au 19 septembre 2026 (approche/affût); 20 septembre 2026 au 28 février 2027",
+    "mode": "Approche, affût; battue ou devant soi à partir du 20 septembre",
+    "note": "Plan de chasse; bracelets à retourner avant le 15 avril 2027.",
+    "source": "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er au 19 septembre 2026 (approche/affût); 20 septembre 2026 au 28 février 2027",
+    "mode": "Approche, affût; battue à partir du 20 septembre",
+    "note": "Plan de chasse; bracelets à retourner avant le 15 avril 2027.",
+    "source": "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Zone à plan de chasse : 18 octobre au 22 novembre 2026; zone à 1 jour : 18 octobre; zone à 2 jours : 18 et 25 octobre 2026",
+    "mode": "Tir",
+    "note": "Bracelet PMA lièvre : 1 lièvre par chasseur et par saison dans les communes ouvertes 1 ou 2 jours; fermé dans certaines communes (annexes de l'arrêté complémentaire).",
+    "source": "https://fdc35.com/download/308/modalites-et-periodes-de-chasse-par-especes/4929/modalites-de-chasse-par-espece-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix rouge et grise",
+    "period": "20 septembre 2026 au 10 janvier 2027",
+    "mode": "Tir",
+    "note": "",
+    "source": "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan commun",
+    "period": "20 septembre 2026 au 10 janvier 2027",
+    "mode": "Tir",
+    "note": "Plan de chasse dans certaines communes, tir interdit (sauf faisan vénéré) dans d'autres, selon l'arrêté complémentaire.",
+    "source": "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "20 septembre 2026 au 20 février 2027",
+    "mode": "Tir",
+    "note": "PMA 3 oiseaux par semaine (lundi au dimanche); marquage, carnet à restituer à la FDC avant le 15 mars 2027; du 11 janvier au 20 février, chien d'arrêt/rapporteur avec dispositif sonore obligatoire.",
+    "source": "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "20 septembre 2026 au 20 février 2027",
+    "mode": "Tir",
+    "note": "Du 11 janvier au 10 février 2027 à l'affût uniquement; du 11 au 20 février à poste fixe matérialisé de main d'homme.",
+    "source": "https://fdc35.com/download/308/modalites-et-periodes-de-chasse-par-especes/4929/modalites-de-chasse-par-espece-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Canard colvert / gibier d'eau",
+    "period": "Domaine public maritime dès le 1er août 2026, domaine public fluvial dès le 21 août 2026, reste du territoire dès le 20 septembre 2026; fermeture le 31 janvier 2027",
+    "mode": "Tir, y compris de nuit selon lieux autorisés",
+    "note": "Tir de 2 h avant le lever à 2 h après le coucher du soleil dans les lieux de l'article 3.3; munitions de substitution au plomb obligatoires.",
+    "source": "https://fdc35.com/download/308/modalites-et-periodes-de-chasse-par-especes/4929/modalites-de-chasse-par-espece-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juin au 20 septembre 2026 (attributaires de plan de chasse chevreuil/sanglier); 20 septembre 2026 au 28 février 2027",
+    "mode": "Battue, approche, affût ou devant soi",
+    "note": "Calibre inférieur au .222 interdit; déterrage autorisé toute l'année avec accord du propriétaire.",
+    "source": "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Heures de chasse : 9 h à 19 h du 20 septembre au 24 octobre, 9 h à 17 h 30 du 25 octobre au 10 janvier, 9 h à 18 h 30 du 11 janvier au 28 février; grand gibier et renard de 1 h avant le lever à 1 h après le coucher du soleil.",
+    "source": "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse en temps de neige interdite, sauf gibier d'eau dans les lieux de l'article 3.3, sanglier, renard, ragondin, rat musqué et animaux soumis à plan de chasse (hors lièvre).",
+    "source": "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse à courre du 15 septembre 2026 au 31 mars 2027; vénerie sous terre jusqu'au 15 janvier 2027.",
+    "source": "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Arrêté complémentaire faisan et lièvre signé le 12 juin 2026 : lièvre fermé, limité à 1 jour, à 2 jours ou soumis à plan de chasse selon la commune; bague FDC obligatoire avant transport.",
+    "source": "https://www.domagne.fr/assets/uploads/Publications/Actualit%C3%A9s/2026_06_12_DDTM_AP_ouv-et-clot_2026-2027_compl%C3%A9mentaire_signe.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Daim, chamois et mouflon : non mentionnés dans l'arrêté d'ouverture.",
+    "source": "https://fdc35.com/download/720/arretes-2026-2027/6890/fdc35-ap_ouverture-cloture_chasse_2026-2027_signe.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "note": "aucune source locale trouvée",
+  "especes": [],
+  "infos": []
+ }
+}

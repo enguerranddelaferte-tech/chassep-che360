@@ -1,0 +1,40 @@
+{
+ "dpt": "95",
+ "name": "Val-d'Oise",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-95.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-95.pdf",
+   "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890"
+  ],
+  "especes": [],
+  "infos": [
+   {
+    "text": "Arrêtés 2026-2027: ouverture/fermeture (n° 2026-18757), plan de chasse chevreuil, cerf élaphe et daim (n° 2026-18758), plan de gestion sanglier (n° 2026-18759 à 18761 selon liste), plan de gestion faisan commun.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-95.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Ouverture générale 2026 annoncée au 20 septembre à 9 h (source secondaire, dates de l'arrêté non lues).",
+    "source": "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890",
+    "confidence": "a_verifier"
+   }
+  ],
+  "note": "dates et périodes par espèce non lues dans l'arrêté"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

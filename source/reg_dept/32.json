@@ -1,0 +1,40 @@
+{
+ "dpt": "32",
+ "name": "Gers",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.chasse-nature-occitanie.fr/gers",
+  "peche": "",
+  "arretes": "https://www.chasse-nature-occitanie.fr/gers/ouvertures-fermetures-chasse.php"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasse-nature-occitanie.fr/gers/ouvertures-fermetures-chasse.php",
+   "https://www.chasse-nature-occitanie.fr/gers/documents/32-2026-05-29-00006-AP-ouvertu.pdf"
+  ],
+  "note": "dates par espèce non lisibles dans les documents consultés",
+  "especes": [],
+  "infos": [
+   {
+    "text": "Ouverture générale le dimanche 13 septembre 2026 à 8 heures; clôture générale le dimanche 28 février 2027 au soir.",
+    "source": "https://www.chasse-nature-occitanie.fr/gers/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "text": "L'arrêté préfectoral 32-2026-05-29-00006 annonce un encadrement plus strict du tir des chevreuils mâles adultes (trophées).",
+    "source": "https://www.chasse-nature-occitanie.fr/gers/documents/32-2026-05-29-00006-AP-ouvertu.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "note": "aucune source locale trouvée",
+  "especes": [],
+  "infos": []
+ }
+}

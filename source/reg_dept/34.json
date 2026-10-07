@@ -1,0 +1,140 @@
+{
+ "dpt": "34",
+ "name": "Hérault",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.chasse-nature-occitanie.fr/herault",
+  "peche": "",
+  "arretes": "https://www.chasse-nature-occitanie.fr/herault/ma-fede/actes-officiels.php"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juin 2026 au 31 mars 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juin au 12 septembre 2026 (anticipée); 13 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "1er juin 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Mouflon",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "13 septembre au 25 décembre 2026",
+    "mode": "",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix rouge",
+    "period": "4 octobre au 22 novembre 2026",
+    "mode": "",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan",
+    "period": "13 septembre 2026 au 31 janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "13 septembre 2026 au 20 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "13 septembre 2026 au 20 février 2027",
+    "mode": "",
+    "note": "Pigeon biset et colombin jusqu'au 10 février 2027.",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Canard colvert / gibier d'eau",
+    "period": "Domaine public maritime dès le 15 août 2026 à 6 h; autres zones humides du 21 août 2026 à 6 h au 31 janvier 2027",
+    "mode": "",
+    "note": "Canards plongeurs et rallidés hors DPM : ouverture le 15 septembre 2026 à 7 h.",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juin au 12 septembre 2026 (anticipée); 13 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Chasse suspendue jusqu'à nouvel ordre pour la barge à queue noire, le courlis cendré et l'eider à duvet.",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Fuligule milouin : ouverture le 1er octobre 2026 jusqu'au 31 janvier 2027.",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Arrêté préfectoral du 18 mai 2026 relatif au grand gibier et au petit gibier sédentaire publié par la FDC (texte du PDF non lisible, non exploité).",
+    "source": "https://www.chasse-nature-occitanie.fr/herault/ouvertures-fermetures-chasse.php",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "note": "aucune source locale trouvée",
+  "especes": [],
+  "infos": []
+ }
+}

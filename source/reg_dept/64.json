@@ -1,0 +1,49 @@
+{
+ "dpt": "64",
+ "name": "Pyrénées-Atlantiques",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": ""
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-64.pdf"
+  ],
+  "especes": [],
+  "infos": [
+   {
+    "text": "Ouverture de la chasse du petit gibier annoncée le 13 septembre 2026 (source de presse, arrêté préfectoral non consulté).",
+    "source": "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Sanglier : plan de gestion fixé par arrêté du 19 mai 2026 ; tir à balle, à l'arc ou à la chevrotine, affût et approche sans chien autorisés tous les jours d'ouverture, bracelet de marquage avant tout transport motorisé, prélèvements déclarés sous 48 h.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-64.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Sanglier classé espèce susceptible d'occasionner des dégâts en zone de plaine (arrêté du 26 mai 2026, valable du 1er juillet 2026 au 30 juin 2027) : piégeage uniquement.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-64.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pigeon ramier classé espèce susceptible d'occasionner des dégâts dans 104 communes (arrêté du 26 mai 2026) : effarouchement d'abord, tir à poste fixe sur autorisation préfectorale individuelle, plomb n° 6 maximum.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-64.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "note": "aucune source officielle locale lue pour les espèces"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

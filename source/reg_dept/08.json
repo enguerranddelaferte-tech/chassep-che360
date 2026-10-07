@@ -1,0 +1,136 @@
+{
+ "dpt": "08",
+ "name": "Ardennes",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://www.fdc08.com",
+  "peche": "",
+  "arretes": "https://www.ardennes.gouv.fr/Actions-de-l-Etat/Environnement/Chasse/Reglementation-et-consultations-du-public/Arrete-prefectoral-n-2026-325-du-22-mai-2026-dates-ouverture-et-cloture-de-la-chasse-en-2026-2027"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-des-ardennes/",
+   "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Approche/affût dès le 1er juin 2026 ; battue du 1er octobre 2026 au 28 février 2027 ; tous modes du 1er au 31 mars 2027",
+    "mode": "Approche, affût, battue",
+    "note": "Autorisation préfectorale ou du président de la FDC selon la période ; arrêté n° 2026-325 du 22 mai 2026. Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "1er juin 2026 au 28 février 2027",
+    "mode": "Approche ou affût individuel (brocard avant l'ouverture générale)",
+    "note": "Autorisation préfectorale individuelle en tir anticipé. Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Autorisation préfectorale. Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "1er juin 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Autorisation préfectorale. Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Mouflon",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Autorisation préfectorale. Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "27 septembre au 30 novembre 2026",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix",
+    "period": "6 septembre au 30 novembre 2026",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "20 septembre 2026 au 28 février 2027 (faisan commun tous modes jusqu'au 31 décembre 2026 selon liste de communes)",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "20 septembre 2026 au 20 février 2027",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "20 septembre 2026 au 20 février 2027",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Canard colvert / gibier d'eau",
+    "period": "21 août 2026 au 31 janvier 2027",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juin 2026 au 31 mai 2027, fermé du 1er au 31 mars 2027",
+    "mode": "",
+    "note": "Relevé sur site secondaire.",
+    "source": "https://meschasses.com/ardennes-08/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale le 20 septembre 2026 dès 8 h 30 et clôture le 28 février 2027.",
+    "source": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-des-ardennes/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Battues limitées à 20 jours par saison, 2 par semaine au plus, dont 15 jours inscrits au calendrier déposé à la FDC avant le 15 septembre.",
+    "source": "https://www.parc-naturel-ardennes.fr/dates-de-chasse/",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

@@ -1,0 +1,112 @@
+{
+ "dpt": "48",
+ "name": "Lozère",
+ "verifiedOn": "2026-10-07",
+ "liens": {
+  "fdc": "https://chasseurdelozere.com/",
+  "peche": "",
+  "arretes": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-lozere/"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-lozere/",
+   "https://meschasses.com/lozere-48/dates-chasse-2026-2027/"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Du 1er juin 2026 au 31 mars 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "Autorisation préfectorale.",
+    "source": "https://meschasses.com/lozere-48/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Du 1er juin 2026 au 28 février 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "Plan de chasse et autorisation préfectorale.",
+    "source": "https://meschasses.com/lozere-48/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "Du 1er septembre 2026 au 28 février 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://meschasses.com/lozere-48/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "Du 13 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://meschasses.com/lozere-48/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Mouflon",
+    "period": "Du 13 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://meschasses.com/lozere-48/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Du 13 septembre 2026 au 27 décembre 2026 (plusieurs périodes)",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/lozere-48/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix",
+    "period": "Du 3 octobre 2026 au 25 octobre 2026",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/lozere-48/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "Du 13 septembre 2026 au 3 janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/lozere-48/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "Du 1er juin 2026 au 28 février 2027 (plusieurs périodes)",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/lozere-48/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté DDT-SEB-2026-152-0005 : ouverture générale le 13 septembre 2026, clôture le 28 février 2027.",
+    "source": "https://meschasses.com/lozere-48/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Blaireau : du 1er juillet 2026 au 10 janvier 2027 (plusieurs périodes).",
+    "source": "https://meschasses.com/lozere-48/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}
