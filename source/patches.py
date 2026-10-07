@@ -126,3 +126,11 @@ rep(r'["/securite","S\xE9curit\xE9 & alertes","shield"]]}', r'["/securite","S\xE
 js_msg=open(D+'js_msg.js',encoding='utf-8').read()
 rep('var wl,Hi=H(()=>{wl=Ui({"./views/suivi.js"', js_msg+'\nvar wl,Hi=H(()=>{wl=Ui({"./views/suivi.js"')
 rep('"./views/messages.js":()=>Promise.resolve().then(()=>(Va(),Na))','"./views/messages.js":()=>Promise.resolve().then(()=>(MsgI(),MsgM))')
+
+# 17) YouTube Data API : synchronisation des vidéos d'ambassadeurs
+js_yt=open(D+'js_yt.js',encoding='utf-8').read()
+js_yt_server=open(D+'js_yt_server.js',encoding='utf-8').read()
+rep('xe.delete("/admin/ambassadors/:id/videos/:vid"', js_yt_server+'\nxe.delete("/admin/ambassadors/:id/videos/:vid"')
+rep('async function AdmAmb(t){', js_yt+'\nasync function AdmAmb(t){')
+rep('e("div.stack",full.map(a=>k({},e("div.row"', 'e("div.stack",YtPanel(d.ambassadors),full.map(a=>k({},e("div.row"')
+rep('x("Ajouter une vidéo",{icon:"plus",size:"sm",onClick:()=>addV(a)}),', 'x("Ajouter une vidéo",{icon:"plus",size:"sm",onClick:()=>addV(a)}),YT.key()?x("Synchroniser",{icon:"play",size:"sm",kind:"ghost",onClick:()=>act(()=>YT.sync(a),"Vidéos synchronisées.")}):null,')

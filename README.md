@@ -19,3 +19,7 @@ Reconstruire : `cd source && python3 build.py` (génère `source/v2.html` et met
 ## Limites connues
 - Cartes, GPS, caméra et suivi en direct n'ont été testés que dans un aperçu simulé ; à vérifier sur un téléphone avec la version hébergée.
 - Le suivi en direct et les amis ne fonctionnent qu'au sein d'un même navigateur tant qu'il n'y a pas de serveur.
+
+
+## YouTube
+Synchronisation des vidéos des ambassadeurs via l'API YouTube Data v3 : voir [YOUTUBE.md](YOUTUBE.md).
