@@ -157,3 +157,21 @@ rep('var wl,Hi=H(()=>{wl=Ui({', js_bag+'\nvar wl,Hi=H(()=>{wl=Ui({"./views/bag.j
 rep('Z("/carnet",te("logbook"));','Z("/carnet",te("logbook"));Z("/tableau-de-chasse",te("bag"));')
 rep(r'["/prelevements","Pr\xE9l\xE8vements","tag"]]}', r'["/prelevements","Pr\xE9l\xE8vements","tag"],["/tableau-de-chasse","Tableau de chasse","book"]]}')
 rep('z==="peche"&&q.startsWith("/battues")?ge("/carnet")','z==="peche"&&(q.startsWith("/battues")||q.startsWith("/tableau-de-chasse"))?ge("/carnet")')
+
+# 21) Bourse : le gibier (et le poisson) ne se vendent pas, dons uniquement ; matériel et annonces de chasse libres
+rep(r'zi=[["tous","Tout"],["venaison","Venaison"],["poisson","Poisson"],["materiel","Mat\xE9riel"],["chiens","Chiens & accessoires"]]',
+    r'zi=[["tous","Tout"],["venaison","Gibier (dons)"],["poisson","Poisson (dons)"],["materiel","Mat\xE9riel"],["annonces","Annonces de chasse"],["chiens","Chiens & accessoires"]]')
+rep(r'{name:"type",label:"Type",type:"seg",value:"cession",options:[["cession","Cession"],["don","Don"]]}',
+    r'{name:"type",label:"Type",type:"seg",value:"don",options:[["don","Don"],["cession","Vente"]],hint:"Le gibier et le poisson ne se vendent pas : dons uniquement."}')
+rep(r'hint:"Ignor\xE9 pour un don. Venaison : 150 \u20AC max, cession occasionnelle."', r'hint:"Ignor\xE9 pour un don. R\xE9serv\xE9 au mat\xE9riel et aux annonces de chasse."')
+rep(r'Obligatoire pour toute annonce de venaison (vente directe au consommateur, petites quantit\xE9s).', r'Obligatoire pour tout don de gibier.')
+rep('onSubmit:u=>v.post("/listings",{...u,location:w.position})',
+    'onSubmit:u=>{if((u.category==="venaison"||u.category==="poisson")&&u.type!=="don"){let m="Le gibier et le poisson ne se vendent pas : choisissez « Don ».";throw Object.assign(new Error(m),{fields:{type:m}})}return v.post("/listings",{...u,location:w.position})}')
+rep(r'La cession de gibier entre particuliers doit rester occasionnelle et en faible quantit\xE9. Le poisson p\xEAch\xE9 par un amateur ne peut pas \xEAtre vendu : seuls les dons sont autoris\xE9s.',
+    r'Le gibier et le poisson ne se vendent pas : seuls les dons sont possibles. Le mat\xE9riel et les annonces de chasse peuvent \xEAtre vendus ou propos\xE9s librement.')
+rep(r'subtitle:"Dons et cessions entre passionn\xE9s, dans le respect des r\xE8gles sanitaires."', r'subtitle:"Dons de gibier et de poisson, vente de mat\xE9riel, annonces de chasse. Le gibier ne se vend pas."')
+rep('if(a==="venaison"){let m=[];', 'if((a==="venaison"||a==="poisson")&&i!=="don")throw new ct(400,"Le gibier et le poisson ne se vendent pas : seuls les dons sont possibles.",{fields:{type:"Dons uniquement pour le gibier et le poisson"}});if(a==="venaison"){let m=[];')
+rep(r'if(i==="cession"&&+o>150)throw new ct(400,"La cession entre particuliers reste occasionnelle et de faible quantit\xE9 (150 \u20AC max par annonce).")', '')
+rep(r'type:"cession",category:"venaison"', r'type:"don",category:"venaison"')
+rep(r'conserv\xE9 en chambre froide.",price:40,', r'conserv\xE9 en chambre froide.",price:0,')
+rep('function yi(t,r){let n=', 'function yi(t,r){(t.category==="venaison"||t.category==="poisson")&&(t={...t,type:"don",price:0});let n=')
