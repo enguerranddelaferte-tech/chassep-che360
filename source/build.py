@@ -16,7 +16,7 @@ rep('<title>Chasse &amp; Pêche 360° — démo (Copy)</title>','<title>Chasse &
 rep('<meta name="theme-color" content="#F1EDDF">','<meta name="theme-color" content="#F3F0E8">')
 
 # cartes réelles : afficher le volet de tuiles (masqué en démo)
-rep('window.cp360Real=/[?&]cartes=reelles/.test(location.search);','window.cp360Real=/[?&]cartes=reelles/.test(location.search);document.documentElement.classList.toggle("cp360-real",!!window.cp360Real);')
+rep('window.cp360Real=/[?&]cartes=reelles/.test(location.search);','window.cp360Real=!!window.__REAL||/[?&]cartes=reelles/.test(location.search);document.documentElement.classList.toggle("cp360-real",!!window.cp360Real);')
 
 # barre basse téléphone : SOS au centre
 rep('e("a.tab-season",{href:"#/battues",dataset:{path:"/battues"}},b("flag"),"Chasse"),e("a",{href:"#/messages",dataset:{path:"/messages"}},b("chat"),"Messages"),e("button",{type:"button",onclick:()=>p(!0)},b("menu"),"Menu"))',
@@ -25,6 +25,6 @@ rep('e("a.tab-season",{href:"#/battues",dataset:{path:"/battues"}},b("flag"),"Ch
 exec(open(D+'patches.py',encoding='utf-8').read()) if os.path.exists(D+'patches.py') else None
 
 open(D+'v2.html','w',encoding='utf-8').write(s)
-inj='<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><script>if("serviceWorker" in navigator&&location.protocol==="https:")addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))</script></head>'
+inj='<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><script>window.__REAL=1;if("serviceWorker" in navigator&&location.protocol==="https:")addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))</script></head>'
 open(D+'../index.html','w',encoding='utf-8').write(s.replace('</head>',inj,1))
 print('v2.html',len(s))
