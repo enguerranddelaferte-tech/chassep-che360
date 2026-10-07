@@ -18,15 +18,25 @@ const SP_PECHE=[
 ["Poisson-chat, perche-soleil, pseudorasbora, goujon de l’Amour","Espèces exotiques envahissantes","—","Remise à l’eau interdite",1],["Écrevisses américaines et de Californie","Espèces exotiques envahissantes","—","Remise à l’eau interdite",1],["Écrevisses à pattes blanches, rouges, des torrents, à pattes grêles","Espèces autochtones","9 cm","Pêche interdite par beaucoup d’arrêtés locaux",0],["Grenouilles vertes et rousses","Amphibiens","8 cm","Périodes de pêche fixées localement",0],
 ["Esturgeon européen, apron du Rhône","Espèces protégées","—","Espèces protégées : capture interdite",0]];
 const SP_FRAYERES="Arrêté du 8 décembre 1988 : les frayères et zones de reproduction de ces taxons sont protégées (ce n’est pas une interdiction de pêche) : lamproies (de Planer, marine, fluviatile), corégones, saumon atlantique, truites, omble chevalier, grande alose, alose feinte, ombre commun, brochet, barbeau méridional, vandoise, ide mélanote, bouvière, loche d’étang, loche de rivière, blennie fluviatile, apron.";
-function SpTable(n){let rows=n==="chasse"?SP_CHASSE:SP_PECHE,qt="",cat="",wrap=e("div.stack",{style:{paddingBottom:"12px"}}),tb=e("div"),
-norm=s=>(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""),
-cats=[...new Set(rows.map(r=>r[1]))];
-function draw(){W(tb);let l=rows.filter(r=>(!cat||r[1]===cat)&&(!qt||norm(r[0]).includes(norm(qt))));
-C(tb,l.length?e("div",...l.map(r=>{let ch=n==="chasse",ok=ch?r[3]:r[4],note=ch?r[2]:r[3];return e("div",{style:{padding:"11px 0",borderTop:"1px solid var(--line,#0001)"}},
-e("div.row",{style:{justifyContent:"space-between",gap:"8px",alignItems:"flex-start",flexWrap:"wrap"}},e("div",{style:{flex:"1 1 180px",minWidth:0}},e("b",r[0]),e("div.tiny.muted",r[1]+(ch?"":" · taille min. : "+r[2]))),ok?L("Source officielle","accent","check"):L("À vérifier","gold")),
-note?e("div.small",{style:{marginTop:"4px",lineHeight:"1.5"}},note):null)})):e("div.small.muted","Aucune espèce ne correspond."))}
-let rowsN=n==="peche"?SP_PECHE:SP_CHASSE;
-if(n==="peche"){rows=SP_PECHE.map(r=>[r[0],r[1],r[2],r[3],r[4]])}
-C(wrap,e("div.row",{style:{gap:"8px",flexWrap:"wrap"}},e("div.field",{style:{flex:"1 1 200px",margin:0}},e("input",{type:"search",placeholder:"Rechercher une espèce…",oninput:ev=>{qt=ev.target.value;draw()}})),e("div.field",{style:{flex:"1 1 200px",margin:0}},e("select",{onchange:ev=>{cat=ev.target.value;draw()}},e("option",{value:""},"Toutes les catégories"),...cats.map(c=>e("option",{value:c},c))))),tb,
-e("div.tiny.muted",n==="chasse"?["Liste des espèces de gibier dont la chasse est autorisée : arrêté du 26 juin 1987 modifié (", e("a",{href:SP_SRC.chasse,target:"_blank",rel:"noopener noreferrer"},"texte consolidé ↗"),"), soit ",String(rows.length)," lignes. Les moratoires et limitations changent d’une saison à l’autre : l’arrêté ministériel et l’arrêté préfectoral en vigueur font foi. Les espèces non listées sont protégées."]:["Tailles minimales nationales (art. R436-18 et arrêtés) ; les arrêtés préfectoraux peuvent les relever. ",SP_FRAYERES+" ",e("a",{href:SP_SRC.peche,target:"_blank",rel:"noopener noreferrer"},"Texte de 1988 ↗")]));
-draw();return wrap}
+function SpTable(n,code,qt0){let rows=n==="chasse"?SP_CHASSE:SP_PECHE,ch=n==="chasse",cat=SpCat,wrap=e("div.stack",{style:{gap:"8px"}}),
+norm=s=>(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[’']/g," ").trim(),
+D=REG_DEPT[code],sec=D&&(ch?D.c:D.p),loc=(sec&&sec.e)||[],used=new Set(),
+comps=nm=>nm.split(/,| et /).map(norm).filter(x=>x.length>3),
+match=(nm,ls)=>ls.filter(l=>{let a=norm(l.s);return comps(nm).some(c=>a===c||a.includes(c)||c.includes(a))&&a.length>3}),
+cats=[...new Set(rows.map(r=>r[1]))],
+localTxt=l=>ch?[l.p,l.m,l.n].filter(Boolean).join(" · "):[l.z?"taille min. "+l.z+" cm":"",l.q===0?"prélèvement interdit":(l.q!=null?"quota "+l.q+"/jour":""),l.p,l.n].filter(Boolean).join(" · "),
+host=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch(_){return"source"}},
+localBox=l=>e("div",{style:{marginTop:"8px",padding:"9px 11px",borderRadius:"10px",background:"var(--tint,#0000000a)"}},e("div.tiny.muted",{style:{fontWeight:"700"}},"Dans ce département"+(l.s&&norm(l.s)!==""&&l.s?" ("+l.s+")":"")),e("div.small",{style:{lineHeight:"1.5"}},localTxt(l)||"—"),e("div.row",{style:{gap:"8px",marginTop:"4px",flexWrap:"wrap",alignItems:"center"}},l.k?L("Source officielle","accent","check"):L("À vérifier","gold"),l.u?e("a.tiny",{href:l.u,target:"_blank",rel:"noopener noreferrer"},host(l.u)+" ↗"):null));
+let list=rows.filter(r=>(!cat||r[1]===cat)&&(!qt0||norm(r[0]).includes(norm(qt0)))),extra=[];
+let items=list.map(r=>{let m=match(r[0],loc);m.forEach(x=>used.add(x));return {r,m}});
+if(!cat)loc.filter(x=>!used.has(x)&&(!qt0||norm(x.s).includes(norm(qt0)))).forEach(x=>extra.push(x));
+C(wrap,e("div.row",{style:{justifyContent:"space-between",gap:"8px",flexWrap:"wrap",alignItems:"center"}},e("h4",{style:{margin:0}},ch?"Espèces chassables en France":"Espèces de poissons et statuts"),e("div.field",{style:{margin:0,flex:"0 1 240px"}},e("select",{onchange:ev=>{SpCat=ev.target.value;SpRedraw&&SpRedraw()}},e("option",{value:""},"Toutes les catégories"),...cats.map(c=>e("option",{value:c,selected:c===SpCat},c))))));
+C(wrap,e("div.tiny.muted",D&&loc.length?`Les encadrés « Dans ce département » donnent les dates et règles de ${D.n}${sec&&sec.s?" (saison "+sec.s+")":""}.`:"Les règles locales de ce département n’ont pas pu être lues : seules les règles nationales sont affichées."));
+items.forEach(({r,m})=>{let note=ch?r[2]:r[3],ok=ch?r[3]:r[4];C(wrap,e("div",{style:{padding:"11px 0",borderTop:"1px solid var(--line,#0001)"}},
+e("div.row",{style:{justifyContent:"space-between",gap:"8px",alignItems:"flex-start",flexWrap:"wrap"}},e("div",{style:{flex:"1 1 180px",minWidth:0}},e("b",r[0]),e("div.tiny.muted",r[1]+(ch?"":" · taille min. nationale : "+r[2]))),ok?L("Règle nationale confirmée","accent","check"):L("À vérifier","gold")),
+note?e("div.small",{style:{marginTop:"4px",lineHeight:"1.5"}},note):null,...m.map(localBox)))});
+if(extra.length){C(wrap,e("h4",{style:{margin:"10px 0 0"}},"Autres lignes de ce département"));extra.forEach(l=>C(wrap,e("div",{style:{padding:"8px 0",borderTop:"1px solid var(--line,#0001)"}},e("b",l.s),localBox(l))))}
+if(!ch)C(wrap,e("div.tiny.muted",SP_FRAYERES+" ",e("a",{href:SP_SRC.peche,target:"_blank",rel:"noopener noreferrer"},"Texte de 1988 ↗")));
+else C(wrap,e("div.tiny.muted",["Liste des espèces de gibier dont la chasse est autorisée : arrêté du 26 juin 1987 modifié (",e("a",{href:SP_SRC.chasse,target:"_blank",rel:"noopener noreferrer"},"texte consolidé ↗"),"). Les moratoires et limitations changent d’une saison à l’autre : l’arrêté ministériel et l’arrêté préfectoral en vigueur font foi. Les espèces non listées sont protégées."]));
+return wrap}
+var SpCat="",SpRedraw=null;
