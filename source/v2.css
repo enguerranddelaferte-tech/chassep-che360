@@ -854,3 +854,12 @@ table.data td, table.data th { vertical-align: middle; }
 @media (max-width: 760px) { .map-page.terr-on .draw-bar { bottom: 30px !important; } }
 .map-page.terr-on .draw-top .seg { display: flex; flex-wrap: nowrap; width: 100%; overflow: visible; }
 .map-page.terr-on .draw-top .seg button { white-space: nowrap; padding: 0 8px; }
+/* ===== Vent animé ===== */
+.wind-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 450; pointer-events: none; }
+.wind-legend { position: absolute; left: 10px; bottom: 28px; z-index: 460; pointer-events: none; background: color-mix(in srgb, var(--surface, #fff) 92%, transparent); border: 1px solid var(--line); border-radius: 12px; padding: 6px 10px; font-size: 12px; line-height: 1.3; box-shadow: var(--shadow-sm); }
+.wind-legend b { display: block; font-size: 13px; }
+.wind-ramp { display: flex; gap: 4px; align-items: center; color: var(--muted); font-size: 11px; margin-top: 2px; flex-wrap: wrap; }
+.wind-ramp i { width: 14px; height: 4px; border-radius: 2px; display: inline-block; margin-left: 4px; }
+.wind-ramp i:first-child { margin-left: 0; }
+.map-page.terr-on .wind-canvas, .map-page.terr-on .wind-legend { display: none; }
+@media (max-width: 760px) { .wind-legend { bottom: 84px; } }

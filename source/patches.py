@@ -244,3 +244,9 @@ rep('l._draw=sess;l.on("click",onClick);redraw();return sess}', 'l._draw=sess;l.
 rep('pts.forEach((p,i)=>{let mk=', 'pts.length<=60&&pts.forEach((p,i)=>{let mk=')
 rep('bd.length>200', 'bd.length>3000', count=2)
 rep('en posant ses sommets sur la carte, ou importez', 'en posant ses sommets sur la carte, en choisissant ses parcelles cadastrales, ou importez')
+
+# 32) Carte : vent animé (couche Premium « wind.overlay »)
+_wind=open(D+'js_wind.js',encoding='utf-8').read()
+rep(r'relief:{label:"Relief et pentes",premium:!1,make:()=>_e().tileLayer(on("ELEVATION.SLOPES","image/jpeg"),{maxZoom:18,opacity:.35,attribution:qn})}};var DemoRiver=', r'relief:{label:"Relief et pentes",premium:!1,make:()=>_e().tileLayer(on("ELEVATION.SLOPES","image/jpeg"),{maxZoom:18,opacity:.35,attribution:qn})},wind:{label:"Vent anim\xE9",premium:"wind.overlay",make:()=>WindLayer()}};'+chr(10)+_wind+chr(10)+'var DemoRiver=')
+rep('DemoMakers={\nrelief:', 'DemoMakers={wind:()=>WindLayer(),\nrelief:')
+rep(r'photo a\xE9rienne et cadastre (Chasse ou P\xEAche), bathym\xE9trie (P\xEAche).', r'photo a\xE9rienne et cadastre (Chasse ou P\xEAche), vent anim\xE9 (Chasse), bathym\xE9trie (P\xEAche).')
