@@ -1,0 +1,302 @@
+{
+ "verifiedOn": "2026-10-07",
+ "sections": [
+  {
+   "id": "carte",
+   "title": "Carte de pêche et adhésion",
+   "items": [
+    {
+     "text": "En eaux libres, il faut une carte de pêche valable sur le secteur : elle prouve l'adhésion à une AAPPMA, la cotisation statutaire et la redevance pour la protection du milieu aquatique. Il faut aussi l'accord du détenteur du droit de pêche. En eaux closes, la carte n'est pas obligatoire. Le 1er dimanche de juin (journée annuelle de promotion de la pêche), aucune carte n'est requise.",
+     "confidence": "verifie",
+     "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2117"
+    },
+    {
+     "text": "Cartes proposées sur cartedepeche.fr. Annuelles : Personne majeure ou Interfédérale (jusqu'à 4 lignes), Découverte Femme (1 ligne), Personne mineure (moins de 18 ans, jusqu'à 4 lignes), Découverte moins de 12 ans (1 ligne). Courte durée : Hebdomadaire (7 jours consécutifs, jusqu'à 4 lignes) et Journalière (1 jour, valable seulement sur le lieu choisi).",
+     "confidence": "verifie",
+     "source": "https://www.cartedepeche.fr/49-cartes-de-peche.htm"
+    },
+    {
+     "text": "Le prix est fixé librement par chaque AAPPMA. Il comprend la CPMA (reversée à la Fédération nationale), les cotisations statutaires (association et fédération départementale) et la redevance RMA des agences de l'eau. Plafonds RMA par personne : 10 € l'année, 4 € les 7 jours, 1 € la journée (+20 € pour le saumon et la truite de mer). Les tarifs 2026 par carte n'ont pas pu être confirmés sur une source officielle : ils varient selon l'AAPPMA et le département.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2117"
+    },
+    {
+     "text": "La CPMA (Cotisation Pêche et Milieu Aquatique) est obligatoire, personnelle et payée une fois par an et par pêcheur. Elle est déduite automatiquement si la carte est achetée depuis le même compte adhérent (pas de remboursement si la commande vient d'un autre compte). Sans CPMA lors d'un contrôle, le pêcheur est verbalisé.",
+     "confidence": "verifie",
+     "source": "https://www.cartedepeche.fr/79-foire-aux-questions.htm"
+    },
+    {
+     "text": "Réciprocité : la carte ne donne en principe accès qu'aux lots de l'AAPPMA d'adhésion. Des groupements (EHGO, CHI, URNE, plus Savoie/Haute-Savoie et Ardèche/Lozère) mettent en commun leurs territoires. Selon la page consultée, la carte interfédérale majeure CHI/EHGO/URNE coûte 112 € et la vignette « Groupement réciprocitaire » 40 €, mais le millésime n'est pas précisé (fichier daté 2025) : à revérifier pour 2026.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.generationpeche.fr/reciprocite"
+    },
+    {
+     "text": "Mineurs : il n'existe pas de gratuité nationale de la carte constatée dans les sources consultées. Il faut une carte « Personne mineure » (moins de 18 ans) ou « Découverte moins de 12 ans » (1 ligne). Ces cartes et la carte Hebdomadaire donnent gratuitement accès à la réciprocité inter-groupement si elles sont prises dans une AAPPMA en réciprocité interdépartementale et si le département applique le tarif national préconisé (Savoie et Ardèche/Lozère exclues). Tarifs et seuils d'âge détaillés : à vérifier auprès de la fédération départementale.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.generationpeche.fr/reciprocite"
+    },
+    {
+     "text": "Contrôle : la carte doit porter la signature du titulaire et sa photo, et comporte un QR code. Un garde-pêche peut vérifier sa validité avec un smartphone. L'OFB assure la police judiciaire de la pêche. Prévoir de présenter la carte à jour (et une pièce d'identité) en cas de contrôle.",
+     "confidence": "verifie",
+     "source": "https://www.cartedepeche.fr/79-foire-aux-questions.htm"
+    },
+    {
+     "text": "Achat en ligne sur cartedepeche.fr (compte personnel, paiement par carte bancaire, Oney ou Chèque-Vacances), impression immédiate ou livraison (+6 € si proposée). Offre d'automne 2026 : -50 % sur la carte Personne majeure du 1er septembre au 31 décembre, uniquement dans les associations participantes.",
+     "confidence": "verifie",
+     "source": "https://www.cartedepeche.fr/49-cartes-de-peche.htm"
+    }
+   ]
+  },
+  {
+   "id": "categories",
+   "title": "Catégories piscicoles, domaine et droit de pêche",
+   "items": [
+    {
+     "text": "1re catégorie : cours d'eau à dominante truites, ombres, ombles et autres salmonidés. 2e catégorie : les autres cours d'eau, canaux et plans d'eau.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Le classement d'un cours d'eau ou plan d'eau en 1re ou 2e catégorie dépend de l'arrêté préfectoral : il faut le vérifier pour chaque secteur.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.generationpeche.fr/regles"
+    },
+    {
+     "text": "Droit de pêche : à l'État (ou à la collectivité) sur le domaine public fluvial ; aux riverains jusqu'au milieu du cours d'eau pour les cours d'eau non domaniaux (exercé en pratique par une AAPPMA ou la fédération) ; au propriétaire du terrain pour les plans d'eau non domaniaux et les eaux closes.",
+     "confidence": "verifie",
+     "source": "https://www.ecologie.gouv.fr/politiques-publiques/peche-eau-douce"
+    },
+    {
+     "text": "On peut pêcher sur les lots de son AAPPMA ou d'une association en réciprocité, sur le domaine public fluvial avec une seule ligne, et sur les parcours privés avec l'accord du propriétaire.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Lieux interdits : réserves de pêche, dispositifs de franchissement des poissons, pertuis et vannages, barrages et écluses (et 50 m en aval, sauf à une seule ligne). Les réserves de pêche sont fixées par arrêté préfectoral.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Gouvernance : le ministère de la Transition écologique fixe la réglementation, les préfets prennent des arrêtés locaux (tailles, périodes, quotas, procédés) et l'OFB assure la police de la pêche. L'arrêté préfectoral prime pour le détail local.",
+     "confidence": "verifie",
+     "source": "https://www.ecologie.gouv.fr/politiques-publiques/peche-eau-douce"
+    }
+   ]
+  },
+  {
+   "id": "tailles",
+   "title": "Tailles minimales de capture",
+   "items": [
+    {
+     "text": "Brochet : minimum national de 0,50 m ; de nombreux arrêtés préfectoraux le relèvent à 0,60 m (Ardennes, Aude, 2e catégorie des Côtes-d'Armor, Loire-Atlantique…). Vérifiez l'arrêté de votre département.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Sandre (2e catégorie) : 0,40 m au niveau national ; 0,50 m dans plusieurs arrêtés (Aude, Ardennes, Côtes-d'Armor).",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.cotes-darmor.gouv.fr/contenu/telechargement/65023/540194/file/AP_2024_peche_VF.pdf"
+    },
+    {
+     "text": "Black-bass (2e catégorie) : 0,30 m au niveau national ; 0,40 m dans certains départements (Côtes-d'Armor, Loire-Atlantique).",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Truites (hors truite de mer), omble de fontaine et omble chevalier : 0,23 m au niveau national. Des arrêtés peuvent relever cette taille (exemple : 0,26 m sur certains tronçons en Loire-Atlantique).",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Autres minimums nationaux : ombre commun et corégone 0,30 m (0,35 m dans certains arrêtés), cristivomer 0,35 m, huchon 0,70 m, mulet 0,20 m, lamproie fluviatile 0,20 m, lamproie marine 0,40 m.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Migrateurs : saumon 0,50 m, truite de mer 0,35 m, alose 0,30 m, lamproie marine 0,40 m, lamproie fluviatile 0,20 m.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/regles"
+    },
+    {
+     "text": "Écrevisses à pattes rouges, des torrents, à pattes blanches et à pattes grêles : 0,09 m ; grenouilles vertes et rousses : 8 cm (museau-cloaque). Beaucoup d'arrêtés interdisent toutefois la pêche des écrevisses autochtones.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Mesure : du bout du museau à l'extrémité de la queue déployée (écrevisses : pointe de la tête à la queue déployée, pinces et antennes exclues). Tout poisson trop petit est remis à l'eau immédiatement. Le préfet peut relever (ou abaisser) certaines tailles par arrêté motivé (art. R436-19).",
+     "confidence": "verifie",
+     "source": "https://www.ardennes.gouv.fr/contenu/telechargement/7617/56914/file/peche_2023_note_de_presentation-au-public.pdf"
+    }
+   ]
+  },
+  {
+   "id": "periodes",
+   "title": "Périodes d'ouverture",
+   "items": [
+    {
+     "text": "1re catégorie : ouverture générale du 2e samedi de mars au 3e dimanche de septembre (ouverture truite le 14 mars en 2026).",
+     "confidence": "verifie",
+     "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2117"
+    },
+    {
+     "text": "2e catégorie : pêche ouverte toute l'année, avec des restrictions par espèce. Truite fario, omble, omble chevalier et cristivomer y suivent la période du 2e samedi de mars au 3e dimanche de septembre.",
+     "confidence": "verifie",
+     "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2117"
+    },
+    {
+     "text": "Brochet en 2e catégorie : fermeture du dernier dimanche de janvier au dernier samedi d'avril (ouverture le 25 avril 2026). Pendant la fermeture, la pêche au vif, au poisson mort ou artificiel et les nasses, araignées et tramails sont interdits.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Tout brochet capturé du 2e samedi de mars au dernier vendredi d'avril doit être remis à l'eau immédiatement (règle nationale).",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Sandre et black-bass : aucune fermeture nationale générale n'apparaît dans les sources consultées. Des fermetures locales existent par arrêté (exemples 2024 en Côtes-d'Armor : black-bass ouvert à partir du 1er juillet, sandre fermé fin janvier-avril en 2e catégorie ; Loire-Atlantique : black-bass ouvert à partir du 15 juin). À vérifier département par département.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.cotes-darmor.gouv.fr/contenu/telechargement/65023/540194/file/AP_2024_peche_VF.pdf"
+    },
+    {
+     "text": "Ombre commun : ouverture le 3e samedi de mai. La date de clôture est donnée différemment selon les pages de la Fédération nationale (3e dimanche de septembre ou 31 décembre) et des prolongations locales existent : à confirmer sur l'arrêté préfectoral.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2117"
+    },
+    {
+     "text": "Anguille jaune (pêche de loisir) : périodes fixées par arrêté ministériel selon l'unité de gestion ; fermeture au plus tard le 31 juillet 2026 (15 juillet en Artois-Picardie et Seine-Normandie) ; pêche interdite en Rhône-Méditerranée et Corse. Depuis le 14 juin 2026, déclaration des captures sous 24 h pour les pêcheurs à la ligne (hors Rhône-Méditerranée-Corse).",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/7132-la-peche-de-l-anguille.htm"
+    },
+    {
+     "text": "Grenouilles : les périodes de pêche sont fixées localement (le code permet au préfet d'autoriser jusqu'à 10 mois) ; exemples d'arrêtés : 1er juillet-31 août en Loire-Atlantique, 20 mai-17 septembre dans le projet Ardennes 2023. À vérifier sur l'arrêté local.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.ardennes.gouv.fr/contenu/telechargement/7617/56914/file/peche_2023_note_de_presentation-au-public.pdf"
+    }
+   ]
+  },
+  {
+   "id": "engins",
+   "title": "Engins, lignes, appâts et horaires",
+   "items": [
+    {
+     "text": "Horaires : de une demi-heure avant le lever du soleil à une demi-heure après son coucher. Exceptions possibles par arrêté préfectoral (truite de mer, aloses, flet, lamproies, mulet, carpe sur parcours définis).",
+     "confidence": "verifie",
+     "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2117"
+    },
+    {
+     "text": "Lignes : 1re catégorie, une ligne montée sur canne ; 2e catégorie, quatre lignes montées sur canne ; dans les deux cas 2 hameçons ou 3 mouches artificielles maximum par ligne, à proximité du pêcheur. Certains arrêtés limitent davantage (par exemple 2 lignes seulement dans certaines eaux de l'Aude).",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Domaine public fluvial : une seule ligne (lancée ou posée) pour la pêche de loisir, quel que soit le département où la carte a été achetée.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Le pêcheur doit rester à proximité de ses cannes en action ; s'il quitte son poste il doit les relever, sinon elles peuvent être saisies par un agent assermenté (art. R436-23).",
+     "confidence": "verifie",
+     "source": "https://federationpeche44.fr/wp-content/uploads/2022/01/Document-informatif-reglementation-peche2025-web-BD.pdf"
+    },
+    {
+     "text": "Carpe de nuit : la pêche de la carpe à toute heure n'est possible qu'en 2e catégorie, sur parcours et périodes autorisés par arrêté préfectoral (art. R436-14). La nuit, les carpes ne peuvent pas être gardées vivantes ni transportées. Les parcours et dates varient fortement selon les départements.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.ardennes.gouv.fr/contenu/telechargement/7617/56914/file/peche_2023_note_de_presentation-au-public.pdf"
+    },
+    {
+     "text": "Appâts interdits : œufs de poisson (naturels ou congelés) comme appât ou amorce ; poisson vivant ou mort sur ligne de fond ; espèces soumises à taille minimale (brochet, sandre, truite, black-bass), espèces exotiques envahissantes (perche-soleil, poisson-chat, écrevisses américaines, etc.) et anguilles comme appât.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/regles"
+    },
+    {
+     "text": "Procédés interdits : pêche à la main (écrevisses comprises), sous la glace, filets traînants, plongée, explosifs, électricité, drogues. L'épuisette et la gaffe ne servent qu'à sortir un poisson déjà ferré par la bouche ; accrocher le poisson autrement que par la bouche est interdit.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/regles"
+    },
+    {
+     "text": "Leurres, asticots, vif, balances et carafes : aucune interdiction nationale générale du leurre n'apparaît dans les sources. Interdictions d'asticots en 1re catégorie, de vif en plan d'eau, nombre de balances à écrevisses et carafes (moins de 2 l) relèvent des arrêtés préfectoraux. Le préfet peut aussi imposer hameçon simple sans ardillon ou interdire certains procédés (art. R436-23 IV).",
+     "confidence": "a_verifier_departement",
+     "source": "https://questions.assemblee-nationale.fr/dyn/16/questions/QANR5L16QE3706.pdf"
+    }
+   ]
+  },
+  {
+   "id": "especes",
+   "title": "Espèces protégées, interdites ou à remettre à l'eau",
+   "items": [
+    {
+     "text": "Remise à l'eau interdite pour les espèces exotiques envahissantes (goujon de l'Amour, pseudorasbora, perche-soleil, poisson-chat, gambusie, plusieurs écrevisses américaines et de Californie, deux grenouilles vertes exotiques). Leur détention, transport ou vente vivants sont aussi interdits.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "L'article R432-5 interdit l'introduction dans les eaux (et non la remise à l'eau) du poisson-chat, de la perche soleil, du crabe chinois et des écrevisses hors espèces autochtones autorisées. Le silure n'est pas cité dans les sources consultées : son statut de remise à l'eau n'a pas pu être confirmé.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.ain.gouv.fr/contenu/telechargement/6051/65661/file/Reference_Reglementaire.pdf"
+    },
+    {
+     "text": "Anguille : la pêche de la civelle (moins de 12 cm) et de l'anguille argentée est interdite aux pêcheurs de loisir ; carnet de pêche obligatoire pour toute capture d'anguille ; filets et engins soumis à autorisation préfectorale.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/7132-la-peche-de-l-anguille.htm"
+    },
+    {
+     "text": "Saumon atlantique : pêche fermée au niveau national en 2025 et 2026. Truite de mer : autorisée en 2026 seulement dans le Calvados, l'Eure, le Pas-de-Calais, la Seine-Maritime et la Somme, avec une autorisation migrateurs (supplément de 50 €). Règles fixées chaque année par arrêté ministériel.",
+     "confidence": "verifie",
+     "source": "http://www.generationpeche.fr/3535-la-peche-des-salmonides-migrateurs.htm"
+    },
+    {
+     "text": "Esturgeon, lamproies, écrevisses à pattes blanches, grêles, rouges et des torrents : des arrêtés préfectoraux (exemple Aude 2023) les interdisent toute l'année. Le statut de protection national précis de chaque espèce (esturgeon notamment) n'a pas pu être confirmé sur Légifrance.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.aude.gouv.fr/contenu/telechargement/26850/185392/file/AP_2023_0003_ExercicePeche-EauDouce.pdf"
+    },
+    {
+     "text": "L'arrêté du 8 décembre 1988 protège les œufs et les milieux de reproduction de plusieurs poissons (lamproies, saumon, truites, ombre, brochet, alose, apron, etc.) ; il vise la destruction des frayères, pas la capture à la ligne, qui reste réglée par les périodes et tailles.",
+     "confidence": "verifie",
+     "source": "https://aida.ineris.fr/reglementation/arrete-081288-fixant-liste-especes-poissons-protegees-lensemble-territoire-national?lang=en"
+    },
+    {
+     "text": "Grenouilles : seules les grenouilles vertes et rousses sont pêchables, avec 8 cm minimum ; les autres espèces sont protégées (arrêté du 8 janvier 2021 cité par les arrêtés locaux). Les périodes sont locales.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.cotes-darmor.gouv.fr/contenu/telechargement/65023/540194/file/AP_2024_peche_VF.pdf"
+    }
+   ]
+  },
+  {
+   "id": "sanctions",
+   "title": "Quotas, bonnes pratiques et sanctions",
+   "items": [
+    {
+     "text": "Quotas nationaux par pêcheur et par jour : brochet 2 ; sandre + brochet + black-bass 3 au total dont 2 brochets maximum (2e catégorie) ; autres salmonidés 10 (hors saumon et truite de mer). Le chiffre de 6 salmonidés n'est pas national : des arrêtés fixent des quotas plus bas (4 dans le projet Ardennes 2023, 5 dans l'Aude, 6 en Côtes-d'Armor).",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "Pêche sans carte : « triple infraction » (adhésion, redevance, accord du détenteur du droit), amende jusqu'à 450 €. Carte non présentée sur soi : 38 € selon service-public. Pêche en lieu interdit : jusqu'à 750 €.",
+     "confidence": "verifie",
+     "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2117"
+    },
+    {
+     "text": "Pêche en période interdite ou hors des horaires autorisés : jusqu'à 450 € d'amende.",
+     "confidence": "verifie",
+     "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2117"
+    },
+    {
+     "text": "Infractions à la police de la pêche : contraventions jusqu'à 450 € (3e classe). Pollution détruisant ou nuisant au poisson : 2 ans de prison et 18 000 € ; destruction de frayères : 20 000 € ; introduction d'espèces déséquilibrantes ou de brochet, perche, sandre, black-bass en 1re catégorie : 9 000 €.",
+     "confidence": "verifie",
+     "source": "https://www.generationpeche.fr/176-regles-a-connaitre.htm"
+    },
+    {
+     "text": "No-kill : il n'existe pas d'obligation nationale de remise à l'eau généralisée. Elle est imposée localement (parcours no-kill, par arrêté préfectoral motivé, art. R436-23 IV, ou règlement des AAPPMA). Pour les autres espèces, la régulation relève de la déontologie du pêcheur.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.ardennes.gouv.fr/contenu/telechargement/7617/56914/file/peche_2023_note_de_presentation-au-public.pdf"
+    },
+    {
+     "text": "Manipulation : la réglementation ne contient pas de disposition explicite sur la souffrance du poisson ; le préfet peut cependant imposer des hameçons simples sans ardillon ou interdire certains appâts naturels dans des zones données.",
+     "confidence": "verifie",
+     "source": "https://questions.assemblee-nationale.fr/dyn/16/questions/QANR5L16QE3706.pdf"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,272 @@
+{
+ "verifiedOn": "2026-10-07",
+ "sections": [
+  {
+   "id": "permis",
+   "title": "Permis et validation",
+   "items": [
+    {
+     "text": "L'examen du permis de chasser peut être passé dès 15 ans révolus, mais le permis n'est délivré et le droit de chasser n'existe qu'à partir de 16 ans (avant, chasse accompagnée). Le permis est délivré par l'OFB.",
+     "confidence": "verifie",
+     "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2088"
+    },
+    {
+     "text": "Examen en une journée, noté sur 31 points (10 questions théoriques + 4 ateliers pratiques), 25 points minimum requis ; une question de sécurité ratée ou un comportement dangereux est éliminatoire. Une session de formation théorique et une session pratique en fédération sont obligatoires avant l'examen.",
+     "confidence": "verifie",
+     "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2088"
+    },
+    {
+     "text": "Frais d'examen indiqués par service-public : 46 € (adulte) et 31 € (mineur) lors de la dernière fiche consultée (avril 2023). Les montants et les pièces à fournir peuvent avoir évolué : vérifiez auprès de l'OFB ou de votre fédération.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2088"
+    },
+    {
+     "text": "Après réussite : certificat provisoire valant permis pendant 2 mois, puis permis définitif envoyé à domicile. Le permis lui-même est à vie, mais il doit être validé chaque saison (1er juillet au 30 juin).",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/pratiquer/obtenir-son-permis-de-chasser/"
+    },
+    {
+     "text": "Validation annuelle ou temporaire, départementale ou nationale (9 jours consécutifs, ou 3 jours consécutifs renouvelables 2 fois ; non cumulables). Le dossier passe par la fédération départementale des chasseurs ; cotisations fédérales et montants variables selon le département et le gibier chassé (grand gibier notamment).",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.justice.fr/fiche/validation-annuelle-permis-chasser"
+    },
+    {
+     "text": "Assurance responsabilité civile chasse obligatoire (art. L. 423-16 du code de l'environnement) : elle couvre les accidents corporels et les dommages causés par les chiens. Il faut avoir sur soi le permis, la validation de la saison et l'attestation d'assurance de la saison.",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/pratiquer/valider-son-permis/"
+    },
+    {
+     "text": "Formation décennale à la sécurité : remise à niveau tous les 10 ans prévue à l'art. L. 424-15 du code de l'environnement (mise en oeuvre par les fédérations depuis le 5 octobre 2020 selon une fédération, gratuite, environ 3h30). Le rapport sénatorial 2025 indique que son non-respect n'est pas sanctionné : ne pas la présenter comme condition juridique de la validation tant qu'un texte plus récent n'est pas confirmé.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.senat.fr/leg/exposes-des-motifs/ppl25-109-expose.html"
+    },
+    {
+     "text": "Chasse accompagnée à partir de 15 ans avec un parrain titulaire du permis depuis plus de 5 ans ; seul le parrain doit être assuré, son assurance devant couvrir l'accompagné.",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/actualites/quelles-regles-pour-avoir-le-droit-de-chasser/"
+    }
+   ]
+  },
+  {
+   "id": "securite",
+   "title": "Sécurité",
+   "items": [
+    {
+     "text": "Port d'un gilet ou vêtement fluorescent/orange obligatoire pour les participants à une action collective de chasse à tir au grand gibier (art. L. 424-15, loi du 24 juillet 2019 ; arrêté du 5 octobre 2020). La règle ne vise pas les promeneurs, mais les schémas départementaux (SDGC) peuvent l'étendre à d'autres chasses.",
+     "confidence": "verifie",
+     "source": "https://www.24matins.fr/chasse-une-tenue-fluo-sera-t-elle-obligatoire-pour-les-coureurs-et-promeneurs-1382373"
+    },
+    {
+     "text": "L'extension du port de l'orange à d'autres modes de chasse (petit gibier, affût, déplacements) dépend du SDGC de chaque département, avec des exceptions locales (palombe, grives, gibier d'eau au poste fixe dans les Bouches-du-Rhône). Le non-respect d'une prescription de sécurité du SDGC est une contravention de 4e classe (art. R. 428-17-1, source secondaire).",
+     "confidence": "a_verifier_departement",
+     "source": "https://chasselaciotat.fr/2024/12/11/la-chasse-et-ses-regles-mais-aussi-ses-droits/"
+    },
+    {
+     "text": "Angle de 30° : règle de sécurité enseignée (ne tirer qu'au-delà de 30° par rapport aux voisins, tir fichant, chambre vide hors zone de tir). Aucun texte national contraignant n'a été trouvé : elle figure dans les consignes fédérales/SDGC, et une proposition de loi (Sénat, 2025) vise à la rendre obligatoire.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.landes.gouv.fr/contenu/telechargement/10060/121426/file/MEMENTO_DU_CHASSEUR_SECURITE_cle5525db.pdf"
+    },
+    {
+     "text": "Interdictions de tir (OFB) : sur ou en direction des routes, chemins publics et voies ferrées, des lignes électriques, stades et lieux de réunion publics, des habitations (y compris caravanes, abris de jardin), ainsi que depuis un véhicule à moteur ou à cheval. L'OFB ne donne aucune distance chiffrée : la distance de 150 m souvent citée n'est pas confirmée comme règle nationale (elle apparaît dans des SDGC/arrêtés locaux, par exemple pour placer les panneaux de battue).",
+     "confidence": "verifie",
+     "source": "https://ofb.gouv.fr/la-chasse-un-loisir-encadre"
+    },
+    {
+     "text": "Transport des armes : déchargées, désapprovisionnées et sous étui fermé ou démontées. Source : support de formation fédéral hébergé par une préfecture, sans article cité ; à confirmer avec la réglementation sur les armes et le SDGC.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.landes.gouv.fr/contenu/telechargement/10060/121426/file/MEMENTO_DU_CHASSEUR_SECURITE_cle5525db.pdf"
+    },
+    {
+     "text": "Alcool : depuis le 18 septembre 2023, chasser ou détruire en état d'ivresse manifeste en étant porteur d'une arme à feu ou d'un arc est une contravention de 5e classe (art. R. 428-8, 8°, créé par le décret n° 2023-882 du 16 septembre 2023). Le texte vise l'ivresse manifeste, pas un taux d'alcoolémie chiffré ; l'usage de stupéfiants n'est pas couvert par ce décret.",
+     "confidence": "verifie",
+     "source": "https://aida.ineris.fr/reglementation/decret-ndeg-2023-882-160923-portant-creation-dune-contravention-reprimant-fait"
+    },
+    {
+     "text": "Signalisation des chasses collectives : l'art. L. 424-15 impose des panneaux signalant les chasses en cours à proximité des voies publiques. Le plan sécurité de janvier 2023 (14 mesures) prévoit aussi la standardisation des panneaux et une application d'État sur les lieux et temps de chasse, sans date de mise en service confirmée.",
+     "confidence": "verifie",
+     "source": "https://www.assemblee-nationale.fr/dyn/16/questions/QANR5L16QE3703.pdf"
+    },
+    {
+     "text": "Registre de battue / déclaration préalable : aucune obligation nationale en vigueur confirmée. La déclaration publique préalable des chasses collectives au grand gibier et l'assurance des organisateurs figurent dans une proposition de loi (Sénat, texte n° 109, déposée le 5 novembre 2025), dont l'adoption n'a pas été trouvée. À vérifier dans le SDGC et l'arrêté préfectoral.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.senat.fr/leg/exposes-des-motifs/ppl25-109-expose.html"
+    },
+    {
+     "text": "Formation des organisateurs de battue : annoncée par le plan sécurité de 2023, mais le texte d'application n'a pas été retrouvé. À confirmer auprès de votre fédération avant de la considérer comme obligatoire.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.info.gouv.fr/actualite/un-plan-pour-mieux-securiser-la-pratique-de-la-chasse"
+    }
+   ]
+  },
+  {
+   "id": "periodes",
+   "title": "Périodes et horaires",
+   "items": [
+    {
+     "text": "Ouverture générale : la date varie selon le département, entre le 1er et le 4e dimanche de septembre (selon la FNC). Exemples : le 8 septembre 2024 dans l'Ain, le 13 septembre 2026 en Isère. Consultez l'arrêté préfectoral de votre département.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.chasseurdefrance.com/pratiquer/reglementation/"
+    },
+    {
+     "text": "Clôture générale : dernier jour de février (par exemple 28 février 2027 en Isère). Des ouvertures anticipées ou prolongées existent par espèce (sanglier, chevreuil, renard notamment dès le 1er juin sur autorisation) et sont fixées par arrêté préfectoral.",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/pratiquer/reglementation/"
+    },
+    {
+     "text": "Oiseaux migrateurs et gibier d'eau : périodes fixées par arrêtés ministériels (et non par le préfet), avec des horaires dérogatoires. Les dates de la saison 2026-2027 figurent dans l'arrêté en vigueur.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.chasseurdefrance.com/pratiquer/reglementation/"
+    },
+    {
+     "text": "Horaires légaux : la chasse se pratique de jour, de 1 h avant le lever du soleil à 1 h après son coucher (heures légales du chef-lieu du département) ; les arrêtés préfectoraux peuvent être plus restrictifs.",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/faq/pratique-de-la-chasse/reglementation/"
+    },
+    {
+     "text": "Gibier d'eau à la passée : horaires élargis de 2 h avant le lever à 2 h après le coucher du soleil (chef-lieu), dans les lieux autorisés. Chasse de nuit au gibier d'eau uniquement depuis des installations fixes déclarées existant au 1er janvier 2000, dans une liste de 27 départements, avec carnet de prélèvements.",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/07/FDC_01_APO.pdf"
+    },
+    {
+     "text": "Jours de chasse : il n'existe pas de règle nationale « dimanche/mercredi » ; le préfet peut suspendre certains jours. Exemples : mardi et vendredi sans chasse dans l'Ain (2024-2025), vendredi en Isère (2026-2027). Voir l'arrêté de votre département.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/07/FDC_01_APO.pdf"
+    },
+    {
+     "text": "Vénerie (à courre, à cor et à cri) : exemple de période préfectorale 15 septembre au 31 mars (Ain 2024-2025). Chasse sous terre jusqu'au 15 janvier dans ce même arrêté. Les périodes sont ministérielles, adaptées par arrêté préfectoral.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.chasseurdefrance.com/wp-content/uploads/2024/07/FDC_01_APO.pdf"
+    },
+    {
+     "text": "Neige et gel : chasse en temps de neige interdite en principe (exceptions : gibier d'eau, espèces à plan de chasse/quota, ESOD) ; le préfet peut suspendre la chasse de certaines espèces après au moins 4 jours consécutifs de gel, par périodes renouvelables de 10 jours.",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/pratiquer/reglementation/"
+    }
+   ]
+  },
+  {
+   "id": "especes",
+   "title": "Espèces et plans de chasse",
+   "items": [
+    {
+     "text": "Seules les espèces listées par l'arrêté du 26 juin 1987 modifié sont chassables (environ 87 espèces dont 38 de gibier d'eau, 4 sous moratoire). Les autres espèces d'oiseaux et de mammifères sont protégées. Les listes évoluent : exemple signalé en 2026, le lagopède alpin passé espèce protégée (information d'une fédération, à confirmer au JO).",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.chasseurdefrance.com/decouvrir/les-especes-chassables/"
+    },
+    {
+     "text": "Plan de chasse : fixe un minimum et un maximum d'animaux à prélever par territoire (art. L. 425-6). Le préfet arrête les minima/maxima par espèce avant le 1er mai précédant la saison (art. L. 425-8 et R. 425-2) ; il est géré par unités de gestion. Cerf élaphe et chevreuil sont concernés, le sanglier est géré par plan dans certains départements, daim et mouflon dépendent du département.",
+     "confidence": "verifie",
+     "source": "https://www.ardennes.gouv.fr/contenu/telechargement/11563/83158/file/Plan-chasse_2024-2025_Note-de-presentation.pdf"
+    },
+    {
+     "text": "Les modalités du plan de chasse (bracelets, déclarations de prélèvement, sexe/âge) et du plan de gestion du sanglier varient selon le département : consulter l'arrêté préfectoral et le SDGC.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.ardennes.gouv.fr/contenu/telechargement/11563/83158/file/Plan-chasse_2024-2025_Note-de-presentation.pdf"
+    },
+    {
+     "text": "Bécasse des bois : prélèvement maximal autorisé national de 30 oiseaux par chasseur et par saison, avec carnet (papier ou dématérialisé, via ChassAdapt). Les départements ajoutent des limites journalières ou hebdomadaires (par exemple 3 par semaine).",
+     "confidence": "verifie",
+     "source": "https://ofb.gouv.fr/reseau-becasse"
+    },
+    {
+     "text": "ChassAdapt (appli FNC, carnet de chasse numérique) : déclaration obligatoire en temps réel pour certaines espèces (tourterelle des bois, fuligule milouin, caille des blés, etc.), avec QR code de justification en cas de contrôle. Les obligations varient selon l'espèce et la saison.",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/chassadapt/"
+    },
+    {
+     "text": "ESOD (ex-nuisibles) : l'arrêté ministériel du 10 août 2026 (JO du 21 août 2026) classe, selon les départements, renard, fouine, martre, belette, corbeau freux, corneille noire, pie bavarde, geai des chênes et étourneau sansonnet, du 1er juillet 2026 au 30 juin 2029. Modalités, périodes et listes sont ensuite fixées par arrêté préfectoral : ne pas présenter comme destructible partout et sans condition.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.sochasse.fr/expliquer-la-chasse/esod-2026-2029-larrete-enfin-publie-departement-par-departement/"
+    }
+   ]
+  },
+  {
+   "id": "armes",
+   "title": "Armes et munitions",
+   "items": [
+    {
+     "text": "Catégorie C (acquisition par le chasseur) : notamment fusils semi-automatiques à chargeur fixe de 3 coups maximum (2+1), fusils à répétition manuelle jusqu'à 11 coups, armes à un coup par canon. Le permis de chasser valide justifie aussi le port d'armes de catégorie D (armes blanches) dans le cadre de la chasse (art. R. 315-2 CSI).",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/pratiquer/les-armes-de-chasse-la-reglementation/"
+    },
+    {
+     "text": "Munitions : l'achat de munitions de catégorie C exige le récépissé de déclaration de l'arme et un permis de chasser valide ; maximum 1 000 cartouches détenues par arme légalement détenue (art. R. 312-61).",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/pratiquer/les-armes-de-chasse-la-reglementation/"
+    },
+    {
+     "text": "Plomb en zones humides : interdit dans les zones humides et à moins de 100 m de celles-ci (règlement UE 2021/57, applicable depuis le 15 février 2023, seuil 1 % de plomb en poids).",
+     "confidence": "verifie",
+     "source": "https://www.assemblee-nationale.fr/dyn/16/questions/QANR5L16QE3496.pdf"
+    },
+    {
+     "text": "Procédés de chasse : l'arrêté du 25 juin 2026 (modifiant l'arrêté du 1er août 1986, applicable le 10 juillet 2026) autorise la battue du mouflon, du chamois et de l'isard, les talkies-walkies pour tous modes de chasse, et les dispositifs de localisation des chiens pendant l'action de chasse, sous réserve du SDGC et de l'arrêté préfectoral.",
+     "confidence": "verifie",
+     "source": "https://fdc41.com/actualites/procedes-de-chasse-nouvelles-dispositions-applicables-au-10-juillet-2026/"
+    },
+    {
+     "text": "Calibre minimal pour le grand gibier, silencieux (modérateur de son), lunette de visée, visée nocturne : aucune règle nationale précise n'a pu être confirmée. La poursuite de nuit en véhicule avec phares a été jugée acte de chasse illégal, et la visée nocturne relève en principe d'une dérogation préfectorale.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.chasseurdefrance.com/faq/pratique-de-la-chasse/reglementation/"
+    }
+   ]
+  },
+  {
+   "id": "recherche",
+   "title": "Recherche du grand gibier blessé",
+   "items": [
+    {
+     "text": "La recherche d'un animal blessé avec un chien de sang n'est pas un acte de chasse (art. L. 420-3) : elle est possible y compris les jours sans chasse, ce que certains arrêtés préfectoraux rappellent expressément.",
+     "confidence": "verifie",
+     "source": "https://questions.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE16614.pdf"
+    },
+    {
+     "text": "Il n'existe pas de statut légal national du conducteur de chien de sang : la profession repose sur des agréments associatifs (UNUCR, reconnue par l'État selon la question parlementaire n° 16614). Aucune obligation nationale de recherche n'a été confirmée : devoir moral et règles du SDGC.",
+     "confidence": "a_verifier_departement",
+     "source": "https://questions.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE16614.pdf"
+    },
+    {
+     "text": "Les conducteurs de chiens de sang agréés sont autorisés dans le cadre d'arrêtés préfectoraux propres à chaque département (exemple : arrêté chiens de sang des Bouches-du-Rhône) ; se référer à l'arrêté local pour les conditions.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.bouches-du-rhone.gouv.fr/index.php/contenu/telechargement/52757/383035/file/AP%20chiens%20de%20sang%202023-2024_RAA.pdf"
+    }
+   ]
+  },
+  {
+   "id": "sanctions",
+   "title": "Bonnes pratiques et sanctions",
+   "items": [
+    {
+     "text": "Il faut l'accord du détenteur du droit de chasse sur le territoire (propriétaire, ACCA, société, chasse louée) pour chasser ; la chasse sur le terrain d'autrui sans droit est sanctionnée (barème exact non confirmé ici).",
+     "confidence": "verifie",
+     "source": "https://ofb.gouv.fr/la-chasse-un-loisir-encadre"
+    },
+    {
+     "text": "ACCA (loi Verdeille de 1964) : dans les communes concernées, les petits terrains sont regroupés dans une association communale agréée ; opposition possible pour grandes propriétés (seuil 20 à 60 ha selon les zones) ou par conviction personnelle (loi du 26 juillet 2000, arrêt Chassagnou 1999). Un propriétaire opposant ne peut ni chasser ni faire chasser sur ses terres.",
+     "confidence": "verifie",
+     "source": "https://ofb.gouv.fr/sites/ofb-gouv-fr/files/pdf/RevueFS/FauneSauvage280_2008_Art6.pdf"
+    },
+    {
+     "text": "Permis obtenu ou validé par fausse déclaration : nul de plein droit, et passible de 2 ans de prison et 30 000 € d'amende (art. 441-6 du code pénal).",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/pratiquer/obtenir-son-permis-de-chasser/"
+    },
+    {
+     "text": "Contraventions : l'ivresse manifeste à la chasse est de 5e classe (jusqu'à 1 500 €). Les infractions de 4e/5e classe liées aux chiens et à la chasse atteignent respectivement 750 € et 1 500 € ; la chasse en temps prohibé constitue du braconnage. Les barèmes précis par infraction (chasse sans permis, sans validation, sans assurance) n'ont pas été confirmés sur Légifrance, inaccessible depuis cet environnement.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.chasseurdefrance.com/pratiquer/reglementation/"
+    },
+    {
+     "text": "Retrait/suspension du permis et interdiction de repasser le permis pendant 10 ans après certains accidents : proposé par le texte n° 109 (Sénat, 2025), non confirmé comme droit en vigueur. Les peines complémentaires actuelles (art. L. 428-14 et suivants) n'ont pas pu être relues sur Légifrance.",
+     "confidence": "a_verifier_departement",
+     "source": "https://www.senat.fr/leg/exposes-des-motifs/ppl25-109-expose.html"
+    },
+    {
+     "text": "Les chiens doivent être tenus sous contrôle : tenue en laisse en lieux publics et, en forêt, hors des routes et chemins, du 15 avril au 30 juin (arrêté du 16 mars 1955). Le propriétaire reste civilement responsable des dégâts causés par son chien.",
+     "confidence": "verifie",
+     "source": "https://www.chasseurdefrance.com/pratiquer/reglementation/"
+    }
+   ]
+  }
+ ]
+}

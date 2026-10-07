@@ -211,3 +211,13 @@ js_sang=open(D+'js_sang_data.js',encoding='utf-8').read()+open(D+'js_sang.js',en
 rep('var wl,Hi=H(()=>{wl=Ui({', js_sang+'\nvar wl,Hi=H(()=>{wl=Ui({"./views/sang.js":()=>Promise.resolve().then(()=>(SgI(),SgM)),')
 rep('Z("/bourse",te("market"));','Z("/bourse",te("market"));Z("/chien-de-sang",te("sang"));')
 rep(r'["/tableau-de-chasse","Tableau de chasse","book"]]}', r'["/tableau-de-chasse","Tableau de chasse","book"],["/chien-de-sang","Chien de sang","shield"]]}')
+
+# 28) Réglementation : règles nationales vérifiées + corrections des valeurs génériques
+import json as _json
+_reg={"chasse":_json.load(open(D+'reg_chasse.json',encoding='utf-8')),"peche":_json.load(open(D+'reg_peche.json',encoding='utf-8'))}
+js_regnat="const REG_NAT="+_json.dumps(_reg,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')+";\n"+open(D+'js_regnat.js',encoding='utf-8').read()
+rep('var wl,Hi=H(()=>{wl=Ui({', js_regnat+'\nvar wl,Hi=H(()=>{wl=Ui({')
+rep('k({flush:!0,cls:""},o),e("div.panel.tint",{style:{marginTop:"18px"}}', 'k({flush:!0,cls:""},o),RegNatBox(),e("div.panel.tint",{style:{marginTop:"18px"}}')
+rep('function c(){let p=f=>(f||"").toLowerCase()', 'function c(){RegNatDraw(n);let p=f=>(f||"").toLowerCase()')
+rep(r'"1er juin \u2192 28 f\xE9vr."', r'"Selon arr\xEAt\xE9 \u2192 fin f\xE9vr."', count=2)
+rep(r'"PMA : 3 par jour, 30 par saison. Carnet obligatoire."', r'"PMA nationale : 30 par saison ; limites par jour ou par semaine fixées par le département. Carnet obligatoire."')
