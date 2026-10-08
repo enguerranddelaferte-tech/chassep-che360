@@ -1,4 +1,4 @@
-# Bandeau photo de saison (option Profil > Affichage), d'après HeaderBanner : 170/210 px, voile, pastille univers • saison
+# Photo de fond de saison (option Profil > Affichage) : photo plein écran fixe, voilée, qui s'efface vers le fond crème/sombre
 POS={('printemps','chasse'):'15%',('printemps','peche'):'45%',('ete','chasse'):'30%',('ete','peche'):'35%',('automne','chasse'):'40%',('automne','peche'):'75%',('hiver','chasse'):'85%',('hiver','peche'):'55%'}
 NOM={'printemps':'Printemps','ete':'Été','automne':'Automne','hiver':'Hiver'}
 css='/* bandeau photo de saison (gen_banniere.py) */\n'
@@ -8,15 +8,13 @@ for s in NOM:
         css+=f'{sel} {{ --bn-photo: url("img/banniere-{s}-{m}.webp"); --bn-pos: 50% {POS[(s,m)]}; --bn-label: "{lab.upper()} • {NOM[s].upper()}"; }}\n'
 C=':root[data-banniere="on"]:not([data-theme="contrast"]):not([data-role="admin"])'
 css+=f'''
-{C} .page::before {{ content: var(--bn-label, ""); display: flex; align-items: flex-start; height: 200px; margin: 0 0 20px; padding: 14px 16px; box-sizing: border-box; border-radius: 16px; font: 800 11px/1 var(--font, 'Barlow', sans-serif); letter-spacing: .1em; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.6); background: linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,.3) 55%, transparent), var(--bn-photo, none) var(--bn-pos, center) / cover no-repeat, var(--surface-3, #ddd); box-shadow: 0 1px 2px rgba(0,0,0,.08); }}
-:root[data-banniere="on"][data-theme="dark"]:not([data-role="admin"]) .page::before {{ filter: brightness(.8); }}
-{C} .page:has(> .page-head)::before {{ margin-bottom: -200px; }}
-{C} .page-head {{ position: relative; min-height: 200px; padding: 0 16px 16px; margin-bottom: 20px; align-items: flex-end; }}
-{C} .page-head h1 {{ color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.5); font-size: clamp(26px, 3.4vw, 36px); }}
-{C} .page-head p {{ color: #E5E7EB; font-size: 15px; margin-top: 6px; text-shadow: 0 1px 3px rgba(0,0,0,.5); display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }}
-@media (min-width: 900px) {{ {C} .page::before {{ height: 210px; padding: 18px 22px; }} {C} .page:has(> .page-head)::before {{ margin-bottom: -210px; }} {C} .page-head {{ min-height: 210px; padding: 0 22px 20px; }} }}
-@media print {{ .page::before {{ display: none !important; }} }}
+{C} body {{ background: var(--bg); }}
+{C} body::before {{ content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(243,240,232,.30) 0%, rgba(243,240,232,.62) 30%, rgba(243,240,232,.93) 62%, var(--bg) 100%), var(--bn-photo, none) var(--bn-pos, center) / cover no-repeat; }}
+:root[data-banniere="on"][data-theme="dark"]:not([data-role="admin"]) body::before {{ background: linear-gradient(to bottom, rgba(19,27,25,.42) 0%, rgba(19,27,25,.72) 30%, rgba(19,27,25,.95) 62%, var(--bg) 100%), var(--bn-photo, none) var(--bn-pos, center) / cover no-repeat; }}
+@media print {{ body::before {{ display: none !important; }} }}
 
+'''
+css+=f'''
 /* design system 360 : jetons, SOS en pastille */
 :root {{ --brick: #A82312; }}
 :root[data-theme="dark"] {{ --surface: #1E2826; --surface-2: #283431; --line: #2A3633; --text-2: #D1D5DB; --muted: #9CA3AF; --brick: #C23A28; }}
