@@ -139,16 +139,15 @@ for (name,mode),d in S.items():
         ex=d['extra']()+d['fauna']()
         if d['land'][0]=='hills': land=hills(d['land'][1],d['land'][2],ex)
         else: land=lake(d['land'][1],d['land'][2],d['land'][3],d['land'][4],ex)
-        if dark: mot=dk(mot,.45);land=dk(land)
-        mot,land=uri(mot),uri(land)
         t1,t2=d['tint']
         sel=f':root[data-saison="{name}"]'+('[data-season="peche"]' if mode=='peche' else ':not([data-season="peche"])')+(':is([data-theme="dark"])' if dark else ':not([data-theme="dark"]):not([data-theme="contrast"])')
         tint=f'linear-gradient(180deg,{alpha(t1,.4)},transparent 55%)' if dark else f'linear-gradient(180deg,{t1},{t2} 100%)'
         glow=f'radial-gradient(ellipse 60% 38% at 82% 0%,{alpha(d["glow"],.26) if dark else d["glow"]},transparent 70%)'
-        sky=f'linear-gradient(180deg,{alpha(t1,1.5) if dark else alpha(t1,2.6)},{alpha(t2,1.2) if dark else alpha(t2,2.2)})'
-        css+=f'{sel} {{ --saison-land: {land}; --saison-art: var(--saison-land) center calc(100% - var(--land-off,0px)) / 600px 200px repeat-x, {mot} 0 0 / 420px 420px repeat, {glow}, {tint}; --saison-band: var(--saison-land) center bottom / 600px 200px repeat-x, {glow}, {sky}, var(--bg); }}\n'
-css+='''.page::before { content: ""; display: block; height: 150px; margin: 0 0 20px; border-radius: 20px; background: var(--saison-band, none); box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); }
-@media (min-width: 900px) { .page::before { height: 190px; } }
+        photo=f'url("img/saison-{name}-{mode}.webp")'
+        css+=f'{sel} {{ --saison-art: {glow}, {tint}; --saison-photo: {photo}; }}\n'
+css+='''.page::before { content: ""; display: block; height: 170px; margin: 0 0 20px; border-radius: 20px; background: var(--saison-photo, none) center / cover no-repeat, var(--surface-3, #ddd); box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); }
+:root[data-theme="dark"] .page::before { filter: brightness(.62) saturate(.85) contrast(1.05); }
+@media (min-width: 900px) { .page::before { height: 210px; } }
 :root:not([data-saison]) .page::before, :root[data-theme="contrast"] .page::before, :root[data-role="admin"] .page::before { display: none; }
 @media print { .page::before { display: none; } }
 @media (max-width: 900px) { :root { --land-off: 70px; } }
