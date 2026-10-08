@@ -1,4 +1,4 @@
 /* fond de saison : automatique selon la date, réglable dans Profil > Affichage */
 function SaisonOf(d){let v=(d.getMonth()+1)*100+d.getDate();return v>=321&&v<621?"printemps":v>=621&&v<923?"ete":v>=923&&v<1221?"automne":"hiver"}
 function SaisonApply(){let o=Pe.get("saison","auto"),s=["printemps","ete","automne","hiver"].includes(o)?o:SaisonOf(new Date());document.documentElement.dataset.saison=s;document.documentElement.dataset.banniere=Pe.get("banniere","on")==="on"?"on":"off"}
-function SaisonField(){return e("div.field",{style:{marginTop:"12px"}},e("label","Photo de fond (chasse)"),ke([["off","Non"],["on","Oui"]],Pe.get("banniere","on"),c=>{Pe.set("banniere",c);SaisonApply()}),e("div.tiny.muted",{style:{marginTop:"6px"}},"Une photo de fond en mode chasse. Les thèmes par saison sont mis de côté pour l’instant."))}
+function SaisonField(){return e("div.field",{style:{marginTop:"12px"}},e("label","Photo de fond"),ke([["off","Non"],["on","Oui"]],Pe.get("banniere","on"),c=>{Pe.set("banniere",c);SaisonApply()}),e("div.tiny.muted",{style:{marginTop:"6px"}},"Une photo de fond en mode chasse et en mode pêche. Les thèmes par saison sont mis de côté pour l’instant."))}

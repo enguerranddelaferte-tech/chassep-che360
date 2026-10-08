@@ -1,13 +1,15 @@
 # Fond photo chasse (option Profil > Affichage)
 css='/* fond photo (gen_banniere.py) : chasse = cerf au brame, pêche = aucun pour l instant ; thèmes par saison mis de côté */\n'
-C=':root[data-banniere="on"]:not([data-season="peche"]):not([data-theme="contrast"]):not([data-role="admin"])'
-css+=f'''
-:root[data-saison] body {{ background: var(--pattern, none), var(--bg); }}
-{C} body::before {{ content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(243,240,232,.12) 0%, rgba(243,240,232,.40) 32%, rgba(243,240,232,.86) 66%, var(--bg) 100%), url("img/fond-chasse.webp") 62% 55% / cover no-repeat; }}
-:root[data-banniere="on"][data-theme="dark"]:not([data-season="peche"]):not([data-role="admin"]):not([data-theme="contrast"]) body::before {{ background: linear-gradient(to bottom, rgba(19,27,25,.35) 0%, rgba(19,27,25,.62) 32%, rgba(19,27,25,.93) 66%, var(--bg) 100%), url("img/fond-chasse.webp") 62% 55% / cover no-repeat; }}
-@media print {{ body::before {{ display: none !important; }} }}
-
+def fond(univ,photo,pos,top,mid,low):
+    sel=f':root[data-banniere="on"]'+(':not([data-season="peche"])' if univ=='chasse' else '[data-season="peche"]')+':not([data-theme="contrast"]):not([data-role="admin"])'
+    out=f'''{sel} body::before {{ content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(243,240,232,{top}) 0%, rgba(243,240,232,{mid}) 32%, rgba(243,240,232,{low}) 66%, var(--bg) 100%), url("img/{photo}") {pos} / cover no-repeat; }}
+{sel.replace('[data-theme="contrast"]','[data-theme="dark"]').replace(':not([data-theme="dark"])','[data-theme="dark"]')} body::before {{ background: linear-gradient(to bottom, rgba(19,27,25,{top+0.2:.2f}) 0%, rgba(19,27,25,{mid+0.2:.2f}) 32%, rgba(19,27,25,.93) 66%, var(--bg) 100%), url("img/{photo}") {pos} / cover no-repeat; }}
 '''
+    return out
+css+=':root[data-saison] body { background: var(--pattern, none), var(--bg); }\n'
+css+=fond('chasse','fond-chasse.webp','62% 55%',.12,.40,.86)
+css+=fond('peche','fond-peche.webp','30% 55%',.50,.62,.90)
+css+='@media print { body::before { display: none !important; } }\n'
 css+=f'''
 /* design system 360 : jetons, SOS en pastille */
 :root {{ --brick: #A82312; }}
