@@ -886,3 +886,5 @@ table.data td, table.data th { vertical-align: middle; }
 .topbar, .tabbar, .map-card { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
 .topbar, .tabbar { background: color-mix(in srgb, var(--surface) 97%, transparent); }
 .map-card { background: color-mix(in srgb, var(--surface) 97%, transparent); }
+/* Photos des publications : l'emplacement est réservé et l'image s'affiche toujours */
+.photo img { display: block; min-height: 140px; background: var(--surface-3); }

@@ -299,5 +299,7 @@ rep('x("Signaler un danger",{icon:"alert",kind:"ghost",size:"block",onClick:Mo((
 rep('pts.length>2?L_.polygon(pts,{color:"#E3B04B",weight:3,dashArray:"6 4",fillColor:"#E3B04B",fillOpacity:.2,interactive:!1}).addTo(pg):', 'pts.length>2?TerrShape(L_,pts,null).addTo(pg):')
 
 # 38) Performance : images paresseuses, écouteur d'orientation retiré à la sortie de la carte
-rep('s=document.createElement(i||"div");a.replace(', 's=document.createElement(i||"div");i==="img"&&(s.loading="lazy",s.decoding="async");a.replace(')
 rep('window.removeEventListener("deviceorientation",je),', 'window.removeEventListener("deviceorientation",je),window.removeEventListener("deviceorientationabsolute",je),')
+
+# 39) Fil d'actualité : photos toujours affichées (chargement immédiat, emplacement réservé)
+rep('e("img",{src:t.photo,alt:"",loading:"lazy"})', 'e("img",{src:t.photo,alt:"",loading:"eager"})')
