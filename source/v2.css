@@ -465,6 +465,12 @@ textarea.input { min-height: 110px; resize: vertical; line-height: 1.5; }
 .leaflet-bar a { background: var(--surface); color: var(--text); border-color: var(--line); width: 40px; height: 40px; line-height: 40px; }
 .leaflet-control-attribution { background: color-mix(in srgb, var(--surface) 80%, transparent) !important; color: var(--muted) !important; font-size: 11px; }
 .leaflet-control-attribution a { color: var(--text-2) !important; }
+/* mentions légales de la carte : bandeau discret en bas à gauche, jamais sous le SOS ni les outils */
+.leaflet-bottom.leaflet-right { right: auto; left: 0; max-width: calc(100% - 8px); }
+.leaflet-bottom.leaflet-right .leaflet-control { margin: 0; float: left; clear: both; }
+.leaflet-control-attribution { font-size: 10px !important; line-height: 1.45; padding: 1px 6px; border-radius: 0 6px 0 0; }
+.leaflet-bottom.leaflet-left { margin-bottom: 18px; }
+@media (min-width: 761px) { .leaflet-control-attribution { font-size: 11px !important; } }
 .pin { display: grid; place-items: center; border-radius: 50%; border: 2px solid #fff; color: #fff; font: 700 12px/1 var(--font-display); box-shadow: 0 2px 8px rgba(0, 0, 0, .5); }
 .pin svg { width: 60%; height: 60%; }
 .pin.stand { background: var(--blaze); color: #1A0E05; }
@@ -496,7 +502,6 @@ textarea.input { min-height: 110px; resize: vertical; line-height: 1.5; }
   .map-right { gap: 8px; }
   .map-right .map-card { zoom: .7; }
   .map-right .icon-btn { width: 44px !important; height: 44px !important; }
-  .map-page .leaflet-bottom.leaflet-right { margin-bottom: 86px; }
   .map-bottom { right: 12px; }
 }
 
@@ -789,7 +794,7 @@ a.adm-todo.on { border-color: var(--accent); background: var(--accent-soft); col
 .home-chip { position: absolute; left: 12px; top: 12px; z-index: 450; display: flex; align-items: center; gap: 8px; background: var(--surface); border-radius: 14px; padding: 9px 13px; font-weight: 600; font-size: 14px; box-shadow: var(--shadow-sm); max-width: calc(100% - 24px); }
 .home-chip .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--moss); flex: none; }
 .home-open { position: absolute; right: 12px; bottom: 12px; z-index: 450; }
-.home-map .leaflet-control-attribution { display: none; }
+.home-map .leaflet-control-attribution { font-size: 9px; padding: 0 4px; line-height: 1.5; }
 @media (max-width: 700px) {
   .critical { grid-template-columns: repeat(3, 1fr); }
   .critical .c-sos { display: none; }
