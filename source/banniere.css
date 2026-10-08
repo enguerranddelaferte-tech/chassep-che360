@@ -1,16 +1,8 @@
-/* bandeau photo de saison (gen_banniere.py) */
-:root[data-banniere="on"][data-saison="printemps"]:not([data-season="peche"]) { --bn-photo: url("img/banniere-printemps-chasse.webp"); --bn-pos: 50% 15%; --bn-label: "CHASSE • PRINTEMPS"; }
-:root[data-banniere="on"][data-saison="printemps"][data-season="peche"] { --bn-photo: url("img/banniere-printemps-peche.webp"); --bn-pos: 50% 45%; --bn-label: "PÊCHE • PRINTEMPS"; }
-:root[data-banniere="on"][data-saison="ete"]:not([data-season="peche"]) { --bn-photo: url("img/banniere-ete-chasse.webp"); --bn-pos: 50% 30%; --bn-label: "CHASSE • ÉTÉ"; }
-:root[data-banniere="on"][data-saison="ete"][data-season="peche"] { --bn-photo: url("img/banniere-ete-peche.webp"); --bn-pos: 50% 35%; --bn-label: "PÊCHE • ÉTÉ"; }
-:root[data-banniere="on"][data-saison="automne"]:not([data-season="peche"]) { --bn-photo: url("img/banniere-automne-chasse.webp"); --bn-pos: 62% 55%; --bn-label: "CHASSE • AUTOMNE"; }
-:root[data-banniere="on"][data-saison="automne"][data-season="peche"] { --bn-photo: url("img/banniere-automne-peche.webp"); --bn-pos: 50% 75%; --bn-label: "PÊCHE • AUTOMNE"; }
-:root[data-banniere="on"][data-saison="hiver"]:not([data-season="peche"]) { --bn-photo: url("img/banniere-hiver-chasse.webp"); --bn-pos: 50% 85%; --bn-label: "CHASSE • HIVER"; }
-:root[data-banniere="on"][data-saison="hiver"][data-season="peche"] { --bn-photo: url("img/banniere-hiver-peche.webp"); --bn-pos: 50% 55%; --bn-label: "PÊCHE • HIVER"; }
+/* fond photo (gen_banniere.py) : chasse = cerf au brame, pêche = aucun pour l instant ; thèmes par saison mis de côté */
 
-:root[data-banniere="on"]:not([data-theme="contrast"]):not([data-role="admin"]) body { background: var(--bg); }
-:root[data-banniere="on"]:not([data-theme="contrast"]):not([data-role="admin"]) body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(243,240,232,.12) 0%, rgba(243,240,232,.40) 32%, rgba(243,240,232,.86) 66%, var(--bg) 100%), var(--bn-photo, none) var(--bn-pos, center) / cover no-repeat; }
-:root[data-banniere="on"][data-theme="dark"]:not([data-role="admin"]) body::before { background: linear-gradient(to bottom, rgba(19,27,25,.35) 0%, rgba(19,27,25,.62) 32%, rgba(19,27,25,.93) 66%, var(--bg) 100%), var(--bn-photo, none) var(--bn-pos, center) / cover no-repeat; }
+:root[data-saison] body { background: var(--pattern, none), var(--bg); }
+:root[data-banniere="on"]:not([data-season="peche"]):not([data-theme="contrast"]):not([data-role="admin"]) body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(243,240,232,.12) 0%, rgba(243,240,232,.40) 32%, rgba(243,240,232,.86) 66%, var(--bg) 100%), url("img/fond-chasse.webp") 62% 55% / cover no-repeat; }
+:root[data-banniere="on"][data-theme="dark"]:not([data-season="peche"]):not([data-role="admin"]):not([data-theme="contrast"]) body::before { background: linear-gradient(to bottom, rgba(19,27,25,.35) 0%, rgba(19,27,25,.62) 32%, rgba(19,27,25,.93) 66%, var(--bg) 100%), url("img/fond-chasse.webp") 62% 55% / cover no-repeat; }
 @media print { body::before { display: none !important; } }
 
 

@@ -1,16 +1,10 @@
-# Photo de fond de saison (option Profil > Affichage) : photo plein écran fixe, voilée, qui s'efface vers le fond crème/sombre
-POS={('printemps','chasse'):'15%',('printemps','peche'):'45%',('ete','chasse'):'30%',('ete','peche'):'35%',('automne','chasse'):'40%',('automne','peche'):'75%',('hiver','chasse'):'85%',('hiver','peche'):'55%'}
-NOM={'printemps':'Printemps','ete':'Été','automne':'Automne','hiver':'Hiver'}
-css='/* bandeau photo de saison (gen_banniere.py) */\n'
-for s in NOM:
-    for m,lab in (('chasse','Chasse'),('peche','Pêche')):
-        sel=f':root[data-banniere="on"][data-saison="{s}"]'+('[data-season="peche"]' if m=='peche' else ':not([data-season="peche"])')
-        css+=f'{sel} {{ --bn-photo: url("img/banniere-{s}-{m}.webp"); --bn-pos: {'62% 55%' if (s,m)==('automne','chasse') else '50% '+POS[(s,m)]}; --bn-label: "{lab.upper()} • {NOM[s].upper()}"; }}\n'
-C=':root[data-banniere="on"]:not([data-theme="contrast"]):not([data-role="admin"])'
+# Fond photo chasse (option Profil > Affichage)
+css='/* fond photo (gen_banniere.py) : chasse = cerf au brame, pêche = aucun pour l instant ; thèmes par saison mis de côté */\n'
+C=':root[data-banniere="on"]:not([data-season="peche"]):not([data-theme="contrast"]):not([data-role="admin"])'
 css+=f'''
-{C} body {{ background: var(--bg); }}
-{C} body::before {{ content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(243,240,232,.12) 0%, rgba(243,240,232,.40) 32%, rgba(243,240,232,.86) 66%, var(--bg) 100%), var(--bn-photo, none) var(--bn-pos, center) / cover no-repeat; }}
-:root[data-banniere="on"][data-theme="dark"]:not([data-role="admin"]) body::before {{ background: linear-gradient(to bottom, rgba(19,27,25,.35) 0%, rgba(19,27,25,.62) 32%, rgba(19,27,25,.93) 66%, var(--bg) 100%), var(--bn-photo, none) var(--bn-pos, center) / cover no-repeat; }}
+:root[data-saison] body {{ background: var(--pattern, none), var(--bg); }}
+{C} body::before {{ content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(243,240,232,.12) 0%, rgba(243,240,232,.40) 32%, rgba(243,240,232,.86) 66%, var(--bg) 100%), url("img/fond-chasse.webp") 62% 55% / cover no-repeat; }}
+:root[data-banniere="on"][data-theme="dark"]:not([data-season="peche"]):not([data-role="admin"]):not([data-theme="contrast"]) body::before {{ background: linear-gradient(to bottom, rgba(19,27,25,.35) 0%, rgba(19,27,25,.62) 32%, rgba(19,27,25,.93) 66%, var(--bg) 100%), url("img/fond-chasse.webp") 62% 55% / cover no-repeat; }}
 @media print {{ body::before {{ display: none !important; }} }}
 
 '''
