@@ -20,8 +20,10 @@ function RegDeptList(){return Object.keys(REG_DEPT).sort().map(c=>({code:c,name:
 function RegDeptDraw(n,code,box,qt){W(box);let D=REG_DEPT[code],pad=e("div.stack",{style:{padding:"16px"}});C(box,pad);
 const norm=s=>(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""),host=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch(_){return"source"}};
 const conf=k=>k?L("Source officielle","accent","check"):L("À vérifier","gold"),src=u=>u?e("a.tiny",{href:u,target:"_blank",rel:"noopener noreferrer"},host(u)+" ↗"):null;
+let mo=D&&D.v?(Date.now()-new Date(D.v))/2629800000:null,old=mo!==null&&mo>=6;
 let sec=n==="chasse"?(D&&D.c):(D&&D.p),spec=((sec&&sec.e)||[]).filter(x=>!qt||norm(x.s).includes(norm(qt))),infos=(sec&&sec.i)||[];
 C(pad,e("div.row",{style:{justifyContent:"space-between",gap:"8px",flexWrap:"wrap",alignItems:"center"}},e("h3",{style:{margin:0}},D?`${code} · ${D.n}`:`Département ${code}`),sec&&sec.s?L("Saison "+sec.s,"gold"):null));
+C(pad,D&&D.v?e("div.tiny",{style:{color:old?"var(--brick,#A82312)":"var(--muted)"}},old?"Données vérifiées il y a plus de 6 mois (le "+D.v.split("-").reverse().join("/")+") : la réglementation a pu changer, contrôlez la source officielle.":"Données vérifiées le "+D.v.split("-").reverse().join("/")+" · revérification tous les 6 mois."):null);
 if(n==="chasse"&&sec){let kv=[];sec.o&&kv.push(["Ouverture générale",sec.o]);sec.f&&kv.push(["Clôture générale",sec.f]);sec.j&&kv.push(["Jours sans chasse",sec.j]);kv.length&&C(pad,rt(kv))}
 if(false){C(pad,e("div.panel.tint",e("div.row",b("info"),e("div.small",qt?"Aucune espèce ne correspond à votre recherche.":(n==="chasse"?"L’arrêté préfectoral de ce département n’a pas pu être lu pour l’instant. Reportez-vous aux règles nationales ci-dessous et à l’arrêté d’ouverture et de clôture de la préfecture ou de votre fédération des chasseurs.":"La réglementation locale de la pêche n’a pas pu être lue pour ce département. Reportez-vous aux règles nationales ci-dessous (tailles minimales, quotas) et à l’arrêté préfectoral ou à votre fédération de pêche.")))))}
 SpRedraw=()=>RegDeptDraw(n,code,box,qt);C(pad,SpTable(n,code,qt));

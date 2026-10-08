@@ -5,3 +5,6 @@
 - Règles nationales : `reg_chasse.json` / `reg_peche.json` (bloc 28).
 - Seules les valeurs lues dans un document officiel de la bonne saison sont « Source officielle » ; le reste est « À vérifier ».
 - Lacunes connues (8 oct. 2026) : pêche locale renseignée pour 83 départements ; 13 restent sans données (02 18 19 23 28 2A 2B 41 47 90 92 93 94). Les sites des préfectures/fédérations bloquent souvent WebFetch (robots.txt) ; beaucoup de valeurs sont « À vérifier » (arrêté d'une année antérieure, copie non officielle ou page non datée). Les ~40 arrêtés de chasse 2026-2027 manquants n'ont pas été repris.
+
+## Revérification tous les 6 mois
+Chaque département porte une date de vérification (`"v"`). Passé 6 mois, l'application affiche un avertissement rouge sur la fiche. Une tâche planifiée (tous les 6 mois, 1er avril et 1er octobre) relance la vérification des arrêtés préfectoraux et des textes nationaux, puis met à jour `v`.
