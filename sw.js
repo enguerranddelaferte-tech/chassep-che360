@@ -1,4 +1,4 @@
-const V="cp360-v41",TILES="cp360-tiles",STATIC="cp360-static",SHELL=["./","index.html","manifest.webmanifest","icon.svg"],MAXT=500;
+const V="cp360-v42",TILES="cp360-tiles",STATIC="cp360-static",SHELL=["./","index.html","manifest.webmanifest","icon.svg"],MAXT=500;
 self.addEventListener("install",e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>![V,TILES,STATIC].includes(x)).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 async function trim(c,n){const k=await c.keys();if(k.length>n)await Promise.all(k.slice(0,k.length-n).map(x=>c.delete(x)))}

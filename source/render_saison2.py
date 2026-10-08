@@ -114,16 +114,16 @@ def L(kind,base,cols,t,**k): return dict(kind=kind,base=base,cols=cols,t=t,**k)
 SC={
 ('printemps','chasse'):dict(seed=11,sky=[(0,'#8FAFC4'),(.5,'#CFDDD8'),(1,'#F1EAD2')],sun=(.74,.38),suncol='#FFE9B0',sunI=.5,sunk=7,cloud=.45,cloudcol='#F7F3E6',horizon='#E4E6D4',fog=.6,
   layers=[L('dec',.50,['#7B9BA6','#8CA89A'],.62,relief=8,gr=60,amp=.05,cells=4),L('dec',.55,['#6E8C6A','#8CA66C','#9DB57A'],.45,relief=14,gr=40,amp=.03),L('mixed',.60,['#5D7E4C','#7F9A55','#9CB466','#E6E2D8'],.28,relief=22,gr=30,hmin=20,hmax=44,spacing=14,amp=.02,cells=8)],
-  meadow=.665,field=('#93A56C','#5F7A45'),far=[(.46,.69,.8,False)],silcol='#2C3326',stag=False,part=dict(n=80,cols=['#FFFFFF','#F3DCE4'],r0=1.2,r1=3,blur=1.8,al=.55),grade=(1.0,1.01,.98),sat=.92),
+  meadow=.665,field=('#93A56C','#5F7A45'),far=[],silcol='#2C3326',stag=False,part=dict(n=80,cols=['#FFFFFF','#F3DCE4'],r0=1.2,r1=3,blur=1.8,al=.55),grade=(1.0,1.01,.98),sat=.92),
 ('ete','chasse'):dict(seed=21,sky=[(0,'#4F7FA8'),(.5,'#9DBAC2'),(.85,'#F0CFA0'),(1,'#F6DFB8')],sun=(.8,.55),suncol='#FFC98A',sunI=.7,sunk=6,cloud=.38,cloudcol='#FFE4C4',horizon='#EFCFA6',fog=.5,
   layers=[L('dec',.52,['#7C93A0','#8A9C98'],.6,relief=8,gr=60,amp=.05,cells=4),L('dec',.57,['#3F5C3C','#4F6E44'],.4,relief=16,gr=38,amp=.03),L('dec',.62,['#2F4A33','#3D5E3C','#566F3E'],.22,relief=24,gr=28,amp=.02,cells=8)],
-  meadow=.675,field=('#C9A559','#8F7634'),far=[(.5,.70,.85,False)],silcol='#2A261C',part=dict(n=70,cols=['#FFE9B0','#FFFFFF'],r0=1.2,r1=3.2,blur=1.8,al=.5),grade=(1.03,1.0,.95),sat=.95),
+  meadow=.675,field=('#C9A559','#8F7634'),far=[],silcol='#2A261C',part=dict(n=70,cols=['#FFE9B0','#FFFFFF'],r0=1.2,r1=3.2,blur=1.8,al=.5),grade=(1.03,1.0,.95),sat=.95),
 ('automne','chasse'):dict(seed=31,sky=[(0,'#7C98B0'),(.5,'#E5C8A4'),(1,'#F4DDB6')],sun=(.78,.5),suncol='#FFC070',sunI=.85,sunk=5,cloud=.4,cloudcol='#FFE0BC',horizon='#EBCBA0',fog=.7,
   layers=[L('dec',.52,['#A98A74','#B79470'],.58,relief=8,gr=60,amp=.05,cells=4),L('mixed',.57,['#8C6B3A','#B7752F','#A4472B','#6E6A38'],.4,relief=16,gr=36,hmin=18,hmax=34,spacing=18,amp=.03),L('mixed',.62,['#7A4A26','#B8622A','#C78A2E','#8E3A28','#4B5A38'],.22,relief=24,gr=28,hmin=26,hmax=52,spacing=16,amp=.02,cells=8)],
-  meadow=.675,field=('#A98542','#6E5428'),far=[(.46,.70,.85,False),(.70,.74,.7,True)],silcol='#2B2118',birds=(9,.1,.28,(60,50,44),6,9),part=dict(n=40,cols=['#C8632B','#E39A2D'],r0=2.5,r1=5,blur=1.6,al=.6,shape='leaf'),grade=(1.04,1.0,.94),sat=.97),
+  meadow=.675,field=('#A98542','#6E5428'),far=[],silcol='#2B2118',part=dict(n=40,cols=['#C8632B','#E39A2D'],r0=2.5,r1=5,blur=1.6,al=.6,shape='leaf'),grade=(1.04,1.0,.94),sat=.97),
 ('hiver','chasse'):dict(seed=41,sky=[(0,'#7E91A8'),(.55,'#BAC2CC'),(1,'#E4D9D8')],sun=(.78,.5),suncol='#FFD0C4',sunI=.4,sunk=6,cloud=.62,cloudcol='#E6E8EE',horizon='#D8D8DE',fog=.8,
   layers=[L('con',.52,['#7B8CA0'],.62,relief=6,hmin=10,hmax=22,spacing=7,amp=.04,cells=4),L('con',.57,['#475A66','#3F525C'],.45,relief=8,hmin=22,hmax=46,spacing=9,amp=.03),L('con',.63,['#27373A','#2F4440','#22313A'],.22,relief=8,hmin=40,hmax=84,spacing=11,amp=.02,cells=8,shade=100)],
-  meadow=.68,field=('#E5E9F0','#C3CEDD'),far=[(.46,.71,.85,False)],silcol='#2A2C30',stag=True,part=dict(n=180,cols=['#FFFFFF'],r0=1,r1=3,blur=1.0,al=.8),grade=(.98,1.0,1.03),sat=.85),
+  meadow=.68,field=('#E5E9F0','#C3CEDD'),far=[],silcol='#2A2C30',stag=True,part=dict(n=180,cols=['#FFFFFF'],r0=1,r1=3,blur=1.0,al=.8),grade=(.98,1.0,1.03),sat=.85),
 ('printemps','peche'):dict(seed=12,sky=[(0,'#8FAFC4'),(.5,'#CFDDD8'),(1,'#F1EAD2')],sun=(.74,.38),suncol='#FFE9B0',sunI=.5,sunk=7,cloud=.45,cloudcol='#F7F3E6',horizon='#E4E6D4',fog=.7,wl=.56,
   layers=[L('dec',.43,['#7B9BA6','#8CA89A'],.62,relief=8,gr=60,amp=.04,cells=4),L('dec',.50,['#6E8C6A','#8CA66C','#9DB57A','#E6E2D8'],.4,relief=20,gr=30,amp=.02,cells=7)],
   water='#9DB9B8',water2='#4F7482',refl=.72,glint=.4,boat=(.40,.64,.9),rise=[(.62,.74)],reeds=('#4C6A3C',40,60,120),silcol='#26301F',part=dict(n=60,cols=['#FFFFFF','#F3DCE4'],r0=1.2,r1=3,blur=1.8,al=.5)),
@@ -132,10 +132,10 @@ SC={
   water='#6F9DB0',water2='#2F5A74',refl=.72,glint=.7,boat=(.62,.64,.9),rise=[(.30,.76)],reeds=('#3E5A33',40,60,120),silcol='#1E241A',part=dict(n=50,cols=['#FFE9B0','#FFFFFF'],r0=1.2,r1=3.2,blur=1.8,al=.45),grade=(1.03,1.0,.95)),
 ('automne','peche'):dict(seed=32,sky=[(0,'#7C98B0'),(.5,'#E5C8A4'),(1,'#F4DDB6')],sun=(.78,.5),suncol='#FFC070',sunI=.85,sunk=5,cloud=.4,cloudcol='#FFE0BC',horizon='#EBCBA0',fog=.7,wl=.56,
   layers=[L('dec',.43,['#A98A74','#B79470'],.58,relief=8,gr=60,amp=.04,cells=4),L('mixed',.50,['#8C6B3A','#B7752F','#A4472B','#6E6A38','#C78A2E'],.3,relief=22,gr=26,hmin=22,hmax=44,spacing=16,amp=.02,cells=7)],
-  water='#8A9C9A',water2='#3E5E66',refl=.74,glint=.6,heron=(.30,.60,.8,False),rise=[(.66,.76)],reeds=('#7A5A2E',40,60,120),silcol='#2B2118',birds=(8,.12,.3,(60,50,44),6,9),part=dict(n=36,cols=['#C8632B','#E39A2D'],r0=2.5,r1=5,blur=1.6,al=.55,shape='leaf'),grade=(1.04,1.0,.94)),
+  water='#8A9C9A',water2='#3E5E66',refl=.74,glint=.6,rise=[(.66,.76)],reeds=('#7A5A2E',40,60,120),silcol='#2B2118',part=dict(n=36,cols=['#C8632B','#E39A2D'],r0=2.5,r1=5,blur=1.6,al=.55,shape='leaf'),grade=(1.04,1.0,.94)),
 ('hiver','peche'):dict(seed=42,sky=[(0,'#7E91A8'),(.55,'#BAC2CC'),(1,'#E4D9D8')],sun=(.78,.5),suncol='#FFD0C4',sunI=.4,sunk=6,cloud=.62,cloudcol='#E6E8EE',horizon='#D8D8DE',fog=.8,wl=.56,
   layers=[L('con',.44,['#7B8CA0'],.62,relief=6,hmin=10,hmax=22,spacing=7,amp=.04,cells=4),L('con',.51,['#27373A','#2F4440','#22313A'],.3,relief=8,hmin=30,hmax=64,spacing=10,amp=.02,cells=7,shade=90)],
-  water='#AEBFCB',water2='#6F8799',refl=.55,glint=.25,heron=(.62,.60,.8,True),reeds=('#8A7D66',40,50,100),silcol='#2A2C30',ice=True,part=dict(n=180,cols=['#FFFFFF'],r0=1,r1=3,blur=1.0,al=.8),grade=(.98,1.0,1.03),sat=.85),
+  water='#AEBFCB',water2='#6F8799',refl=.55,glint=.25,reeds=('#8A7D66',40,50,100),silcol='#2A2C30',ice=True,part=dict(n=180,cols=['#FFFFFF'],r0=1,r1=3,blur=1.0,al=.8),grade=(.98,1.0,1.03),sat=.85),
 }
 if __name__=='__main__':
     only=sys.argv[1:]
