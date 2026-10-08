@@ -1,8 +1,125 @@
-{"dpt":"17","name":"Charente-Maritime","verifiedOn":"2026-10-07",
-"liens":{"fdc":"","peche":"","arretes":""},
-"chasse":{"saison":"2026-2027","ouverture":"","cloture":"","joursSansChasse":"","sources":["https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890"],
-"especes":[],
-"infos":[
-{"text":"Ouverture générale annoncée le 13 septembre 2026 à 8 h, sauf île d'Aix où elle serait fixée au 20 septembre 2026 (source secondaire, arrêté préfectoral non consulté).","source":"https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890","confidence":"a_verifier"}
-],"note":"aucune source locale trouvée"},
-"peche":{"saison":"2026","especes":[],"infos":[],"note":"aucune source locale trouvée"}}
+{
+ "dpt": "17",
+ "name": "Charente-Maritime",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "",
+  "peche": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+  "arretes": "http://www.charente-maritime.gouv.fr/Politiques-publiques/Environnement-risques-naturels-et-technologiques/Espaces-naturels-et-biodiversite/Police-de-la-peche-en-eau-douce/Arrete-Reglementaire-Permanent-ARP"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890"
+  ],
+  "especes": [],
+  "infos": [
+   {
+    "text": "Ouverture générale annoncée le 13 septembre 2026 à 8 h, sauf île d'Aix où elle serait fixée au 20 septembre 2026 (source secondaire, arrêté préfectoral non consulté).",
+    "source": "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890",
+    "confidence": "a_verifier"
+   }
+  ],
+  "note": "aucune source locale trouvée"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégories",
+    "minSize": 25,
+    "dailyQuota": null,
+    "period": "14 mars au 20 septembre",
+    "note": "Salmonidés : 6 par pêcheur et par jour.",
+    "source": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégories",
+    "minSize": 60,
+    "dailyQuota": null,
+    "period": "1re cat. : 25 avril au 20 septembre ; 2e cat. : 1er au 25 janvier et 25 avril au 31 décembre",
+    "note": "Sur le fleuve Charente : fenêtre 60-80 cm. Carnassiers (brochet, sandre, black-bass) : 3 par jour dont 2 brochets maximum.",
+    "source": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1re cat. : 14 mars au 20 septembre ; 2e cat. : toute l'année",
+    "note": "Compris dans le total de 3 carnassiers par jour.",
+    "source": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "1re cat. : 14 mars au 20 septembre ; 2e cat. : toute l'année",
+    "note": "Compris dans le total de 3 carnassiers par jour.",
+    "source": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "eau douce",
+    "minSize": 12,
+    "dailyQuota": null,
+    "period": "Anguille jaune : 1er avril au 31 juillet (Sèvre Niortaise) ; 1er mai au 31 juillet (Charente)",
+    "note": "Déclaration de captures obligatoire.",
+    "source": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "écrevisses américaine et de Louisiane",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1re cat. : 14 mars au 20 septembre ; 2e cat. : toute l'année",
+    "note": "6 balances à écrevisses maximum.",
+    "source": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Silure",
+    "category": "toutes catégories",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Espèce classée susceptible de provoquer des déséquilibres biologiques. Pêche autorisée ; un silure destiné à être relâché doit être remis à l'eau immédiatement ; transport vivant interdit.",
+    "source": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Nombre de lignes : 1 en domaine privé de 1re catégorie, 4 en 2e catégorie et en domaine public ; 1 vermée ; 6 balances à écrevisses.",
+    "source": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pêche de la carpe de nuit : uniquement à l'esche végétale, depuis la berge, sur les cours d'eau ou plans d'eau désignés ; aucune carpe capturée de nuit ne peut être gardée en captivité ; transport vivant interdit au-delà de 60 cm.",
+    "source": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pendant la fermeture du brochet (1re et 2e catégories), la pêche du brochet est interdite et les leurres ou techniques ciblant le brochet sont proscrits pour les autres carnassiers.",
+    "source": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Les réserves de pêche sont définies par arrêté préfectoral (liste dans l'arrêté réglementaire permanent).",
+    "source": "https://www.peche17.org/reglementation-peche-charente-maritime.html",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

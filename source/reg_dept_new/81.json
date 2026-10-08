@@ -1,0 +1,108 @@
+{
+ "dpt": "81",
+ "liens": {
+  "peche": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 20,
+    "dailyQuota": null,
+    "period": "14 mars - 20 septembre",
+    "note": "23 cm sur certains cours d'eau dont le Cérou ; quota de 6 salmonidés par jour dont 4 truites fario au maximum.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1er-25 janvier et 25 avril-31 décembre",
+    "note": "Fenêtre : brochets hors de 60 à 80 cm remis à l'eau ; 3 carnassiers par jour dont 2 brochets au maximum. En 1re catégorie : remise à l'eau obligatoire.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Inclus dans le quota de 3 carnassiers par jour en 2e catégorie.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "1er-25 janvier et 27 juin-31 décembre",
+    "note": "Inclus dans le quota de 3 carnassiers par jour en 2e catégorie.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perche",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Fenêtre de remise à l'eau : perches hors de 25 à 35 cm (règlement intérieur fédéral).",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er mai - 20 septembre",
+    "note": "Anguille jaune ; anguille argentée interdite.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Carpe",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Aucune carpe capturée de nuit ne peut être gardée en captivité ni transportée ; transport vivant de carpes de plus de 60 cm interdit.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "1re catégorie : une ligne, 2 hameçons ou 3 mouches au plus, vermée ; 6 balances à écrevisses au plus ; amorçage interdit.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "verifie"
+   },
+   {
+    "text": "2e catégorie : jusqu'à 4 lignes par pêcheur (une seule pour les cartes découverte femme et enfant), 6 balances à écrevisses.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Fermeture carnassiers en 2e catégorie du dernier dimanche de janvier au dernier vendredi d'avril : pêche au vif, au poisson mort et aux leurres interdite, sauf barrage de Rivières et lac du Laouzas (remise à l'eau immédiate).",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Retenues de la Bancalié, Messal, Laouzas, Rivières et Geignes : un seul carnassier par jour et par pêcheur.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche des truites interdite les vendredis du 1er février au 31 mai sur les parcours listés par les AAPPMA et parcours truites loisirs.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

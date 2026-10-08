@@ -1,8 +1,120 @@
-{"dpt":"73","name":"Savoie","verifiedOn":"2026-10-07",
-"liens":{"fdc":"","peche":"","arretes":""},
-"chasse":{"saison":"2026-2027","ouverture":"","cloture":"","joursSansChasse":"","sources":["https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890"],
-"especes":[],
-"infos":[
-{"text":"Ouverture générale annoncée le 13 septembre 2026 à 7h, selon une source secondaire ; l'arrêté préfectoral 2026-2027 n'a pas été trouvé.","source":"https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890","confidence":"a_verifier"}
-],"note":"aucune source officielle locale trouvée"},
-"peche":{"saison":"","especes":[],"infos":[],"note":"aucune source locale trouvée"}}
+{
+ "dpt": "73",
+ "name": "Savoie",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "",
+  "peche": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+  "arretes": ""
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890"
+  ],
+  "especes": [],
+  "infos": [
+   {
+    "text": "Ouverture générale annoncée le 13 septembre 2026 à 7h, selon une source secondaire ; l'arrêté préfectoral 2026-2027 n'a pas été trouvé.",
+    "source": "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890",
+    "confidence": "a_verifier"
+   }
+  ],
+  "note": "aucune source officielle locale trouvée"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégories",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "14 mars au 11 octobre (6 juin au 11 octobre pour les lacs et retenues au-dessus de 1 000 m)",
+    "note": "Dates identiques pour l'omble chevalier et le saumon de fontaine.",
+    "source": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégories",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "16 mai au 11 octobre (1re cat.) ; 16 mai au 31 décembre (2e cat.)",
+    "note": "",
+    "source": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégories",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1re cat. : 25 avril au 11 octobre ; 2e cat. : 1er au 25 janvier et 25 avril au 31 décembre ; lac du Bourget : 1er au 22 février et 20 avril au 31 décembre ; lac d'Aiguebelette : 1er au 25 janvier et 25 avril au 31 décembre",
+    "note": "",
+    "source": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "1re et 2e catégories",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1re cat. : 14 mars au 11 octobre ; 2e cat. : 1er au 25 janvier et 25 avril au 31 décembre ; lacs du Bourget et d'Aiguebelette : 1er au 29 mars et 30 mai au 31 décembre",
+    "note": "",
+    "source": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perche",
+    "category": "Lacs du Bourget et d'Aiguebelette",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Bourget : 1er janvier au 19 avril et 30 mai au 31 décembre ; Aiguebelette : 1er janvier au 14 mars et 25 avril au 31 décembre",
+    "note": "",
+    "source": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "",
+    "note": "Écrevisses à pattes rouges, des torrents, à pattes blanches et à pattes grêles : pêche interdite toute l'année. Transport d'écrevisses non autochtones vivantes interdit.",
+    "source": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale 2026 en 1re catégorie : 14 mars au 11 octobre ; 6 juin au 11 octobre pour les lacs naturels et retenues situés au-dessus de 1 000 m.",
+    "source": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lac du Bourget : truite et omble chevalier du 14 février au 1er novembre, corégone du 14 février au 18 octobre.",
+    "source": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lac d'Aiguebelette : truite et omble chevalier du 14 mars au 11 octobre, corégone du 7 février au 1er novembre.",
+    "source": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pêche interdite dans les cours d'eau et plans d'eau classés en réserves temporaires de pêche par arrêté préfectoral.",
+    "source": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Grenouilles verte et rousse : 1er juillet au 11 octobre (1re cat.), 1er juillet au 31 décembre (2e cat.) ; autres grenouilles interdites.",
+    "source": "https://porte-de-savoie.fr/wp-content/uploads/2026/02/Peche_avis_annuel_2026.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

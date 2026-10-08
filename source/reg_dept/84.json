@@ -1,21 +1,128 @@
-{"dpt":"84","name":"Vaucluse","verifiedOn":"2026-10-07",
-"liens":{"fdc":"https://www.fdc84.info/les-arretes-prefectoraux-chasse-vaucluse.html","peche":"","arretes":"https://www.fdc84.info/images/arrete/AP_du_21mai2026_O-C_chasse_2026-2027.pdf"},
-"chasse":{"saison":"2026-2027","ouverture":"13 septembre 2026","cloture":"28 février 2027","joursSansChasse":"","note":"Arrêté du 21 mai 2026 non lisible en détail (PDF image) ; dates par espèce issues d'une source secondaire.","sources":["https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-vaucluse/","https://www.fdc84.info/arretes.html"],
-"especes":[
-{"species":"Sanglier","period":"Du 01/06/2026 au 31/05/2027 (plusieurs périodes).","mode":"","note":"Plan de chasse ou autorisation préfectorale selon le mode.","source":"https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Chevreuil","period":"Du 01/06/2026 au 28/02/2027 (plusieurs périodes).","mode":"","note":"Plan de chasse ou autorisation préfectorale selon le mode.","source":"https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Cerf élaphe","period":"Du 01/09/2026 au 28/02/2027.","mode":"","note":"","source":"https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Daim","period":"Du 01/06/2026 au 28/02/2027 (plusieurs périodes).","mode":"","note":"","source":"https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Chamois","period":"Du 01/09/2026 au 28/02/2027.","mode":"","note":"","source":"https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Lièvre","period":"Du 13/09/2026 au 10/01/2027.","mode":"Tir","note":"","source":"https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Perdrix","period":"Du 13/09/2026 au 06/12/2026.","mode":"Tir","note":"","source":"https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Faisan","period":"Du 13/09/2026 au 10/01/2027.","mode":"Tir","note":"","source":"https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Renard","period":"Du 01/06/2026 au 28/02/2027 (plusieurs périodes).","mode":"","note":"","source":"https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/","confidence":"a_verifier"}
-],
-"infos":[
-{"text":"Arrêté préfectoral du 21 mai 2026 fixant l'ouverture et la clôture de la chasse 2026-2027 ; ouverture générale le 13 septembre 2026 à 7h.","source":"https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-vaucluse/","confidence":"a_verifier"},
-{"text":"Sanglier et lapin classés ESOD par arrêté préfectoral du 30 juin 2026, avec modalités de destruction jusqu'au 30 juin 2027.","source":"https://www.fdc84.info/arretes.html","confidence":"verifie"},
-{"text":"La corneille noire n'est plus classée ESOD en Vaucluse (décision du Conseil d'État du 13 mai 2025) ; elle reste chassable à partir de l'ouverture générale.","source":"https://www.fdc84.info/arretes.html","confidence":"verifie"},
-{"text":"Moratoire de la chasse du courlis cendré et de la barge à queue noire prolongé jusqu'au 30 juillet 2027 ; chasse de la tourterelle des bois et du fuligule milouin encadrée par arrêtés d'août 2026.","source":"https://www.fdc84.info/arretes.html","confidence":"verifie"}
-]},
-"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}
+{
+ "dpt": "84",
+ "name": "Vaucluse",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "https://www.fdc84.info/les-arretes-prefectoraux-chasse-vaucluse.html",
+  "peche": "https://www.vaucluse.gouv.fr/Actions-de-l-Etat/Transition-ecologique-et-prevention-des-risques/Chasse-et-peche/Peche-et-milieux-aquatiques/Peche.-les-textes-en-vigueur/Les-arretes-permanents-et-l-avis-annuel/Arretes-reglementaires-et-avis-annuel",
+  "arretes": "https://www.fdc84.info/images/arrete/AP_du_21mai2026_O-C_chasse_2026-2027.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "note": "Arrêté du 21 mai 2026 non lisible en détail (PDF image) ; dates par espèce issues d'une source secondaire.",
+  "sources": [
+   "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-vaucluse/",
+   "https://www.fdc84.info/arretes.html"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Du 01/06/2026 au 31/05/2027 (plusieurs périodes).",
+    "mode": "",
+    "note": "Plan de chasse ou autorisation préfectorale selon le mode.",
+    "source": "https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Du 01/06/2026 au 28/02/2027 (plusieurs périodes).",
+    "mode": "",
+    "note": "Plan de chasse ou autorisation préfectorale selon le mode.",
+    "source": "https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "Du 01/09/2026 au 28/02/2027.",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "Du 01/06/2026 au 28/02/2027 (plusieurs périodes).",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chamois",
+    "period": "Du 01/09/2026 au 28/02/2027.",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Du 13/09/2026 au 10/01/2027.",
+    "mode": "Tir",
+    "note": "",
+    "source": "https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix",
+    "period": "Du 13/09/2026 au 06/12/2026.",
+    "mode": "Tir",
+    "note": "",
+    "source": "https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "Du 13/09/2026 au 10/01/2027.",
+    "mode": "Tir",
+    "note": "",
+    "source": "https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "Du 01/06/2026 au 28/02/2027 (plusieurs périodes).",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/vaucluse-84/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté préfectoral du 21 mai 2026 fixant l'ouverture et la clôture de la chasse 2026-2027 ; ouverture générale le 13 septembre 2026 à 7h.",
+    "source": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-vaucluse/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Sanglier et lapin classés ESOD par arrêté préfectoral du 30 juin 2026, avec modalités de destruction jusqu'au 30 juin 2027.",
+    "source": "https://www.fdc84.info/arretes.html",
+    "confidence": "verifie"
+   },
+   {
+    "text": "La corneille noire n'est plus classée ESOD en Vaucluse (décision du Conseil d'État du 13 mai 2025) ; elle reste chassable à partir de l'ouverture générale.",
+    "source": "https://www.fdc84.info/arretes.html",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Moratoire de la chasse du courlis cendré et de la barge à queue noire prolongé jusqu'au 30 juillet 2027 ; chasse de la tourterelle des bois et du fuligule milouin encadrée par arrêtés d'août 2026.",
+    "source": "https://www.fdc84.info/arretes.html",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [
+   {
+    "text": "Pêche de la carpe de nuit sur le lit vif de la Durance (lots C1 à C11) et au plan d'eau des Carottes, du 1er janvier 2022 au 31 décembre 2026 : toutes les nuits (lots C1 à C10), vendredi-samedi-dimanche pour le lot C11 ; appâts d'origine végétale uniquement ; aucune carpe gardée en captivité ni transportée la nuit. Document lu : version projet de consultation.",
+    "source": "https://www.bouches-du-rhone.gouv.fr/contenu/telechargement/44457/252427/file/AP_carpe_Durance_2022_2026_projet_v2.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

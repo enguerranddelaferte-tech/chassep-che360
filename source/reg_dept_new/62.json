@@ -1,0 +1,19 @@
+{
+ "dpt": "62",
+ "liens": {
+  "peche": "https://www.peche62.fr/reglementation/reglementation-annuelle/",
+  "arretes": "https://www.pas-de-calais.gouv.fr/Publications/Consultation-du-public/Milieux-aquatiques/Projet-d-arrete-prefectoral-Peche-en-eau-douce-Cours-d-eau-du-Pas-de-Calais-Annee-2026"
+ },
+ "peche": {
+  "saison": "2026",
+  "note": "valeurs détaillées non lues (PDF d'arrêté inaccessibles)",
+  "especes": [],
+  "infos": [
+   {
+    "text": "Arrêté préfectoral 2026 de pêche en eau douce, arrêtés carpe de nuit 2026 (mars 2026) et arrêté sur les concours en 1re catégorie 2026 publiés par la fédération ; détail des dates, tailles et quotas à consulter dans ces arrêtés.",
+    "source": "https://www.peche62.fr/reglementation/reglementation-annuelle/",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

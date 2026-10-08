@@ -1,10 +1,10 @@
 {
  "dpt": "48",
  "name": "Lozère",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "https://chasseurdelozere.com/",
-  "peche": "",
+  "peche": "https://www.lozerepeche.com/proteger-et-preserver/periode-douverture/",
   "arretes": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-lozere/"
  },
  "chasse": {
@@ -105,8 +105,89 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 60,
+    "dailyQuota": null,
+    "period": "1re catégorie : 25 avril au 20 septembre ; 2e catégorie : 1er au 25 janvier puis 25 avril au 31 décembre",
+    "note": "75 cm à Naussac ; 60 à 75 cm sur les lacs d'Aubrac, du Moulinet et la gravière du Malzieu (1 brochet par jour sur les lacs de Salhens, Saint-Andéol, Born, Souveyrols, Moulinet et gravières du Malzieu).",
+    "source": "https://www.lozerepeche.com/proteger-et-preserver/periode-douverture/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "",
+    "note": "50 cm en 2e catégorie et à Naussac.",
+    "source": "https://www.lozerepeche.com/proteger-et-preserver/tailles-legales-nombres-de-captures-et-interdictions-specifiques/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 20,
+    "dailyQuota": 5,
+    "period": "14 mars au 20 septembre",
+    "note": "20 cm par défaut ; 23, 25 ou 30 cm sur des cours d'eau listés ; 5 par jour (3 là où la taille est de 30 cm) ; 0 sur parcours « sans tuer » ; lacs : 5 dont 1 de plus de 40 cm.",
+    "source": "https://www.lozerepeche.com/proteger-et-preserver/tailles-legales-nombres-de-captures-et-interdictions-specifiques/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re catégorie",
+    "minSize": 38,
+    "dailyQuota": 0,
+    "period": "16 mai au 20 septembre",
+    "note": "Quota à 0 sur l'Allier et le Chapeauroux.",
+    "source": "https://www.lozerepeche.com/proteger-et-preserver/tailles-legales-nombres-de-captures-et-interdictions-specifiques/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Écrevisse de Louisiane : 14 mars au 20 septembre sur les rivières",
+    "note": "Écrevisse à pattes blanches interdite ; écrevisse de Louisiane : 6 balances, remise à l'eau et transport vivant interdits.",
+    "source": "https://www.lozerepeche.com/proteger-et-preserver/tailles-legales-nombres-de-captures-et-interdictions-specifiques/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "",
+    "note": "Pêche de l'anguille interdite.",
+    "source": "https://www.lozerepeche.com/proteger-et-preserver/tailles-legales-nombres-de-captures-et-interdictions-specifiques/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Tous les cours d'eau et lacs du département sont classés en 1re catégorie, sauf le Bès en aval de la centrale du Vergne ; Charpal, Naussac et Villefort ont un règlement spécifique.",
+    "source": "https://www.lozerepeche.com/proteger-et-preserver/periode-douverture/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Ouvertures des grands lacs : Charpal 23 mai au 31 décembre, Naussac 7 février au 31 décembre, Villefort 7 février au 25 octobre.",
+    "source": "https://www.lozerepeche.com/proteger-et-preserver/periode-douverture/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Hameçons sans ardillon ou à ardillon écrasé ; asticot et œufs de poisson interdits ; poisson vivant comme appât interdit en 1re catégorie et en plan d'eau (sauf Naussac) ; traîne interdite sur les lacs.",
+    "source": "https://www.lozerepeche.com/proteger-et-preserver/tailles-legales-nombres-de-captures-et-interdictions-specifiques/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pêche en marchant dans l'eau interdite sur la Rimeize toute l'année, sur la Jonte du 14 mars au 10 avril, et sur les frayères de l'Allier et du Chapeauroux du 14 mars au 15 mai.",
+    "source": "https://www.lozerepeche.com/proteger-et-preserver/tailles-legales-nombres-de-captures-et-interdictions-specifiques/",
+    "confidence": "verifie"
+   }
+  ]
  }
 }

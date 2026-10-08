@@ -1,20 +1,188 @@
-{"dpt":"26","name":"Drôme","verifiedOn":"2026-10-07",
-"liens":{"fdc":"https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-drome/","peche":"","arretes":"https://www.drome.gouv.fr/Actions-de-l-Etat/Environnement-eau-risques-naturels-et-technologiques/Environnement-eau/Espaces-naturels/La-Chasse/Reglementation/Modalites-d-exercice-de-la-chasse-dates-d-ouverture-fermeture"},
-"chasse":{"saison":"2026-2027","ouverture":"13 septembre 2026","cloture":"28 février 2027","joursSansChasse":"","sources":["https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-drome/","https://meschasses.com/drome-26/dates-chasse-2026-2027/"],
-"especes":[
-{"species":"Cerf élaphe","period":"1er septembre 2026 au 28 février 2027","mode":"","note":"Plan de chasse.","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Daim","period":"1er septembre 2026 au 28 février 2027","mode":"","note":"Plan de chasse.","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Chamois","period":"13 septembre 2026 au 28 février 2027, fermé du 12 novembre au 5 décembre 2026","mode":"","note":"Plan de chasse.","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Lièvre","period":"13 septembre 2026 au 10 janvier 2027","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Perdrix","period":"13 septembre au 13 décembre 2026","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Faisan","period":"13 septembre 2026 au 10 janvier 2027","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Bécasse des bois","period":"13 septembre 2026 au 20 février 2027","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Canard colvert / gibier d'eau","period":"13 septembre 2026 au 31 janvier 2027","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Renard","period":"1er juillet 2026 au 30 juin 2027","mode":"","note":"","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"}
-],
-"infos":[
-{"text":"Ouverture générale le 13 septembre 2026 à partir de 7h, clôture le 28 février 2027 au soir.","source":"https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-drome/","confidence":"a_verifier"},
-{"text":"Arrêté préfectoral de référence cité : n° 26-2026-06-25-00008 ; les dates par espèce proviennent d'une source secondaire et doivent être confirmées dans l'arrêté.","source":"https://meschasses.com/drome-26/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"text":"Piégeage du sanglier autorisé jusqu'au 30 juin 2027 par un piégeur agréé, sous supervision de la FDC 26, sur la base de l'arrêté préfectoral du 29 juin 2026 classant le sanglier ESOD.","source":"https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-26.pdf","confidence":"a_verifier"}
-]},
-"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}
+{
+ "dpt": "26",
+ "name": "Drôme",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-drome/",
+  "peche": "",
+  "arretes": "https://www.drome.gouv.fr/Actions-de-l-Etat/Environnement-eau-risques-naturels-et-technologiques/Environnement-eau/Espaces-naturels/La-Chasse/Reglementation/Modalites-d-exercice-de-la-chasse-dates-d-ouverture-fermeture"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-drome/",
+   "https://meschasses.com/drome-26/dates-chasse-2026-2027/"
+  ],
+  "especes": [
+   {
+    "species": "Cerf élaphe",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://meschasses.com/drome-26/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://meschasses.com/drome-26/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chamois",
+    "period": "13 septembre 2026 au 28 février 2027, fermé du 12 novembre au 5 décembre 2026",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://meschasses.com/drome-26/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "13 septembre 2026 au 10 janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/drome-26/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix",
+    "period": "13 septembre au 13 décembre 2026",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/drome-26/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "13 septembre 2026 au 10 janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/drome-26/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "13 septembre 2026 au 20 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/drome-26/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Canard colvert / gibier d'eau",
+    "period": "13 septembre 2026 au 31 janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/drome-26/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juillet 2026 au 30 juin 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/drome-26/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale le 13 septembre 2026 à partir de 7h, clôture le 28 février 2027 au soir.",
+    "source": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-la-drome/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Arrêté préfectoral de référence cité : n° 26-2026-06-25-00008 ; les dates par espèce proviennent d'une source secondaire et doivent être confirmées dans l'arrêté.",
+    "source": "https://meschasses.com/drome-26/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Piégeage du sanglier autorisé jusqu'au 30 juin 2027 par un piégeur agréé, sous supervision de la FDC 26, sur la base de l'arrêté préfectoral du 29 juin 2026 classant le sanglier ESOD.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/08/FDC-26.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégories",
+    "minSize": 23,
+    "dailyQuota": 6,
+    "period": "Du 2e samedi de mars au 3e dimanche de septembre",
+    "note": "Taille 30 cm sur la Joyeuse, l'Isère et la Bourne ; quota 6 salmonidés/jour. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.drome.gouv.fr/contenu/telechargement/27946/186707/file/AP-PECHE-2024S.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégories",
+    "minSize": 35,
+    "dailyQuota": 1,
+    "period": "Du 3e samedi de mai au 3e dimanche de septembre (1re cat.) ; au 31 décembre (2e cat.)",
+    "note": "Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.drome.gouv.fr/contenu/telechargement/27946/186707/file/AP-PECHE-2024S.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégories",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1re cat. : dernier samedi d'avril au 3e dimanche de septembre ; 2e cat. : fermé du dernier dimanche de janvier au dernier samedi d'avril",
+    "note": "Quota 3 carnassiers/jour dont 2 brochets max. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.drome.gouv.fr/contenu/telechargement/27946/186707/file/AP-PECHE-2024S.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Fermé du 2e dimanche de mars au 1er samedi de juin",
+    "note": "Compris dans le quota de 3 carnassiers/jour. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.drome.gouv.fr/contenu/telechargement/27946/186707/file/AP-PECHE-2024S.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "Fermé du 4e dimanche d'avril au 1er samedi de juillet",
+    "note": "Compris dans le quota de 3 carnassiers/jour. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.drome.gouv.fr/contenu/telechargement/27946/186707/file/AP-PECHE-2024S.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "1re et 2e catégories",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Anguille argentée interdite ; anguille jaune du 1er mai au 3e dimanche de septembre (1re) ou 30 septembre (2e)",
+    "note": "Anguille argentée : pêche interdite. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.drome.gouv.fr/contenu/telechargement/27946/186707/file/AP-PECHE-2024S.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Carpe de nuit autorisée sur le Rhône, lacs des Musards, du Pas des Ondes et de Chez, esches végétales (arrêté 2024).",
+    "source": "https://www.drome.gouv.fr/contenu/telechargement/27946/186707/file/AP-PECHE-2024S.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Parcours no-kill (hameçon sans ardillon) dont Lyonne et Vernaison ; 1re catégorie : 1 ligne ; plans d'eau : en général 2 cannes ; écrevisses autochtones : pêche limitée au dernier week-end de juillet, taille 9 cm (arrêté 2024).",
+    "source": "https://www.drome.gouv.fr/contenu/telechargement/27946/186707/file/AP-PECHE-2024S.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

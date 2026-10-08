@@ -1,11 +1,11 @@
 {
  "dpt": "91",
  "name": "Essonne",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
   "peche": "",
-  "arretes": ""
+  "arretes": "https://www.villebon-sur-yvette.fr/app/uploads/2025/11/47-Prefet-de-lEssonne-Periode-douverture-de-la-peche-en-2026-dans-lEssonne.pdf"
  },
  "chasse": {
   "saison": "2026-2027",
@@ -27,8 +27,99 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": null,
+    "period": "1er-25 janvier et 25 avril-31 décembre",
+    "note": "Quota 3 carnassiers (sandre et brochet) par jour dont 2 brochets maximum. Pêche au vif, poisson mort et leurres interdite pendant la fermeture, sauf mouche artificielle.",
+    "source": "https://www.villebon-sur-yvette.fr/app/uploads/2025/11/47-Prefet-de-lEssonne-Periode-douverture-de-la-peche-en-2026-dans-lEssonne.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "1re catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "14 mars-20 septembre",
+    "note": "Remise à l'eau immédiate indiquée dans l'avis.",
+    "source": "https://www.villebon-sur-yvette.fr/app/uploads/2025/11/47-Prefet-de-lEssonne-Periode-douverture-de-la-peche-en-2026-dans-lEssonne.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Compris dans le quota de 3 carnassiers (sandre et brochet) par jour.",
+    "source": "https://www.villebon-sur-yvette.fr/app/uploads/2025/11/47-Prefet-de-lEssonne-Periode-douverture-de-la-peche-en-2026-dans-lEssonne.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "1er janvier-26 avril et 4 juillet-31 décembre",
+    "note": "No-kill : remise à l'eau obligatoire.",
+    "source": "https://www.villebon-sur-yvette.fr/app/uploads/2025/11/47-Prefet-de-lEssonne-Periode-douverture-de-la-peche-en-2026-dans-lEssonne.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 23,
+    "dailyQuota": 5,
+    "period": "14 mars-20 septembre",
+    "note": "Quota de 5 salmonidés par jour (hors saumon et truite de mer).",
+    "source": "https://www.villebon-sur-yvette.fr/app/uploads/2025/11/47-Prefet-de-lEssonne-Periode-douverture-de-la-peche-en-2026-dans-lEssonne.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re/2e catégorie",
+    "minSize": 35,
+    "dailyQuota": null,
+    "period": "1re cat. 16 mai-20 septembre ; 2e cat. 16 mai-31 décembre",
+    "note": "",
+    "source": "https://www.villebon-sur-yvette.fr/app/uploads/2025/11/47-Prefet-de-lEssonne-Periode-douverture-de-la-peche-en-2026-dans-lEssonne.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "jaune",
+    "minSize": 12,
+    "dailyQuota": null,
+    "period": "1re cat. 14 mars-15 juillet ; 2e cat. 15 février-15 juillet",
+    "note": "Carnet de capture obligatoire. Anguille argentée et civelle interdites toute l'année.",
+    "source": "https://www.villebon-sur-yvette.fr/app/uploads/2025/11/47-Prefet-de-lEssonne-Periode-douverture-de-la-peche-en-2026-dans-lEssonne.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "non indigènes",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1re cat. 14 mars-20 septembre ; 2e cat. toute l'année",
+    "note": "Écrevisses à pattes rouges, des torrents, à pattes blanches et à pattes grêles interdites toute l'année. Transport vivant et remise à l'eau interdits pour les espèces invasives.",
+    "source": "https://www.villebon-sur-yvette.fr/app/uploads/2025/11/47-Prefet-de-lEssonne-Periode-douverture-de-la-peche-en-2026-dans-lEssonne.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "1re catégorie : la Juine en amont des ponts de Morigny et ses affluents (sauf la Tortue), le Juineteau aval à partir de la base de loisirs d'Étampes, l'École. Tous les autres cours d'eau et canaux (dont la Seine) sont en 2e catégorie.",
+    "source": "https://www.villebon-sur-yvette.fr/app/uploads/2025/11/47-Prefet-de-lEssonne-Periode-douverture-de-la-peche-en-2026-dans-lEssonne.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pêche de nuit à la carpe autorisée uniquement sur les secteurs fixés par arrêté préfectoral. Orge et annexes : transport et consommation des poissons pêchés interdits.",
+    "source": "https://www.villebon-sur-yvette.fr/app/uploads/2025/11/47-Prefet-de-lEssonne-Periode-douverture-de-la-peche-en-2026-dans-lEssonne.pdf",
+    "confidence": "verifie"
+   }
+  ]
  }
 }

@@ -1,7 +1,7 @@
 {
  "dpt": "95",
  "name": "Val-d'Oise",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
   "peche": "",
@@ -33,8 +33,89 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1er janvier au dernier dimanche de janvier, puis dernier samedi d'avril au 31 décembre",
+    "note": "Projet d'arrêté permanent non daté ; en 1re catégorie : 2e samedi de mars au dernier vendredi d'avril, remise à l'eau obligatoire.",
+    "source": "https://www.val-doise.gouv.fr/contenu/telechargement/18582/121845/file/Projet_ARP_95_2021_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": 3,
+    "period": null,
+    "note": "Projet d'arrêté permanent non daté.",
+    "source": "https://www.val-doise.gouv.fr/contenu/telechargement/18582/121845/file/Projet_ARP_95_2021_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Projet d'arrêté permanent non daté.",
+    "source": "https://www.val-doise.gouv.fr/contenu/telechargement/18582/121845/file/Projet_ARP_95_2021_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": 23,
+    "dailyQuota": 6,
+    "period": "2e samedi de mars au 3e dimanche de septembre",
+    "note": "Quota de 6 pour l'ensemble des salmonidés (hors saumon et truite de mer). Projet d'arrêté non daté.",
+    "source": "https://www.val-doise.gouv.fr/contenu/telechargement/18582/121845/file/Projet_ARP_95_2021_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 35,
+    "dailyQuota": null,
+    "period": "3e samedi de mai au 3e dimanche de septembre (1re cat.) ou au 31 décembre (2e cat.)",
+    "note": "Projet d'arrêté non daté.",
+    "source": "https://www.val-doise.gouv.fr/contenu/telechargement/18582/121845/file/Projet_ARP_95_2021_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "1re et 2e catégorie",
+    "minSize": 12,
+    "dailyQuota": null,
+    "period": "Anguille jaune : 2e samedi de mars au 15 juillet (1re cat.), 15 février au 15 juillet (2e cat.)",
+    "note": "Carnet de pêche obligatoire ; civelle et anguille d'avalaison interdites. Projet d'arrêté non daté.",
+    "source": "https://www.val-doise.gouv.fr/contenu/telechargement/18582/121845/file/Projet_ARP_95_2021_VF.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Classement : 1re catégorie pour le Sausseron (amont du pont de Valmondois), la Viosne (amont du pont d'Osny), la Montcient et l'Epte avec leurs affluents ; tous les autres cours d'eau et canaux en 2e catégorie (projet d'arrêté non daté).",
+    "source": "https://www.val-doise.gouv.fr/contenu/telechargement/18582/121845/file/Projet_ARP_95_2021_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Nombre de lignes pour les membres d'associations agréées : 1 en 1re catégorie, 4 en 2e catégorie, chacune avec 2 hameçons ou 3 mouches artificielles au plus (projet d'arrêté non daté).",
+    "source": "https://www.val-doise.gouv.fr/contenu/telechargement/18582/121845/file/Projet_ARP_95_2021_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche de nuit de la carpe susceptible d'être autorisée sur certains parcours de 2e catégorie de l'Oise et de la Seine ; carpes non gardées en captivité ni transportées (projet d'arrêté non daté).",
+    "source": "https://www.val-doise.gouv.fr/contenu/telechargement/18582/121845/file/Projet_ARP_95_2021_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Réserves de pêche sur l'Oise à Pontoise/Éragny/Saint-Ouen-l'Aumône, Parmain/L'Isle-Adam et Bruyères/Asnières ; écrevisses à pattes grêles ouvertes 10 jours à partir du 4e samedi de juillet, taille 9 cm ; pattes rouges et blanches interdites (projet d'arrêté non daté).",
+    "source": "https://www.val-doise.gouv.fr/contenu/telechargement/18582/121845/file/Projet_ARP_95_2021_VF.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

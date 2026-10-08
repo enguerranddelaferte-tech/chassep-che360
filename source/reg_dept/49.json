@@ -1,4 +1,102 @@
-{"dpt":"49","name":"Maine-et-Loire","verifiedOn":"2026-10-07",
-"liens":{"fdc":"","peche":"","arretes":""},
-"chasse":{"saison":"2026-2027","ouverture":"","cloture":"","joursSansChasse":"","sources":[],"especes":[],"infos":[],"note":"aucune source locale trouvée"},
-"peche":{"saison":"2026","especes":[],"infos":[],"note":"aucune source locale trouvée"}}
+{
+ "dpt": "49",
+ "name": "Maine-et-Loire",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.maine-et-loire.gouv.fr/contenu/telechargement/13913/95764/file/202212_ap_reglement_permanent_49-projet.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [],
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "Dates fixées par arrêté annuel",
+    "note": "Quota combiné sandre, brochet et black-bass : 3 par jour dont 2 brochets au plus. Texte de 2022 (arrêté permanent), à confirmer pour 2026.",
+    "source": "https://www.maine-et-loire.gouv.fr/contenu/telechargement/13913/95764/file/202212_ap_reglement_permanent_49-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Brochet",
+    "category": "1re catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "Saison générale : 2e samedi de mars au 3e dimanche de septembre",
+    "note": "Texte de 2022, à confirmer pour 2026.",
+    "source": "https://www.maine-et-loire.gouv.fr/contenu/telechargement/13913/95764/file/202212_ap_reglement_permanent_49-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Dates fixées par arrêté annuel",
+    "note": "Compte dans le quota combiné de 3 carnassiers par jour. Texte de 2022.",
+    "source": "https://www.maine-et-loire.gouv.fr/contenu/telechargement/13913/95764/file/202212_ap_reglement_permanent_49-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "Ouvert toute l'année",
+    "note": "Compte dans le quota combiné de 3 carnassiers par jour. Texte de 2022.",
+    "source": "https://www.maine-et-loire.gouv.fr/contenu/telechargement/13913/95764/file/202212_ap_reglement_permanent_49-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "3e samedi de mai au 3e dimanche de septembre (1re cat.) ; jusqu'au 31 décembre (2e cat.)",
+    "note": "Texte de 2022.",
+    "source": "https://www.maine-et-loire.gouv.fr/contenu/telechargement/13913/95764/file/202212_ap_reglement_permanent_49-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Pêche interdite",
+    "note": "Écrevisses à pattes rouges, blanches, grêles et des torrents interdites. Texte de 2022.",
+    "source": "https://www.maine-et-loire.gouv.fr/contenu/telechargement/13913/95764/file/202212_ap_reglement_permanent_49-projet.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Salmonidés (hors saumon et truite de mer) : 6 par jour et par pêcheur dans toutes les eaux. Texte de 2022.",
+    "source": "https://www.maine-et-loire.gouv.fr/contenu/telechargement/13913/95764/file/202212_ap_reglement_permanent_49-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Lignes : 1re catégorie, 1 ligne (2 hameçons ou 3 mouches max) ; 2e catégorie, 4 lignes. Texte de 2022.",
+    "source": "https://www.maine-et-loire.gouv.fr/contenu/telechargement/13913/95764/file/202212_ap_reglement_permanent_49-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche de la carpe de nuit autorisée uniquement sur des parcours désignés par arrêté annuel. Texte de 2022.",
+    "source": "https://www.maine-et-loire.gouv.fr/contenu/telechargement/13913/95764/file/202212_ap_reglement_permanent_49-projet.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

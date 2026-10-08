@@ -1,11 +1,11 @@
 {
  "dpt": "72",
  "name": "Sarthe",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
   "peche": "",
-  "arretes": ""
+  "arretes": "https://politique.pappers.fr/commune/document/09d09d4181fdff6524fb72546962b52c"
  },
  "chasse": {
   "saison": "",
@@ -26,9 +26,90 @@
   "note": "arrêté préfectoral 2026-2027 non lu ; seule une source secondaire donne la date d'ouverture"
  },
  "peche": {
-  "saison": "",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégories",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "",
+    "note": "Avis 2024 (arrêté du 20 novembre 2023) : 2 brochets par jour en 1re cat. ; en 2e cat. 3 captures sandre/brochet/black-bass dont 2 brochets au plus ; taille maximale 80 cm en 2e cat. Non confirmé pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/09d09d4181fdff6524fb72546962b52c",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Avis 2024 : taille maximale 70 cm en 2e cat. ; pêche interdite du 1er avril au 31 mai près des barrages et écluses de plusieurs rivières. Non confirmé pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/09d09d4181fdff6524fb72546962b52c",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Avis 2024 : parcours no-kill pour le black-bass. Non confirmé pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/09d09d4181fdff6524fb72546962b52c",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 25,
+    "dailyQuota": 6,
+    "period": "",
+    "note": "Avis 2024 : 25 cm, portés à 30 cm sur le Tusson, le Dué, l'Orne saosnoise, le Carpentras et leurs affluents ; 6 salmonidés par jour. Non confirmé pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/09d09d4181fdff6524fb72546962b52c",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Avis 2024 ; non confirmé pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/09d09d4181fdff6524fb72546962b52c",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Carpe",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Avis 2024 : pêche de nuit autorisée toute l'année sur les parcours balisés de l'annexe 1, avec appâts végétaux ou bouillettes uniquement ; transport de carpes vivantes de plus de 60 cm interdit aux amateurs. Non confirmé pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/09d09d4181fdff6524fb72546962b52c",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Avis 2024 : écrevisses à pattes blanches interdites ; pêche de toutes les écrevisses interdite sur de nombreux cours d'eau des bassins de l'Huisne, du Loir et de la Sarthe. Non confirmé pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/09d09d4181fdff6524fb72546962b52c",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté ou avis annuel 2026 de la Sarthe non trouvé ; les valeurs ci-dessus proviennent de l'avis annuel 2024.",
+    "source": "https://politique.pappers.fr/commune/document/09d09d4181fdff6524fb72546962b52c",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Avis 2024 : frayères à brochet fermées à la pêche dans une quinzaine de communes ; parcours mouche fouettée avec remise à l'eau sur la Sarthe à Saint-Léonard-des-Bois.",
+    "source": "https://politique.pappers.fr/commune/document/09d09d4181fdff6524fb72546962b52c",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

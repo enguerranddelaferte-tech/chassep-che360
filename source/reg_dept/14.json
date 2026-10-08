@@ -1,11 +1,76 @@
-{"dpt":"14","name":"Calvados","verifiedOn":"2026-10-07",
-"liens":{"fdc":"","peche":"","arretes":"https://demarche.numerique.gouv.fr/commencer/demande-calvados-2026-chasse-anticipee-sanglier-chevreuil-affut-approche"},
-"chasse":{"saison":"2026-2027","ouverture":"","cloture":"","joursSansChasse":"","sources":["https://demarche.numerique.gouv.fr/commencer/demande-calvados-2026-chasse-anticipee-sanglier-chevreuil-affut-approche"],
-"especes":[
-{"species":"Sanglier","period":"Du 1er juin 2026 à l'ouverture générale","mode":"Affût ou approche","note":"Chasse anticipée sur autorisation demandée via la démarche en ligne de la DDTM.","source":"https://demarche.numerique.gouv.fr/commencer/demande-calvados-2026-chasse-anticipee-sanglier-chevreuil-affut-approche","confidence":"verifie"},
-{"species":"Chevreuil","period":"Du 1er juin 2026 à l'ouverture générale","mode":"Affût ou approche","note":"Chasse anticipée sur autorisation demandée via la démarche en ligne de la DDTM.","source":"https://demarche.numerique.gouv.fr/commencer/demande-calvados-2026-chasse-anticipee-sanglier-chevreuil-affut-approche","confidence":"verifie"}
-],
-"infos":[
-{"text":"Ouverture générale annoncée le 20 septembre 2026 à 9 h (source secondaire, arrêté préfectoral non consulté).","source":"https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890","confidence":"a_verifier"}
-]},
-"peche":{"saison":"2026","especes":[],"infos":[],"note":"aucune source locale trouvée"}}
+{
+ "dpt": "14",
+ "name": "Calvados",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "",
+  "peche": "https://www.federation-peche14.fr/",
+  "arretes": "https://demarche.numerique.gouv.fr/commencer/demande-calvados-2026-chasse-anticipee-sanglier-chevreuil-affut-approche"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [
+   "https://demarche.numerique.gouv.fr/commencer/demande-calvados-2026-chasse-anticipee-sanglier-chevreuil-affut-approche"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Du 1er juin 2026 à l'ouverture générale",
+    "mode": "Affût ou approche",
+    "note": "Chasse anticipée sur autorisation demandée via la démarche en ligne de la DDTM.",
+    "source": "https://demarche.numerique.gouv.fr/commencer/demande-calvados-2026-chasse-anticipee-sanglier-chevreuil-affut-approche",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Du 1er juin 2026 à l'ouverture générale",
+    "mode": "Affût ou approche",
+    "note": "Chasse anticipée sur autorisation demandée via la démarche en ligne de la DDTM.",
+    "source": "https://demarche.numerique.gouv.fr/commencer/demande-calvados-2026-chasse-anticipee-sanglier-chevreuil-affut-approche",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale annoncée le 20 septembre 2026 à 9 h (source secondaire, arrêté préfectoral non consulté).",
+    "source": "https://www.connexionfrance.com/practical/french-hunting-season-2026-27-opening-dates-by-department/742890",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": 2,
+    "period": "Ouverture le samedi 25 avril 2026",
+    "note": "Fenêtre de capture : seuls les brochets de 60 à 80 cm peuvent être gardés, sur tout le département. 3 carnassiers (brochet et sandre) par jour maximum, dont 2 brochets.",
+    "source": "https://www.federation-peche14.fr/ouverture-de-la-saison-de-peche-du-brochet-le-samedi-25-avril-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Ouverture le samedi 6 juin 2026",
+    "note": "Compris dans le total de 3 carnassiers par jour (brochet et sandre).",
+    "source": "https://www.federation-peche14.fr/ouverture-de-la-saison-de-peche-du-brochet-le-samedi-25-avril-2026/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "En 2e catégorie, trois lignes montées sur canne sont autorisées, à moins de 10 mètres du pêcheur.",
+    "source": "https://www.federation-peche14.fr/ouverture-de-la-saison-de-peche-du-brochet-le-samedi-25-avril-2026/",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

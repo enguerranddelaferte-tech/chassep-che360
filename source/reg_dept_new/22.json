@@ -1,0 +1,74 @@
+{
+ "dpt": "22",
+ "liens": {
+  "peche": "",
+  "arretes": "https://www.cotes-darmor.gouv.fr/contenu/telechargement/65023/540194/file/AP_2024_peche_VF.pdf"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégories",
+    "minSize": 23,
+    "dailyQuota": 6,
+    "period": "Du 9 mars au 15 septembre (arrêté 2024)",
+    "note": "Quota 6 truites/jour. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.cotes-darmor.gouv.fr/contenu/telechargement/65023/540194/file/AP_2024_peche_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégories",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1re cat. : 27 avril au 15 septembre ; 2e cat. : 1er au 28 janvier puis 27 avril au 31 décembre (arrêté 2024)",
+    "note": "Taille 50 cm en 1re catégorie, 60 cm en 2e. Quota 2 brochets/jour (max dans les 3 carnassiers de la 2e cat.). Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.cotes-darmor.gouv.fr/contenu/telechargement/65023/540194/file/AP_2024_peche_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1er au 28 janvier puis 27 avril au 31 décembre (arrêté 2024)",
+    "note": "Quota 3 brochets/sandres au total en 2e cat. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.cotes-darmor.gouv.fr/contenu/telechargement/65023/540194/file/AP_2024_peche_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "Du 1er juillet au 31 décembre (arrêté 2024)",
+    "note": "Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.cotes-darmor.gouv.fr/contenu/telechargement/65023/540194/file/AP_2024_peche_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perche",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": 3,
+    "period": "1er au 28 janvier puis 27 avril au 31 décembre (arrêté 2024)",
+    "note": "Taille et quota (3/jour) uniquement au lac de Guerlédan. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.cotes-darmor.gouv.fr/contenu/telechargement/65023/540194/file/AP_2024_peche_VF.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Lac de Guerlédan : 1 carnassier/jour, 30 par an (arrêté 2024). Carpe et silure : pas de taille minimale ni de quota.",
+    "source": "https://www.cotes-darmor.gouv.fr/contenu/telechargement/65023/540194/file/AP_2024_peche_VF.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Carpe de nuit autorisée sur sites listés (esches végétales, relâcher immédiat) ; 2e catégorie : 4 lignes ; 1re catégorie : 1 ligne en cours d'eau (arrêté 2024). Frayères à sandre en réserve du 31 janvier au 14 juin 2024.",
+    "source": "https://www.cotes-darmor.gouv.fr/contenu/telechargement/65023/540194/file/AP_2024_peche_VF.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

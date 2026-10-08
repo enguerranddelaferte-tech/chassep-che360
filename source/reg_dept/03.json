@@ -1,4 +1,137 @@
-{"dpt":"03","name":"Allier","verifiedOn":"2026-10-07",
-"liens":{"fdc":"","peche":"","arretes":""},
-"chasse":{"saison":"2026-2027","ouverture":"","cloture":"","joursSansChasse":"","sources":[],"especes":[],"infos":[],"note":"aucune source locale trouvée"},
-"peche":{"saison":"2026","especes":[],"infos":[],"note":"aucune source locale trouvée"}}
+{
+ "dpt": "03",
+ "name": "Allier",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "",
+  "peche": "https://www.federation-peche-allier.fr/reglementation/",
+  "arretes": "https://www.federation-peche-allier.fr/wp-content/uploads/2025/12/Arrete-reglementation-peche-2026.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [],
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 1,
+    "period": "",
+    "note": "Remise à l'eau immédiate des brochets de moins de 60 cm ou de plus de 80 cm. 1re catégorie : 1 brochet par jour. 2e catégorie : 2 carnassiers par jour dont 1 brochet au maximum.",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": 1,
+    "period": "Réservoir de Rochebut : du 1er janvier au 6 mars 2026 et du 6 juin au 31 décembre 2026",
+    "note": "2 carnassiers par jour en 2e catégorie, dont 1 sandre au maximum.",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "",
+    "note": "Remise à l'eau obligatoire (no-kill).",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": 20,
+    "dailyQuota": 6,
+    "period": "1re catégorie : du 2e samedi de mars au 3e dimanche de septembre",
+    "note": "20 cm en 1re catégorie (23 cm sur le Cher et affluents, la Besbre en aval du Pont Clavel et une partie du Sichon ; 30 cm sur la Sioule), 23 cm en 2e catégorie. 6 salmonidés par pêcheur et par jour ; 4 au Lac des Moines (nouveauté 2026).",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "",
+    "note": "Remise à l'eau obligatoire (no-kill).",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille jaune : fermeture anticipée au 31 juillet 2026",
+    "note": "Déclaration des captures obligatoire sur le carnet de pêche (R436-64 du code de l'environnement).",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Remise à l'eau immédiate obligatoire des carpes de plus de 60 cm. Pêche de nuit uniquement sur les parcours et dates fixés par arrêté préfectoral spécifique, à la ligne de fond avec appâts végétaux et pellets.",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Silure",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Classé espèce susceptible de provoquer des déséquilibres biologiques (décret n° 2026-464 du 8 juin 2026) : introduction interdite, détention vivant interdite, remise à l'eau admise seulement immédiatement et sur le lieu de capture.",
+    "source": "https://www.federation-peche-allier.fr/nouveau-classement-du-silure-ce-qui-change-pour-les-pecheurs/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "6 balances autorisées dans les deux catégories. Écrevisses américaine, signal et de Louisiane : interdiction de remise à l'eau, de transport vivantes, de vente et d'usage comme appât vivant.",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "1re catégorie : une ligne montée sur canne avec 2 hameçons ou 3 mouches artificielles au maximum ; 2 lignes aux réservoirs de Prat, étang de Migeoux et Lac des Moines. 2e catégorie : jusqu'à 4 lignes. 6 balances à écrevisses dans les deux catégories.",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Réservoir de Saint-Clément : pêche toute l'année sauf truite fario, brochet, écrevisses et grenouilles ; 4 lignes maximum et 6 salmonidés par jour.",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pêche autorisée d'une demi-heure avant le lever du soleil à une demi-heure après son coucher. 2e catégorie ouverte toute l'année, sauf fermeture du brochet : appâts vifs, morts et leurres susceptibles de capturer le brochet interdits pendant cette fermeture.",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Barrages de la Sioule (Saint-Pourcain à Ebreuil) : une seule ligne à un hameçon, appâts vivants, morts et artificiels interdits (zones précisées par arrêté préfectoral).",
+    "source": "https://www.federation-peche-allier.fr/reglementation/",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

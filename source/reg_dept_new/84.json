@@ -1,0 +1,17 @@
+{
+ "dpt": "84",
+ "liens": {
+  "peche": "https://www.vaucluse.gouv.fr/Actions-de-l-Etat/Transition-ecologique-et-prevention-des-risques/Chasse-et-peche/Peche-et-milieux-aquatiques/Peche.-les-textes-en-vigueur/Les-arretes-permanents-et-l-avis-annuel/Arretes-reglementaires-et-avis-annuel"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [
+   {
+    "text": "Pêche de la carpe de nuit sur le lit vif de la Durance (lots C1 à C11) et au plan d'eau des Carottes, du 1er janvier 2022 au 31 décembre 2026 : toutes les nuits (lots C1 à C10), vendredi-samedi-dimanche pour le lot C11 ; appâts d'origine végétale uniquement ; aucune carpe gardée en captivité ni transportée la nuit. Document lu : version projet de consultation.",
+    "source": "https://www.bouches-du-rhone.gouv.fr/contenu/telechargement/44457/252427/file/AP_carpe_Durance_2022_2026_projet_v2.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

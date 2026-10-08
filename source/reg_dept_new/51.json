@@ -1,0 +1,119 @@
+{
+ "dpt": "51",
+ "liens": {
+  "peche": "https://www.peche51.fr/1264-reglementation.htm",
+  "arretes": "https://www.peche51.fr/1265-arretes-prefectoraux.htm"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "25 avril au 20 septembre 2026",
+    "note": "Brochets capturés du 14 mars au 24 avril à remettre immédiatement à l'eau.",
+    "source": "https://www.peche51.fr/cms_viewFile.php?idtf=52403&path=avis-aux-pecheurs-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1er au 25 janvier et 25 avril au 31 décembre 2026",
+    "note": "Quota combiné de 3 carnassiers par jour (sandre, black-bass, brochet) dont 2 brochets au plus.",
+    "source": "https://www.peche51.fr/cms_viewFile.php?idtf=52403&path=avis-aux-pecheurs-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "14 mars au 20 septembre 2026",
+    "note": "",
+    "source": "https://www.peche51.fr/cms_viewFile.php?idtf=52403&path=avis-aux-pecheurs-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1er au 25 janvier et 30 mai au 31 décembre 2026",
+    "note": "Taille issue de la page réglementation de la fédération (non datée).",
+    "source": "https://www.peche51.fr/1264-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Taille issue de la page réglementation de la fédération (non datée).",
+    "source": "https://www.peche51.fr/1264-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": 25,
+    "dailyQuota": null,
+    "period": "14 mars au 20 septembre 2026",
+    "note": "Taille et quota issus de la page réglementation de la fédération (non datée) ; dates d'ouverture 2026 : 14 mars au 20 septembre 2026 (avis aux pêcheurs 2026).",
+    "source": "https://www.peche51.fr/1264-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 35,
+    "dailyQuota": null,
+    "period": "16 mai au 20 septembre (1re cat.) ; 16 mai au 31 décembre (2e cat.) 2026",
+    "note": "Taille et quota issus de la page réglementation de la fédération (non datée) ; dates d'ouverture 2026 : 16 mai au 20 septembre (1re cat.) ; 16 mai au 31 décembre (2e cat.) 2026 (avis aux pêcheurs 2026).",
+    "source": "https://www.peche51.fr/1264-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille jaune : 2e samedi de mars au 15 juillet (1re cat.) ; 15 février au 15 juillet (2e cat.) 2026",
+    "note": "Pêche de l'anguille argentée et de la civelle interdite ; carnet de pêche obligatoire.",
+    "source": "https://www.peche51.fr/cms_viewFile.php?idtf=52403&path=avis-aux-pecheurs-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Pêche interdite en tout temps pour les écrevisses à pattes rouges, grêles, blanches et des torrents",
+    "note": "",
+    "source": "https://www.peche51.fr/cms_viewFile.php?idtf=52403&path=avis-aux-pecheurs-2026.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Parcours autorisés pour la carpe de nuit en 2026 : Marne, canaux latéral à la Marne, de la Marne au Rhin, entre Champagne et Bourgogne, de la Haute-Seine, de l'Aisne à la Marne, Saint-Martin, Seine (secteur Marcilly), Saulx (Ponthion à la Marne), étang Renaudin à Fagnières. Les dates ne sont pas indiquées dans l'avis.",
+    "source": "https://www.peche51.fr/cms_viewFile.php?idtf=52403&path=avis-aux-pecheurs-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lignes : 2e catégorie, jusqu'à 4 lignes ; 1re catégorie, 1 ligne (2 pour les membres des AAPPMA détentrices du droit de pêche en domaine public). Jusqu'à 6 balances à écrevisses.",
+    "source": "https://www.peche51.fr/1264-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche interdite à moins de 50 m en amont et en aval des écluses et barrages sur le domaine public.",
+    "source": "https://www.peche51.fr/1264-reglementation.htm",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

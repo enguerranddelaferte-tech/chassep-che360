@@ -1,0 +1,74 @@
+{
+ "dpt": "21",
+ "liens": {
+  "peche": "",
+  "arretes": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "Du 9 mars au 15 septembre (arrêté 2024)",
+    "note": "Taille 23 cm dans le Tournesac, la Romanée, le Vernidard, le Cousin et ses affluents. Quota salmonidés : 6/jour dont 3 truites fario max. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégories",
+    "minSize": 35,
+    "dailyQuota": 1,
+    "period": "Du 18 mai au 15 septembre (1re cat.) ; du 18 mai au 31 décembre (2e cat.) (arrêté 2024)",
+    "note": "Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégories",
+    "minSize": 60,
+    "dailyQuota": 1,
+    "period": "1re cat. : 27 avril au 15 septembre ; 2e cat. : 1er au 28 janvier puis 27 avril au 31 décembre (arrêté 2024)",
+    "note": "Quota de 1 brochet par jour et par pêcheur. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Du 1er janvier au 10 mars puis du 18 mai au 31 décembre (arrêté 2024)",
+    "note": "Quota carnassiers 2e cat. : 3/jour (sandre, brochet, black-bass réunis). Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "Du 1er janvier au 30 avril puis du 1er juillet au 31 décembre (arrêté 2024)",
+    "note": "Compris dans le quota de 3 carnassiers/jour. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Écrevisses autochtones (pattes rouges, blanches, grêles) et anguille : pêche interdite toute l'année (arrêté 2024).",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Parcours pêcher-relâcher (toutes espèces, salmonidés, mouche, carnassiers, black-bass, carpe) et carpodromes sur le canal de Bourgogne ; classement des cours d'eau par l'arrêté préfectoral n° 595 du 31 août 2017 (arrêté 2024).",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

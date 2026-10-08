@@ -1,12 +1,124 @@
-{"dpt":"25","name":"Doubs","verifiedOn":"2026-10-07",
-"liens":{"fdc":"https://www.fdc25.com/comprendre-la-chasse/les-periodes-de-chasse/","peche":"","arretes":"https://www.fdc25.com/content/uploads/2026/08/260818_arrete_ouverture_cloture_chasse_2026_27_Doubs.pdf"},
-"chasse":{"saison":"2026-2027","ouverture":"13 septembre 2026","cloture":"28 février 2027","joursSansChasse":"Vendredi pendant la période générale, sauf jours fériés et pratiques prévues par l'arrêté.","sources":["https://www.fdc25.com/comprendre-la-chasse/les-periodes-de-chasse/","https://www.loray.fr/chasse-ouverture-de-la-campagne-2026-2027-dans-le-doubs/"],
-"especes":[
-{"species":"Lièvre","period":"18 octobre au 6 décembre 2026","mode":"","note":"","source":"https://www.loray.fr/chasse-ouverture-de-la-campagne-2026-2027-dans-le-doubs/","confidence":"a_verifier"}
-],
-"infos":[
-{"text":"Ouverture générale fixée par le préfet le deuxième dimanche de septembre et fermeture générale le dernier jour de février ; pour 2026-2027, du 13 septembre 2026 à 8h au 28 février 2027 au soir.","source":"https://www.loray.fr/chasse-ouverture-de-la-campagne-2026-2027-dans-le-doubs/","confidence":"a_verifier"},
-{"text":"Gilet ou veste orange fluorescent obligatoire pour toute chasse à tir, y compris pour les accompagnants, sauf exceptions.","source":"https://www.loray.fr/chasse-ouverture-de-la-campagne-2026-2027-dans-le-doubs/","confidence":"a_verifier"},
-{"text":"Arrêté d'ouverture et de clôture de la chasse 2026-2027 du Doubs publié le 26 août 2026 par la fédération ; des calendriers spécifiques existent pour faisan, chevreuil, cerf, sanglier et chamois.","source":"https://www.fdc25.com/content/uploads/2026/08/260818_arrete_ouverture_cloture_chasse_2026_27_Doubs.pdf","confidence":"a_verifier"}
-]},
-"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}
+{
+ "dpt": "25",
+ "name": "Doubs",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "https://www.fdc25.com/comprendre-la-chasse/les-periodes-de-chasse/",
+  "peche": "",
+  "arretes": "https://www.fdc25.com/content/uploads/2026/08/260818_arrete_ouverture_cloture_chasse_2026_27_Doubs.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "Vendredi pendant la période générale, sauf jours fériés et pratiques prévues par l'arrêté.",
+  "sources": [
+   "https://www.fdc25.com/comprendre-la-chasse/les-periodes-de-chasse/",
+   "https://www.loray.fr/chasse-ouverture-de-la-campagne-2026-2027-dans-le-doubs/"
+  ],
+  "especes": [
+   {
+    "species": "Lièvre",
+    "period": "18 octobre au 6 décembre 2026",
+    "mode": "",
+    "note": "",
+    "source": "https://www.loray.fr/chasse-ouverture-de-la-campagne-2026-2027-dans-le-doubs/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale fixée par le préfet le deuxième dimanche de septembre et fermeture générale le dernier jour de février ; pour 2026-2027, du 13 septembre 2026 à 8h au 28 février 2027 au soir.",
+    "source": "https://www.loray.fr/chasse-ouverture-de-la-campagne-2026-2027-dans-le-doubs/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Gilet ou veste orange fluorescent obligatoire pour toute chasse à tir, y compris pour les accompagnants, sauf exceptions.",
+    "source": "https://www.loray.fr/chasse-ouverture-de-la-campagne-2026-2027-dans-le-doubs/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Arrêté d'ouverture et de clôture de la chasse 2026-2027 du Doubs publié le 26 août 2026 par la fédération ; des calendriers spécifiques existent pour faisan, chevreuil, cerf, sanglier et chamois.",
+    "source": "https://www.fdc25.com/content/uploads/2026/08/260818_arrete_ouverture_cloture_chasse_2026_27_Doubs.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégories",
+    "minSize": 25,
+    "dailyQuota": 4,
+    "period": "Du 2e samedi de mars au 3e dimanche de septembre",
+    "note": "Taille 30 cm sur le Doubs (borne 558 à la limite du Jura) et le Dessoubre. Quota salmonidés 4/jour. Valeur relevée dans le projet d'arrêté réglementaire permanent 2023 (autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.doubs.gouv.fr/index.php/contenu/telechargement/38016/234924/file/221109_ARP_2023-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégories",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "Du 3e samedi de mai au 3e dimanche de septembre (1re cat.) ; au 1er novembre (2e cat.)",
+    "note": "Taille 35 cm sur le Doubs de Bremoncourt à Voujeaucourt. Valeur relevée dans le projet d'arrêté réglementaire permanent 2023 (autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.doubs.gouv.fr/index.php/contenu/telechargement/38016/234924/file/221109_ARP_2023-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégories",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "2e cat. : 1er janvier au dernier dimanche de janvier puis dernier samedi d'avril (ou 1er samedi de juin en Doubs amont et lacs) au 31 décembre",
+    "note": "Taille 50 cm en 1re cat. et au lac de Bouverans. Valeur relevée dans le projet d'arrêté réglementaire permanent 2023 (autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.doubs.gouv.fr/index.php/contenu/telechargement/38016/234924/file/221109_ARP_2023-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1er janvier au dernier dimanche de janvier puis 1er samedi de juin au 31 décembre",
+    "note": "Quota 3 captures/jour sandre+brochet+black-bass en 2e cat. Valeur relevée dans le projet d'arrêté réglementaire permanent 2023 (autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.doubs.gouv.fr/index.php/contenu/telechargement/38016/234924/file/221109_ARP_2023-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "1er janvier au dernier dimanche de janvier puis 1er samedi de juillet au 31 décembre",
+    "note": "Valeur relevée dans le projet d'arrêté réglementaire permanent 2023 (autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.doubs.gouv.fr/index.php/contenu/telechargement/38016/234924/file/221109_ARP_2023-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "1re et 2e catégories",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Anguille argentée interdite toute l'année",
+    "note": "Anguille jaune selon l'arrêté ministériel du 5 février 2016. Valeur relevée dans le projet d'arrêté réglementaire permanent 2023 (autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://www.doubs.gouv.fr/index.php/contenu/telechargement/38016/234924/file/221109_ARP_2023-projet.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Carpe de nuit autorisée toute l'année sur sections listées de 2e catégorie (esches végétales, remise à l'eau obligatoire) ; étang Lucien à Frasne du 1er juillet au 31 décembre.",
+    "source": "https://www.doubs.gouv.fr/index.php/contenu/telechargement/38016/234924/file/221109_ARP_2023-projet.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Parcours de graciation (hameçons sans ardillon, remise à l'eau) sur Doubs, Loue, Dessoubre, Cusancin, Allan, etc. ; nombreuses réserves permanentes ; écrevisses autochtones interdites.",
+    "source": "https://www.doubs.gouv.fr/index.php/contenu/telechargement/38016/234924/file/221109_ARP_2023-projet.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

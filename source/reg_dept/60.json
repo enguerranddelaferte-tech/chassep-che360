@@ -1,11 +1,11 @@
 {
  "dpt": "60",
  "name": "Oise",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
-  "arretes": ""
+  "peche": "https://www.peche60.fr/1340-reglementation-generale.htm",
+  "arretes": "https://www.peche60.fr/1355-arretes-prefectoraux.htm"
  },
  "chasse": {
   "saison": "2026-2027",
@@ -18,8 +18,90 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": []
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 1,
+    "period": "Pêchable du 1er janvier au dernier dimanche de janvier, puis du dernier samedi d'avril au 31 décembre",
+    "note": "2 carnassiers par jour maximum dont 1 brochet au plus ; sur certains parcours, fenêtre de capture 60-80 cm. En 1re catégorie, brochet 60 cm et remise à l'eau jusqu'au dernier vendredi d'avril.",
+    "source": "https://www.peche60.fr/1340-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Dates proches du brochet, réouverture au 1er samedi de juin",
+    "note": "Compris dans le quota de 2 carnassiers par jour.",
+    "source": "https://www.peche60.fr/1340-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 25,
+    "dailyQuota": 4,
+    "period": "Du 2e samedi de mars au 3e dimanche de septembre",
+    "note": "4 truites par jour et par pêcheur.",
+    "source": "https://www.peche60.fr/1340-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": 12,
+    "dailyQuota": null,
+    "period": "1re catégorie : jusqu'au 15 juillet ; 2e catégorie : du 15 février au 15 juillet",
+    "note": "Carnet de capture obligatoire ; anguille argentée interdite.",
+    "source": "https://www.peche60.fr/1340-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Pêche de nuit possible toute l'année sur les parcours listés par arrêté",
+    "note": "Parcours : Oise, Oise non canalisée, Aisne, canal latéral à l'Oise, canal du Nord et certains plans d'eau.",
+    "source": "https://www.peche60.fr/1340-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Pêche interdite pour l'écrevisse à pattes grêles et à pieds blancs ; 6 balances maximum.",
+    "source": "https://www.peche60.fr/1340-reglementation-generale.htm",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "1re catégorie : eaux à truite fario ; 2e catégorie : eaux à cyprinidés et carnassiers, le brochet étant l'espèce repère.",
+    "source": "https://www.peche60.fr/1340-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Nombre de lignes : 1 ligne en 1re catégorie, 4 lignes au plus en 2e catégorie ; 2 hameçons ou 3 mouches artificielles par ligne, à proximité du pêcheur. Pêche à la traîne interdite.",
+    "source": "https://www.peche60.fr/1340-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Horaires de pêche : de 30 minutes avant le lever du soleil à 30 minutes après son coucher.",
+    "source": "https://www.peche60.fr/1340-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Des parcours no-kill en 1re et 2e catégorie et des réserves de pêche (Noye à Breteuil, Thérain à Beauvais et Cramoisy, Mève à Beaurains-lès-Noyon) sont fixés par arrêtés préfectoraux listés par la fédération.",
+    "source": "https://www.peche60.fr/1355-arretes-prefectoraux.htm",
+    "confidence": "verifie"
+   }
+  ]
  },
  "note": "aucune source locale trouvée"
 }

@@ -1,0 +1,109 @@
+{
+ "dpt": "50",
+ "liens": {
+  "peche": "https://www.peche-manche.com/la-peche-pratique/louverture/",
+  "arretes": "https://www.peche-manche.com/la-peche-pratique/les-arretes-2026/"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": 2,
+    "period": "25 avril au 20 septembre 2026",
+    "note": "Quota de 2 brochets par jour.",
+    "source": "https://www.peche-manche.com/la-peche-pratique/louverture/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": 2,
+    "period": "1er au 25 janvier et 25 avril au 31 décembre 2026",
+    "note": "Quota combiné de 3 carnassiers par jour dont 2 brochets au plus.",
+    "source": "https://www.peche-manche.com/la-peche-pratique/louverture/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "14 mars au 20 septembre 2026",
+    "note": "",
+    "source": "https://www.peche-manche.com/la-peche-pratique/louverture/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er au 25 janvier et 6 juin au 31 décembre 2026",
+    "note": "Compte dans le quota combiné de 3 carnassiers par jour.",
+    "source": "https://www.peche-manche.com/wp-content/uploads/2026/02/2026_livret.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "14 mars au 20 septembre 2026",
+    "note": "Quota de truites fario réduit à 2 ou 3 par jour sur certains bassins (Cotentin nord, Douve, Elle, Esque, Douet Morel, Thar).",
+    "source": "https://www.peche-manche.com/wp-content/uploads/2026/02/2026_livret.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille jaune à la ligne : 14 mars au 15 juillet 2026 (bassin du Couesnon : 1er avril au 31 août) ; pêche de nuit interdite",
+    "note": "Civelle et anguille argentée interdites en amont de la limite de salinité.",
+    "source": "https://www.peche-manche.com/la-peche-pratique/louverture/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Espèces autochtones : pêche interdite toute l'année",
+    "note": "Pour les écrevisses américaines, tout transport vivant est interdit.",
+    "source": "https://www.peche-manche.com/la-peche-pratique/louverture/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Salmonidés : 10 au total par jour (hors truite de mer et saumon) dont 6 truites au maximum.",
+    "source": "https://www.peche-manche.com/wp-content/uploads/2026/02/2026_livret.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "2e catégorie : pêche à la ligne ouverte toute l'année 2026, sauf espèces à dates spécifiques.",
+    "source": "https://www.peche-manche.com/la-peche-pratique/louverture/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Alose : ouverture du 1er juin au 15 juillet 2026 ; sur la Vire, la Taute et la Douve, ouverture anticipée dès le 12 avril, à la mouche artificielle uniquement.",
+    "source": "https://www.peche-manche.com/la-peche-pratique/louverture/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Carpe de nuit encadrée par l'arrêté ; interdiction de maintenir en captivité ou de transporter des carpes vivantes.",
+    "source": "https://www.peche-manche.com/wp-content/uploads/2026/02/2026_livret.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Réserves de pêche et parcours no-kill existent mais leurs tronçons ne sont pas détaillés dans la source lue.",
+    "source": "https://www.peche-manche.com/wp-content/uploads/2026/02/2026_livret.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

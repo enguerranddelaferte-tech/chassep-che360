@@ -1,25 +1,247 @@
-{"dpt":"81","name":"Tarn","verifiedOn":"2026-10-07",
-"liens":{"fdc":"https://www.chasse-nature-occitanie.fr/tarn/ouvertures-fermetures-chasse.php","peche":"","arretes":"https://www.tarn.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Chasse/Saison-cynegetique-en-cours/Les-arretes-reglementant-la-chasse-dans-le-Tarn"},
-"chasse":{"saison":"2026-2027","ouverture":"13 septembre 2026","cloture":"28 février 2027","joursSansChasse":"Jusqu'au 31/10/2026, pas de chasse les lundis, mardis, jeudis, vendredis et samedis (hors exceptions : lièvre, sanglier, grand gibier à plan de chasse, gibier d'eau, nuisibles).","sources":["https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","https://www.chasse-nature-occitanie.fr/tarn/ouvertures-fermetures-chasse.php"],
-"especes":[
-{"species":"Sanglier","period":"Du 13/09/2026 au 31/03/2027 tous modes ; battue, affût ou approche avant l'ouverture générale ; du 01/04 au 31/05/2027 uniquement pour protéger les semis (autorisation).","mode":"Battue, affût, approche","note":"Du 13/09 au 31/03, chasse les mercredis, samedis, dimanches et jours fériés. Registre de battue obligatoire dès 2 chasseurs ; prélèvements à déclarer sur geochasse.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"},
-{"species":"Chevreuil","period":"Ouverture générale du 13/09/2026 au 28/02/2027 ; tir anticipé du brocard avant le 13/09 sur autorisation préfectorale.","mode":"Tous modes (balle ou arc) ; approche ou affût en période anticipée","note":"Plan de chasse obligatoire. En battue, grenaille de plomb ou de substitution n°1 et n°2 autorisée dans certains cantons et communes listés à l'article 4.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"},
-{"species":"Cerf élaphe","period":"Du 01/09/2026 au 28/02/2027 (approche ou affût avec autorisation jusqu'au 12/09, tous modes ensuite).","mode":"Balle ou arc ; approche, affût, battue","note":"Plan de chasse obligatoire ; déclaration sur geochasse.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"},
-{"species":"Daim","period":"Ouverture générale du 13/09/2026 au 28/02/2027 ; tir anticipé avant le 13/09 sur autorisation.","mode":"Balle ou arc ; approche ou affût en période anticipée","note":"Plan de chasse obligatoire. La date de début de la période anticipée diffère entre l'arrêté (01/07) et la page de la FDC (01/06).","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"a_verifier"},
-{"species":"Mouflon","period":"Du 01/09/2026 au 28/02/2027 (approche ou affût avec autorisation jusqu'au 12/09, tous modes ensuite).","mode":"Balle ou arc","note":"Plan de chasse obligatoire.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"},
-{"species":"Lièvre","period":"Du 13/09/2026 au 28/02/2027 ; tir uniquement du 04/10 au 20/12/2026, les mercredis, dimanches et jours fériés.","mode":"Tir","note":"Plan de chasse obligatoire sur tout le département. Vente, achat et colportage interdits du 01 au 31/10/2026.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"},
-{"species":"Perdrix rouge et grise","period":"Du 13/09/2026 au 13/12/2026.","mode":"Tir","note":"Chasse suspendue 5 jours par semaine jusqu'au 31/10/2026.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"},
-{"species":"Faisan","period":"Du 13/09/2026 au 10/01/2027.","mode":"Tir","note":"Tir du faisan obscur interdit dans tout le département.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"},
-{"species":"Bécasse des bois","period":"Du 13/09/2026 au 20/02/2027.","mode":"Tir","note":"3 par jour et 30 par saison par chasseur ; enregistrement des prélèvements obligatoire ; chasse à la passée et à la croule interdite.","source":"https://www.chasse-nature-occitanie.fr/tarn/ouvertures-fermetures-chasse.php","confidence":"a_verifier"},
-{"species":"Pigeon ramier","period":"Du 13/09/2026 au 20/02/2027.","mode":"Tir","note":"Libre jusqu'au 10/02 ; du 11 au 20/02, poste fixe matérialisé requis.","source":"https://www.chasse-nature-occitanie.fr/tarn/ouvertures-fermetures-chasse.php","confidence":"a_verifier"},
-{"species":"Canard colvert","period":"Anticipée du 21/08 au 12/09/2026 ; générale du 13/09/2026 au 31/01/2027.","mode":"Tir (poste fixe, hutte)","note":"En période anticipée, tir à 30 m maximum de la nappe d'eau. Grenaille de plomb interdite en zone humide. Dates de fermeture 2026-2027 en attente des arrêtés ministériels.","source":"https://www.chasse-nature-occitanie.fr/tarn/ouvertures-fermetures-chasse.php","confidence":"a_verifier"},
-{"species":"Renard","period":"Du 13/09/2026 au 28/02/2027 ; tir d'été avant le 13/09 uniquement avec autorisation préfectorale.","mode":"Tir, déterrage","note":"Chasse autorisée en temps de neige en période générale.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"}
-],
-"infos":[
-{"text":"Arrêté préfectoral du 2 juin 2026 relatif à l'ouverture et à la clôture de la chasse 2026-2027 dans le Tarn.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"},
-{"text":"Agrainage dissuasif : déclaration du 01/03 au 14/08, autorisation préfectorale du 15/08 au 14/10, interdit du 15/10 au 29/02 ; agrainage du grand gibier à d'autres fins interdit.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"},
-{"text":"Battue au grand gibier : registre de battue délivré par la FDC 81 obligatoire dès 2 chasseurs, gilet fluorescent, panneaux de signalisation et tir fichant obligatoires.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"},
-{"text":"Chasse interdite en temps de neige, sauf grand gibier à plan de chasse, vénerie, sanglier, renard, ragondin, rat musqué et gibier d'eau sur zones non asséchées.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"},
-{"text":"Ongulés : tir à balle ou à l'arc uniquement ; grenaille de plomb interdite en zones humides.","source":"https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf","confidence":"verifie"}
-]},
-"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}
+{
+ "dpt": "81",
+ "name": "Tarn",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "https://www.chasse-nature-occitanie.fr/tarn/ouvertures-fermetures-chasse.php",
+  "peche": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+  "arretes": "https://www.tarn.gouv.fr/Actions-de-l-Etat/Agriculture-foret-et-developpement-rural/Chasse/Saison-cynegetique-en-cours/Les-arretes-reglementant-la-chasse-dans-le-Tarn"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "Jusqu'au 31/10/2026, pas de chasse les lundis, mardis, jeudis, vendredis et samedis (hors exceptions : lièvre, sanglier, grand gibier à plan de chasse, gibier d'eau, nuisibles).",
+  "sources": [
+   "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+   "https://www.chasse-nature-occitanie.fr/tarn/ouvertures-fermetures-chasse.php"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Du 13/09/2026 au 31/03/2027 tous modes ; battue, affût ou approche avant l'ouverture générale ; du 01/04 au 31/05/2027 uniquement pour protéger les semis (autorisation).",
+    "mode": "Battue, affût, approche",
+    "note": "Du 13/09 au 31/03, chasse les mercredis, samedis, dimanches et jours fériés. Registre de battue obligatoire dès 2 chasseurs ; prélèvements à déclarer sur geochasse.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Ouverture générale du 13/09/2026 au 28/02/2027 ; tir anticipé du brocard avant le 13/09 sur autorisation préfectorale.",
+    "mode": "Tous modes (balle ou arc) ; approche ou affût en période anticipée",
+    "note": "Plan de chasse obligatoire. En battue, grenaille de plomb ou de substitution n°1 et n°2 autorisée dans certains cantons et communes listés à l'article 4.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "Du 01/09/2026 au 28/02/2027 (approche ou affût avec autorisation jusqu'au 12/09, tous modes ensuite).",
+    "mode": "Balle ou arc ; approche, affût, battue",
+    "note": "Plan de chasse obligatoire ; déclaration sur geochasse.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "Ouverture générale du 13/09/2026 au 28/02/2027 ; tir anticipé avant le 13/09 sur autorisation.",
+    "mode": "Balle ou arc ; approche ou affût en période anticipée",
+    "note": "Plan de chasse obligatoire. La date de début de la période anticipée diffère entre l'arrêté (01/07) et la page de la FDC (01/06).",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Mouflon",
+    "period": "Du 01/09/2026 au 28/02/2027 (approche ou affût avec autorisation jusqu'au 12/09, tous modes ensuite).",
+    "mode": "Balle ou arc",
+    "note": "Plan de chasse obligatoire.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Du 13/09/2026 au 28/02/2027 ; tir uniquement du 04/10 au 20/12/2026, les mercredis, dimanches et jours fériés.",
+    "mode": "Tir",
+    "note": "Plan de chasse obligatoire sur tout le département. Vente, achat et colportage interdits du 01 au 31/10/2026.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix rouge et grise",
+    "period": "Du 13/09/2026 au 13/12/2026.",
+    "mode": "Tir",
+    "note": "Chasse suspendue 5 jours par semaine jusqu'au 31/10/2026.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan",
+    "period": "Du 13/09/2026 au 10/01/2027.",
+    "mode": "Tir",
+    "note": "Tir du faisan obscur interdit dans tout le département.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "Du 13/09/2026 au 20/02/2027.",
+    "mode": "Tir",
+    "note": "3 par jour et 30 par saison par chasseur ; enregistrement des prélèvements obligatoire ; chasse à la passée et à la croule interdite.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/ouvertures-fermetures-chasse.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "Du 13/09/2026 au 20/02/2027.",
+    "mode": "Tir",
+    "note": "Libre jusqu'au 10/02 ; du 11 au 20/02, poste fixe matérialisé requis.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/ouvertures-fermetures-chasse.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Canard colvert",
+    "period": "Anticipée du 21/08 au 12/09/2026 ; générale du 13/09/2026 au 31/01/2027.",
+    "mode": "Tir (poste fixe, hutte)",
+    "note": "En période anticipée, tir à 30 m maximum de la nappe d'eau. Grenaille de plomb interdite en zone humide. Dates de fermeture 2026-2027 en attente des arrêtés ministériels.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/ouvertures-fermetures-chasse.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "Du 13/09/2026 au 28/02/2027 ; tir d'été avant le 13/09 uniquement avec autorisation préfectorale.",
+    "mode": "Tir, déterrage",
+    "note": "Chasse autorisée en temps de neige en période générale.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté préfectoral du 2 juin 2026 relatif à l'ouverture et à la clôture de la chasse 2026-2027 dans le Tarn.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Agrainage dissuasif : déclaration du 01/03 au 14/08, autorisation préfectorale du 15/08 au 14/10, interdit du 15/10 au 29/02 ; agrainage du grand gibier à d'autres fins interdit.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Battue au grand gibier : registre de battue délivré par la FDC 81 obligatoire dès 2 chasseurs, gilet fluorescent, panneaux de signalisation et tir fichant obligatoires.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse interdite en temps de neige, sauf grand gibier à plan de chasse, vénerie, sanglier, renard, ragondin, rat musqué et gibier d'eau sur zones non asséchées.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Ongulés : tir à balle ou à l'arc uniquement ; grenaille de plomb interdite en zones humides.",
+    "source": "https://www.chasse-nature-occitanie.fr/tarn/documents/AR-O-F-2026.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 20,
+    "dailyQuota": null,
+    "period": "14 mars - 20 septembre",
+    "note": "23 cm sur certains cours d'eau dont le Cérou ; quota de 6 salmonidés par jour dont 4 truites fario au maximum.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1er-25 janvier et 25 avril-31 décembre",
+    "note": "Fenêtre : brochets hors de 60 à 80 cm remis à l'eau ; 3 carnassiers par jour dont 2 brochets au maximum. En 1re catégorie : remise à l'eau obligatoire.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Inclus dans le quota de 3 carnassiers par jour en 2e catégorie.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "1er-25 janvier et 27 juin-31 décembre",
+    "note": "Inclus dans le quota de 3 carnassiers par jour en 2e catégorie.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perche",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Fenêtre de remise à l'eau : perches hors de 25 à 35 cm (règlement intérieur fédéral).",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er mai - 20 septembre",
+    "note": "Anguille jaune ; anguille argentée interdite.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Carpe",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Aucune carpe capturée de nuit ne peut être gardée en captivité ni transportée ; transport vivant de carpes de plus de 60 cm interdit.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "1re catégorie : une ligne, 2 hameçons ou 3 mouches au plus, vermée ; 6 balances à écrevisses au plus ; amorçage interdit.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "verifie"
+   },
+   {
+    "text": "2e catégorie : jusqu'à 4 lignes par pêcheur (une seule pour les cartes découverte femme et enfant), 6 balances à écrevisses.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Fermeture carnassiers en 2e catégorie du dernier dimanche de janvier au dernier vendredi d'avril : pêche au vif, au poisson mort et aux leurres interdite, sauf barrage de Rivières et lac du Laouzas (remise à l'eau immédiate).",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Retenues de la Bancalié, Messal, Laouzas, Rivières et Geignes : un seul carnassier par jour et par pêcheur.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche des truites interdite les vendredis du 1er février au 31 mai sur les parcours listés par les AAPPMA et parcours truites loisirs.",
+    "source": "https://www.pechetarn.fr/reglementation-activite-de-peche-tarn-81.php",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

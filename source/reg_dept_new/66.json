@@ -1,0 +1,13 @@
+{
+ "dpt": "66",
+ "liens": {
+  "peche": "",
+  "arretes": "https://www.pyrenees-orientales.gouv.fr/Actions-de-l-Etat/Environnement-eau-risques-naturels-et-technologiques/Eau-et-Peche/Peche-en-eau-douce/Reglement-permanent-et-Campagne-de-peche/Reglement-permanent-et-autorisation-ouverture-et-cloture-de-la-peche-en-eau-douce/AP-reglementant-la-peche-en-eau-douce-pour-l-annee-2026"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

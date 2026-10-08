@@ -1,0 +1,134 @@
+{
+ "dpt": "09",
+ "liens": {
+  "peche": "https://www.peche-ariege.com/connaitre-la-reglementation/",
+  "arretes": "https://www.ariege.gouv.fr/Politiques-publiques/Environnement-biodiversite/Eau/Peche-Cormorans/Arretes-prefectoraux-peche"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 20,
+    "dailyQuota": 10,
+    "period": "14 mars au 20 septembre 2026",
+    "note": "10 salmonidés par jour et par pêcheur, dont 2 fario maximum sur l'Ariège et le Salat.",
+    "source": "https://www.peche-ariege.com/connaitre-la-reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": 2,
+    "period": "Fermeture du 26 janvier au 24 avril 2026 ; ouverture 25 avril - 20 septembre en 1re catégorie.",
+    "note": "3 carnassiers par jour dont 2 brochets maximum.",
+    "source": "https://www.peche-ariege.com/connaitre-la-reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": 3,
+    "period": "Toute l'année en 2e catégorie ; 14 mars - 20 septembre en 1re catégorie.",
+    "note": "3 carnassiers par jour (brochet, sandre, black-bass confondus).",
+    "source": "https://www.peche-ariege.com/connaitre-la-reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "",
+    "minSize": 30,
+    "dailyQuota": 3,
+    "period": "Toute l'année en 2e catégorie ; 14 mars - 20 septembre en 1re catégorie.",
+    "note": "No-kill sur le lac de Saint-Ybars.",
+    "source": "https://www.peche-ariege.com/connaitre-la-reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perche",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Toute l'année en 2e catégorie ; 14 mars - 20 septembre en 1re catégorie.",
+    "note": "",
+    "source": "https://www.peche-ariege.com/connaitre-la-reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille jaune seule pêchable, dates à fixer ultérieurement.",
+    "note": "Anguille argentée interdite ; utilisation comme appât interdite.",
+    "source": "https://www.peche-ariege.com/connaitre-la-reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Sans taille ni quota ; pêche de nuit interdite sur le lac de Filheit.",
+    "source": "https://www.peche-ariege.com/connaitre-la-reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Silure",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Sans taille ni quota.",
+    "source": "https://www.peche-ariege.com/connaitre-la-reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Écrevisse à pattes grêles : toute l'année en 2e catégorie, pendant l'ouverture en 1re ; pattes blanches : interdite.",
+    "note": "Espèces américaines, de Louisiane et de Californie : conservation vivante et remise à l'eau interdites ; pattes grêles : 9 cm, 6 maximum.",
+    "source": "https://www.peche-ariege.com/connaitre-la-reglementation/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Lacs de montagne de plus de 1000 m : ouverture du 30 mai au 11 octobre 2026 ; lac de Bethmale du 25 avril au 11 octobre ; étang de Lers du 30 mai au 20 septembre.",
+    "source": "https://www.peche-ariege.com/wp-content/uploads/2026/01/guide-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Le département compte 33 parcours no-kill ; nouveautés 2026 : no-kill sur la Douctouyre (Ilhat) et sur la totalité du lac de Rivière (Saverdun).",
+    "source": "https://www.peche-ariege.com/wp-content/uploads/2026/01/guide-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Parcours Truite Loisir : 5 truites par jour, taille 20 cm ; pêche interdite les 2 jours précédant les empoissonnements sur certains sites.",
+    "source": "https://www.peche-ariege.com/wp-content/uploads/2026/01/guide-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Nombre de lignes : 1 canne au lac de Bethmale et aux retenues du Rialet et de Noubals ; 2 cannes sur le domaine public du Salat (Roquelaure - Lacave) ; 2 lignes à la retenue de Mercus-Garrabet.",
+    "source": "https://www.peche-ariege.com/wp-content/uploads/2026/01/guide-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pêche de nuit et en barque interdites au lac de Sainte-Croix-Volvestre ; retenue de Gnioure fermée en 2026 (travaux).",
+    "source": "https://www.peche-ariege.com/wp-content/uploads/2026/01/guide-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Espèces indésirables (perche soleil, poisson-chat, pseudorasbora) : remise à l'eau interdite, destruction obligatoire sur place.",
+    "source": "https://www.peche-ariege.com/connaitre-la-reglementation/",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

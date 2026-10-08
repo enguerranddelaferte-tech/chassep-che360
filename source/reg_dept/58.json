@@ -1,10 +1,10 @@
 {
  "dpt": "58",
  "name": "Nièvre",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
+  "peche": "https://www.nievre.gouv.fr/Actions-de-l-Etat/Environnement/Reglementation-de-la-peche-dans-la-Nievre",
   "arretes": "https://www.nievre.gouv.fr/contenu/telechargement/17424/147207/file/A_Chevreuils_2024-2026.pdf"
  },
  "chasse": {
@@ -27,7 +27,13 @@
  "peche": {
   "saison": "2026",
   "especes": [],
-  "infos": []
+  "infos": [
+   {
+    "text": "Aucune source locale trouvée : la page préfecture sur les périodes d'ouverture 2026 existe mais n'a pas pu être lue.",
+    "source": "https://www.nievre.gouv.fr/Publications/Participation-du-public/Periodes-d-ouverture-de-la-peche-en-2026-departement-de-la-Nievre",
+    "confidence": "a_verifier"
+   }
+  ]
  },
  "note": "source locale partielle (plan de chasse chevreuil uniquement)"
 }

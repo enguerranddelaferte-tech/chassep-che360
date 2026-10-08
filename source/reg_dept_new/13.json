@@ -1,0 +1,28 @@
+{
+ "dpt": "13",
+ "liens": {
+  "peche": "https://www.peche13.fr/4908-reglementation.htm",
+  "arretes": "http://www.peche13.fr/5463-textes-reglementaires.htm"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [
+   {
+    "text": "Pêche de nuit de la carpe autorisée du vendredi soir au lundi matin, toute l'année, avec appâts d'origine végétale uniquement, sur des parcours désignés (Rhône, canal d'Arles à Fos, Durance selon les AAPPMA).",
+    "source": "https://www.peche13.fr/4904-carpe-de-nuit.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Plan d'eau du San Peyre : pêche de nuit le week-end sur réservation auprès de la fédération (places limitées), participation de 10 € par personne et par week-end à partir du 1er janvier 2026.",
+    "source": "https://www.peche13.fr/4904-carpe-de-nuit.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Dates 2025 publiées par la fédération : brochet fermé jusqu'au 26 janvier puis ouvert le 26 avril ; truite 2e catégorie ouverte le 1er février, 1re catégorie du 8 mars au 21 septembre. Dates 2026 non lues.",
+    "source": "https://www.peche13.fr/4919-dates-ouvertures.htm",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

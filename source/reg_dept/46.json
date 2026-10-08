@@ -1,10 +1,10 @@
 {
  "dpt": "46",
  "name": "Lot",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-lot/",
-  "peche": "",
+  "peche": "https://www.pechelot.com/la-reglementation-peche/",
   "arretes": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-lot/"
  },
  "chasse": {
@@ -27,8 +27,119 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1er janvier au 25 janvier et 25 avril au 31 décembre",
+    "note": "Taille de 60 à 80 cm (fenêtre) ; sandre, brochet et black-bass : 3 poissons au total dont 2 brochets au maximum ; no-kill sur le Lot à Cahors et le lac de Cassagnes. 1re catégorie : 25 avril au 20 septembre.",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1er janvier au 25 janvier et 25 avril au 31 décembre",
+    "note": "Sur les eaux listées ; cumul sandre/brochet/black-bass limité à 3 poissons par jour.",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "1er janvier au 25 janvier et 25 avril au 31 décembre",
+    "note": "40 cm sur Dordogne, Lot, Célé et autres rivières ; no-kill sur plusieurs lacs (Tolerme, Catus, Cassagnes et autres).",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perche",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er janvier au 25 janvier et 25 avril au 31 décembre",
+    "note": "Pêche au vif et aux leurres interdite pendant la fermeture des carnassiers.",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": 23,
+    "dailyQuota": 5,
+    "period": "14 mars au 20 septembre",
+    "note": "20 cm sur certains affluents listés, 30 cm sur la Dordogne ; 5 salmonidés par jour ; no-kill sur plusieurs parcours.",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "1re catégorie : 16 mai au 20 septembre ; 2e catégorie : 16 mai au 15 novembre",
+    "note": "",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1re catégorie : 1er mai au 20 septembre ; 2e catégorie : 1er mai au 30 septembre",
+    "note": "L'anguille argentée est interdite.",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Écrevisses américaine, de Californie et de Louisiane : 14 mars au 20 septembre en 1re catégorie, toute l'année en 2e",
+    "note": "Écrevisses à pattes blanches et à pattes grêles : pêche interdite ; 6 balances autorisées sauf sur une liste de cours d'eau.",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Carpe de nuit autorisée sur des sites signalés : Cajarc (4 cannes), Luzech (4 cannes), Lot à Cahors (4 cannes), Alvignac-Miers, Brugales, Montcuq, Vayrac.",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "1re catégorie : 1 ligne sur canne en cours d'eau et 2 en plan d'eau ; 2e catégorie : 4 lignes montées sur canne ; 2 hameçons ou 3 mouches au plus par ligne.",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Asticot et larves de diptères, amorçage en cours d'eau et œufs de poisson interdits en 1re catégorie ; pêche au cassant de surface interdite de jour dans tout le département.",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Parcours no-kill en 1re catégorie : Célé à Linac, Girou à Cénevières, Bave à Saint-Céré, Veyre à Linac.",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Heures légales : de 30 minutes avant le lever du soleil à 30 minutes après son coucher. Les réserves sont à consulter sur la carte interactive de la fédération.",
+    "source": "https://www.pechelot.com/la-reglementation-peche/",
+    "confidence": "verifie"
+   }
+  ]
  }
 }

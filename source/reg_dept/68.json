@@ -1,11 +1,11 @@
 {
  "dpt": "68",
  "name": "Haut-Rhin",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
-  "arretes": ""
+  "peche": "https://www.peche68.fr/5575-reglementation.htm",
+  "arretes": "https://www.peche68.fr/cms_viewFile.php?idtf=32950&path=Arrete-Peche-68-Fevrier-2024.pdf"
  },
  "chasse": {
   "saison": "",
@@ -18,9 +18,105 @@
   "note": "aucune source locale trouvée"
  },
  "peche": {
-  "saison": "",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégories",
+    "minSize": 60,
+    "dailyQuota": 1,
+    "period": "25 avril au 20 septembre en 1re catégorie ; 25 avril au 25 janvier en 2e catégorie",
+    "note": "Seul un brochet de 60 à 80 cm peut être conservé (fenêtre de capture sur l'Ill et le lac de Kruth-Wildenstein) ; quota de 3 carnassiers par jour dont 1 brochet au plus ; en 1re catégorie, tout brochet pris du 14 mars au 25 avril doit être remis à l'eau.",
+    "source": "https://www.peche68.fr/cms_viewFile.php?idtf=51725&path=RI-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Ouverture le 30 mai ; fermeture indiquée au 13 mars (dates à confirmer)",
+    "note": "Le tableau indique une fermeture au 13 mars 2026 antérieure à l'ouverture du 30 mai, à vérifier ; 1re catégorie : 14 mars au 20 septembre.",
+    "source": "https://www.peche68.fr/cms_viewFile.php?idtf=51725&path=RI-2026.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "27 juin au 25 janvier en 2e catégorie ; 14 mars au 20 septembre en 1re catégorie",
+    "note": "No-kill dans le canal du Rhône au Rhin, l'Ill et leurs annexes.",
+    "source": "https://www.peche68.fr/cms_viewFile.php?idtf=51725&path=RI-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégories",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "14 mars au 20 septembre",
+    "note": "Truite arc-en-ciel : 23 cm (40 cm dans le Rhin et le Grand Canal d'Alsace), quota 4 prises.",
+    "source": "https://www.peche68.fr/cms_viewFile.php?idtf=51725&path=RI-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégories",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "16 mai au 20 septembre en 1re catégorie ; 16 mai au 31 décembre en 2e catégorie",
+    "note": "No-kill : remise à l'eau obligatoire dans tout le département.",
+    "source": "https://www.peche68.fr/cms_viewFile.php?idtf=51725&path=RI-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": null,
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Pêche de l'anguille jaune et de l'anguille argentée interdite",
+    "note": "",
+    "source": "https://www.peche68.fr/cms_viewFile.php?idtf=51725&path=RI-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": null,
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "14 mars au 20 septembre en 1re catégorie ; toute l'année en 2e catégorie",
+    "note": "Transport vivant interdit au-delà de 60 cm ; carpe de nuit sur 8 parcours, esches végétales et bouillettes, no-kill obligatoire, durée limitée à 7 jours consécutifs.",
+    "source": "https://www.peche68.fr/cms_viewFile.php?idtf=51725&path=RI-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": null,
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Pêche des écrevisses autres qu'américaines interdite",
+    "note": "Écrevisses américaines : jamais remises à l'eau, ni transportées vivantes ni utilisées comme appât.",
+    "source": "https://www.peche68.fr/cms_viewFile.php?idtf=51725&path=RI-2026.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "1re catégorie : une seule ligne avec 2 hameçons ou 3 mouches au plus, asticots interdits ; 2e catégorie : 4 lignes ; 6 balances à écrevisses ; une seule ligne dans les 50 m en aval des écluses.",
+    "source": "https://www.peche68.fr/cms_viewFile.php?idtf=51725&path=RI-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Parcours no-kill : hameçons simples sans ardillon ou à ardillon écrasé, remise à l'eau immédiate ; corégone no-kill au lac de Kruth-Wildenstein (taille 30 cm).",
+    "source": "https://www.peche68.fr/cms_viewFile.php?idtf=51725&path=RI-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pêche de nuit : voir la page de la fédération sur les lieux autorisés.",
+    "source": "https://www.peche68.fr/5577-pecher-de-nuit.htm",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

@@ -1,0 +1,13 @@
+{
+ "dpt": "65",
+ "liens": {
+  "peche": "",
+  "arretes": "https://www.hautes-pyrenees.gouv.fr/Actions-de-l-Etat/Environnement-et-risques-majeurs/Peche/Arretes-annuels-exercice-de-la-peche/Arrete-reglementaire-permanent-relatif-a-l-exercice-de-la-peche-en-eau-douce-pour-2026"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}

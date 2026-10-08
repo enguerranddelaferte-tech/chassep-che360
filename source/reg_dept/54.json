@@ -1,4 +1,107 @@
-{"dpt":"54","name":"Meurthe-et-Moselle","verifiedOn":"2026-10-07",
-"liens":{"fdc":"","peche":"","arretes":""},
-"chasse":{"saison":"2026-2027","ouverture":"","cloture":"","joursSansChasse":"","sources":[],"especes":[],"infos":[],"note":"aucune source locale trouvée"},
-"peche":{"saison":"2026","especes":[],"infos":[],"note":"aucune source locale trouvée"}}
+{
+ "dpt": "54",
+ "name": "Meurthe-et-Moselle",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "",
+  "peche": "https://www.peche-54.fr/468-reglementation-generale.htm",
+  "arretes": "https://www.peche-54.fr/461-textes-de-reference.htm"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [],
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1er janvier au dernier dimanche de janvier et dernier samedi d'avril au 31 décembre",
+    "note": "Quota de 3 carnassiers (brochet, sandre, black-bass) dont 2 brochets au plus. Page non datée.",
+    "source": "https://www.peche-54.fr/468-reglementation-generale.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1er janvier au dernier dimanche de janvier et dernier samedi de mai au 31 décembre",
+    "note": "Page non datée.",
+    "source": "https://www.peche-54.fr/468-reglementation-generale.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Page non datée.",
+    "source": "https://www.peche-54.fr/468-reglementation-generale.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 25,
+    "dailyQuota": null,
+    "period": "2e samedi de mars au 3e dimanche de septembre",
+    "note": "20 cm en plaine, 30 cm dans le bassin de la Crusnes. Salmonidés : 6 par jour dont 3 truites fario au plus. Page non datée.",
+    "source": "https://www.peche-54.fr/468-reglementation-generale.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "3e samedi de mai au 3e dimanche de septembre (1re cat.) ; jusqu'au 31 décembre (2e cat.)",
+    "note": "Page non datée.",
+    "source": "https://www.peche-54.fr/468-reglementation-generale.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "1re et 2e catégorie",
+    "minSize": 9,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Jusqu'à 6 balances par pêcheur ; écrevisses exotiques interdites comme appât. Page non datée.",
+    "source": "https://www.peche-54.fr/468-reglementation-generale.htm",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Classement : 1re catégorie pour les eaux à truites (ex. Vezouze), 2e catégorie pour les autres (ex. Moselle).",
+    "source": "https://www.peche-54.fr/468-reglementation-generale.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Carpe de nuit autorisée du 1er avril au 31 octobre sur des tronçons fixés par arrêté préfectoral, avec timbre CPMA.",
+    "source": "https://www.peche-54.fr/468-reglementation-generale.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Lignes : 4 lignes en 2e catégorie, 1 ligne en 1re catégorie sur le domaine public ; 6 balances à écrevisses ; une carafe de 2 litres maximum en 2e catégorie.",
+    "source": "https://www.peche-54.fr/468-reglementation-generale.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Réserves de pêche et parcours de graciation (no-kill) fixés par arrêté préfectoral ; détails sur les pages dédiées de la fédération.",
+    "source": "https://www.peche-54.fr/468-reglementation-generale.htm",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

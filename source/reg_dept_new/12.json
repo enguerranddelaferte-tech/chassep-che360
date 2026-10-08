@@ -1,0 +1,93 @@
+{
+ "dpt": "12",
+ "liens": {
+  "arretes": "https://www.aveyron.gouv.fr/index.php/contenu/telechargement/21861/183580/file/ARR_PECHE_2024_vTx_25102023.pdf"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 50,
+    "dailyQuota": 3,
+    "period": "Prélèvement interdit du 29 janvier au 26 avril (dates 2024).",
+    "note": "2 en 1re catégorie ; 3 en 2e catégorie dont 2 brochets maximum. Source : arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.aveyron.gouv.fr/index.php/contenu/telechargement/21861/183580/file/ARR_PECHE_2024_vTx_25102023.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "Prélèvement interdit du 1er avril au 14 juin sur les parcours définis (dates 2024).",
+    "note": "Pas de limitation de capture. Source : arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.aveyron.gouv.fr/index.php/contenu/telechargement/21861/183580/file/ARR_PECHE_2024_vTx_25102023.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Pas de limitation ; no-kill sur le Lot, l'Aveyron, le Tarn (2e catégorie) et plusieurs lacs. Source : arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.aveyron.gouv.fr/index.php/contenu/telechargement/21861/183580/file/ARR_PECHE_2024_vTx_25102023.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": 20,
+    "dailyQuota": 6,
+    "period": "1re catégorie : 9 mars au 15 septembre (2024).",
+    "note": "20 cm en 1re catégorie (23 cm sur Cernon, Dourbie, Dourdou de Camarès, Durzon, Jonte, Sorgues, Tarn), 23 cm en 2e ; 6 salmonidés et ombres cumulés par jour. Source : arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.aveyron.gouv.fr/index.php/contenu/telechargement/21861/183580/file/ARR_PECHE_2024_vTx_25102023.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 30,
+    "dailyQuota": 6,
+    "period": null,
+    "note": "No-kill sur le Lot et la Truyère. Source : arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.aveyron.gouv.fr/index.php/contenu/telechargement/21861/183580/file/ARR_PECHE_2024_vTx_25102023.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille jaune : interdiction du 1er janvier au 30 avril et du 16 septembre au 31 décembre en 1re catégorie, du 1er octobre au 31 décembre en 2e.",
+    "note": "Pêche de nuit interdite. Source : arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.aveyron.gouv.fr/index.php/contenu/telechargement/21861/183580/file/ARR_PECHE_2024_vTx_25102023.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Interdiction totale",
+    "note": "Écrevisses à pattes rouges, grêles, blanches et des torrents. Source : arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.aveyron.gouv.fr/index.php/contenu/telechargement/21861/183580/file/ARR_PECHE_2024_vTx_25102023.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Pêche de nuit de la carpe autorisée toute l'année sur des lacs EDF (Sarrans, Castelnau-Lassouts, Maury, Touluch, Pareloup, Pinet, La Jourdanie, La Croux) et des tronçons du Lot, appâts végétaux uniquement, carpes de nuit non conservables en captivité.",
+    "source": "https://www.aveyron.gouv.fr/index.php/contenu/telechargement/21861/183580/file/ARR_PECHE_2024_vTx_25102023.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "1re catégorie : cours d'eau et plans d'eau non classés en 2e ; 2e catégorie notamment Aveyron aval, Lot, Tarn aval de la Dourbie, Truyère, Viaur aval de Tanus. Ouverture 2e catégorie toute l'année.",
+    "source": "https://www.aveyron.gouv.fr/index.php/contenu/telechargement/21861/183580/file/ARR_PECHE_2024_vTx_25102023.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

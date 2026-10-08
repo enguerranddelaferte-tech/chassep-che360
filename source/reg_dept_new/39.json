@@ -1,0 +1,11 @@
+{"dpt":"39","liens":{"peche":"https://www.jura-tourism.com/magazine-jura/ouverture-de-la-peche-2026-dans-le-jura-a-vos-cannes/"},
+"peche":{"saison":"2026","especes":[
+{"species":"Brochet","category":"2e catégorie","minSize":60,"dailyQuota":1,"period":"Ouverture le 25 avril 2026 (30 mai 2026 sur les grands lacs) ; fermeture du 20 septembre au 31 décembre en 2e catégorie.","note":"Taille de 60 à 80 cm sur certains lacs (ex. Chalain). Maximum 2 carnassiers par jour dont 1 brochet. Source touristique, à confirmer auprès de la fédération.","source":"https://www.jura-tourism.com/magazine-jura/ouverture-de-la-peche-2026-dans-le-jura-a-vos-cannes/","confidence":"a_verifier"},
+{"species":"Sandre","category":"1re et 2e catégorie","minSize":50,"dailyQuota":null,"period":"Ouverture le 14 mars 2026 en 1re catégorie, le 31 mai 2026 en rivières de 2e catégorie, le 30 mai 2026 sur les lacs.","note":"Compte dans le maximum de 2 carnassiers par jour.","source":"https://www.jura-tourism.com/magazine-jura/ouverture-de-la-peche-2026-dans-le-jura-a-vos-cannes/","confidence":"a_verifier"},
+{"species":"Black-bass","category":"1re et 2e catégorie","minSize":40,"dailyQuota":1,"period":"Ouverture le 14 mars 2026 en rivières de 1re catégorie, le 4 juillet 2026 en 2e catégorie y compris grands lacs.","note":"Maximum 1 black-bass par jour dans la limite de 2 carnassiers.","source":"https://www.jura-tourism.com/magazine-jura/ouverture-de-la-peche-2026-dans-le-jura-a-vos-cannes/","confidence":"a_verifier"},
+{"species":"Truite fario","category":"1re catégorie","minSize":30,"dailyQuota":2,"period":"Ouverture le 14 mars 2026 ; fermeture le 20 septembre.","note":"Maximum 3 truites par jour dont 2 fario.","source":"https://www.jura-tourism.com/magazine-jura/ouverture-de-la-peche-2026-dans-le-jura-a-vos-cannes/","confidence":"a_verifier"}
+],
+"infos":[
+{"text":"Pêche autorisée de 30 minutes avant le lever du soleil à 1 heure après son coucher au plus.","source":"https://www.jura-tourism.com/magazine-jura/ouverture-de-la-peche-2026-dans-le-jura-a-vos-cannes/","confidence":"a_verifier"},
+{"text":"Corégone : taille minimale de 30 à 35 cm selon le plan d'eau, maximum 5 par jour (4 au lac des Rousses).","source":"https://www.jura-tourism.com/magazine-jura/ouverture-de-la-peche-2026-dans-le-jura-a-vos-cannes/","confidence":"a_verifier"}
+]}}

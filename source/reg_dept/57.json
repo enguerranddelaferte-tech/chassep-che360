@@ -1,10 +1,10 @@
 {
  "dpt": "57",
  "name": "Moselle",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
+  "peche": "https://www.moselle.gouv.fr/Actions-de-l-Etat/Environnement/Eau-secheresse-et-peche/La-gestion-de-la-peche2",
   "arretes": ""
  },
  "chasse": {
@@ -19,7 +19,13 @@
  "peche": {
   "saison": "2026",
   "especes": [],
-  "infos": []
+  "infos": [
+   {
+    "text": "Aucune source locale trouvée.",
+    "source": "https://www.moselle.gouv.fr/Actions-de-l-Etat/Environnement/Eau-secheresse-et-peche/La-gestion-de-la-peche2",
+    "confidence": "a_verifier"
+   }
+  ]
  },
  "note": "aucune source locale trouvée"
 }

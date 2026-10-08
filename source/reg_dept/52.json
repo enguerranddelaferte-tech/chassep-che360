@@ -1,19 +1,219 @@
-{"dpt":"52","name":"Haute-Marne","verifiedOn":"2026-10-07",
-"liens":{"fdc":"https://www.fdc52.fr","peche":"","arretes":"https://www.fdc52.fr/index.php/reglementation-arretes/periodes-de-chasse/"},
-"chasse":{"saison":"2026-2027 (arrêté n° 52-2026-05-00054)","ouverture":"20 septembre 2026","cloture":"28 février 2027","joursSansChasse":"Mercredi, pour toutes les espèces et tous les modes de chasse.","sources":["https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf"],
- "especes":[
- {"species":"Sanglier","period":"Tir de sélection à l'affût du 1er juin au 14 août 2026 avec autorisation ; battue sans autorisation du 15 août 2026 au 28 février 2027.","mode":"Affût, battue","note":"Déclaration de prélèvement sous 48 heures pour les bénéficiaires d'un plan de chasse.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"verifie"},
- {"species":"Chevreuil","period":"Tir de sélection du 1er juin au 19 septembre 2026 avec autorisation fédérale individuelle ; du 20 septembre 2026 au 28 février 2027 sans autorisation individuelle.","mode":"Approche, affût","note":"Plan de chasse.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"verifie"},
- {"species":"Daim","period":"Tir de sélection du 1er juin au 19 septembre 2026 avec autorisation fédérale individuelle ; du 20 septembre 2026 au 28 février 2027 sans autorisation individuelle.","mode":"Approche, affût","note":"Plan de chasse.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"verifie"},
- {"species":"Cerf élaphe","period":"Tir de sélection du 1er au 19 septembre 2026 avec autorisation individuelle ; du 20 septembre 2026 au 28 février 2027 sans autorisation individuelle.","mode":"Approche, affût","note":"Plan de chasse.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"verifie"},
- {"species":"Lièvre","period":"Du 20 septembre au 22 novembre 2026 ; jusqu'au 20 décembre 2026 dans les communes du GIC Sud Haut-Marnais.","mode":"Chasse à tir","note":"","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"verifie"},
- {"species":"Perdrix grise","period":"Ouverture le 20 septembre 2026 ; clôture indiquée au 8 novembre 2026.","mode":"Chasse à tir","note":"Interdite dans plusieurs communes listées ; ailleurs, uniquement les samedis, dimanches, jours fériés et le lundi suivant l'ouverture. Affiche partiellement illisible, à vérifier dans l'arrêté.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"a_verifier"},
- {"species":"Perdrix rouge","period":"Du 20 septembre 2026 au 28 février 2027.","mode":"Chasse à tir","note":"Affiche partiellement illisible, à vérifier dans l'arrêté.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"a_verifier"},
- {"species":"Faisan","period":"Du 20 septembre 2026 au 28 février 2027.","mode":"Chasse à tir","note":"Poule faisane non tirable à Longeville-sur-la-Laines. Affiche partiellement illisible, à vérifier dans l'arrêté.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"a_verifier"}],
- "infos":[
- {"text":"Horaires de chasse : une heure avant le lever du soleil à une heure après son coucher (heure de Chaumont) ; chasse de nuit interdite ; gibier d'eau de deux heures avant le lever à deux heures après le coucher.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"verifie"},
- {"text":"Battue au grand gibier : 6h30-18h00 du 15 août au 30 septembre, 8h30-18h00 du 1er au 31 octobre, 8h30-17h00 du 1er novembre au 31 janvier, 8h30-18h00 à partir du 1er février. Gilet ou veste orange obligatoire.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"verifie"},
- {"text":"Bécasse : prélèvement maximum de 3 par jour, 6 par semaine et 30 par saison.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"verifie"},
- {"text":"Temps de neige : chasse interdite, sauf plan de chasse, vénerie, renard, pigeon ramier, ragondin, rat musqué et gibier d'eau sur certains plans d'eau. Gélinotte des bois interdite toute l'année.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"verifie"},
- {"text":"Cœur du Parc national de forêts : chasse du renard et du blaireau interdite ; bécasse et grive litorne ouvertes le 17 octobre 2026.","source":"https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf","confidence":"verifie"}]},
-"peche":{"saison":"2026","especes":[],"infos":[],"note":"aucune source locale trouvée"}}
+{
+ "dpt": "52",
+ "name": "Haute-Marne",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "https://www.fdc52.fr",
+  "peche": "https://www.peche52.fr/fishing-regulations/",
+  "arretes": "https://www.fdc52.fr/index.php/reglementation-arretes/periodes-de-chasse/"
+ },
+ "chasse": {
+  "saison": "2026-2027 (arrêté n° 52-2026-05-00054)",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "Mercredi, pour toutes les espèces et tous les modes de chasse.",
+  "sources": [
+   "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Tir de sélection à l'affût du 1er juin au 14 août 2026 avec autorisation ; battue sans autorisation du 15 août 2026 au 28 février 2027.",
+    "mode": "Affût, battue",
+    "note": "Déclaration de prélèvement sous 48 heures pour les bénéficiaires d'un plan de chasse.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Tir de sélection du 1er juin au 19 septembre 2026 avec autorisation fédérale individuelle ; du 20 septembre 2026 au 28 février 2027 sans autorisation individuelle.",
+    "mode": "Approche, affût",
+    "note": "Plan de chasse.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "Tir de sélection du 1er juin au 19 septembre 2026 avec autorisation fédérale individuelle ; du 20 septembre 2026 au 28 février 2027 sans autorisation individuelle.",
+    "mode": "Approche, affût",
+    "note": "Plan de chasse.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "Tir de sélection du 1er au 19 septembre 2026 avec autorisation individuelle ; du 20 septembre 2026 au 28 février 2027 sans autorisation individuelle.",
+    "mode": "Approche, affût",
+    "note": "Plan de chasse.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Du 20 septembre au 22 novembre 2026 ; jusqu'au 20 décembre 2026 dans les communes du GIC Sud Haut-Marnais.",
+    "mode": "Chasse à tir",
+    "note": "",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix grise",
+    "period": "Ouverture le 20 septembre 2026 ; clôture indiquée au 8 novembre 2026.",
+    "mode": "Chasse à tir",
+    "note": "Interdite dans plusieurs communes listées ; ailleurs, uniquement les samedis, dimanches, jours fériés et le lundi suivant l'ouverture. Affiche partiellement illisible, à vérifier dans l'arrêté.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix rouge",
+    "period": "Du 20 septembre 2026 au 28 février 2027.",
+    "mode": "Chasse à tir",
+    "note": "Affiche partiellement illisible, à vérifier dans l'arrêté.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "Du 20 septembre 2026 au 28 février 2027.",
+    "mode": "Chasse à tir",
+    "note": "Poule faisane non tirable à Longeville-sur-la-Laines. Affiche partiellement illisible, à vérifier dans l'arrêté.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Horaires de chasse : une heure avant le lever du soleil à une heure après son coucher (heure de Chaumont) ; chasse de nuit interdite ; gibier d'eau de deux heures avant le lever à deux heures après le coucher.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Battue au grand gibier : 6h30-18h00 du 15 août au 30 septembre, 8h30-18h00 du 1er au 31 octobre, 8h30-17h00 du 1er novembre au 31 janvier, 8h30-18h00 à partir du 1er février. Gilet ou veste orange obligatoire.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Bécasse : prélèvement maximum de 3 par jour, 6 par semaine et 30 par saison.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Temps de neige : chasse interdite, sauf plan de chasse, vénerie, renard, pigeon ramier, ragondin, rat musqué et gibier d'eau sur certains plans d'eau. Gélinotte des bois interdite toute l'année.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Cœur du Parc national de forêts : chasse du renard et du blaireau interdite ; bécasse et grive litorne ouvertes le 17 octobre 2026.",
+    "source": "https://www.fdc52.fr/wp-content/uploads/2026/08/Affiche_Chasse-2026_2027.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "2e samedi de mars au 3e dimanche de septembre ; brochets capturés jusqu'au dernier vendredi d'avril à remettre à l'eau",
+    "note": "",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1er janvier au dernier dimanche de janvier et dernier samedi d'avril au 31 décembre",
+    "note": "Sur les eaux de 2e catégorie, seuls les brochets de 60 à 80 cm peuvent être conservés. Quota de 3 carnassiers (sandre, brochet, black-bass) dont 2 brochets au plus.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1er janvier au dernier dimanche de janvier et 2e samedi de juin au 31 décembre",
+    "note": "Compte dans le quota de 3 carnassiers par jour.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Compte dans le quota de 3 carnassiers par jour.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "2e samedi de mars au 3e dimanche de septembre",
+    "note": "Salmonidés (dont ombre) : 6 par jour. Taille des truites de fontaine et ombles : 25 cm ; arc-en-ciel : 30 cm.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 35,
+    "dailyQuota": null,
+    "period": "3e samedi de mai au 3e dimanche de septembre (1re cat.) ; jusqu'au 31 décembre (2e cat.)",
+    "note": "",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Pêche interdite",
+    "note": "",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Espèces autochtones : pêche interdite",
+    "note": "Écrevisse américaine : saison générale, sans taille minimale ; 6 balances maximum.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Carpe de nuit autorisée sur les secteurs fixés par arrêté, du 27 mars au 1er novembre 2026 ; sur la Marne, le canal Champagne-Bourgogne et l'étang de Valcourt, uniquement les nuits de vendredi à lundi et veilles de jours fériés.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lignes : 2e catégorie, 4 lignes ; 1re catégorie, 1 ligne (2 sur les zones piscicoles désignées).",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Canal Champagne-Bourgogne et réservoirs (Charmes, La Mouche, La Liez, La Vingeanne) : pêche interdite sous certains niveaux d'eau, avec limitation à une ligne du bord.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Transport de carpes vivantes de plus de 60 cm interdit.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

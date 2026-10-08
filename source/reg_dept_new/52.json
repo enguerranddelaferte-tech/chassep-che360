@@ -1,0 +1,114 @@
+{
+ "dpt": "52",
+ "liens": {
+  "peche": "https://www.peche52.fr/fishing-regulations/",
+  "arretes": "https://www.peche52.fr/wp-content/uploads/2026/01/AP_52-2025-12-00004_PECHE_2026.pdf"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "2e samedi de mars au 3e dimanche de septembre ; brochets capturés jusqu'au dernier vendredi d'avril à remettre à l'eau",
+    "note": "",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1er janvier au dernier dimanche de janvier et dernier samedi d'avril au 31 décembre",
+    "note": "Sur les eaux de 2e catégorie, seuls les brochets de 60 à 80 cm peuvent être conservés. Quota de 3 carnassiers (sandre, brochet, black-bass) dont 2 brochets au plus.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1er janvier au dernier dimanche de janvier et 2e samedi de juin au 31 décembre",
+    "note": "Compte dans le quota de 3 carnassiers par jour.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Compte dans le quota de 3 carnassiers par jour.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "2e samedi de mars au 3e dimanche de septembre",
+    "note": "Salmonidés (dont ombre) : 6 par jour. Taille des truites de fontaine et ombles : 25 cm ; arc-en-ciel : 30 cm.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 35,
+    "dailyQuota": null,
+    "period": "3e samedi de mai au 3e dimanche de septembre (1re cat.) ; jusqu'au 31 décembre (2e cat.)",
+    "note": "",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Pêche interdite",
+    "note": "",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Espèces autochtones : pêche interdite",
+    "note": "Écrevisse américaine : saison générale, sans taille minimale ; 6 balances maximum.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Carpe de nuit autorisée sur les secteurs fixés par arrêté, du 27 mars au 1er novembre 2026 ; sur la Marne, le canal Champagne-Bourgogne et l'étang de Valcourt, uniquement les nuits de vendredi à lundi et veilles de jours fériés.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lignes : 2e catégorie, 4 lignes ; 1re catégorie, 1 ligne (2 sur les zones piscicoles désignées).",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Canal Champagne-Bourgogne et réservoirs (Charmes, La Mouche, La Liez, La Vingeanne) : pêche interdite sous certains niveaux d'eau, avec limitation à une ligne du bord.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Transport de carpes vivantes de plus de 60 cm interdit.",
+    "source": "https://www.peche52.fr/fishing-regulations/",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

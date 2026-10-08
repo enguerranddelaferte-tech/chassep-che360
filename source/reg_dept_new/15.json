@@ -1,0 +1,94 @@
+{
+ "dpt": "15",
+ "liens": {
+  "peche": "https://www.cantal-peche.com/mesures-generales-federation-peche",
+  "arretes": "https://www.cantal.gouv.fr/contenu/telechargement/17606/141758/file/AP_ARP_Consolide.pdf"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 20,
+    "dailyQuota": 6,
+    "period": "2e samedi de mars au 3e dimanche de septembre",
+    "note": "Arrêté permanent n° 2023-1798 du 16 novembre 2023 (modifié en 2024), version à confirmer pour 2026. Salmonidés : 6 par jour. 23 cm sur une liste de cours d'eau, 25 cm sur la Truyère.",
+    "source": "https://www.cantal.gouv.fr/contenu/telechargement/17606/141758/file/AP_ARP_Consolide.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re catégorie",
+    "minSize": 35,
+    "dailyQuota": null,
+    "period": "À partir du 3e samedi de mai",
+    "note": "Arrêté permanent n° 2023-1798 du 16 novembre 2023 (modifié en 2024), version à confirmer pour 2026. ",
+    "source": "https://www.cantal.gouv.fr/contenu/telechargement/17606/141758/file/AP_ARP_Consolide.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégories",
+    "minSize": 50,
+    "dailyQuota": 2,
+    "period": "1re cat. : à partir du dernier samedi d'avril ; 2e cat. : fermé en janvier sauf dernier dimanche, puis à partir du dernier samedi d'avril",
+    "note": "Arrêté permanent n° 2023-1798 du 16 novembre 2023 (modifié en 2024), version à confirmer pour 2026. En 2e catégorie : 3 prises par jour parmi sandre, brochet et black-bass, dont 2 brochets maximum.",
+    "source": "https://www.cantal.gouv.fr/contenu/telechargement/17606/141758/file/AP_ARP_Consolide.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "Fermé en début d'année et à partir de fin mai, calendrier spécifique pour Grandval",
+    "note": "Arrêté permanent n° 2023-1798 du 16 novembre 2023 (modifié en 2024), version à confirmer pour 2026. Compris dans le total de 3 prises par jour.",
+    "source": "https://www.cantal.gouv.fr/contenu/telechargement/17606/141758/file/AP_ARP_Consolide.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "Périodes de fermeture spécifiques",
+    "note": "Arrêté permanent n° 2023-1798 du 16 novembre 2023 (modifié en 2024), version à confirmer pour 2026. Compris dans le total de 3 prises par jour.",
+    "source": "https://www.cantal.gouv.fr/contenu/telechargement/17606/141758/file/AP_ARP_Consolide.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "toutes catégories",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Écrevisses exotiques (signal, américaine) : pendant la période d'ouverture de la catégorie ; écrevisse à pattes blanches : pêche interdite toute l'année",
+    "note": "6 balances maximum par pêcheur (30 cm de diamètre maximum, mailles 10 mm minimum). Transport et détention d'écrevisses vivantes interdits.",
+    "source": "https://www.cantal-peche.com/peche-des-ecrevisses-federation-cantal",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "1re catégorie : une seule ligne (deux sur certains lacs listés). 2e catégorie : 4 lignes maximum.",
+    "source": "https://www.cantal.gouv.fr/contenu/telechargement/17606/141758/file/AP_ARP_Consolide.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche de nuit de la carpe autorisée uniquement dans des zones balisées (Grandval, Enchanet, Saint-Étienne-Cantalès, Sarrans, Lastioulles, Bort-les-Orgues, l'Aigle) : appâts végétaux, point lumineux, pas de conservation ni transport des carpes capturées de nuit.",
+    "source": "https://www.cantal.gouv.fr/contenu/telechargement/17606/141758/file/AP_ARP_Consolide.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Classement : 2e catégorie notamment pour le Lot, la Dordogne, la Cère, la Maronne, la Sumène et les retenues de Lastioulles, Madic, Crégut et Tact ; le reste est en 1re catégorie.",
+    "source": "https://www.cantal.gouv.fr/contenu/telechargement/17606/141758/file/AP_ARP_Consolide.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Réserves de pêche et parcours sélectifs fixés chaque année par arrêté préfectoral (arrêté 2026 mis en consultation par la préfecture).",
+    "source": "https://www.cantal.gouv.fr/Action-de-l-Etat/Environnement/Information-et-participation-du-public/Participation-du-public/Consultations-terminees/Arrete-instituant-les-reserves-de-peche-et-les-parcours-selectifs-pour-l-annee-2026",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

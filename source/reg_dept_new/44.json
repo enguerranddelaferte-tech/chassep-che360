@@ -1,0 +1,109 @@
+{
+ "dpt": "44",
+ "liens": {
+  "peche": "https://www.federationpeche44.fr/pratique-de-la-peche/reglementation-departementale/",
+  "arretes": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1er janvier au dernier dimanche de janvier, puis dernier samedi d'avril au 31 décembre",
+    "note": "3 carnassiers par jour en 2e catégorie, dont 2 brochets au maximum.",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Vilaine : 1er janvier au dernier dimanche de janvier, puis 3e samedi de mai au 31 décembre ; domaine public hors Vilaine : toute l'année",
+    "note": "Taille de 50 cm indiquée sur la Vilaine ; sur le domaine public, ver posé uniquement pendant la fermeture du brochet.",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "1er janvier au dernier dimanche de janvier, puis 15 juin au 31 décembre",
+    "note": "",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": 23,
+    "dailyQuota": null,
+    "period": "2e samedi de mars au 3e dimanche de septembre",
+    "note": "26 cm sur le Cens et le Gesvres ; 3 par jour sur Cens/Gesvres, 6 par jour en plan d'eau de 2e catégorie ; parcours loisir truite : 3 par jour jusqu'au 31 décembre.",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er avril au 31 août ; Loire aval : 1er mai au 30 juin et 1er septembre au 30 novembre",
+    "note": "Seule l'anguille jaune peut être prélevée ; un moratoire est mentionné sous réserve de son entrée en vigueur.",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Carpe de nuit : pêche de loisir limitée à la demi-heure avant le lever et après le coucher du soleil ; transport vivant de carpes de plus de 60 cm interdit ; parcours carpe de nuit listés par AAPPMA.",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "1re catégorie : 6 balances ; 2e catégorie : 6 balances ou 2 nasses sur le domaine privé et pour les cartes majeures et interfédérales.",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Seuls le Cens et le Gesvres sont classés en 1re catégorie ; les autres cours d'eau et plans d'eau sont en 2e catégorie.",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "2e catégorie : 4 cannes maximum avec 2 hameçons ou 3 mouches au plus par canne ; 1re catégorie : une seule ligne. Cartes découverte : 1 ligne.",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "No-kill : Cens et Gesvres (truite, hameçon simple sans ardillon), Erdre (brochet, du pont Morand au pont de la Motte Rouge) et plusieurs plans d'eau listés dans le document.",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Réserves de pêche sur des ruisseaux du Gesvres et sur plusieurs tronçons du Cens ; étang de la Borderie interdit toute l'année ; lac de Grandlieu réservé aux professionnels.",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Timbre bateau obligatoire sur Vioreau, étang de la Provostière, de la Forge neuve et de la Hunaudière ; fenêtre de capture du brochet (60 à 80 cm) avec carnet sur plusieurs plans d'eau.",
+    "source": "https://www.federationpeche44.fr/wp-content/uploads/2022/01/2025_11_17-depliant-2026.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

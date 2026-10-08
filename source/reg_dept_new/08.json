@@ -1,0 +1,84 @@
+{
+ "dpt": "08",
+ "liens": {
+  "peche": "http://www.peche08.fr/5045-reglementation.htm",
+  "arretes": "https://www.ardennes.gouv.fr/contenu/telechargement/11193/80503/file/peche_2024_arrete_projet-avec-nokill.pdf"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 60,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Source : projet d'arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.ardennes.gouv.fr/contenu/telechargement/11193/80503/file/peche_2024_arrete_projet-avec-nokill.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Interdiction de pêche du 29 janvier au 24 mai inclus en 2e catégorie ; du 9 mars au 24 mai inclus en 1re catégorie.",
+    "note": "Source : projet d'arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.ardennes.gouv.fr/contenu/telechargement/11193/80503/file/peche_2024_arrete_projet-avec-nokill.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 35,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Source : projet d'arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.ardennes.gouv.fr/contenu/telechargement/11193/80503/file/peche_2024_arrete_projet-avec-nokill.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "salmonidés",
+    "minSize": null,
+    "dailyQuota": 4,
+    "period": null,
+    "note": "4 salmonidés par jour et par pêcheur sur l'ensemble des cours d'eau. Source : projet d'arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.ardennes.gouv.fr/contenu/telechargement/11193/80503/file/peche_2024_arrete_projet-avec-nokill.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille jaune : pêche interdite du 1er janvier au 14 avril et du 16 juillet au 31 décembre.",
+    "note": "Source : projet d'arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.ardennes.gouv.fr/contenu/telechargement/11193/80503/file/peche_2024_arrete_projet-avec-nokill.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Interdiction toute l'année",
+    "note": "Écrevisses autochtones. Source : projet d'arrêté 2024, année 2026 non confirmée.",
+    "source": "https://www.ardennes.gouv.fr/contenu/telechargement/11193/80503/file/peche_2024_arrete_projet-avec-nokill.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Remise à l'eau immédiate obligatoire des sandres et perches de la Meuse entre le pont de Givet et le barrage des 4 Cheminées.",
+    "source": "https://www.ardennes.gouv.fr/contenu/telechargement/11193/80503/file/peche_2024_arrete_projet-avec-nokill.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Carpe de nuit autorisée toute l'année sur les parcours de l'annexe 1, et du 1er février au 30 septembre sur le lac des Vieilles Forges et l'étang de Bairon ; de nuit, seules la bouillette et les appâts végétaux sont autorisés et aucune carpe ne peut être gardée en captivité ni transportée.",
+    "source": "https://www.ardennes.gouv.fr/contenu/telechargement/11193/80503/file/peche_2024_arrete_projet-avec-nokill.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

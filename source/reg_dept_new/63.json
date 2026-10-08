@@ -1,0 +1,99 @@
+{
+ "dpt": "63",
+ "liens": {
+  "peche": "https://www.peche63.com/reglementation",
+  "arretes": "https://www.puy-de-dome.gouv.fr/Actions-de-l-Etat/Environnement-eau-prevention-des-risques-energie/La-peche/Periode-d-ouverture-de-la-peche-dans-le-Puy-de-Dome-pour-2026"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "Ouvert du 1er au 25 janvier et du 25 avril au 31 décembre (1re catégorie : 25 avril au 20 septembre)",
+    "note": "Quota : 3 carnassiers par jour dont 2 brochets au plus ; retenue de Fades-Besserve : fenêtre de capture 60-80 cm, 2 carnassiers dont 1 brochet.",
+    "source": "https://www.peche63.com/dates-douverture ; https://www.peche63.com/tailles-legales-de-capture ; https://www.peche63.com/quotas",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Ouvert du 1er janvier au 15 mars et du 13 juin au 31 décembre (1re catégorie : 14 mars au 20 septembre)",
+    "note": "Pas de taille minimale en 1re catégorie ; retenues de Fades-Besserve, Queuille et Sauviat : pêche toute l'année sauf du 16 mars au 12 juin 2026 dans certaines zones d'interdiction temporaire.",
+    "source": "https://www.peche63.com/dates-douverture ; https://www.peche63.com/tailles-legales-de-capture",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "Ouvert du 1er janvier au 15 mars et du 13 juin au 31 décembre (1re catégorie : 14 mars au 20 septembre)",
+    "note": "Pas de taille minimale en 1re catégorie ; remise à l'eau immédiate obligatoire à la retenue de Fades-Besserve.",
+    "source": "https://www.peche63.com/dates-douverture ; https://www.peche63.com/tailles-legales-de-capture ; https://www.peche63.com/quotas",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégories",
+    "minSize": 20,
+    "dailyQuota": 4,
+    "period": "14 mars au 20 septembre",
+    "note": "Taille légale : 20 cm sur les autres cours d'eau de 1re catégorie, 23 cm en plans d'eau et autres cours d'eau de 2e catégorie, 30 cm sur l'Allier, la Sioule aval de Queuille et la Dore aval du pont de Sauviat ; 23 cm sur l'Ance et la Dore amont en 2026. Quota : 4 salmonidés par jour.",
+    "source": "https://www.peche63.com/dates-douverture ; https://www.peche63.com/tailles-legales-de-capture ; https://www.peche63.com/nouveautes-2026",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégories",
+    "minSize": 35,
+    "dailyQuota": 1,
+    "period": "16 mai au 20 septembre en 1re catégorie ; 16 mai au 31 décembre en 2e catégorie",
+    "note": "Remise à l'eau immédiate obligatoire sur la Sioule et l'Ance ; quota : 1 ombre au plus parmi les 4 salmonidés quotidiens.",
+    "source": "https://www.peche63.com/dates-douverture ; https://www.peche63.com/tailles-legales-de-capture ; https://www.peche63.com/quotas",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": null,
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Pêche fermée toute l'année dans les deux catégories",
+    "note": "",
+    "source": "https://www.peche63.com/dates-douverture",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": null,
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Écrevisses américaines : 14 mars au 20 septembre en 1re catégorie, toute l'année en 2e catégorie",
+    "note": "Écrevisses à pattes rouges, blanches et grêles : pêche interdite toute l'année.",
+    "source": "https://www.peche63.com/dates-douverture",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Carpe de nuit autorisée uniquement à la calée avec esches végétales, signal lumineux obligatoire, carpe non conservable ; sites 2026 : Allier (toute l'année), étang du Grand Pré (17 avril au 29 novembre 2026, deux derniers week-ends du mois), Fades-Besserve et Bort-les-Orgues (rives, zones balisées).",
+    "source": "https://www.peche63.com/carpe-de-nuit",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Nouveautés 2026 : zone de carpe de nuit d'environ 5 300 m aux Fades, étang de la Croix Percée ouvert à la carpe de nuit, parcours no-kill de 1 700 m sur la Haute Sioule (de la confluence de la Miouze au chemin « chez Rique »).",
+    "source": "https://www.peche63.com/nouveautes-2026",
+    "confidence": "verifie"
+   },
+   {
+    "text": "1re catégorie : 1 ligne avec 2 hameçons ou 3 mouches ; 2e catégorie : 4 lignes ; 6 balances à écrevisses ; pêche de 30 min avant le lever à 30 min après le coucher du soleil.",
+    "source": "https://www.peche63.com/regles-de-base",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

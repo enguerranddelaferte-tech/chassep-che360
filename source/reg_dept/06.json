@@ -1,4 +1,127 @@
-{"dpt":"06","name":"Alpes-Maritimes","verifiedOn":"2026-10-07",
-"liens":{"fdc":"","peche":"","arretes":""},
-"chasse":{"saison":"2026-2027","ouverture":"","cloture":"","joursSansChasse":"","sources":[],"especes":[],"infos":[],"note":"aucune source locale trouvée"},
-"peche":{"saison":"2026","especes":[],"infos":[],"note":"aucune source locale trouvée"}}
+{
+ "dpt": "06",
+ "name": "Alpes-Maritimes",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "",
+  "peche": "https://www.peche06.fr/4433-reglementation.htm",
+  "arretes": "https://www.peche06.fr/cms_viewFile.php?idtf=28874&path=Arrete-Permanent-2026.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [],
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": 2,
+    "period": "Du 1er janvier au dernier dimanche de janvier, puis du dernier samedi d'avril au 31 décembre",
+    "note": "Quota de 3 carnassiers par jour dont 2 brochets au maximum, en 2e catégorie. Lac du Broc : 1 brochet de 50 cm minimum par jour.",
+    "source": "https://www.peche06.fr/4435-periodes-de-peche.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Compris dans le quota de 3 carnassiers par jour. Lac du Broc : sandre en no-kill exclusif.",
+    "source": "https://www.peche06.fr/4436-tailles-et-quotas.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Lac du Broc : black-bass en no-kill exclusif.",
+    "source": "https://www.peche06.fr/4436-tailles-et-quotas.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 20,
+    "dailyQuota": 6,
+    "period": "Du 2e samedi de mars au 2e dimanche d'octobre inclus",
+    "note": "20 cm en général, 23 cm sur Siagne, Cagne, Malvan, Paillons, Loup, Var, Esteron, Tinée et Roya à Breil, 25 cm sur certains sous-bassins. 6 salmonidés par jour en cours d'eau, 10 en plans d'eau.",
+    "source": "https://www.peche06.fr/4435-periodes-de-peche.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "1re catégorie : du 3e samedi de mai au 3e dimanche de septembre ; 2e catégorie : du 3e samedi de mai au 31 décembre",
+    "note": "",
+    "source": "https://www.peche06.fr/4435-periodes-de-peche.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "",
+    "note": "Pêche de loisir interdite dans le bassin Rhône-Méditerranée-Corse (arrêté du 14 mars 2024).",
+    "source": "https://www.peche06.fr/4435-periodes-de-peche.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Lac du Broc : carpe en no-kill exclusif, pêche de nuit interdite.",
+    "source": "https://www.peche06.fr/4436-tailles-et-quotas.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": 9,
+    "dailyQuota": null,
+    "period": "10 jours consécutifs à partir du 4e samedi de juillet",
+    "note": "Taille de 9 cm pour les écrevisses autochtones ; 6 balances de 0,30 m maximum.",
+    "source": "https://www.peche06.fr/4435-periodes-de-peche.htm",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Nombre de lignes : 4 en 2e catégorie, 2 en 1re catégorie du domaine public, 1 en 1re catégorie hors domaine public ; 2 hameçons ou 3 mouches artificielles maximum.",
+    "source": "https://www.peche06.fr/4437-temps-et-modes-de-peche.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche en marchant dans l'eau autorisée dès 2026 dans tous les cours d'eau de 1re catégorie à partir de l'ouverture. Pêche de la truite arc-en-ciel toute l'année en 2e catégorie, leurres interdits pendant la fermeture du brochet. Lacs d'altitude (au-dessus de 1 800 m) : du 3e samedi de juin au dernier dimanche d'octobre.",
+    "source": "https://www.peche06.fr/4435-periodes-de-peche.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Œufs de poisson et asticots interdits en 1re catégorie ; en 2e catégorie récipient de 2 litres maximum pour les poissons appâts.",
+    "source": "https://www.peche06.fr/4437-temps-et-modes-de-peche.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Roya transfrontalière entre la frontière italienne et le pont de l'Arme : no-kill. Bassins Roya et Vésubie rouverts après la tempête Alex : 3 salmonidés par jour, truite fario 25 cm minimum (modalités 2025).",
+    "source": "https://www.peche06.fr/4436-tailles-et-quotas.htm",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

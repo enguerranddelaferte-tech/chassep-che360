@@ -1,11 +1,11 @@
 {
  "dpt": "61",
  "name": "Orne",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
-  "arretes": ""
+  "peche": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+  "arretes": "https://www.peche-orne.fr/2345-documents-reglementaires.htm"
  },
  "chasse": {
   "saison": "2026-2027",
@@ -27,8 +27,119 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re catégorie",
+    "minSize": 50,
+    "dailyQuota": 1,
+    "period": "Du 2e samedi de mars au 3e dimanche de septembre ; remise à l'eau obligatoire du 2e samedi de mars au dernier samedi d'avril",
+    "note": "1 brochet par jour maximum après le dernier samedi d'avril.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "Fermeture de fin janvier à fin avril",
+    "note": "3 carnassiers par jour au total, dont 2 brochets au plus.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Fermeture de fin janvier à fin mai",
+    "note": "Compris dans le quota de 3 carnassiers par jour ; pas de taille minimale en 1re catégorie.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Pas de taille minimale en 1re catégorie.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perche",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Du 2e samedi de mars au 3e dimanche de septembre",
+    "note": "Pas de taille minimale en 1re catégorie.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 23,
+    "dailyQuota": 6,
+    "period": "Du 2e samedi de mars au 3e dimanche de septembre",
+    "note": "Taille minimale 30 cm dans le bassin de la Huisne, 25 cm dans les bassins de la Dives, Touques, Vie, Iton et Risle, 23 cm ailleurs. 6 salmonidés par jour dont 1 ombre au plus.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re catégorie",
+    "minSize": 30,
+    "dailyQuota": 1,
+    "period": "Du 2e samedi de mars au 3e dimanche de septembre",
+    "note": "1 ombre par jour au plus dans le quota de 6 salmonidés.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": 12,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Anguille jaune 12 cm ; anguille argentée et civelle interdites.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Espèces invasives : mêmes dates que la truite en 1re catégorie, toute l'année en 2e catégorie ; écrevisse à pattes grêles : 10 jours consécutifs à partir du 4e samedi de juillet",
+    "note": "Pas de quota ; les écrevisses invasives ne doivent pas être remises à l'eau.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Environ 95 % des cours d'eau de l'Orne sont classés en 1re catégorie ; la 2e catégorie regroupe les autres eaux, dont les plans d'eau gérés par les AAPPMA et la fédération.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Nombre de lignes : 1 ligne en 1re catégorie, jusqu'à 4 lignes en 2e catégorie ; 2 hameçons ou 3 mouches artificielles par ligne, lignes à portée immédiate du pêcheur.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Horaires de pêche : de 30 minutes avant le lever du soleil à 30 minutes après son coucher.",
+    "source": "https://www.peche-orne.fr/2341-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Les réserves de pêche et fenêtres de capture particulières (par exemple brochet au lac de Rabodanges) sont publiées par la fédération ; arrêté préfectoral 2025 consulté pour référence, version 2026 non trouvée.",
+    "source": "https://www.peche-orne.fr/2345-documents-reglementaires.htm",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

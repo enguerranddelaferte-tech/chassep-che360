@@ -1,11 +1,11 @@
 {
  "dpt": "55",
  "name": "Meuse",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
-  "arretes": ""
+  "peche": "https://www.peche55.fr/3178-reglementation.htm",
+  "arretes": "https://www.peche55.fr/4084-arretes-prefectoraux.htm"
  },
  "chasse": {
   "saison": "2026-2027",
@@ -18,8 +18,115 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": []
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "Dernier vendredi d'avril au 3e dimanche de septembre",
+    "note": "Brochets capturés avant le dernier samedi d'avril à remettre à l'eau.",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1er janvier au dernier dimanche de janvier et dernier samedi d'avril au 31 décembre",
+    "note": "Quota combiné de 3 brochets et sandres par jour dont 2 brochets au plus.",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1er janvier au dernier dimanche de janvier et dernier samedi de mai au 31 décembre",
+    "note": "Compte dans le quota de 3 par jour avec le brochet.",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Remise à l'eau immédiate obligatoire dans tout le département",
+    "note": "",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": 30,
+    "dailyQuota": 3,
+    "period": "2e samedi de mars au 3e dimanche de septembre",
+    "note": "Autres salmonidés : 25 cm et 6 par jour.",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 35,
+    "dailyQuota": 1,
+    "period": "3e samedi de mai au 3e dimanche de septembre (1re cat.) ; jusqu'au 31 décembre (2e cat.)",
+    "note": "",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "1re et 2e catégorie",
+    "minSize": 12,
+    "dailyQuota": null,
+    "period": "Anguille jaune : dates fixées par arrêté annuel ; clôture anticipée au 31 juillet 2026 sur le bassin Rhin-Meuse",
+    "note": "Anguille argentée interdite ; déclaration de capture sous 24 h.",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Pêche de nuit du 1er avril au 14 octobre, sur tronçons fixés par arrêté",
+    "note": "Transport de carpes vivantes de plus de 60 cm interdit.",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Espèces autochtones : pêche interdite",
+    "note": "Autres espèces : saison générale, sans taille minimale, remise à l'eau et transport vivant interdits.",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Lignes : 2 lignes en 1re catégorie sur le domaine public, 1 sur les eaux privées ; 4 lignes en 2e catégorie ; 6 balances à écrevisses.",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Marche dans l'eau interdite en 1re catégorie du 2e samedi au 4e dimanche de mars.",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Vente du produit de la pêche interdite ; espèces exotiques envahissantes à ne pas transporter vivantes ni relâcher.",
+    "source": "https://www.peche55.fr/3178-reglementation.htm",
+    "confidence": "verifie"
+   }
+  ]
  },
  "note": "aucune source locale trouvée"
 }

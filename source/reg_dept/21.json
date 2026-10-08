@@ -1,22 +1,203 @@
-{"dpt":"21","name":"Côte-d'Or","verifiedOn":"2026-10-07",
-"liens":{"fdc":"https://www.fdc21.com","peche":"","arretes":"https://www.cote-dor.gouv.fr/Actions-de-l-Etat/Environnement/Chasse/Reglementation/Dates-d-ouverture-et-de-fermeture-de-la-chasse"},
-"chasse":{"saison":"2026-2027","ouverture":"20 septembre 2026","cloture":"28 février 2027","joursSansChasse":"","sources":["https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf"],
-"especes":[
-{"species":"Sanglier","period":"Chasse anticipée du 1er juin au 14 août 2026, puis du 1er avril au 31 mai 2027","mode":"","note":"Chasse de protection des semis ; dates de clôture du tableau à confirmer (mention '15 août 2025' dans le texte).","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"a_verifier"},
-{"species":"Chevreuil","period":"Du 1er juin au 19 septembre 2026, puis du 20 septembre 2026 au 28 février 2027","mode":"Approche ou affût avant l'ouverture générale","note":"","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"species":"Daim","period":"Du 1er juin au 19 septembre 2026, puis du 20 septembre 2026 au 28 février 2027","mode":"Approche ou affût avant l'ouverture générale","note":"","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"species":"Cerf élaphe","period":"Ouverture anticipée dès le 1er septembre 2026 selon le mode de chasse, puis du 20 septembre 2026 au 28 février 2027","mode":"","note":"","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"species":"Mouflon","period":"Ouverture anticipée dès le 1er septembre 2026 selon le mode de chasse, puis du 20 septembre 2026 au 28 février 2027","mode":"","note":"Battue du mouflon interdite.","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"species":"Lièvre","period":"Du 4 au 25 octobre 2026 (général)","mode":"","note":"Jusqu'au 1er novembre 2026 dans les communes en aire AOC listées ; jusqu'au 11 novembre 2026 sur les territoires avec plan de gestion ; attribution préalable par la FDC (demande avant le 15 juillet).","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"species":"Perdrix","period":"Du 20 septembre 2026 au 28 février 2027","mode":"","note":"","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"species":"Faisan","period":"Du 20 septembre 2026 au 28 février 2027","mode":"","note":"","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"species":"Bécasse des bois","period":"Du 20 septembre 2026 au 20 février 2027","mode":"","note":"30 oiseaux par saison, 5 par semaine, 3 par jour ; chasse à la passée et à la croule interdite.","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"species":"Pigeon ramier","period":"Du 20 septembre 2026 au 10 février 2027","mode":"Poste fixe uniquement du 11 au 20 février","note":"","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"species":"Renard","period":"Avant l'ouverture générale","mode":"","note":"Chassable avant l'ouverture générale par les personnes autorisées à chasser le chevreuil ou le sanglier, sauf en forêt du cœur du Parc national.","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"}],
-"infos":[
-{"text":"Arrêté préfectoral n° 2026/888 du 22 mai 2026 : chasse permise tous les jours, sauf dans la réserve de la Combe Lavaux – Jean Roland (deux jours par semaine).","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"text":"Battue du grand gibier limitée par défaut aux samedis, dimanches et jours fériés ; les titulaires de plan de chasse peuvent déclarer jusqu'à trois jours par semaine avant le 10 septembre 2026.","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"text":"Cœur du Parc national de forêts : battue, bécasse et grive litorne ouvertes le 17 octobre 2026 ; tourterelle des bois non chassable ; chasse interdite dans le parcours sportif de la forêt communale de Châtillon-sur-Seine.","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"text":"Chasse de la gélinotte des bois interdite dans tout le département ; grenaille de plomb interdite à moins de 100 m des zones humides.","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"},
-{"text":"Chasse interdite par temps de neige, sauf grand gibier, renard, gibier d'eau, pigeon ramier, ragondin, rat musqué, chasse à courre et sous terre.","source":"https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf","confidence":"verifie"}]},
-"peche":{"saison":"2026","especes":[],"infos":[],"note":"aucune source locale trouvée"}}
+{
+ "dpt": "21",
+ "name": "Côte-d'Or",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "https://www.fdc21.com",
+  "peche": "",
+  "arretes": "https://www.cote-dor.gouv.fr/Actions-de-l-Etat/Environnement/Chasse/Reglementation/Dates-d-ouverture-et-de-fermeture-de-la-chasse"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Chasse anticipée du 1er juin au 14 août 2026, puis du 1er avril au 31 mai 2027",
+    "mode": "",
+    "note": "Chasse de protection des semis ; dates de clôture du tableau à confirmer (mention '15 août 2025' dans le texte).",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Du 1er juin au 19 septembre 2026, puis du 20 septembre 2026 au 28 février 2027",
+    "mode": "Approche ou affût avant l'ouverture générale",
+    "note": "",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "Du 1er juin au 19 septembre 2026, puis du 20 septembre 2026 au 28 février 2027",
+    "mode": "Approche ou affût avant l'ouverture générale",
+    "note": "",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "Ouverture anticipée dès le 1er septembre 2026 selon le mode de chasse, puis du 20 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Mouflon",
+    "period": "Ouverture anticipée dès le 1er septembre 2026 selon le mode de chasse, puis du 20 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Battue du mouflon interdite.",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Du 4 au 25 octobre 2026 (général)",
+    "mode": "",
+    "note": "Jusqu'au 1er novembre 2026 dans les communes en aire AOC listées ; jusqu'au 11 novembre 2026 sur les territoires avec plan de gestion ; attribution préalable par la FDC (demande avant le 15 juillet).",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perdrix",
+    "period": "Du 20 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan",
+    "period": "Du 20 septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "Du 20 septembre 2026 au 20 février 2027",
+    "mode": "",
+    "note": "30 oiseaux par saison, 5 par semaine, 3 par jour ; chasse à la passée et à la croule interdite.",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "Du 20 septembre 2026 au 10 février 2027",
+    "mode": "Poste fixe uniquement du 11 au 20 février",
+    "note": "",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "Avant l'ouverture générale",
+    "mode": "",
+    "note": "Chassable avant l'ouverture générale par les personnes autorisées à chasser le chevreuil ou le sanglier, sauf en forêt du cœur du Parc national.",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté préfectoral n° 2026/888 du 22 mai 2026 : chasse permise tous les jours, sauf dans la réserve de la Combe Lavaux – Jean Roland (deux jours par semaine).",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Battue du grand gibier limitée par défaut aux samedis, dimanches et jours fériés ; les titulaires de plan de chasse peuvent déclarer jusqu'à trois jours par semaine avant le 10 septembre 2026.",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Cœur du Parc national de forêts : battue, bécasse et grive litorne ouvertes le 17 octobre 2026 ; tourterelle des bois non chassable ; chasse interdite dans le parcours sportif de la forêt communale de Châtillon-sur-Seine.",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse de la gélinotte des bois interdite dans tout le département ; grenaille de plomb interdite à moins de 100 m des zones humides.",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse interdite par temps de neige, sauf grand gibier, renard, gibier d'eau, pigeon ramier, ragondin, rat musqué, chasse à courre et sous terre.",
+    "source": "https://www.fdc21.com/wp-content/uploads/2026/06/AP-mai-2026-dates-ouverture-et-fermeture-chasse-2026-2027.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "Du 9 mars au 15 septembre (arrêté 2024)",
+    "note": "Taille 23 cm dans le Tournesac, la Romanée, le Vernidard, le Cousin et ses affluents. Quota salmonidés : 6/jour dont 3 truites fario max. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégories",
+    "minSize": 35,
+    "dailyQuota": 1,
+    "period": "Du 18 mai au 15 septembre (1re cat.) ; du 18 mai au 31 décembre (2e cat.) (arrêté 2024)",
+    "note": "Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégories",
+    "minSize": 60,
+    "dailyQuota": 1,
+    "period": "1re cat. : 27 avril au 15 septembre ; 2e cat. : 1er au 28 janvier puis 27 avril au 31 décembre (arrêté 2024)",
+    "note": "Quota de 1 brochet par jour et par pêcheur. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Du 1er janvier au 10 mars puis du 18 mai au 31 décembre (arrêté 2024)",
+    "note": "Quota carnassiers 2e cat. : 3/jour (sandre, brochet, black-bass réunis). Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "Du 1er janvier au 30 avril puis du 1er juillet au 31 décembre (arrêté 2024)",
+    "note": "Compris dans le quota de 3 carnassiers/jour. Valeur relevée dans l'arrêté préfectoral 2024 (document d'une autre année que 2026) ; à confirmer pour 2026.",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Écrevisses autochtones (pattes rouges, blanches, grêles) et anguille : pêche interdite toute l'année (arrêté 2024).",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Parcours pêcher-relâcher (toutes espèces, salmonidés, mouche, carnassiers, black-bass, carpe) et carpodromes sur le canal de Bourgogne ; classement des cours d'eau par l'arrêté préfectoral n° 595 du 31 août 2017 (arrêté 2024).",
+    "source": "https://cote-dor.gouv.fr/contenu/telechargement/17417/129649/file/AP_peche_2024_V3_PROJET_20231024.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

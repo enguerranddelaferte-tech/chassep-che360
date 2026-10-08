@@ -1,0 +1,13 @@
+{
+ "dpt": "64",
+ "liens": {
+  "peche": "",
+  "arretes": "https://www.pyrenees-atlantiques.gouv.fr/Actions-de-l-Etat/Cadre-de-vie-eau-environnement-et-risques-majeurs/Peche-en-eau-douce/Reglementation-peche-en-eau-douce"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ }
+}
