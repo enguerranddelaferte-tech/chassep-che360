@@ -144,10 +144,11 @@ for (name,mode),d in S.items():
         tint=f'linear-gradient(180deg,{alpha(t1,.4)},transparent 55%)' if dark else f'linear-gradient(180deg,{t1},{t2} 100%)'
         glow=f'radial-gradient(ellipse 60% 38% at 82% 0%,{alpha(d["glow"],.26) if dark else d["glow"]},transparent 70%)'
         photo=f'url("img/saison-{name}-{mode}.webp")'
-        css+=f'{sel} {{ --saison-art: {glow}, {tint}; --saison-photo: {photo}; }}\n'
-css+='''.page::before { content: ""; display: block; height: 170px; margin: 0 0 20px; border-radius: 20px; background: var(--saison-photo, none) center / cover no-repeat, var(--surface-3, #ddd); box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); }
+        POS={('printemps','chasse'):'15%',('printemps','peche'):'45%',('ete','chasse'):'30%',('ete','peche'):'35%',('automne','chasse'):'40%',('automne','peche'):'75%',('hiver','chasse'):'85%',('hiver','peche'):'55%'}
+        css+=f'{sel} {{ --saison-art: {glow}, {tint}; --saison-photo: {photo}; --saison-pos: 50% {POS[(name,mode)]}; }}\n'
+css+='''.page::before { content: ""; display: block; height: 170px; margin: 0 0 20px; border-radius: 20px; background: var(--saison-photo, none) var(--saison-pos, center) / cover no-repeat, var(--surface-3, #ddd); box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); }
 :root[data-theme="dark"] .page::before { filter: brightness(.62) saturate(.85) contrast(1.05); }
-@media (min-width: 900px) { .page::before { height: 210px; } }
+@media (min-width: 900px) { .page::before { height: 190px; } }
 :root:not([data-saison]) .page::before, :root[data-theme="contrast"] .page::before, :root[data-role="admin"] .page::before { display: none; }
 @media print { .page::before { display: none; } }
 @media (max-width: 900px) { :root { --land-off: 70px; } }
