@@ -5,12 +5,12 @@ css='/* bandeau photo de saison (gen_banniere.py) */\n'
 for s in NOM:
     for m,lab in (('chasse','Chasse'),('peche','Pêche')):
         sel=f':root[data-banniere="on"][data-saison="{s}"]'+('[data-season="peche"]' if m=='peche' else ':not([data-season="peche"])')
-        css+=f'{sel} {{ --bn-photo: url("img/banniere-{s}-{m}.webp"); --bn-pos: 50% {POS[(s,m)]}; --bn-label: "{lab.upper()} • {NOM[s].upper()}"; }}\n'
+        css+=f'{sel} {{ --bn-photo: url("img/banniere-{s}-{m}.webp"); --bn-pos: {'62% 55%' if (s,m)==('automne','chasse') else '50% '+POS[(s,m)]}; --bn-label: "{lab.upper()} • {NOM[s].upper()}"; }}\n'
 C=':root[data-banniere="on"]:not([data-theme="contrast"]):not([data-role="admin"])'
 css+=f'''
 {C} body {{ background: var(--bg); }}
-{C} body::before {{ content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(243,240,232,.30) 0%, rgba(243,240,232,.62) 30%, rgba(243,240,232,.93) 62%, var(--bg) 100%), var(--bn-photo, none) var(--bn-pos, center) / cover no-repeat; }}
-:root[data-banniere="on"][data-theme="dark"]:not([data-role="admin"]) body::before {{ background: linear-gradient(to bottom, rgba(19,27,25,.42) 0%, rgba(19,27,25,.72) 30%, rgba(19,27,25,.95) 62%, var(--bg) 100%), var(--bn-photo, none) var(--bn-pos, center) / cover no-repeat; }}
+{C} body::before {{ content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(243,240,232,.12) 0%, rgba(243,240,232,.40) 32%, rgba(243,240,232,.86) 66%, var(--bg) 100%), var(--bn-photo, none) var(--bn-pos, center) / cover no-repeat; }}
+:root[data-banniere="on"][data-theme="dark"]:not([data-role="admin"]) body::before {{ background: linear-gradient(to bottom, rgba(19,27,25,.35) 0%, rgba(19,27,25,.62) 32%, rgba(19,27,25,.93) 66%, var(--bg) 100%), var(--bn-photo, none) var(--bn-pos, center) / cover no-repeat; }}
 @media print {{ body::before {{ display: none !important; }} }}
 
 '''
