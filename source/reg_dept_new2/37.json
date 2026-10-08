@@ -1,0 +1,99 @@
+{
+ "dpt": "37",
+ "liens": {
+  "peche": "https://www.fedepeche37.fr/la-reglementation-generale/",
+  "arretes": "https://www.indre-et-loire.gouv.fr/Actions-de-l-Etat/Environnement/Peche/Reglementation-de-la-peche-fluviale-en-Indre-et-Loire-pour-2026"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er-25 janvier puis 25 avril-31 décembre",
+    "note": "1re catégorie : 25 avril-20 septembre.",
+    "source": "https://www.fedepeche37.fr/la-reglementation-generale/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er janvier-8 mars puis 6 juin-31 décembre",
+    "note": "1re catégorie : 14 mars-20 septembre.",
+    "source": "https://www.fedepeche37.fr/la-reglementation-generale/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er janvier-8 mars puis 6 juin-31 décembre",
+    "note": "1re catégorie : 14 mars-20 septembre.",
+    "source": "https://www.fedepeche37.fr/la-reglementation-generale/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "14 mars-20 septembre",
+    "note": "",
+    "source": "https://www.fedepeche37.fr/la-reglementation-generale/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "16 mai-20 septembre",
+    "note": "2e catégorie : lignes uniquement.",
+    "source": "https://www.fedepeche37.fr/la-reglementation-generale/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er avril-31 août",
+    "note": "Anguille jaune ; 50 autorisations maximum dans le département pour les engins de loisir.",
+    "source": "https://www.fedepeche37.fr/la-reglementation-generale/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Carpe de nuit : appâts d'origine animale interdits, pêche du bord dans les zones désignées et signalées, hameçon simple, sac de conservation interdit, remise à l'eau immédiate entre 30 min après le coucher et 30 min avant le lever du soleil.",
+    "source": "https://www.fedepeche37.fr/la-reglementation-generale/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Écrevisses : pattes blanches interdites toute l'année ; autres espèces du 14 mars au 20 septembre en 1re catégorie, toute l'année en 2e ; balances uniquement, 6 par pêcheur, 30 cm de diamètre max ; pattes grêles 25 juillet-3 août.",
+    "source": "https://www.fedepeche37.fr/la-reglementation-generale/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "2e catégorie, membres d'AAPPMA : 4 lignes maximum, 2 hameçons ou 3 mouches par ligne.",
+    "source": "https://www.fedepeche37.fr/la-reglementation-generale/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Réserves de pêche : arrêté de réserves permanentes 2024-2028 et carte interactive sur le site de la fédération.",
+    "source": "https://www.fedepeche37.fr/la-reglementation-generale/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Arrêté 2025 : brochet 60 cm, sandre 50 cm et black-bass 30 cm (2e catégorie), truite 25 cm, ombre 30 cm ; quota 3 sandre/brochet/black-bass par jour dont 2 brochets, 4 salmonidés par jour. Valeurs 2025, à confirmer pour 2026.",
+    "source": "https://luynes.fr/wp-content/uploads/2025/01/prefecture-indre-et-loire-ap-20241226-1.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

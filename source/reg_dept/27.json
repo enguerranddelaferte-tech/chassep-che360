@@ -1,18 +1,204 @@
-{"dpt":"27","name":"Eure","verifiedOn":"2026-10-07",
-"liens":{"fdc":"https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-leure/","peche":"","arretes":"https://www.eure.gouv.fr/Actions-de-l-Etat/Environnement/Consultations-enquetes-publiques-et-participation-du-public-par-voie-electronique-PPVE/Consultations-publiques/Chasse/CONSULTATIONS-EN-COURS/CLOSE-Projet-relatif-a-l-ouverture-et-a-la-cloture-de-la-chasse-dans-l-Eure-Campagne-2026-2027"},
-"chasse":{"saison":"2026-2027","ouverture":"27 septembre 2026","cloture":"28 février 2027","joursSansChasse":"","sources":["https://meschasses.com/eure-27/dates-chasse-2026-2027/"],
-"especes":[
-{"species":"Chevreuil","period":"Affût/approche du 8 juin 2026 au 28 février 2027 ; tous modes du 11 octobre 2026 au 28 février 2027","mode":"Affût, approche, puis tous modes","note":"Autorisation préfectorale.","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Cerf élaphe","period":"1er septembre 2026 au 28 février 2027","mode":"","note":"Autorisation préfectorale.","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Daim","period":"8 juin 2026 au 28 février 2027","mode":"","note":"Autorisation préfectorale.","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Lièvre","period":"27 septembre au 29 novembre 2026","mode":"","note":"","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Perdrix","period":"27 septembre 2026 au 31 janvier 2027","mode":"","note":"","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Faisan","period":"27 septembre 2026 au 31 janvier 2027","mode":"","note":"","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Pigeon ramier","period":"20 septembre 2026 au 20 février 2027","mode":"Affût, approche avant l'ouverture générale","note":"","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Renard","period":"8 juin 2026 au 28 février 2027","mode":"","note":"","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"}
-],
-"infos":[
-{"text":"Arrêté préfectoral de référence cité : DDTM/SEBF/2026-120 ; les dates ci-dessus proviennent d'une source secondaire et doivent être confirmées dans l'arrêté.","source":"https://meschasses.com/eure-27/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"text":"Consultation publique de la préfecture sur le projet d'arrêté d'ouverture et de clôture de la chasse, campagne 2026-2027.","source":"https://www.eure.gouv.fr/Actions-de-l-Etat/Environnement/Consultations-enquetes-publiques-et-participation-du-public-par-voie-electronique-PPVE/Consultations-publiques/Chasse/CONSULTATIONS-EN-COURS/CLOSE-Projet-relatif-a-l-ouverture-et-a-la-cloture-de-la-chasse-dans-l-Eure-Campagne-2026-2027","confidence":"a_verifier"}
-]},
-"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}
+{
+ "dpt": "27",
+ "name": "Eure",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-leure/",
+  "peche": "",
+  "arretes": "https://www.eure.gouv.fr/Actions-de-l-Etat/Environnement/Consultations-enquetes-publiques-et-participation-du-public-par-voie-electronique-PPVE/Consultations-publiques/Chasse/CONSULTATIONS-EN-COURS/CLOSE-Projet-relatif-a-l-ouverture-et-a-la-cloture-de-la-chasse-dans-l-Eure-Campagne-2026-2027"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "27 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://meschasses.com/eure-27/dates-chasse-2026-2027/"
+  ],
+  "especes": [
+   {
+    "species": "Chevreuil",
+    "period": "Affût/approche du 8 juin 2026 au 28 février 2027 ; tous modes du 11 octobre 2026 au 28 février 2027",
+    "mode": "Affût, approche, puis tous modes",
+    "note": "Autorisation préfectorale.",
+    "source": "https://meschasses.com/eure-27/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Autorisation préfectorale.",
+    "source": "https://meschasses.com/eure-27/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Daim",
+    "period": "8 juin 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Autorisation préfectorale.",
+    "source": "https://meschasses.com/eure-27/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "27 septembre au 29 novembre 2026",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/eure-27/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix",
+    "period": "27 septembre 2026 au 31 janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/eure-27/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "27 septembre 2026 au 31 janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/eure-27/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Pigeon ramier",
+    "period": "20 septembre 2026 au 20 février 2027",
+    "mode": "Affût, approche avant l'ouverture générale",
+    "note": "",
+    "source": "https://meschasses.com/eure-27/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "8 juin 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/eure-27/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté préfectoral de référence cité : DDTM/SEBF/2026-120 ; les dates ci-dessus proviennent d'une source secondaire et doivent être confirmées dans l'arrêté.",
+    "source": "https://meschasses.com/eure-27/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Consultation publique de la préfecture sur le projet d'arrêté d'ouverture et de clôture de la chasse, campagne 2026-2027.",
+    "source": "https://www.eure.gouv.fr/Actions-de-l-Etat/Environnement/Consultations-enquetes-publiques-et-participation-du-public-par-voie-electronique-PPVE/Consultations-publiques/Chasse/CONSULTATIONS-EN-COURS/CLOSE-Projet-relatif-a-l-ouverture-et-a-la-cloture-de-la-chasse-dans-l-Eure-Campagne-2026-2027",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 1,
+    "period": "1re cat. : 8 mars au 21 septembre (affiche 2025) ; 2e cat. : dates restreintes",
+    "note": "En 2e catégorie, fenêtre 60 à 80 cm. Brochet pris pendant la fermeture : remise à l'eau. Au plus 1 brochet dans le total de 3 prises sandre/black-bass/brochet en 2e cat.",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "",
+    "note": "50 cm en 2e catégorie, sauf Seine. Total de 3 prises par jour pour sandre, black-bass et brochet.",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Compris dans le total de 3 prises par jour sandre/black-bass/brochet.",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": 30,
+    "dailyQuota": 3,
+    "period": "8 mars au 21 septembre (affiche 2025)",
+    "note": "Quota de 3 salmonidés par jour (saumon interdit). Truite arc-en-ciel et ombles : 25 cm.",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "17 mai au 21 septembre en 1re cat. ; 17 mai au 31 décembre en 2e cat. (affiche 2025)",
+    "note": "",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "Tous cours d'eau",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "",
+    "note": "Anguilles à remettre immédiatement à l'eau dans tous les cours d'eau de l'Eure : détention et transport interdits.",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Affiche de l'Eure (millésime 2025, à confirmer pour 2026) : 1re catégorie ouverte du 8 mars au 21 septembre, 2e catégorie ouverte toute l'année.",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Une seule ligne en 1re catégorie, jusqu'à quatre en 2e catégorie ; chaque ligne montée sur canne, deux hameçons ou trois mouches maximum.",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche autorisée de 30 minutes avant le lever à 30 minutes après le coucher du soleil, sauf exceptions (migrateurs, carpe de nuit).",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche en marchant interdite sur certains secteurs de l'Iton ; pêche en embarcation ou float tube interdite sur certains lacs pendant la fermeture du brochet ; interdite dans les réserves temporaires.",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Dans la Seine, certaines espèces (anguille, brème, carpe, silure, etc.) doivent être remises à l'eau immédiatement, sans détention ni transport.",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Parcours no-kill définis par l'arrêté préfectoral DDTM/SEBF/2025-019. Écrevisses à pattes blanches, rouges et grêles : pêche interdite. Œufs de poisson interdits comme appât.",
+    "source": "https://politique.pappers.fr/commune/document/7ed166e18b879fec57a663ddcab8fa88",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Trois réserves temporaires de pêche instituées à Pont-Audemer (Véronne, Doult-Vitran, Tourville) par l'arrêté DDTM-SEBF/2026-003 du 3 février 2026, pour cinq ans.",
+    "source": "https://politique.pappers.fr/commune/document/87ed731985487cb73da520a09ac733df",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Truite de mer : ouverte du dernier samedi d'avril au dernier dimanche d'octobre, 35 cm minimum (arrêté migrateurs 2024). Saumon, civelle, anguilles, lamproies et aloses fermés.",
+    "source": "https://politique.pappers.fr/commune/document/83bbca9d14ab324adc6b15426d4368ee",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

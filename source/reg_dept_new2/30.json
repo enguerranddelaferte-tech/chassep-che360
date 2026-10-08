@@ -1,0 +1,149 @@
+{
+ "dpt": "30",
+ "liens": {
+  "peche": "https://www.pechegard.com/les-actualites-peche-2026/",
+  "arretes": ""
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "25 avril au 20 septembre 2026",
+    "note": "Tailles et quotas non précisés dans la source.",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er au 25 janvier et 25 avril au 31 décembre 2026",
+    "note": "Plage non étiquetée par catégorie dans la source ; à confirmer.",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "14 mars au 20 septembre 2026",
+    "note": "",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er janvier au 8 mars et 25 avril au 31 décembre 2026",
+    "note": "",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "14 mars au 20 septembre 2026",
+    "note": "",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er janvier au 19 avril et 27 juin au 30 décembre 2026",
+    "note": "",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "14 mars au 20 septembre 2026",
+    "note": "",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "Toutes",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Fermée",
+    "note": "Pêche interdite à tous les stades.",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "1re / 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1re : 14 mars au 20 septembre 2026 ; 2e : toute l'année",
+    "note": "",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "Toutes",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Écrevisse à pattes blanches (et torrent, pattes grêles) : pêche interdite.",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "No-kill : trois lacs du Mercoirol (2e catégorie), aucun prélèvement ; Dourbie (1re catégorie) du pont de la station de pompage de la Borie au ruisseau de Malpertus (1 320 m).",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Carpe de nuit : nouveau secteur sur le canal du Rhône à Sète à Bellegarde, PK 12,5 à 17,3 (environ 4 800 m), appâts végétaux uniquement.",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Réserve temporaire sur la Cèze à Chusclan du 1er avril au 30 juin, de 50 m en amont du seuil à la fin de la passe à poissons. Ruisseau des Salles et Hort de Dieu restent en réserve.",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Barrages des Cambous et de Sainte-Cécile-d'Andorge fermés à la pêche depuis le 1er janvier 2026 jusqu'à nouvel ordre.",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Truite arc-en-ciel sur le Rhône en aval du barrage de Vallabrègues : 14 mars au 20 septembre.",
+    "source": "https://www.pechegard.com/les-actualites-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lac de Sautebraut (Bellegarde) : brochet, sandre et black-bass à remettre à l'eau du 1er février au 1er mai (règle 2025).",
+    "source": "https://www.pechegard.com/nouveautes-reglementaires-2025/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Carpe de nuit : lac de Praden (Beaucaire) autorisé du 30 juin au 30 novembre (règle 2025).",
+    "source": "https://www.pechegard.com/nouveautes-reglementaires-2025/",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

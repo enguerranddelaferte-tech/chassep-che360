@@ -1,4 +1,92 @@
-{"dpt":"04","name":"Alpes-de-Haute-Provence","verifiedOn":"2026-10-07",
-"liens":{"fdc":"","peche":"","arretes":""},
-"chasse":{"saison":"2026-2027","ouverture":"","cloture":"","joursSansChasse":"","sources":[],"especes":[],"infos":[],"note":"aucune source locale trouvée"},
-"peche":{"saison":"2026","especes":[],"infos":[],"note":"aucune source locale trouvée"}}
+{
+ "dpt": "04",
+ "name": "Alpes-de-Haute-Provence",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "",
+  "peche": "",
+  "arretes": "https://www.alpes-de-haute-provence.gouv.fr/index.php/contenu/telechargement/37986/225898/file/recueil-04-2024-041-recueil-des-actes-administratifs-1.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "",
+  "cloture": "",
+  "joursSansChasse": "",
+  "sources": [],
+  "especes": [],
+  "infos": [],
+  "note": "aucune source locale trouvée"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "Lacs du Verdon (Gréoux, Quinson, Sainte-Croix)",
+    "minSize": 60,
+    "dailyQuota": null,
+    "period": "Pêche ouverte toute l'année hors réserves temporaires à brochet (du 2e samedi de mars à un vendredi de juin, date de fin illisible)",
+    "note": "Arrêté interpréfectoral 04/83 de décembre 2023 (lacs du Bas-Verdon). Brochet capturé en réserve ou en période de fermeture : remise à l'eau immédiate. Vérifier la validité en 2026.",
+    "source": "https://www.alpes-de-haute-provence.gouv.fr/index.php/contenu/telechargement/37986/225898/file/recueil-04-2024-041-recueil-des-actes-administratifs-1.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "Lacs du Verdon (Gréoux, Quinson, Sainte-Croix)",
+    "minSize": 40,
+    "dailyQuota": 3,
+    "period": "Voir tableau de l'arrêté (dates illisibles dans la copie consultée)",
+    "note": "Taille de 40 cm par dérogation. 6 salmonidés par jour au total, dont 3 truites fario, ombles chevaliers ou corégones au plus.",
+    "source": "https://www.alpes-de-haute-provence.gouv.fr/index.php/contenu/telechargement/37986/225898/file/recueil-04-2024-041-recueil-des-actes-administratifs-1.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "Lac de Sainte-Croix",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Sur Sainte-Croix, le black-bass doit être remis à l'eau immédiatement.",
+    "source": "https://www.alpes-de-haute-provence.gouv.fr/index.php/contenu/telechargement/37986/225898/file/recueil-04-2024-041-recueil-des-actes-administratifs-1.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "Lacs du Verdon (Gréoux, Quinson, Sainte-Croix)",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Pêche possible toute l'année selon l'arrêté",
+    "note": "Taille minimale non lue dans la copie consultée.",
+    "source": "https://www.alpes-de-haute-provence.gouv.fr/index.php/contenu/telechargement/37986/225898/file/recueil-04-2024-041-recueil-des-actes-administratifs-1.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Lacs du Bas-Verdon : jusqu'à 4 lignes de traîne par pêcheur (4 leurres au total) et 1 ligne de sonde (6 hameçons max, leurres artificiels, bateau à l'arrêt). Fanion de couleur obligatoire sur le bateau.",
+    "source": "https://www.alpes-de-haute-provence.gouv.fr/index.php/contenu/telechargement/37986/225898/file/recueil-04-2024-041-recueil-des-actes-administratifs-1.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Carte de capture de la fédération à détenir et à remplir pour chaque prise sur les lacs du Bas-Verdon.",
+    "source": "https://www.alpes-de-haute-provence.gouv.fr/index.php/contenu/telechargement/37986/225898/file/recueil-04-2024-041-recueil-des-actes-administratifs-1.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Réserves temporaires à brochet : lacs de Quinson et Gréoux-Esparron, et à Sainte-Croix les secteurs Notre-Dame de Blache, Coste Belle, Galetas, Font Collomb et Repentance. Pêche des carnassiers et traîne interdites dans ces réserves.",
+    "source": "https://www.alpes-de-haute-provence.gouv.fr/index.php/contenu/telechargement/37986/225898/file/recueil-04-2024-041-recueil-des-actes-administratifs-1.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pendant la fermeture du brochet, vif, poisson mort et leurres susceptibles de capturer le brochet sont interdits sur ces lacs.",
+    "source": "https://www.alpes-de-haute-provence.gouv.fr/index.php/contenu/telechargement/37986/225898/file/recueil-04-2024-041-recueil-des-actes-administratifs-1.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Gobie à tache noire (espèce invasive) : à détruire sur place, ni conservation, ni transport, ni usage comme appât. Bateaux à moteur thermique non autorisés sur les lacs du Verdon.",
+    "source": "https://www.alpes-de-haute-provence.gouv.fr/index.php/contenu/telechargement/37986/225898/file/recueil-04-2024-041-recueil-des-actes-administratifs-1.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

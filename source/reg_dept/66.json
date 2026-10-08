@@ -1,11 +1,11 @@
 {
  "dpt": "66",
  "name": "Pyrénées-Orientales",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
-  "arretes": ""
+  "peche": "https://www.peche66.org/fr/r%C3%A9glementation-g%C3%A9n%C3%A9rale",
+  "arretes": "https://www.pyrenees-orientales.gouv.fr/contenu/telechargement/47869/365331/file/251114-AP-peche-2026.pdf"
  },
  "chasse": {
   "saison": "2026-2027",
@@ -27,8 +27,84 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Plan d'eau du barrage de l'Agly : fenêtre de capture, seuls les brochets de 60 à 80 cm peuvent être gardés, les autres sont remis à l'eau.",
+    "source": "https://www.peche66.org/fr/blog/%C3%A9volutions-r%C3%A9glementaires-2026",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 25,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Lac des Bouillouses uniquement : taille minimale portée à 25 cm (truite fario, arc-en-ciel, omble de fontaine).",
+    "source": "https://www.peche66.org/fr/blog/%C3%A9volutions-r%C3%A9glementaires-2026",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "",
+    "note": "Pêche de l'anguille interdite aux pêcheurs amateurs sur tout le département.",
+    "source": "https://www.peche66.org/fr/blog/%C3%A9volutions-r%C3%A9glementaires-2026",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Carpe de nuit : berge rive gauche du barrage de l'Agly ouverte ; occupation des parcours limitée à 72 h. Appâts végétaux uniquement, prises remises à l'eau (page fédérale non datée).",
+    "source": "https://www.peche66.org/fr/r%C3%A9glementation-g%C3%A9n%C3%A9rale",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Omble chevalier au lac des Bouillouses : taille minimale 30 cm.",
+    "source": "https://www.peche66.org/fr/blog/%C3%A9volutions-r%C3%A9glementaires-2026",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pendant la fermeture du brochet, pêche rouverte du 26 janvier au 24 avril sur les plans d'eau de Millas (n°4), Bouzigues (Saint-Féliu-d'Avall), Saint-Estève, Villelongue-dels-Monts et Prades.",
+    "source": "https://www.peche66.org/fr/r%C3%A9glementation-g%C3%A9n%C3%A9rale",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Bassin d'Aumet (Fontpédrouse) : pêche aux appâts naturels interdite.",
+    "source": "https://www.peche66.org/fr/blog/%C3%A9volutions-r%C3%A9glementaires-2026",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Nouveau parcours no-kill mouche et leurre sur l'Agly à Saint-Paul-de-Fenouillet.",
+    "source": "https://www.peche66.org/fr/blog/%C3%A9volutions-r%C3%A9glementaires-2026",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Plan d'eau de Prades : pêche ouverte toute la semaine aux heures légales (30 min avant le lever à 30 min après le coucher du soleil) ; fermé la veille des déversements.",
+    "source": "https://www.peche66.org/fr/blog/%C3%A9volutions-r%C3%A9glementaires-2026",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Alose : carnet de capture obligatoire, taille minimale 30 cm, 1 par jour et 10 par an.",
+    "source": "https://www.peche66.org/fr/r%C3%A9glementation-g%C3%A9n%C3%A9rale",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Carpe de nuit : pêche ouverte toute l'année en 2e catégorie, uniquement sur parcours définis ; lignes tenues depuis la berge (pas de bateau ni bateau télécommandé), pas de transport de carpes.",
+    "source": "https://peche66.org/en/blog/la-p%C3%AAche-de-la-carpe",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

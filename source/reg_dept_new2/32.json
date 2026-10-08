@@ -1,0 +1,124 @@
+{
+ "dpt": "32",
+ "liens": {
+  "peche": "https://www.gers-peche.fr/5318-reglementation.htm",
+  "arretes": ""
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "",
+    "note": "Quota de 3 carnassiers par jour dont 2 brochets au plus ; catégorie non précisée.",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Compris dans le quota de 3 carnassiers.",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "",
+    "note": "",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "",
+    "minSize": 23,
+    "dailyQuota": 10,
+    "period": "",
+    "note": "10 salmonidés par jour dont 5 fario au plus.",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Compris dans les 10 salmonidés par jour.",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Carpe",
+    "category": "Pêche de nuit",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Nuit : 30 min après le coucher à 30 min avant le lever du soleil",
+    "note": "Bivouac uniquement, pas de maintien en captivité de nuit, carpes de plus de 60 cm non transportables vivantes.",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Silure",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Toute l'année, de 30 min avant le lever à 30 min après le coucher",
+    "note": "",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "6 balances maximum ; pattes blanches interdite ; espèces exotiques non remises à l'eau.",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Carpe de nuit autorisée sur les rivières de 2e catégorie avec accord du propriétaire, sauf Baïse à Condom et Mirande, Gers à Auch, Gimone à Gimont.",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Réserves : l'Estang (Lias d'Armagnac), Adour à Riscle et Jû-Belloc, Gers à Auch (pont d'Endoumingue + 200 m), Gimone (Villefranche-d'Astarac, Simorre), Baïse à Condom (moulin de Barlet).",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche interdite : Auroue à Gimbrède, Bergon à Réans, canal de Saint-Martin à Auch, Lurus (Villecomtal, Montégut-sur-Arros).",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "No-kill : Baïse à Mirande (carpe), Petite Baïse à Ponsan-Soubiran (salmonidés, mouche fouet), Gimone à Nénignan, Puymaurin, Monbardon (salmonidés, lancer interdit).",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Fermeture pour lâchers de truites en semaine 14 sur les rivières de 1re catégorie (sauf l'Estang) et certains parcours de 2e catégorie.",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Interdictions de pêche pour concours en 2026 : 9 mai (Seissan), 6 juillet, 15 août (Gimont), 5 septembre.",
+    "source": "https://www.gers-peche.fr/5318-reglementation.htm",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

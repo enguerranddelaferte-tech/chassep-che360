@@ -1,23 +1,225 @@
-{"dpt":"80","name":"Somme","verifiedOn":"2026-10-07",
-"liens":{"fdc":"https://www.fdc80.com","peche":"","arretes":"https://www.somme.gouv.fr/index.php/Actions-de-l-Etat/Agriculture-et-alimentation/Foret-chasse-et-peche/Chasse-et-destruction/Campagne-de-chasse"},
-"chasse":{"saison":"2026-2027","ouverture":"20 septembre 2026","cloture":"28 février 2027","joursSansChasse":"","sources":["https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf"],
-"especes":[
-{"species":"Sanglier","period":"Du 01/06 au 14/08/2026 sur autorisation préfectorale individuelle ; du 15/08 au 19/09 approche et affût, battue en plaine ; de l'ouverture générale au 31/03/2027 ; du 01/04 au 31/05/2027 uniquement pour protéger les semis.","mode":"Approche, affût, battue","note":"Après l'ouverture, chasse libre samedi, dimanche et jours fériés ; les autres jours, battue seulement de 9h à 18h (17h selon période). Postes fixes en plaine à partir du 01/11 : 1 poste par 80 ha, 8 maximum par territoire. Munition : balle, grenaille d'au moins 3,25 mm ou arc.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"},
-{"species":"Chevreuil","period":"Approche et affût dès le 01/06/2026 si mentionné sur la notification du plan de chasse, jusqu'au 19/09 ; ouverture générale du 20/09/2026 au 28/02/2027.","mode":"Balle (plomb d'au moins 3,25 mm) ou arc","note":"Plan de chasse avec bracelets : réalisation minimale de 70 % dès 6 bracelets ; dès 10 bracelets, 50 % et au moins une chasse par mois à partir du 01/11.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"},
-{"species":"Cerf élaphe","period":"Du 01/09/2026 au 28/02/2027.","mode":"Balle ou arc obligatoires","note":"","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"},
-{"species":"Daim","period":"Du 01/06 au 19/09/2026 (période anticipée), puis ouverture générale jusqu'au 28/02/2027.","mode":"Balle ou arc obligatoires","note":"","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"},
-{"species":"Mouflon","period":"Du 01/09/2026 au 28/02/2027.","mode":"Balle ou arc obligatoires","note":"","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"},
-{"species":"Lièvre","period":"Plaine, landes et vergers du 20/09 au 25/10/2026 ; bois, marais boisés et miscanthus du 01/11 au 06/12/2026 ; arc seul du 20/09 au 20/12/2026.","mode":"Tir, arc","note":"Tout lièvre tué doit être bagué (bagues fournies par la Fédération). Pas d'attribution sur les territoires trop petits. Tableau du livret mal extrait : dates à vérifier.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"a_verifier"},
-{"species":"Perdrix grise","period":"Dès le 20/09/2026 ; date de clôture mal lisible dans le livret.","mode":"Tir","note":"Plan de gestion avec marquage dans les communes listées.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"a_verifier"},
-{"species":"Faisan","period":"Plaine et landes du 20/09 au 29/11/2026 ; bois, marais boisés et miscanthus du 01/11/2026 au 10/01/2027.","mode":"Tir","note":"Tir de la poule encadré par le niveau du plan de gestion. Tableau du livret mal extrait : dates à vérifier.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"a_verifier"},
-{"species":"Bécasse des bois","period":"Du 20/09/2026 au 20/02/2027.","mode":"Tir","note":"3 par jour et 30 par saison par chasseur.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"},
-{"species":"Renard","period":"Anticipé du 01/06 au 19/09/2026 ; ouverture générale du 20/09/2026 au 28/02/2027 ; prolongation du 01 au 31/03/2027.","mode":"Tir, approche, affût ; déterrage du 20/09 au 15/01/2027","note":"Approche et affût de 1h avant le lever à 1h après le coucher du soleil.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"}
-],
-"infos":[
-{"text":"Horaires de chasse : 9h-18h du 20/09 au 18/10/2026, 9h-17h du 19/10/2026 au 31/01/2027, 9h-18h du 01/02 au 31/03/2027.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"},
-{"text":"Gilet ou vêtement orange obligatoire en action de chasse (exceptions : arc, vol, courre, sous terre, pigeon ramier) ; panneaux « chasse en cours » et registre de battue obligatoires pour la chasse collective au grand gibier.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"},
-{"text":"Chasse à la rattente interdite ; agrainage de dissuasion réservé aux détenteurs d'une convention avec la FDC80 ; maïs interdit pour l'agrainage du petit gibier en plaine.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"},
-{"text":"Gibier d'eau : 15 anatidés par jour hors hutte de nuit ; grenaille de plomb interdite à moins de 100 m des zones humides ; carnet de prélèvements à retourner à la FDC80 avant le 31/03.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"},
-{"text":"Chasse à courre, à cor et à cri du 20/09/2026 au 31/03/2027.","source":"https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf","confidence":"verifie"}
-]},
-"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}
+{
+ "dpt": "80",
+ "name": "Somme",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "https://www.fdc80.com",
+  "peche": "https://www.peche80.com/reglementation",
+  "arretes": "https://www.somme.gouv.fr/index.php/Actions-de-l-Etat/Agriculture-et-alimentation/Foret-chasse-et-peche/Chasse-et-destruction/Campagne-de-chasse"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "sources": [
+   "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Du 01/06 au 14/08/2026 sur autorisation préfectorale individuelle ; du 15/08 au 19/09 approche et affût, battue en plaine ; de l'ouverture générale au 31/03/2027 ; du 01/04 au 31/05/2027 uniquement pour protéger les semis.",
+    "mode": "Approche, affût, battue",
+    "note": "Après l'ouverture, chasse libre samedi, dimanche et jours fériés ; les autres jours, battue seulement de 9h à 18h (17h selon période). Postes fixes en plaine à partir du 01/11 : 1 poste par 80 ha, 8 maximum par territoire. Munition : balle, grenaille d'au moins 3,25 mm ou arc.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Approche et affût dès le 01/06/2026 si mentionné sur la notification du plan de chasse, jusqu'au 19/09 ; ouverture générale du 20/09/2026 au 28/02/2027.",
+    "mode": "Balle (plomb d'au moins 3,25 mm) ou arc",
+    "note": "Plan de chasse avec bracelets : réalisation minimale de 70 % dès 6 bracelets ; dès 10 bracelets, 50 % et au moins une chasse par mois à partir du 01/11.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "Du 01/09/2026 au 28/02/2027.",
+    "mode": "Balle ou arc obligatoires",
+    "note": "",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Daim",
+    "period": "Du 01/06 au 19/09/2026 (période anticipée), puis ouverture générale jusqu'au 28/02/2027.",
+    "mode": "Balle ou arc obligatoires",
+    "note": "",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Mouflon",
+    "period": "Du 01/09/2026 au 28/02/2027.",
+    "mode": "Balle ou arc obligatoires",
+    "note": "",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Lièvre",
+    "period": "Plaine, landes et vergers du 20/09 au 25/10/2026 ; bois, marais boisés et miscanthus du 01/11 au 06/12/2026 ; arc seul du 20/09 au 20/12/2026.",
+    "mode": "Tir, arc",
+    "note": "Tout lièvre tué doit être bagué (bagues fournies par la Fédération). Pas d'attribution sur les territoires trop petits. Tableau du livret mal extrait : dates à vérifier.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix grise",
+    "period": "Dès le 20/09/2026 ; date de clôture mal lisible dans le livret.",
+    "mode": "Tir",
+    "note": "Plan de gestion avec marquage dans les communes listées.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Faisan",
+    "period": "Plaine et landes du 20/09 au 29/11/2026 ; bois, marais boisés et miscanthus du 01/11/2026 au 10/01/2027.",
+    "mode": "Tir",
+    "note": "Tir de la poule encadré par le niveau du plan de gestion. Tableau du livret mal extrait : dates à vérifier.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "Du 20/09/2026 au 20/02/2027.",
+    "mode": "Tir",
+    "note": "3 par jour et 30 par saison par chasseur.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Renard",
+    "period": "Anticipé du 01/06 au 19/09/2026 ; ouverture générale du 20/09/2026 au 28/02/2027 ; prolongation du 01 au 31/03/2027.",
+    "mode": "Tir, approche, affût ; déterrage du 20/09 au 15/01/2027",
+    "note": "Approche et affût de 1h avant le lever à 1h après le coucher du soleil.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Horaires de chasse : 9h-18h du 20/09 au 18/10/2026, 9h-17h du 19/10/2026 au 31/01/2027, 9h-18h du 01/02 au 31/03/2027.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Gilet ou vêtement orange obligatoire en action de chasse (exceptions : arc, vol, courre, sous terre, pigeon ramier) ; panneaux « chasse en cours » et registre de battue obligatoires pour la chasse collective au grand gibier.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse à la rattente interdite ; agrainage de dissuasion réservé aux détenteurs d'une convention avec la FDC80 ; maïs interdit pour l'agrainage du petit gibier en plaine.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Gibier d'eau : 15 anatidés par jour hors hutte de nuit ; grenaille de plomb interdite à moins de 100 m des zones humides ; carnet de prélèvements à retourner à la FDC80 avant le 31/03.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse à courre, à cor et à cri du 20/09/2026 au 31/03/2027.",
+    "source": "https://www.fdc80.com/medias/files/livret2026-2027-site-internet-compressed-1.pdf",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "01/01 au 25/01 et 25/04 au 31/12",
+    "note": "En 1re catégorie : 50 cm, 2 par jour, ouvert du 25/04 au 20/09. Remise à l'eau obligatoire sur deux biefs d'étude de la Somme (Lamotte-Brebière à Camon ; Ailly-sur-Somme à Picquigny).",
+    "source": "https://www.peche80.com/reglementation",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": 3,
+    "period": "01/01 au 25/01 et 25/04 au 31/12",
+    "note": "Quota de 3 carnassiers par jour (brochet, sandre, black-bass), dont 2 brochets au maximum.",
+    "source": "https://www.peche80.com/reglementation",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": 3,
+    "period": "",
+    "note": "Compte dans le quota de 3 carnassiers par jour.",
+    "source": "https://www.peche80.com/reglementation",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 25,
+    "dailyQuota": 6,
+    "period": "14/03 au 20/09",
+    "note": "Quota de 6 salmonidés par jour (hors truite de mer). Truite de mer : 60 cm sur l'Authie, 50 cm sur la Bresle.",
+    "source": "https://www.peche80.com/reglementation",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille jaune : 14/03 au 15/07 (1re cat.), 15/02 au 15/07 (2e cat.)",
+    "note": "Carnet de capture obligatoire.",
+    "source": "https://www.peche80.com/reglementation",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Carpe de nuit toute l'année sur plans d'eau désignés",
+    "note": "Carpe de nuit uniquement sur les plans d'eau de l'arrêté carpe annuel, esches végétales seules, prise remise à l'eau, sac de conservation interdit. Transport vivant interdit au-delà de 30 cm.",
+    "source": "https://peche80.com/index.php?mod=1&id=38",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Horaires : de 30 min avant le lever à 30 min après le coucher du soleil, anguille comprise.",
+    "source": "https://www.peche80.com/reglementation",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Fermeture brochet, sandre et black-bass : vif, poisson mort ou artificiel, cuiller et leurres capables de les capturer interdits ; prises accidentelles relâchées.",
+    "source": "https://www.peche80.com/reglementation",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Interdiction de pêcher dans les réserves, dans les dispositifs de passage à poissons, depuis les barrages et écluses et sur 50 m en aval (sauf une ligne). Gaffe interdite.",
+    "source": "https://www.peche80.com/reglementation",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pêche de nuit de la truite de mer autorisée jusqu'à 2 h après le coucher du soleil sur les cours d'eau classés.",
+    "source": "https://www.peche80.com/reglementation",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Espèces exotiques envahissantes (perche-soleil, pseudorasbora, écrevisses américaine, de Californie, de Louisiane, marbrée, etc.) : interdit de les transporter vivantes, de les introduire ou de les utiliser comme appât.",
+    "source": "https://www.peche80.com/reglementation",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Asticots et larves de diptères interdits en 1re catégorie.",
+    "source": "https://www.peche80.com/reglementation",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

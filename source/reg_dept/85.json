@@ -1,8 +1,140 @@
-{"dpt":"85","name":"Vendée","verifiedOn":"2026-10-07",
-"liens":{"fdc":"https://chasseur-vendeen.fr/connaitre-la-reglementation/les-dates-de-chasse/","peche":"","arretes":"https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-85.pdf"},
-"chasse":{"saison":"2026-2027","ouverture":"20 septembre 2026","cloture":"28 février 2027","joursSansChasse":"","note":"aucune source locale trouvée pour le détail par espèce ; seules les dates générales ont été relevées.","sources":["https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-vendee/"],
-"especes":[],
-"infos":[
-{"text":"Ouverture générale le 20 septembre 2026 à 8h, clôture générale le 28 février 2027 inclus.","source":"https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-vendee/","confidence":"a_verifier"}
-]},
-"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}
+{
+ "dpt": "85",
+ "name": "Vendée",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "https://chasseur-vendeen.fr/connaitre-la-reglementation/les-dates-de-chasse/",
+  "peche": "https://federation-peche-vendee.fr/quand/",
+  "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-85.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "note": "aucune source locale trouvée pour le détail par espèce ; seules les dates générales ont été relevées.",
+  "sources": [
+   "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-vendee/"
+  ],
+  "especes": [],
+  "infos": [
+   {
+    "text": "Ouverture générale le 20 septembre 2026 à 8h, clôture générale le 28 février 2027 inclus.",
+    "source": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-de-vendee/",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "",
+    "minSize": 60,
+    "dailyQuota": 1,
+    "period": "01/01 au 25/01 et 25/04 au 31/12",
+    "note": "Fermeture du 26 janvier au 24 avril. Fenêtre de capture 60-80 cm sur les lacs de Moulin Papon et de l'Angle Guignard (carnet de capture à retourner avant fin janvier 2027).",
+    "source": "https://federation-peche-vendee.fr/quelles-especes/carnassiers/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "",
+    "minSize": 50,
+    "dailyQuota": 3,
+    "period": "Toute l'année sauf du 01/04 au 24/04",
+    "note": "3 carnassiers par jour (brochet, sandre, black-bass cumulés).",
+    "source": "https://federation-peche-vendee.fr/quelles-especes/carnassiers/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "",
+    "minSize": 30,
+    "dailyQuota": 3,
+    "period": "01/01 au 24/04 et 01/07 au 31/12",
+    "note": "Fermeture du 25 avril au 30 juin. Compte dans les 3 carnassiers par jour.",
+    "source": "https://federation-peche-vendee.fr/quelles-especes/carnassiers/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "",
+    "minSize": 23,
+    "dailyQuota": 6,
+    "period": "14/03 au 20/09",
+    "note": "Quota de 6 sur parcours.",
+    "source": "https://federation-peche-vendee.fr/quand/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Toute l'année",
+    "note": "Pas de taille ni de quota. Carpe de nuit uniquement sur parcours fixés par arrêté (permanents, ou saisonniers du 1er septembre à la veille de l'ouverture du brochet), appâts végétaux ou farines recomposées, transport vivant interdit au-delà de 60 cm.",
+    "source": "https://federation-peche-vendee.fr/quelles-especes/carpe/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perche",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Toute l'année",
+    "note": "Pas de fermeture, de quota ni de taille minimale.",
+    "source": "https://federation-peche-vendee.fr/quand/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Silure",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Toute l'année",
+    "note": "Pas de fermeture, de quota ni de taille minimale.",
+    "source": "https://federation-peche-vendee.fr/quand/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Écrevisses à pattes blanches et à pattes grêles interdites toute l'année. Écrevisses américaines : pêche autorisée toute l'année, remise à l'eau interdite.",
+    "source": "https://federation-peche-vendee.fr/quand/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Pêche aux lignes ouverte toute l'année ; heures légales : 30 min avant le lever à 30 min après le coucher du soleil.",
+    "source": "https://federation-peche-vendee.fr/quand/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Grenouilles verte et rousse : pêche interdite toute l'année.",
+    "source": "https://federation-peche-vendee.fr/quand/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Espèces indésirables (perche-soleil, poisson-chat) : pêche autorisée toute l'année, remise à l'eau interdite.",
+    "source": "https://federation-peche-vendee.fr/quand/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Carpe de nuit en 2025/2026 : parcours saisonniers fermés le lundi 20 avril 2026 avant l'ouverture du brochet ; pêche de nuit en bateau seulement sur parcours carpe de nuit, coque contre la berge autorisée.",
+    "source": "https://federation-peche-vendee.fr/quelles-especes/carpe/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lacs d'eau potable : abris de berge de 5 m² maximum la nuit, uniquement pour pêcheurs actifs ; tente de nuit assimilée à du camping sauvage.",
+    "source": "https://federation-peche-vendee.fr/quelles-especes/carpe/",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

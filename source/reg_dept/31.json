@@ -1,10 +1,10 @@
 {
  "dpt": "31",
  "name": "Haute-Garonne",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "https://www.chasse-nature-occitanie.fr/haute-garonne",
-  "peche": "",
+  "peche": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
   "arretes": "https://www.chasse-nature-occitanie.fr/haute-garonne/ma-fede/actes-officiels.php"
  },
  "chasse": {
@@ -139,8 +139,144 @@
  },
  "peche": {
   "saison": "2026",
-  "note": "aucune source locale trouvée",
-  "especes": [],
-  "infos": []
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re catégorie",
+    "minSize": 50,
+    "dailyQuota": 2,
+    "period": "25 avril au 20 septembre 2026",
+    "note": "2 par pêcheur et par jour.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": 2,
+    "period": "1er au 25 janvier et 25 avril au 31 décembre 2026",
+    "note": "3 sandres et brochets par jour au total, dont 2 brochets au plus.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": 3,
+    "period": "1er au 25 janvier et 25 avril au 31 décembre 2026",
+    "note": "Quota de 3 combiné avec le brochet (2 brochets maximum).",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perche",
+    "category": "1re / 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1re : 14 mars au 20 septembre 2026 ; 2e : mêmes dates que le brochet",
+    "note": "Pas de taille minimale indiquée.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "2e catégorie",
+    "minSize": 23,
+    "dailyQuota": 10,
+    "period": "14 mars au 20 septembre 2026",
+    "note": "Quota de 10 salmonidés par jour.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": 10,
+    "period": "14 mars au 20 septembre 2026 (lacs de montagne > 1 400 m : 2 mai au 11 octobre)",
+    "note": "Taille minimale de 18 à 25 cm selon le cours d'eau, 20 cm par défaut.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "Toutes",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Non ouvert à la pêche à la ligne (art. 1)",
+    "note": "Pêche possible seulement sur certains parcours sans panier, hameçon simple sans ardillon, remise à l'eau.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "Anguille jaune",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1re : 1er mai au 20 septembre ; 2e : 1er mai au 30 septembre 2026",
+    "note": "Anguille argentée exclue. Déclaration des captures sur CESMIA.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "Pêche de nuit",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Toute l'année sauf nuits des 24 au 25 et 25 au 26 avril 2026",
+    "note": "Lieux désignés, appâts végétaux, remise à l'eau immédiate de nuit.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "1re / 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1re : 14 mars au 20 septembre 2026 sur cours d'eau désignés ; 2e : toute l'année",
+    "note": "6 balances maximum ; pattes blanches interdite.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Truite arc-en-ciel : pas de taille minimale (23 cm dans les lacs de la vallée d'Oô) ; ouverte toute l'année sauf cours d'eau classés saumon ou truite de mer (Garonne, Ariège, Tarn).",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Parcours sans panier (remise à l'eau, hameçon simple sans ardillon) : truite fario sur Garonne, Ger à Aspet, Pique, Laudot ; fario et arc-en-ciel sur le Salat ; ombre commun.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Carpe de nuit : Garonne, Tarn, Ariège (Auterive), canal du Midi (Villefranche), Hers Vif, Save et plusieurs lacs ; signal lumineux, pas de barque, hameçon sans ardillon, appâts végétaux.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Réserves : Garonne (Bazacle, Ramier, Carbonne, Cazères, Saint-Martory...), Ariège et Salat (50 m en aval des barrages), Hers Vif à Cintegabelle, Pique (Luret), Ger (Soueich), lac de Saint-Ferréol et rigole de Revel.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lignes : 1re catégorie 1 ligne (2 hameçons ou 3 mouches), 2 lignes sur la Garonne en amont du Salat ; 2e catégorie 4 lignes.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Écrevisses américaines et poissons-chats : remise à l'eau et transport vivant interdits.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Silure et black-bass : règle non lisible ou non mentionnée dans l'arrêté, à vérifier.",
+    "source": "https://www.saint-aventin.fr/wp-content/uploads/2025/12/arrete_peche_2026.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

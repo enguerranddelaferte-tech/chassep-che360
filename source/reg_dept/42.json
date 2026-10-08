@@ -1,10 +1,10 @@
 {
  "dpt": "42",
  "name": "Loire",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
+  "peche": "https://peche42.fr/pecher-dans-la-loire/reglementation/",
   "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-42.pdf"
  },
  "chasse": {
@@ -114,8 +114,104 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 1,
+    "period": "1re cat. : 25 avril au 20 sept. ; 2e cat. : 1er au 25 janvier et 25 avril au 31 déc. 2026",
+    "note": "1 brochet max par jour sur le département. Parcours no-kill à Roanne et aux Beaumes ; Loire à Saint-Just-Saint-Rambert : seuls les brochets de 60 à 80 cm se gardent.",
+    "source": "https://peche42.fr/les-dates-douvertures/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": 3,
+    "period": "2e cat. : 1er au 25 janvier et 6 juin au 31 déc. 2026 ; Grangent et Villerest : 1er janv. au 15 mars et 6 juin au 31 déc. ; 1re cat. : 14 mars au 20 sept.",
+    "note": "Quota de 3 carnassiers par jour en 2e catégorie et sur Grangent/Villerest, dont 1 brochet au plus. Remise à l'eau obligatoire aux Beaumes.",
+    "source": "https://peche42.fr/les-quotas-de-capture/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": 3,
+    "period": "2e cat. : 1er au 25 janvier et 4 juillet au 31 déc. 2026 ; 1re cat. : à partir du 14 mars (15 mars sur le récapitulatif)",
+    "note": "Quota de 3 carnassiers par jour (dont 1 brochet max). Remise à l'eau obligatoire en plans d'eau touristiques, aux Beaumes et sur le canal de Roanne à Digoin (port de Roanne à l'écluse de Cornillon).",
+    "source": "https://peche42.fr/les-tailles-minimales-de-capture/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 20,
+    "dailyQuota": 3,
+    "period": "14 mars au 20 sept. 2026",
+    "note": "23 cm sur certains secteurs et en 2e catégorie. 3 salmonidés par jour, toutes espèces confondues. Lignon du Forez : expérimentation avec maille fenêtrée de 25 à 30 cm.",
+    "source": "https://peche42.fr/les-quotas-de-capture/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "non précisée sur les pages lues",
+    "note": "Remise à l'eau obligatoire dans les cours d'eau du département (quota de 0).",
+    "source": "https://peche42.fr/les-quotas-de-capture/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille jaune : 1er avril au 31 août 2026 (bassin Loire-Bretagne)",
+    "note": "Interdite sur le bassin Rhône-Méditerranée. Anguille argentée interdite toute l'année.",
+    "source": "https://peche42.fr/les-dates-douvertures/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Carpe",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Pêche de nuit : 2e catégorie uniquement, secteurs autorisés par arrêté",
+    "note": "Interdite de nuit en 1re catégorie. Aucune carpe prise de nuit ne se garde ; carpe de plus de 60 cm non transportable vivante. Plans d'eau touristiques : 1 carpe max, remise à l'eau au-delà de 50 cm.",
+    "source": "https://peche42.fr/pecher-dans-la-loire/reglementation/reglementation-2/",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Réserves de pêche : pêche interdite, certaines toute l'année et d'autres pendant la reproduction du brochet et du sandre. Détail sur la page dédiée de la fédération.",
+    "source": "https://peche42.fr/pecher-dans-la-loire/reglementation/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Carpe de nuit en eau libre : pratique dérogatoire, autorisée seulement là où un arrêté préfectoral le permet (Loire, barrages) ; en plans d'eau, règlement intérieur de la fédération et de l'AAPPMA.",
+    "source": "https://peche42.fr/pecher-dans-la-loire/reglementation/reglementation-2/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Arrêté 2026 et arrêté modificatif publiés par la fédération ; navigation réglementée sur les retenues de Grangent et Villerest.",
+    "source": "https://peche42.fr/les-arretes-prefectoraux-relatifs-a-lexercice-de-la-peche-2026/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Plans d'eau touristiques : pêche de la truite toute l'année, friture limitée à 1 kg, 2 carnassiers max par jour dont 1 brochet.",
+    "source": "https://peche42.fr/les-quotas-de-capture/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Grenouilles vertes et rousses : 6 juin au 20 sept. 2026. Écrevisse à pattes blanches interdite toute l'année.",
+    "source": "https://peche42.fr/les-dates-douvertures/",
+    "confidence": "verifie"
+   }
+  ]
  }
 }

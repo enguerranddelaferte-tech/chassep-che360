@@ -1,7 +1,7 @@
 {
  "dpt": "11",
  "name": "Aude",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "https://www.chasse-nature-occitanie.fr/aude",
   "peche": "",
@@ -137,8 +137,94 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 60,
+    "dailyQuota": null,
+    "period": "1re cat. : dernier samedi d'avril au 3e dimanche de septembre. 2e cat. : fermé du dernier dimanche de janvier au dernier samedi d'avril",
+    "note": "En 1re cat., brochet pris entre le 2e samedi de mars et le dernier vendredi d'avril : remise à l'eau. Arrêté DDTM 2023-0003, durée de validité non précisée.",
+    "source": "https://www.aude.gouv.fr/contenu/telechargement/26850/185392/file/AP_2023_0003_ExercicePeche-EauDouce.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "1re et 2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1re cat. : dernier samedi d'avril au 3e dimanche de septembre",
+    "note": "Période 2e catégorie non précisée dans le passage lu.",
+    "source": "https://www.aude.gouv.fr/contenu/telechargement/26850/185392/file/AP_2023_0003_ExercicePeche-EauDouce.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perche",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Dernier samedi d'avril au 3e dimanche de septembre",
+    "note": "Période 2e catégorie non précisée dans le passage lu.",
+    "source": "https://www.aude.gouv.fr/contenu/telechargement/26850/185392/file/AP_2023_0003_ExercicePeche-EauDouce.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": 1,
+    "period": "Fermé du dernier dimanche de janvier au dernier dimanche de juin",
+    "note": "1 black-bass par pêcheur et par jour.",
+    "source": "https://www.aude.gouv.fr/contenu/telechargement/26850/185392/file/AP_2023_0003_ExercicePeche-EauDouce.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": 20,
+    "dailyQuota": 5,
+    "period": "2e samedi de mars au 3e dimanche de septembre",
+    "note": "23 cm sur le fleuve Aude (usine de Nentilla à Fleury-d'Aude) et le bassin de la Boulzane selon l'art. 5 (texte incohérent avec 20 cm à l'art. 6). 5 salmonidés par jour, 3 truites fario sur la Boulzane.",
+    "source": "https://www.aude.gouv.fr/contenu/telechargement/26850/185392/file/AP_2023_0003_ExercicePeche-EauDouce.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 35,
+    "dailyQuota": 2,
+    "period": "1re cat. : 1er juillet au 3e dimanche de septembre. 2e cat. : fermé du 1er janvier au 1er juillet",
+    "note": "2 ombres par jour au plus, dans la limite de 5 salmonidés.",
+    "source": "https://www.aude.gouv.fr/contenu/telechargement/26850/185392/file/AP_2023_0003_ExercicePeche-EauDouce.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "Toutes catégories",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille argentée et civelle : interdites",
+    "note": "Interdiction permanente selon l'arrêté 2023-0003.",
+    "source": "https://www.aude.gouv.fr/contenu/telechargement/26850/185392/file/AP_2023_0003_ExercicePeche-EauDouce.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Interdictions permanentes : lamproies, esturgeon, civelles, anguille argentée, grenouilles autres que verte et rousse, et plusieurs espèces d'écrevisses.",
+    "source": "https://www.aude.gouv.fr/contenu/telechargement/26850/185392/file/AP_2023_0003_ExercicePeche-EauDouce.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Grenouilles verte et rousse : 1re cat. du 1er mai au 3e dimanche de septembre ; 2e cat. fermées du 3e dimanche de septembre au 30 avril.",
+    "source": "https://www.aude.gouv.fr/contenu/telechargement/26850/185392/file/AP_2023_0003_ExercicePeche-EauDouce.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Règles particulières (nombre de lignes) pour des plans d'eau et cours d'eau désignés et pour les eaux domaniales. Arrêté 2023 : vérifier qu'aucun texte 2026 ne le remplace.",
+    "source": "https://www.aude.gouv.fr/contenu/telechargement/26850/185392/file/AP_2023_0003_ExercicePeche-EauDouce.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

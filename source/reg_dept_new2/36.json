@@ -1,0 +1,18 @@
+{
+ "dpt": "36",
+ "liens": {
+  "peche": "https://www.peche36.fr/324-ouvertures.htm",
+  "arretes": "https://www.peche36.fr/324-ouvertures.htm"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [
+   {
+    "text": "Un arrêté annuel 2026 relatif à la pêche en eau douce existe pour l'Indre (téléchargeable depuis la page Ouvertures de la fédération) ; les pages Taille minimale de capture 2026, Réserves de pêche et Fermeture du brochet y sont rattachées. Valeurs détaillées non lues.",
+    "source": "https://www.peche36.fr/324-ouvertures.htm",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

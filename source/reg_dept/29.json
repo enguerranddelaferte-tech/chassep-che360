@@ -1,21 +1,145 @@
-{"dpt":"29","name":"Finistère","verifiedOn":"2026-10-07",
-"liens":{"fdc":"https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/","peche":"","arretes":"https://www.fdc29.com/wp-content/uploads/RAA-AP-ouv-clot-2026-2027-1.pdf"},
-"chasse":{"saison":"2026-2027","ouverture":"20 septembre 2026","cloture":"28 février 2027","joursSansChasse":"Mardi et vendredi (chasse et dressage de chiens), sauf jours fériés, avec exceptions listées (certains grands gibiers, gibier d'eau, ragondin et rat musqué, vénerie, fauconnerie).","sources":["https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/","https://www.fdc29.com/wp-content/uploads/RAA-AP-ouv-clot-2026-2027-1.pdf"],
-"especes":[
-{"species":"Sanglier","period":"1er juin au 14 août 2026 (anticipée, autorisation) ; 15 août au 19 septembre 2026 (ouverture anticipée) ; 20 septembre 2026 au 31 mars 2027.","mode":"Battue, affût, approche","note":"Règles particulières de protection des cultures pendant récoltes et semis.","source":"https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/","confidence":"verifie"},
-{"species":"Chevreuil","period":"À partir du 1er juin 2026 à l'affût ou à l'approche, dans le cadre du plan de chasse.","mode":"Affût, approche","note":"Plan de chasse obligatoire.","source":"https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/","confidence":"verifie"},
-{"species":"Faisan","period":"Période générale ; 20 septembre au 11 novembre 2026 dans les communes couvertes par un plan de gestion.","mode":"","note":"","source":"https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/","confidence":"verifie"},
-{"species":"Bécasse des bois","period":"","mode":"Chasse à la passée interdite","note":"30 par chasseur et par saison, 3 par semaine ; prélèvement noté sur le carnet ou Chass'Adapt, marquage immédiat.","source":"https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/","confidence":"verifie"},
-{"species":"Cerf élaphe","period":"1er septembre 2026 au 28 février 2027","mode":"","note":"Plan de chasse.","source":"https://meschasses.com/finistere-29/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Lièvre","period":"11 octobre au 13 décembre 2026","mode":"","note":"Plan de chasse.","source":"https://meschasses.com/finistere-29/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Perdrix","period":"20 septembre 2026 au 1er janvier 2027","mode":"","note":"","source":"https://meschasses.com/finistere-29/dates-chasse-2026-2027/","confidence":"a_verifier"},
-{"species":"Renard","period":"1er juin 2026 au 28 février 2027","mode":"","note":"","source":"https://meschasses.com/finistere-29/dates-chasse-2026-2027/","confidence":"a_verifier"}
-],
-"infos":[
-{"text":"Arrêté préfectoral n° 29-2026-05-21-00002 du 21 mai 2026 fixant l'ouverture et la clôture de la chasse 2026-2027 dans le Finistère.","source":"https://www.fdc29.com/wp-content/uploads/RAA-AP-ouv-clot-2026-2027-1.pdf","confidence":"verifie"},
-{"text":"Horaires : 8h30 à 19h00 du 1er juin au 24 octobre 2026 ; 9h00 à 17h30 du 25 octobre 2026 au 28 février 2027 ; en mars (sanglier seul) 8h30 à 19h00.","source":"https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/","confidence":"verifie"},
-{"text":"Chasse par temps de neige interdite, sauf grands cervidés, sanglier, renard, certaines vénéries, gibier d'eau, ragondin et rat musqué.","source":"https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/","confidence":"verifie"},
-{"text":"Battues de 6 chasseurs ou plus : tenue haute visibilité, rappel des consignes avant chaque battue, angle de sécurité de 30°, tir fichant.","source":"https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/","confidence":"verifie"},
-{"text":"Certaines munitions au plomb sont interdites en zones humides et à moins de 100 mètres.","source":"https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/","confidence":"verifie"}
-]},
-"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}
+{
+ "dpt": "29",
+ "name": "Finistère",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/",
+  "peche": "",
+  "arretes": "https://www.fdc29.com/wp-content/uploads/RAA-AP-ouv-clot-2026-2027-1.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "20 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "Mardi et vendredi (chasse et dressage de chiens), sauf jours fériés, avec exceptions listées (certains grands gibiers, gibier d'eau, ragondin et rat musqué, vénerie, fauconnerie).",
+  "sources": [
+   "https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/",
+   "https://www.fdc29.com/wp-content/uploads/RAA-AP-ouv-clot-2026-2027-1.pdf"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "1er juin au 14 août 2026 (anticipée, autorisation) ; 15 août au 19 septembre 2026 (ouverture anticipée) ; 20 septembre 2026 au 31 mars 2027.",
+    "mode": "Battue, affût, approche",
+    "note": "Règles particulières de protection des cultures pendant récoltes et semis.",
+    "source": "https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "À partir du 1er juin 2026 à l'affût ou à l'approche, dans le cadre du plan de chasse.",
+    "mode": "Affût, approche",
+    "note": "Plan de chasse obligatoire.",
+    "source": "https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Faisan",
+    "period": "Période générale ; 20 septembre au 11 novembre 2026 dans les communes couvertes par un plan de gestion.",
+    "mode": "",
+    "note": "",
+    "source": "https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Bécasse des bois",
+    "period": "",
+    "mode": "Chasse à la passée interdite",
+    "note": "30 par chasseur et par saison, 3 par semaine ; prélèvement noté sur le carnet ou Chass'Adapt, marquage immédiat.",
+    "source": "https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Cerf élaphe",
+    "period": "1er septembre 2026 au 28 février 2027",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://meschasses.com/finistere-29/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Lièvre",
+    "period": "11 octobre au 13 décembre 2026",
+    "mode": "",
+    "note": "Plan de chasse.",
+    "source": "https://meschasses.com/finistere-29/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Perdrix",
+    "period": "20 septembre 2026 au 1er janvier 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/finistere-29/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Renard",
+    "period": "1er juin 2026 au 28 février 2027",
+    "mode": "",
+    "note": "",
+    "source": "https://meschasses.com/finistere-29/dates-chasse-2026-2027/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté préfectoral n° 29-2026-05-21-00002 du 21 mai 2026 fixant l'ouverture et la clôture de la chasse 2026-2027 dans le Finistère.",
+    "source": "https://www.fdc29.com/wp-content/uploads/RAA-AP-ouv-clot-2026-2027-1.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Horaires : 8h30 à 19h00 du 1er juin au 24 octobre 2026 ; 9h00 à 17h30 du 25 octobre 2026 au 28 février 2027 ; en mars (sanglier seul) 8h30 à 19h00.",
+    "source": "https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Chasse par temps de neige interdite, sauf grands cervidés, sanglier, renard, certaines vénéries, gibier d'eau, ragondin et rat musqué.",
+    "source": "https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Battues de 6 chasseurs ou plus : tenue haute visibilité, rappel des consignes avant chaque battue, angle de sécurité de 30°, tir fichant.",
+    "source": "https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Certaines munitions au plomb sont interdites en zones humides et à moins de 100 mètres.",
+    "source": "https://www.fdc29.com/actualites/ouverture-chasse-finistere-2026-2027/",
+    "confidence": "verifie"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Anguille",
+    "category": "Poissons migrateurs",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille jaune : 1er avril au 31 août 2025 (arrêté 2025, valable jusqu'au 13 mars 2026)",
+    "note": "Civelle et anguille argentée interdites toute l'année ; captures à consigner dans un carnet. Arrêté 2026 non lu.",
+    "source": "https://politique.pappers.fr/commune/document/0135aac14eedc661ee29ec77a67a3ef7",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté préfectoral du 4 mars 2025 sur les migrateurs, applicable du 8 mars 2025 au 13 mars 2026 : pêche du saumon et de la truite de mer interdite sur tous les cours d'eau du Finistère.",
+    "source": "https://politique.pappers.fr/commune/document/0135aac14eedc661ee29ec77a67a3ef7",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Migrateurs interdits dans les réserves de pêche et sur une partie du Coatoulzac'h/Penzé du 22 septembre 2025 au 13 mars 2026 ; Aulne canalisée en aval du barrage de Prat Pourric : no-kill uniquement.",
+    "source": "https://politique.pappers.fr/commune/document/0135aac14eedc661ee29ec77a67a3ef7",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Alose : pêche ouverte du 8 mars au 21 septembre 2025, 30 cm minimum ; lamproie marine interdite toute l'année.",
+    "source": "https://politique.pappers.fr/commune/document/0135aac14eedc661ee29ec77a67a3ef7",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

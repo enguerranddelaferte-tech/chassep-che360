@@ -1,0 +1,79 @@
+{
+ "dpt": "34",
+ "liens": {
+  "peche": "https://www.herault.gouv.fr/Actions-de-l-Etat/Environnement-eau-chasse-risques-naturels-et-technologiques/Eau/La-Peche/Les-arretes",
+  "arretes": "https://www.claret.fr/documents_administratifs/48644"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": null,
+    "period": "1er janvier à dernier dimanche de janvier et dernier samedi d'avril au 31 décembre",
+    "note": "Règle de l'arrêté 2023-2025 ; à confirmer dans l'arrêté 2026-2028.",
+    "source": "https://www.herault.gouv.fr/contenu/telechargement/44487/287395/file/ARP_2023-2025_PROJET.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1er janvier au 3e dimanche de mars et dernier samedi d'avril au 31 décembre",
+    "note": "Vidourle et Salagou ; règle 2023-2025 à confirmer.",
+    "source": "https://www.herault.gouv.fr/contenu/telechargement/44487/287395/file/ARP_2023-2025_PROJET.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "1er janvier au 3e dimanche d'avril et dernier samedi de juin au 31 décembre",
+    "note": "Règle 2023-2025 à confirmer.",
+    "source": "https://www.herault.gouv.fr/contenu/telechargement/44487/287395/file/ARP_2023-2025_PROJET.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re / 2e catégorie",
+    "minSize": 23,
+    "dailyQuota": null,
+    "period": "2e samedi de mars au 3e dimanche de septembre",
+    "note": "20 cm sur Agoût, Vèbre, Arn, Dourdou, Thoré, Bureau ; 25 cm sur la Vis. Règle 2023-2025 à confirmer.",
+    "source": "https://www.herault.gouv.fr/contenu/telechargement/44487/287395/file/ARP_2023-2025_PROJET.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "Toutes",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Pêche interdite",
+    "note": "Règle 2023-2025 à confirmer.",
+    "source": "https://www.herault.gouv.fr/contenu/telechargement/44487/287395/file/ARP_2023-2025_PROJET.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté préfectoral réglementaire DDTM34-2025-12-16557 du 26 décembre 2025 : réglementation permanente de la pêche de loisir en eau douce dans l'Hérault pour 2026-2028 (annexes 1 à 3).",
+    "source": "https://www.claret.fr/documents_administratifs/48644",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Carpe de nuit (arrêté 2023-2025) : Salagou, Lez, sections de l'Hérault et du canal du Midi, Orb ; appâts végétaux, signal lumineux, pas de maintien en captivité.",
+    "source": "https://www.herault.gouv.fr/contenu/telechargement/44487/287395/file/ARP_2023-2025_PROJET.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Salagou (arrêté 2023-2025) : brochet à remettre à l'eau du 1er janvier au dernier dimanche de janvier et du 1er samedi de novembre au 31 décembre ; réserves à Les Vailhès et Liausson.",
+    "source": "https://www.herault.gouv.fr/contenu/telechargement/44487/287395/file/ARP_2023-2025_PROJET.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

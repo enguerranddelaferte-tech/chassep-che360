@@ -1,0 +1,94 @@
+{
+ "dpt": "35",
+ "liens": {
+  "peche": "https://www.peche35.fr/4101-documents-telechargeables.htm",
+  "arretes": "https://www.peche35.fr/cms_viewFile.php?idtf=52791&path=Arrete-peche-2026.pdf"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 60,
+    "dailyQuota": null,
+    "period": "",
+    "note": "1re catégorie : 1 par jour. 2e catégorie : 3 par jour au total avec sandre et black-bass, dont 1 brochet au plus. Dates d'ouverture non lisibles dans le guide.",
+    "source": "https://www.peche35.fr/cms_viewFile.php?idtf=52433&path=Gude-pratique.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Quota commun brochet/sandre/black-bass : 3 par jour, dont 1 brochet.",
+    "source": "https://www.peche35.fr/cms_viewFile.php?idtf=52433&path=Gude-pratique.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Quota commun brochet/sandre/black-bass : 3 par jour, dont 1 brochet.",
+    "source": "https://www.peche35.fr/cms_viewFile.php?idtf=52433&path=Gude-pratique.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 23,
+    "dailyQuota": 6,
+    "period": "",
+    "note": "6 truites par jour (fario et arc-en-ciel), dont 2 fario au plus.",
+    "source": "https://www.peche35.fr/cms_viewFile.php?idtf=52433&path=Gude-pratique.pdf",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Brochet en 2e catégorie : du 26 janvier au 24 avril 2026 inclus, pêche avec vif, mort, leurres et cuillères interdite (exceptions : mouches, imitations d'insectes, leurres de type Octopus d'au moins 15 cm).",
+    "source": "https://www.peche35.fr/cms_viewFile.php?idtf=52433&path=Gude-pratique.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Carpe de nuit autorisée du 1er janvier au 24 avril et du 27 avril au 31 décembre 2026, sur parcours de 2e catégorie listés, avec accord des détenteurs de droits et riverains. Appâts végétaux, remise à l'eau immédiate. Parcours de la Vilaine limités aux nuits du vendredi au lundi.",
+    "source": "https://www.peche35.fr/cms_viewFile.php?idtf=52433&path=Gude-pratique.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Saumon et truite de mer : pêche fermée en 2026 (arrêté préfectoral).",
+    "source": "https://www.peche35.fr/cms_viewFile.php?idtf=52433&path=Gude-pratique.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Parcours no-kill : black-bass, brochet (relâcher des brochets de plus de 80 cm sur certains plans d'eau), perche (étang de la Biardais), carpe et toutes espèces sur parcours listés ; hameçons sans ardillon exigés.",
+    "source": "https://www.peche35.fr/cms_viewFile.php?idtf=52433&path=Gude-pratique.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Réserves annuelles : nombreux ruisseaux et plans d'eau interdits à la pêche toute l'année 2026 (ex. Cantache, Valière, Chèze, Haute-Vilaine) ; liste complète dans le guide.",
+    "source": "https://www.peche35.fr/cms_viewFile.php?idtf=52433&path=Gude-pratique.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Écrevisse à pattes blanches : pêche interdite. Espèces invasives : 6 balances maximum, 30 cm de diamètre, maille de 10 mm minimum.",
+    "source": "https://www.peche35.fr/cms_viewFile.php?idtf=52433&path=Gude-pratique.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Anguille jaune : arrêté 2026 de fermeture anticipée de la pêche de loisir ; déclaration des captures obligatoire à partir du 12 juin 2026 (délai 24 h).",
+    "source": "https://www.peche35.fr/4101-documents-telechargeables.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Arrêté préfectoral 2026 réglementant la pêche en eau douce publié sur le site de la fédération.",
+    "source": "https://www.peche35.fr/4101-documents-telechargeables.htm",
+    "confidence": "verifie"
+   }
+  ]
+ }
+}

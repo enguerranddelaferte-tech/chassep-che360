@@ -1,10 +1,10 @@
 {
  "dpt": "38",
  "name": "Isère",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
+  "peche": "https://www.peche-isere.com/dates-reglementation-peche-isere-38.html",
   "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2025/07/FDC-38.pdf"
  },
  "chasse": {
@@ -35,8 +35,89 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 23,
+    "dailyQuota": null,
+    "period": "2e samedi de mars-11 octobre",
+    "note": "Exceptions : 25 cm (bassins Gère, Sévenne), 30 cm (Isère, Rive, sud Laffrey, lac Mort, Monteynard). Salmonidés : 6 par jour.",
+    "source": "https://www.peche-isere.com/dates-reglementation-peche-isere-38.html",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re catégorie",
+    "minSize": 35,
+    "dailyQuota": 1,
+    "period": "3e samedi de mai-11 octobre",
+    "note": "1 ombre ou 1 cristivomer par jour.",
+    "source": "https://www.peche-isere.com/dates-reglementation-peche-isere-38.html",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "Dernier samedi d'avril-11 octobre (1re catégorie)",
+    "note": "Carnassiers : 3 par jour dont 2 brochets au plus. Fermeture hivernale en 2e catégorie.",
+    "source": "https://www.peche-isere.com/dates-reglementation-peche-isere-38.html",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Fermeture hivernale et printanière en 2e catégorie.",
+    "source": "https://www.peche-isere.com/dates-reglementation-peche-isere-38.html",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "Fermé du 4 mai au 30 juin (2e catégorie)",
+    "note": "",
+    "source": "https://www.peche-isere.com/dates-reglementation-peche-isere-38.html",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Pêche de l'anguille interdite (jaune et argentée).",
+    "source": "https://www.peche-isere.com/dates-reglementation-peche-isere-38.html",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Carpe de nuit autorisée à toute heure, toute l'année, sur plans d'eau et tronçons listés avec accord du détenteur de droits (ex. étang des Marais à Courtenay, lac Mort, rive gauche du Rhône). Carpes de nuit non conservables ni transportables. Demande d'autorisation temporaire avant le 1er mars.",
+    "source": "https://www.peche-isere.com/dates-reglementation-peche-isere-38.html",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Écrevisses : 10 jours consécutifs à partir du 4e samedi de juillet ; taille minimale 9 cm.",
+    "source": "https://www.peche-isere.com/dates-reglementation-peche-isere-38.html",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Réserves de pêche de 5 ans (celles créées en 2022 valables jusqu'en 2026), consultables sur map.geopeche.com/38.",
+    "source": "https://www.peche-isere.com/dates-reglementation-peche-isere-38.html",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Lacs de Paladru et Monteynard-Avignonet : dates propres. Truite 30 cm à Monteynard.",
+    "source": "https://www.peche-isere.com/dates-reglementation-peche-isere-38.html",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

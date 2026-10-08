@@ -1,11 +1,11 @@
 {
  "dpt": "89",
  "name": "Yonne",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
-  "arretes": ""
+  "peche": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+  "arretes": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff"
  },
  "chasse": {
   "saison": "2026-2027",
@@ -27,8 +27,104 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 1,
+    "period": "Dates 2024 : pêche ouverte à partir du 27 avril ; dates 2026 non lues.",
+    "note": "Texte de l'avis 2024 : brochets hors fenêtre 60-80 cm à remettre à l'eau vivants. Carnassiers en 2e cat. : 3 par jour dont 1 brochet. À confirmer pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "Dates 2024 : 1er au 28 janvier et 27 avril au 31 décembre (2e cat.).",
+    "note": "Avis 2024, scan peu lisible. À confirmer pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": null,
+    "note": "Avis 2024 : pêche en no-kill uniquement, sous réserve d'arrêté spécifique. À confirmer pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": 25,
+    "dailyQuota": 6,
+    "period": "Dates 2024 : 9 mars au 15 septembre.",
+    "note": "Avis 2024 : 23 cm sur la Cure, le Cousin et affluents en amont de leur confluence, 25 cm ailleurs. Quota de 6 salmonidés par jour. À confirmer pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 35,
+    "dailyQuota": null,
+    "period": "Dates 2024 : 18 mai au 15 septembre (1re cat.) ; 18 mai au 31 décembre (2e cat.).",
+    "note": "Avis 2024. À confirmer pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "1re et 2e catégorie",
+    "minSize": 12,
+    "dailyQuota": null,
+    "period": "Dates 2024 (scan peu lisible) : jusqu'au 15 juillet.",
+    "note": "Anguille argentée interdite. À confirmer pour 2026.",
+    "source": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Carpe",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Carpe de nuit toute l'année sur parcours listés (avis 2024).",
+    "note": "No-kill obligatoire la nuit, appâts végétaux uniquement.",
+    "source": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "toutes",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Pêche interdite.",
+    "note": "Avis 2024 : écrevisses à pattes rouges, des torrents, à pattes blanches et à pattes grêles interdites.",
+    "source": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Seul l'arrêté annuel 2024 de la DDT de l'Yonne (n° DDT/SEE/2023/0052) a pu être lu, via une copie ; texte numérisé partiellement illisible. Aucun document 2026 trouvé : toutes les valeurs sont à confirmer.",
+    "source": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Carpe de nuit (avis 2024) : autorisée toute l'année en 2e catégorie sur parcours listés, no-kill obligatoire, appâts végétaux uniquement ; aucune carpe gardée ni transportée entre 30 min après le coucher et 30 min avant le lever du soleil ; secteurs balisés par les AAPPMA ; camping interdit hors secteurs prévus.",
+    "source": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pêche de nuit interdite sur les 50 m en aval de chaque ouvrage (barrage, prise d'eau, écluse). Réservoir de Bourdon et Grande Mer (réserve de 1000 m) soumis à restrictions locales.",
+    "source": "https://politique.pappers.fr/commune/document/b96015073895d3145a2e20fd6a38bbff",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

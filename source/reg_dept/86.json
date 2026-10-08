@@ -1,10 +1,10 @@
 {
  "dpt": "86",
  "name": "Vienne",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
+  "peche": "https://www.peche86.fr/periodes-douverture-2017/",
   "arretes": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-86.pdf"
  },
  "chasse": {
@@ -151,8 +151,49 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Taille légale 60 cm (article fédéral d'avril 2023). Dates de fermeture et quota non lus.",
+    "source": "http://www.peche86.fr/ouverture-du-brochet/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Remise à l'eau immédiate obligatoire : plans d'eau des Îles de Payré, de Nonnes et de Civaux ; barrages EDF de la Vienne (Chardes, Roches, Jousseau, Châtellerault) ; Creuse de la confluence avec la Gartempe au pont de Lésigny.",
+    "source": "https://www.peche86.fr/periodes-douverture-2017/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Carnet de capture obligatoire.",
+    "source": "https://www.peche86.fr/periodes-douverture-2017/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture 2026 : cours d'eau de 1re catégorie du 14/03 au 20/09 inclus ; 2e catégorie ouverte toute l'année.",
+    "source": "https://www.peche86.fr/periodes-douverture-2017/",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Parcours carpe de nuit sur la Vienne à Jousseau (amont), aménagé par la fédération et l'AAPPMA La Carpe Availlaise ; conditions détaillées non lues.",
+    "source": "http://www.peche86.fr/les-parcours-de-peche/4573/",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

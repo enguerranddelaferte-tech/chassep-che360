@@ -1,0 +1,69 @@
+{
+ "dpt": "40",
+ "liens": {
+  "peche": "https://www.peche-landes.com/wp-content/uploads/2026/01/",
+  "arretes": "https://www.landes.gouv.fr/contenu/telechargement/21708/179666/file/2022-xxxx-_arrete_annuel_2023_autre_que_migrateurs.odt.pdf"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "",
+    "note": "Arrêté 2023 : brochet conservable entre 60 et 80 cm ; 2e catégorie : 3 captures sandre/brochet/black-bass dont 2 brochets. Dates et valeurs 2026 à confirmer.",
+    "source": "https://www.landes.gouv.fr/contenu/telechargement/21708/179666/file/2022-xxxx-_arrete_annuel_2023_autre_que_migrateurs.odt.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Valeur de l'arrêté 2023.",
+    "source": "https://www.landes.gouv.fr/contenu/telechargement/21708/179666/file/2022-xxxx-_arrete_annuel_2023_autre_que_migrateurs.odt.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 40,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Valeur de l'arrêté 2023.",
+    "source": "https://www.landes.gouv.fr/contenu/telechargement/21708/179666/file/2022-xxxx-_arrete_annuel_2023_autre_que_migrateurs.odt.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 35,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Valeur de l'arrêté 2023.",
+    "source": "https://www.landes.gouv.fr/contenu/telechargement/21708/179666/file/2022-xxxx-_arrete_annuel_2023_autre_que_migrateurs.odt.pdf",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Arrêté DDTM n°1458 du 2 décembre 2025 : parcours no-kill 2026 (black-bass : Biscarrosse, Mimizan, Soustons, Léon, etc. ; brochet : Morcenx/Onesse et étang d'Abesse ; truite fario : Escource, Petite Leyre ; carnassiers : pré-lac de Renung ; carpe : Bois de Boulogne et Estey à Dax, Tailluret, Bias, Laubanère).",
+    "source": "https://www.peche-landes.com/wp-content/uploads/2026/01/2025-1458-NO-KILL-LANDES-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Arrêté DDTM n°1460 : réserves de pêche 2026 (permanentes toute l'année ; temporaires par exemple du 1er février au 14 juin sur plusieurs ports et lacs de Biscarrosse, Léon, Parentis, Soustons, etc.). Plans sur le site de la fédération.",
+    "source": "https://www.peche-landes.com/wp-content/uploads/2026/01/2025-1460-Reserves-de-peche-LANDES-2026.pdf",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Arrêté 2023 : une seule ligne par pêcheur sur les plans d'eau de Labeyrie, Peyrard et Bourg-le-Vieux ; écrevisses à pattes rouges, blanches et grêles interdites ; aucune disposition carpe de nuit dans ce texte.",
+    "source": "https://www.landes.gouv.fr/contenu/telechargement/21708/179666/file/2022-xxxx-_arrete_annuel_2023_autre_que_migrateurs.odt.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

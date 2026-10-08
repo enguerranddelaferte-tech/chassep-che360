@@ -1,11 +1,11 @@
 {
  "dpt": "65",
  "name": "Hautes-Pyrénées",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "",
-  "peche": "",
-  "arretes": ""
+  "peche": "https://www.peche65.fr/3582-reglementation-generale.htm",
+  "arretes": "https://www.peche65.fr/cms_viewFile.php?idtf=36031&path=Arrete-prefectoral-portant-sur-les-reserves-interdictions-et-parcours-de-peche.pdf"
  },
  "chasse": {
   "saison": "2026-2027",
@@ -27,8 +27,109 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1er au 25 janvier et 25 avril au 31 déc. 2026",
+    "note": "3 carnassiers par jour dont 2 brochets max. Lac de Castelnau-Magnoac : brochets de 60 à 80 cm à relâcher. En 1re catégorie : 50 cm, 2 par jour, 25 avril au 20 sept. (lacs de montagne : 50 cm, 2 par sortie).",
+    "source": "https://www.peche65.fr/3582-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": 3,
+    "period": "1er au 25 janvier et 25 avril au 31 déc. 2026",
+    "note": "Quota de 3 carnassiers par jour (dont 2 brochets max).",
+    "source": "https://www.peche65.fr/3582-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er au 25 janvier et 25 avril au 31 déc. 2026",
+    "note": "No-kill sur tout le département.",
+    "source": "https://www.peche65.fr/3582-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Perche",
+    "category": "2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "1er au 25 janvier et 25 avril au 31 déc. 2026 (listée avec les carnassiers)",
+    "note": "Taille minimale non précisée sur la page.",
+    "source": "https://www.peche65.fr/3582-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 18,
+    "dailyQuota": 6,
+    "period": "14 mars au 20 sept. 2026 ; lacs de montagne : 2 mai au 11 oct.",
+    "note": "18, 20 ou 23 cm selon le cours d'eau ou plan d'eau. 6 salmonidés par jour ; 10 par sortie en lacs de montagne et 10 par jour en concours.",
+    "source": "https://www.peche65.fr/3582-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re catégorie",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "non précisée",
+    "note": "No-kill sur tout le département.",
+    "source": "https://www.peche65.fr/3582-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "1re catégorie",
+    "minSize": 12,
+    "dailyQuota": null,
+    "period": "non précisée sur la page",
+    "note": "Anguille jaune seulement ; civelles, anguillettes et anguilles argentées interdites.",
+    "source": "https://www.peche65.fr/3582-reglementation-generale.htm",
+    "confidence": "verifie"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Lacs de montagne : 2 mai au 11 oct. 2026 ; six lacs ouvrent dès le 14 mars (Estaing, barrage du Tech, Artigues, Payolle, Avajan, Genos-Loudenvielle). Truites 18 cm, cristivomer 35 cm. 2 lignes max.",
+    "source": "https://www.peche65.fr/3583-reglementation-des-lacs-de-montagne.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Lacs de montagne : asticots et autres larves interdits, seul le vairon est admis comme poisson appât ; pêche depuis les digues interdite. Les lacs de Grézioles et de l'Oule peuvent être fermés en 2026 pour travaux.",
+    "source": "https://www.peche65.fr/3583-reglementation-des-lacs-de-montagne.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Classement : 1re catégorie = cours d'eau à salmonidés (environ 93 % des cours d'eau) ; 2e catégorie = autres cours d'eau, plans d'eau et canaux. Pêche de jour : 30 min avant le lever à 30 min après le coucher.",
+    "source": "https://www.peche65.fr/3582-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Écrevisses exotiques pêchables sans quota (6 balances max en 1re catégorie) ; écrevisse à pattes blanches interdite.",
+    "source": "https://www.peche65.fr/3582-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Réserves, interdictions et parcours spéciaux : fixés par l'arrêté préfectoral annuel (détail dans le PDF de la fédération).",
+    "source": "https://www.peche65.fr/3582-reglementation-generale.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Zone cœur du Parc national (projet 2026, consultation avril-mai 2026) : réserves à Cauterets (gave, lacs d'Arraillé) et Gavarnie-Gèdre (ruisseau de la Prade) ; no-kill sur gave d'Estaubé, gave du Marcadau, lac des Especières.",
+    "source": "https://pyrenees-parcnational.fr/sites/pyrenees-parcnational.fr/files/2026-04/2026_04%20Annexe%20consultation%20public_Projet%20Arrete_2.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

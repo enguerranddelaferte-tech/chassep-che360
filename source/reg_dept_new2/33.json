@@ -1,0 +1,23 @@
+{
+ "dpt": "33",
+ "liens": {
+  "peche": "",
+  "arretes": "https://www.gironde.gouv.fr/Actions-de-l-Etat/Environnement-risques-naturels-et-technologiques/Environnement/Especes/Peche/Arretes-reglementaires"
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [],
+  "infos": [
+   {
+    "text": "Carpe de nuit (arrêté DDTM du 17 décembre 2024, valable en 2025, reconduction 2026 non confirmée) : parcours listés en annexe, 4 lignes maximum depuis la berge, 2 hameçons par ligne, bateau interdit, appâts végétaux seulement.",
+    "source": "https://www.mairie-cestas.fr/wp-content/uploads/2024/12/2024-12-17-FDP33-AP-peche-carpe-de-nuit-33-2025.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Carpe de nuit : pas de maintien en captivité la nuit, remise à l'eau immédiate des carpes de plus de 60 cm ; accord écrit du détenteur du droit de pêche obligatoire.",
+    "source": "https://www.mairie-cestas.fr/wp-content/uploads/2024/12/2024-12-17-FDP33-AP-peche-carpe-de-nuit-33-2025.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

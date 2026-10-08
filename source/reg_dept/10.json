@@ -1,7 +1,7 @@
 {
  "dpt": "10",
  "name": "Aube",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "https://www.fdc10.org",
   "peche": "",
@@ -105,8 +105,104 @@
  },
  "peche": {
   "saison": "2026",
-  "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 60,
+    "dailyQuota": 2,
+    "period": "1re cat. : 2e samedi de mars au 3e dimanche de septembre. 2e cat. : 1er janvier au dernier dimanche de janvier, puis dernier samedi d'avril au 31 décembre",
+    "note": "1re cat. : brochet pris avant le dernier vendredi d'avril remis à l'eau. 2 brochets par jour au plus. Règlement permanent de novembre 2023 ; un arrêté du 7 novembre 2025 existe, à vérifier.",
+    "source": "https://politique.pappers.fr/commune/document/9eede4e7749f87abe5c01c8778f70e53",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": null,
+    "period": "1er janvier au dernier dimanche de janvier, puis 2e samedi de juin au 31 décembre",
+    "note": "2e cat. : 3 carnassiers par jour (sandre, brochet, black-bass), dont 2 brochets au plus.",
+    "source": "https://politique.pappers.fr/commune/document/9eede4e7749f87abe5c01c8778f70e53",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Black-bass",
+    "category": "2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Compris dans la limite de 3 carnassiers par jour en 2e catégorie.",
+    "source": "https://politique.pappers.fr/commune/document/9eede4e7749f87abe5c01c8778f70e53",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re et 2e catégorie",
+    "minSize": 25,
+    "dailyQuota": 6,
+    "period": "2e samedi de mars au 3e dimanche de septembre",
+    "note": "6 salmonidés par pêcheur et par jour.",
+    "source": "https://politique.pappers.fr/commune/document/9eede4e7749f87abe5c01c8778f70e53",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "1re et 2e catégorie",
+    "minSize": 30,
+    "dailyQuota": null,
+    "period": "1re cat. : 3e samedi de mai au 3e dimanche de septembre. 2e cat. : 3e samedi de mai au 31 décembre",
+    "note": "Pêche en marchant dans l'eau interdite sur un tronçon de la Seine du 2e samedi de mars à la veille du 3e samedi de mai (frayères).",
+    "source": "https://politique.pappers.fr/commune/document/9eede4e7749f87abe5c01c8778f70e53",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Anguille",
+    "category": "1re et 2e catégorie",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "Anguille jaune : 2e samedi de mars au 15 juillet (1re cat.), 15 février au 15 juillet (2e cat.). Anguille argentée interdite toute l'année",
+    "note": "Dates à confirmer : l'anguille fait l'objet d'évolutions réglementaires nationales.",
+    "source": "https://politique.pappers.fr/commune/document/9eede4e7749f87abe5c01c8778f70e53",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Carpe de nuit (pêche à toute heure) autorisée sur des sections désignées : canal de la Haute-Seine, plusieurs tronçons de la Seine, canal de dérivation de Bernières, canal de Beaulieu à Villiers, ballastière de Beaulieu, Melda. De nuit, seuls esches et bouillettes végétales sont admises.",
+    "source": "https://politique.pappers.fr/commune/document/9eede4e7749f87abe5c01c8778f70e53",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Réserves temporaires du 1er janvier au 15 juillet : pêche interdite dans une liste de noues, bras morts et ruisseaux de l'Aube et de la Seine.",
+    "source": "https://politique.pappers.fr/commune/document/9eede4e7749f87abe5c01c8778f70e53",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Pendant la fermeture du brochet, pêche au vif, au poisson mort et aux leurres interdite en eaux libres de 2e catégorie.",
+    "source": "https://politique.pappers.fr/commune/document/9eede4e7749f87abe5c01c8778f70e53",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Écrevisses : pêche interdite toute l'année pour les espèces à pattes rouges, des torrents, à pattes blanches et à pattes grêles. Vermée et 6 balances au plus pour les autres.",
+    "source": "https://politique.pappers.fr/commune/document/9eede4e7749f87abe5c01c8778f70e53",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Horaires : pêche de une demi-heure avant le lever à une demi-heure après le coucher du soleil, sauf carpe de nuit.",
+    "source": "https://politique.pappers.fr/commune/document/9eede4e7749f87abe5c01c8778f70e53",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Réserve naturelle nationale de la Seine champenoise (décret 2025-688) : carpe de nuit interdite dans les cours d'eau et annexes de la réserve ; pêche interdite dans les noues de Tourne-cul (Pont-sur-Seine) et du Bas des Pâtures (Marnay-sur-Seine).",
+    "source": "https://politique.pappers.fr/commune/document/e0fff397b7f6f331c8557493dd1a1bb2",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Un arrêté préfectoral du 7 novembre 2025 relatif à l'exercice de la pêche en eau douce dans l'Aube est cité par des arrêtés de janvier et mars 2026 ; son contenu n'a pas pu être lu.",
+    "source": "https://politique.pappers.fr/commune/document/4316ca1e1d984e12eab5ffe47693c670",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

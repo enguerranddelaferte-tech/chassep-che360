@@ -1,12 +1,163 @@
-{"dpt":"83","name":"Var","verifiedOn":"2026-10-07",
-"liens":{"fdc":"https://www.fdc83.com/dates-douverture-de-la-chasse/","peche":"","arretes":"https://www.fdc83.com/wp-content/uploads/2026/09/AP_Ouverture-et-cloture-26-27.pdf"},
-"chasse":{"saison":"2026-2027","ouverture":"13 septembre 2026","cloture":"28 février 2027","joursSansChasse":"","note":"Dates par espèce non lisibles (arrêté en PDF image) : seules les dates générales ont été trouvées.","sources":["https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-var/","https://www.fdc83.com/dates-douverture-de-la-chasse/"],
-"especes":[
-{"species":"Sanglier","period":"Chasse possible dès le 01/06 jusqu'à l'ouverture générale, dans des conditions particulières.","mode":"","note":"Ouverture anticipée soumise à autorisations préfectorales.","source":"https://www.fdc83.com/dates-douverture-de-la-chasse/","confidence":"a_verifier"},
-{"species":"Chevreuil","period":"Chasse possible dès le 01/06 jusqu'à l'ouverture générale, dans des conditions particulières.","mode":"","note":"Ouverture anticipée soumise à autorisations préfectorales.","source":"https://www.fdc83.com/dates-douverture-de-la-chasse/","confidence":"a_verifier"}
-],
-"infos":[
-{"text":"Ouverture générale le 13 septembre 2026 à 7h, clôture générale le 28 février 2027 au soir.","source":"https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-var/","confidence":"a_verifier"},
-{"text":"Arrêté préfectoral d'ouverture et de clôture 2026-2027 signé à Toulon (mai 2026) ; dates des oiseaux de passage et du gibier d'eau fixées par le ministère de la Transition écologique.","source":"https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-83.pdf","confidence":"a_verifier"}
-]},
-"peche":{"saison":"2026","note":"aucune source locale trouvée","especes":[],"infos":[]}}
+{
+ "dpt": "83",
+ "name": "Var",
+ "verifiedOn": "2026-10-08",
+ "liens": {
+  "fdc": "https://www.fdc83.com/dates-douverture-de-la-chasse/",
+  "peche": "https://www.pechevar.fr/1048-tailles-et-quotas-des-poissons.htm",
+  "arretes": "https://www.fdc83.com/wp-content/uploads/2026/09/AP_Ouverture-et-cloture-26-27.pdf"
+ },
+ "chasse": {
+  "saison": "2026-2027",
+  "ouverture": "13 septembre 2026",
+  "cloture": "28 février 2027",
+  "joursSansChasse": "",
+  "note": "Dates par espèce non lisibles (arrêté en PDF image) : seules les dates générales ont été trouvées.",
+  "sources": [
+   "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-var/",
+   "https://www.fdc83.com/dates-douverture-de-la-chasse/"
+  ],
+  "especes": [
+   {
+    "species": "Sanglier",
+    "period": "Chasse possible dès le 01/06 jusqu'à l'ouverture générale, dans des conditions particulières.",
+    "mode": "",
+    "note": "Ouverture anticipée soumise à autorisations préfectorales.",
+    "source": "https://www.fdc83.com/dates-douverture-de-la-chasse/",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Chevreuil",
+    "period": "Chasse possible dès le 01/06 jusqu'à l'ouverture générale, dans des conditions particulières.",
+    "mode": "",
+    "note": "Ouverture anticipée soumise à autorisations préfectorales.",
+    "source": "https://www.fdc83.com/dates-douverture-de-la-chasse/",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Ouverture générale le 13 septembre 2026 à 7h, clôture générale le 28 février 2027 au soir.",
+    "source": "https://www.chasseurdefrance.com/pratiquer/dates-de-chasse/federation-departementale-du-var/",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Arrêté préfectoral d'ouverture et de clôture 2026-2027 signé à Toulon (mai 2026) ; dates des oiseaux de passage et du gibier d'eau fixées par le ministère de la Transition écologique.",
+    "source": "https://www.chasseurdefrance.com/wp-content/uploads/2026/06/FDC-83.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
+ },
+ "peche": {
+  "saison": "2026",
+  "especes": [
+   {
+    "species": "Brochet",
+    "category": "1re et 2e catégorie",
+    "minSize": 50,
+    "dailyQuota": 2,
+    "period": "1re cat. : dernier samedi d'avril au 1er dimanche d'octobre ; 2e cat. : 1er janvier au dernier dimanche de janvier et dernier samedi d'avril au 31 décembre",
+    "note": "Fenêtre de capture 50 à 70 cm (trop petits et trop grands relâchés). Quota : 3 carnassiers (brochet, sandre) dont 2 brochets au plus. Périodes issues d'une page non datée.",
+    "source": "https://www.pechevar.fr/1048-tailles-et-quotas-des-poissons.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Sandre",
+    "category": "2e catégorie",
+    "minSize": 50,
+    "dailyQuota": 3,
+    "period": "",
+    "note": "40 cm dans les lacs du Bas Verdon. Compte dans les 3 carnassiers par jour.",
+    "source": "https://www.pechevar.fr/1048-tailles-et-quotas-des-poissons.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Black-bass",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "No-kill sur tout le département : toute capture est remise à l'eau.",
+    "source": "https://www.pechevar.fr/1048-tailles-et-quotas-des-poissons.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Truite fario",
+    "category": "1re catégorie",
+    "minSize": 23,
+    "dailyQuota": 1,
+    "period": "2e samedi de mars au 1er dimanche d'octobre",
+    "note": "Quota de 4 salmonidés par jour dont 1 truite fario au plus (depuis 2026). Taille 30 cm dans le Bas Verdon, 40 cm dans les lacs du Bas Verdon.",
+    "source": "https://www.pechevar.fr/1048-tailles-et-quotas-des-poissons.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Ombre commun",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "No-kill.",
+    "source": "https://www.pechevar.fr/1048-tailles-et-quotas-des-poissons.htm",
+    "confidence": "verifie"
+   },
+   {
+    "species": "Anguille",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": 0,
+    "period": "Fermée toute l'année",
+    "note": "Anguille jaune, argentée et civelle : fermées toute l'année (page non datée).",
+    "source": "https://www.pechevar.fr/1047-periodes-d-ouverture.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Carpe",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Carpe de nuit du vendredi 12h au lundi 12h sur lacs du Revest, Sainte-Suzanne, Endre et Rimade (réservation) et Bas Gapeau (no-kill, réservation). Transport vivant interdit au-delà de 60 cm. Pages non datées.",
+    "source": "https://www.pechevar.fr/1052-peche-de-la-carpe-de-nuit.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "species": "Écrevisses",
+    "category": "",
+    "minSize": null,
+    "dailyQuota": null,
+    "period": "",
+    "note": "Pêche de l'écrevisse à pattes blanches interdite dans le Var. Jusqu'à 6 balances pour les espèces invasives (signal, américaine, de Louisiane).",
+    "source": "https://www.pechevar.fr/1049-modes-de-peche-autorises.htm",
+    "confidence": "a_verifier"
+   }
+  ],
+  "infos": [
+   {
+    "text": "Heures légales de pêche : 30 min avant le lever à 30 min après le coucher du soleil.",
+    "source": "https://www.pechevar.fr/1047-periodes-d-ouverture.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Truite arc-en-ciel : mêmes dates que la fario en 1re catégorie ; toute l'année en 2e catégorie sauf Argens, Siagne et lacs du Bas Verdon.",
+    "source": "https://www.pechevar.fr/1047-periodes-d-ouverture.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Sandre : mêmes dates que le brochet en 2e catégorie, sauf lac de Sainte-Croix ouvert toute l'année hors réserves temporaires.",
+    "source": "https://www.pechevar.fr/1047-periodes-d-ouverture.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Lignes : 1 ligne en 1re catégorie, 4 lignes en 2e catégorie ; 2 lignes sur certains lacs (Carnier, Plan du Pont, Banegon). Camping sauvage interdit.",
+    "source": "https://www.pechevar.fr/1049-modes-de-peche-autorises.htm",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "2e catégorie : pendant la fermeture du brochet et du sandre, vifs, poissons morts ou artificiels et leurres pouvant les capturer sont interdits.",
+    "source": "https://www.pechevar.fr/1049-modes-de-peche-autorises.htm",
+    "confidence": "a_verifier"
+   }
+  ]
+ }
+}

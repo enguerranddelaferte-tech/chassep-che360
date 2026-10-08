@@ -1,10 +1,10 @@
 {
  "dpt": "45",
  "name": "Loiret",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "https://fdc45.fr/",
-  "peche": "",
+  "peche": "https://www.federationpeche45.fr/6251-reglementation.htm",
   "arretes": "https://fdc45.fr/documentations/les-reglementations-et-arretes/"
  },
  "chasse": {
@@ -117,7 +117,37 @@
  "peche": {
   "saison": "2026",
   "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "infos": [
+   {
+    "text": "Dates, tailles et quotas : fixés par l'arrêté permanent (mis à jour le 19/12/2025) et l'avis annuel 2026, publiés par la fédération (PDF non lisibles à la collecte).",
+    "source": "https://www.federationpeche45.fr/6251-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "1re catégorie : Juine, Cléry, Ouanne, Betz, Notreure en amont du moulin de Fort-Bois, Aquiaulne (source au pont Bribard), Aveyron (source au Loing), avec affluents et plans d'eau connectés.",
+    "source": "https://www.federationpeche45.fr/6251-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Accès interdit du 1er avril au 15 août à certaines îles de la Loire (protection des sternes), notamment à Beaulieu, Châtillon, Lion-en-Sullias, Ouzouer, Germigny, Sandillon, Mareau-aux-Prés, Chaingy, Beaugency.",
+    "source": "https://www.federationpeche45.fr/6251-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Pêche de jour : de 30 min avant le lever à 30 min après le coucher du soleil. Poisson sous taille remis à l'eau immédiatement sur place.",
+    "source": "https://www.federationpeche45.fr/6251-reglementation.htm",
+    "confidence": "verifie"
+   },
+   {
+    "text": "Réserves de pêche fixées par arrêté préfectoral pour 5 ans (période 2022-2026 en projet consulté).",
+    "source": "https://www.loiret.gouv.fr/index.php/contenu/telechargement/53944/371313/file/pjt-arr reserve et interdiction temporaire2022-2026_IDE.pdf",
+    "confidence": "a_verifier"
+   },
+   {
+    "text": "Carpe de nuit (projet d'arrêté 2023-2030, non signé sur la version lue) : Loire depuis les rives, canal de Briare, ancien canal latéral à la Loire, lac des Closiers ; appâts végétaux uniquement, aucune carpe gardée.",
+    "source": "https://www.loiret.gouv.fr/contenu/telechargement/64566/510140/file/20230215_pjt_arr_carpe_nuit_departemental_2023-2030.pdf",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }

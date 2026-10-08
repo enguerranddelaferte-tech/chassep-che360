@@ -1,7 +1,7 @@
 {
  "dpt": "07",
  "name": "Ardèche",
- "verifiedOn": "2026-10-07",
+ "verifiedOn": "2026-10-08",
  "liens": {
   "fdc": "https://www.chasseardeche.fr/",
   "peche": "",
@@ -82,7 +82,12 @@
  "peche": {
   "saison": "2026",
   "especes": [],
-  "infos": [],
-  "note": "aucune source locale trouvée"
+  "infos": [
+   {
+    "text": "Pêche de la carpe de nuit encadrée par un arrêté interpréfectoral pluriannuel Ardèche-Drôme (20 décembre 2024) pour des lots du domaine public fluvial (Rhône). Lots, dates et horaires non lisibles dans la copie consultée : à vérifier auprès de la DDT.",
+    "source": "https://politique.pappers.fr/commune/document/14c5005e75dc0bf1e01f3c173abeaaa0",
+    "confidence": "a_verifier"
+   }
+  ]
  }
 }
