@@ -228,7 +228,7 @@ rep('a.departments.map(p=>e("option"', 'RegDeptList().map(p=>e("option"')
 rep(r'p.covered?(r=p.code,u()):A(`${p.name} n\u2019est pas encore couvert : affichage du ${r}.`,"warn")', '(r=p.code,u())')
 
 # 30) Réglementation : tableaux d'espèces chassables / poissons (en tête des règles nationales)
-rep('var wl,Hi=H(()=>{wl=Ui({', open(D+'js_species.js',encoding='utf-8').read()+'\n'+open(D+'js_species_info.js',encoding='utf-8').read()+'\n'+open(D+'js_premium.js',encoding='utf-8').read()+'\nvar wl,Hi=H(()=>{wl=Ui({')
+rep('var wl,Hi=H(()=>{wl=Ui({', open(D+'js_species.js',encoding='utf-8').read()+'\n'+open(D+'js_species_tips.js',encoding='utf-8').read()+'\n'+open(D+'js_species_info.js',encoding='utf-8').read()+'\n'+open(D+'js_premium.js',encoding='utf-8').read()+'\nvar wl,Hi=H(()=>{wl=Ui({')
 
 # 31) Territoire : sélection de parcelles cadastrales (API Carto IGN) + écran de création épuré pour téléphone
 _pc_helpers=open(D+'js_parcelles.js',encoding='utf-8').read()
@@ -346,3 +346,14 @@ rep(r'vent anim\xE9 et choix des parcelles cadastrales (Chasse ou P\xEAche), bat
 # 46) Carnet de pêche : couronne Premium sur les fonctions payantes (stats, carnet illimité)
 rep(r'e("p.tiny.muted",{style:{marginBottom:0}},"Carnet illimit\xE9 et statistiques avec Premium P\xEAche.")', r'e("p.tiny.muted",{style:{marginBottom:0}},"Carnet illimit\xE9 et statistiques : ",PremEl())')
 rep(r'k({title:"Statistiques"},Bn("Vos meilleurs leurres', r'k({title:"Statistiques"},e("div",{style:{marginBottom:"8px"}},PremEl()),Bn("Vos meilleurs leurres')
+
+# 47) Limites : gratuit = 20 prélèvements, 5 spots, 1 territoire ; Premium = illimité
+rep('if(_.territories.count(a=>a.ownerId===t.user.id)>=3)throw new ce(400,"Vous pouvez créer jusqu’à 3 territoires personnels.");', '')
+rep('L’offre gratuite inclut 1 territoire. Premium : jusqu’à 3 territoires, exports GPX/KML et cartes hors ligne.', 'L’offre gratuite inclut 1 territoire. Passez en Premium pour en créer sans limite.')
+rep('let c=he.spots.insert({userId:t.user.id,name:n,', 'if(t.user.plan==="free"&&t.user.role!=="admin"&&he.spots.count(F=>F.userId===t.user.id)>=5)throw new Xe(402,"L’offre gratuite inclut 5 spots. Passez en Premium pour en enregistrer sans limite.",{feature:"spots.unlimited"});let c=he.spots.insert({userId:t.user.id,name:n,')
+rep('K.post("/harvests",pe(async(t,r)=>{tn(t.body,{territoryId:"string",species:"string",sex:"string"});', 'K.post("/harvests",pe(async(t,r)=>{tn(t.body,{territoryId:"string",species:"string",sex:"string"});if(!["chasse","combo"].includes(t.user.plan)&&t.user.role!=="admin"&&_.harvests.count(g=>g.userId===t.user.id)>=20)throw new ce(402,"L’offre gratuite inclut 20 prélèvements. Passez en Premium Chasse pour un carnet de prélèvements illimité.");')
+rep('B(s,i.length?e("div.list",i.map(g=>e("div.list-row",e("span.ic",{style:{color:"var(--river)"}},b(g.type==="chasse"?"deer":"fish"))', 'B(s,SpLimit(n,i),i.length?e("div.list",i.map(g=>e("div.list-row",e("span.ic",{style:{color:"var(--river)"}},b(g.type==="chasse"?"deer":"fish"))')
+rep('B(s,e("div.grid.g-2",it(u.length,"Animaux")', 'B(s,HarvLimit(n,u),e("div.grid.g-2",it(u.length,"Animaux")')
+rep(r'tagline:"S\xE9curit\xE9 (SOS, 30\xB0, Sortie en cours), entraide, carte de base"', 'tagline:"Sécurité (SOS, 30°, Sortie en cours), entraide, carte de base, 20 prises ou prélèvements, 5 spots"')
+rep(r'tagline:"Cartes HD, hors ligne, exports GPX/KML, m\xE9t\xE9o d\xE9taill\xE9e, vent"', 'tagline:"Cartes HD, hors ligne, exports GPX/KML, météo détaillée, vent, prélèvements et spots illimités"')
+rep(r'tagline:"Bathym\xE9trie, carnet illimit\xE9, hors ligne, exports, spots confidentiels"', 'tagline:"Bathymétrie, carnet et spots illimités, hors ligne, exports, spots confidentiels"')

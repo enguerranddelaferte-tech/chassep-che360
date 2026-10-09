@@ -43,6 +43,7 @@ sec(ch?"Période de chasse":"Période de pêche",e("p.small",{style:{margin:"4px
 sec("Période de reproduction",e("p.small",{style:{margin:"4px 0 0",lineHeight:"1.55"}},info?info[1]:"Non renseignée pour cette espèce."),e("div.tiny.muted",{style:{marginTop:"2px"}},"Dates indicatives : elles varient selon l’année, le climat et la région.")),
 sec("Réglementation",e("p.small",{style:{margin:"4px 0 0",lineHeight:"1.55"}},(ch?note:"Taille minimale nationale : "+r[2]+(note&&!/(Ouverture|Fermeture|période|Pêche)/i.test(note)?" · "+note:""))||"Pas de particularité nationale connue ; voir les arrêtés locaux."))
 );
+let tp=SP_TIPS[r[0]];if(tp)C(body,sec("Matériel conseillé",e("p.small",{style:{margin:"4px 0 0",lineHeight:"1.55"}},tp[0])),sec("Conseils",e("p.small",{style:{margin:"4px 0 0",lineHeight:"1.55"}},tp[1])),e("div.tiny.muted",{style:{marginTop:"2px"}},"Conseils généraux et indicatifs : adaptez-les à votre pratique et respectez la réglementation locale."));
 if(locals&&locals.length)C(body,sec("Dans ce département",...locals));
 C(body,e("div.tiny.muted",{style:{marginTop:"16px"}},"Les textes officiels (arrêté ministériel, arrêté préfectoral, fédération) font foi."));
 Le({title:r[0],body,wide:!0})}
