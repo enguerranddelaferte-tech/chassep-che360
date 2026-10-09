@@ -893,3 +893,6 @@ table.data td, table.data th { vertical-align: middle; }
 .map-card { background: color-mix(in srgb, var(--surface) 97%, transparent); }
 /* Photos des publications : l'emplacement est réservé et l'image s'affiche toujours */
 .photo img { display: block; min-height: 140px; background: var(--surface-3); }
+
+.prem { display: inline-flex; align-items: center; gap: 3px; margin-left: auto; padding: 2px 8px 2px 6px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .2px; line-height: 1.3; color: var(--accent); background: color-mix(in srgb, var(--accent) 13%, transparent); white-space: nowrap; flex: none; }
+.prem svg { width: 13px; height: 13px; }

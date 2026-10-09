@@ -228,7 +228,7 @@ rep('a.departments.map(p=>e("option"', 'RegDeptList().map(p=>e("option"')
 rep(r'p.covered?(r=p.code,u()):A(`${p.name} n\u2019est pas encore couvert : affichage du ${r}.`,"warn")', '(r=p.code,u())')
 
 # 30) Réglementation : tableaux d'espèces chassables / poissons (en tête des règles nationales)
-rep('var wl,Hi=H(()=>{wl=Ui({', open(D+'js_species.js',encoding='utf-8').read()+'\n'+open(D+'js_species_info.js',encoding='utf-8').read()+'\nvar wl,Hi=H(()=>{wl=Ui({')
+rep('var wl,Hi=H(()=>{wl=Ui({', open(D+'js_species.js',encoding='utf-8').read()+'\n'+open(D+'js_species_info.js',encoding='utf-8').read()+'\n'+open(D+'js_premium.js',encoding='utf-8').read()+'\nvar wl,Hi=H(()=>{wl=Ui({')
 
 # 31) Territoire : sélection de parcelles cadastrales (API Carto IGN) + écran de création épuré pour téléphone
 _pc_helpers=open(D+'js_parcelles.js',encoding='utf-8').read()
@@ -332,3 +332,12 @@ rep('e("div.row",{style:{gap:"8px",alignItems:"center"}},e("div.grow",e("b",q.na
 rep('x("Mes territoires",{icon:"map",kind:"ghost",size:"block",onClick:()=>{m.close();TerrList()}}))})}', 'x("Mes territoires",{icon:"map",kind:"ghost",size:"block",onClick:()=>{m.close();TerrList()}}),x("Partagés avec moi",{icon:"users",kind:"ghost",size:"block",onClick:()=>{m.close();ShareReceived()}}))})}')
 rep('/territoire=liste/.test(location.hash)&&setTimeout(()=>TerrList(),500);', '/territoire=liste/.test(location.hash)&&setTimeout(()=>TerrList(),500);/territoire=partages/.test(location.hash)&&setTimeout(()=>ShareReceived(),500);')
 rep(r'bathy:{label:"Bathym\xE9trie (p\xEAche)"', r'bathy:{label:"Bathym\xE9trie marine (côtes et mers)"')
+
+rep('e("a.nav-link",{href:"#"+f,dataset:{path:f,counter:T||""}},b(S),e("span",g),T?', 'e("a.nav-link",{href:"#"+f,dataset:{path:f,counter:T||""}},b(S),e("span",g),PremBadge(f),T?')
+rep('e("span.grow",U.label),h(U.premium)?b("lock"):null', 'e("span.grow",U.label),h(U.premium)?PremEl():null', count=2)
+rep(r'Bathym\xE9trie, carnet illimit\xE9, hors ligne, 3 territoires, exports, spots confidentiels', r'Bathym\xE9trie, carnet illimit\xE9, hors ligne, exports, spots confidentiels')
+rep(r'Cartes HD, hors ligne, 3 territoires, exports GPX/KML, m\xE9t\xE9o d\xE9taill\xE9e, vent', r'Cartes HD, hors ligne, exports GPX/KML, m\xE9t\xE9o d\xE9taill\xE9e, vent')
+rep(r'S\xE9curit\xE9 (SOS, 30\xB0, Sortie en cours), 1 territoire, entraide, carte de base', r'S\xE9curit\xE9 (SOS, 30\xB0, Sortie en cours), entraide, carte de base')
+rep(r'"Photo a\xE9rienne et cadastre","Territoire par parcelles cadastrales","M\xE9t\xE9o', r'"Photo a\xE9rienne et cadastre","M\xE9t\xE9o')
+rep(r'"Territoire par parcelles cadastrales, vent anim\xE9"', r'"Vent anim\xE9 sur la carte"')
+rep(r'vent anim\xE9 et choix des parcelles cadastrales (Chasse ou P\xEAche), bathym', r'vent anim\xE9 (Chasse), bathym')
