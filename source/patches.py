@@ -333,7 +333,8 @@ rep('x("Mes territoires",{icon:"map",kind:"ghost",size:"block",onClick:()=>{m.cl
 rep('/territoire=liste/.test(location.hash)&&setTimeout(()=>TerrList(),500);', '/territoire=liste/.test(location.hash)&&setTimeout(()=>TerrList(),500);/territoire=partages/.test(location.hash)&&setTimeout(()=>ShareReceived(),500);')
 rep(r'bathy:{label:"Bathym\xE9trie (p\xEAche)"', r'bathy:{label:"Bathym\xE9trie marine (côtes et mers)"')
 
-rep('e("a.nav-link",{href:"#"+f,dataset:{path:f,counter:T||""}},b(S),e("span",g),T?', 'e("a.nav-link",{href:"#"+f,dataset:{path:f,counter:T||""}},b(S),e("span",g),PremBadge(f),T?')
+# (badge menu retiré : une page mixte n’en porte pas)
+#rep('e("a.nav-link",{href:"#"+f,dataset:{path:f,counter:T||""}},b(S),e("span",g),T?', 'e("a.nav-link",{href:"#"+f,dataset:{path:f,counter:T||""}},b(S),e("span",g),PremBadge(f),T?')
 rep('e("span.grow",U.label),h(U.premium)?b("lock"):null', 'e("span.grow",U.label),h(U.premium)?PremEl():null', count=2)
 rep(r'Bathym\xE9trie, carnet illimit\xE9, hors ligne, 3 territoires, exports, spots confidentiels', r'Bathym\xE9trie, carnet illimit\xE9, hors ligne, exports, spots confidentiels')
 rep(r'Cartes HD, hors ligne, 3 territoires, exports GPX/KML, m\xE9t\xE9o d\xE9taill\xE9e, vent', r'Cartes HD, hors ligne, exports GPX/KML, m\xE9t\xE9o d\xE9taill\xE9e, vent')
