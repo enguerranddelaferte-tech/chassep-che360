@@ -357,3 +357,6 @@ rep('B(s,e("div.grid.g-2",it(u.length,"Animaux")', 'B(s,HarvLimit(n,u),e("div.gr
 rep(r'tagline:"S\xE9curit\xE9 (SOS, 30\xB0, Sortie en cours), entraide, carte de base"', 'tagline:"Sécurité (SOS, 30°, Sortie en cours), entraide, carte de base, 20 prises ou prélèvements, 5 spots"')
 rep(r'tagline:"Cartes HD, hors ligne, exports GPX/KML, m\xE9t\xE9o d\xE9taill\xE9e, vent"', 'tagline:"Cartes HD, hors ligne, exports GPX/KML, météo détaillée, vent, prélèvements et spots illimités"')
 rep(r'tagline:"Bathym\xE9trie, carnet illimit\xE9, hors ligne, exports, spots confidentiels"', 'tagline:"Bathymétrie, carnet et spots illimités, hors ligne, exports, spots confidentiels"')
+
+# 48) Offres et abonnements : on retire les offres « Pour les territoires »
+rep('e("h2.display",{style:{fontSize:"26px",margin:"32px 0 12px"}},"Pour les territoires"),e("div.grid.g-2",n.map(o=>e("section.panel.plan",e("div.row",b("building"),e("h3.display",{style:{margin:0,fontSize:"22px"}},o.name)),e("div.price",M.euro(o.price),e("small",` / ${o.period}`)),e("p.small.muted",{style:{margin:0}},o.tagline),x("Nous contacter",{kind:"ghost",href:"mailto:contact@vogelabs.fr?subject=Offre%20territoire%20360"})))),','')
