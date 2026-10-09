@@ -342,3 +342,7 @@ rep(r'S\xE9curit\xE9 (SOS, 30\xB0, Sortie en cours), 1 territoire, entraide, car
 rep(r'"Photo a\xE9rienne et cadastre","Territoire par parcelles cadastrales","M\xE9t\xE9o', r'"Photo a\xE9rienne et cadastre","M\xE9t\xE9o')
 rep(r'"Territoire par parcelles cadastrales, vent anim\xE9"', r'"Vent anim\xE9 sur la carte"')
 rep(r'vent anim\xE9 et choix des parcelles cadastrales (Chasse ou P\xEAche), bathym', r'vent anim\xE9 (Chasse), bathym')
+
+# 46) Carnet de pêche : couronne Premium sur les fonctions payantes (stats, carnet illimité)
+rep(r'e("p.tiny.muted",{style:{marginBottom:0}},"Carnet illimit\xE9 et statistiques avec Premium P\xEAche.")', r'e("p.tiny.muted",{style:{marginBottom:0}},"Carnet illimit\xE9 et statistiques : ",PremEl())')
+rep(r'k({title:"Statistiques"},Bn("Vos meilleurs leurres', r'k({title:"Statistiques"},e("div",{style:{marginBottom:"8px"}},PremEl()),Bn("Vos meilleurs leurres')
