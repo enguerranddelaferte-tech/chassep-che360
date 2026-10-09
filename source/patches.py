@@ -228,7 +228,7 @@ rep('a.departments.map(p=>e("option"', 'RegDeptList().map(p=>e("option"')
 rep(r'p.covered?(r=p.code,u()):A(`${p.name} n\u2019est pas encore couvert : affichage du ${r}.`,"warn")', '(r=p.code,u())')
 
 # 30) Réglementation : tableaux d'espèces chassables / poissons (en tête des règles nationales)
-rep('var wl,Hi=H(()=>{wl=Ui({', open(D+'js_species.js',encoding='utf-8').read()+'\nvar wl,Hi=H(()=>{wl=Ui({')
+rep('var wl,Hi=H(()=>{wl=Ui({', open(D+'js_species.js',encoding='utf-8').read()+'\n'+open(D+'js_species_info.js',encoding='utf-8').read()+'\nvar wl,Hi=H(()=>{wl=Ui({')
 
 # 31) Territoire : sélection de parcelles cadastrales (API Carto IGN) + écran de création épuré pour téléphone
 _pc_helpers=open(D+'js_parcelles.js',encoding='utf-8').read()
