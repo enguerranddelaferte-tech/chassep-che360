@@ -331,3 +331,4 @@ rep('city:q.city})}}),Rn("trash","Supprimer",async()=>{if(await ve({title:"Suppr
 rep('e("div.row",{style:{gap:"8px",alignItems:"center"}},e("div.grow",e("b",q.name)', 'e("div.row",{style:{gap:"8px",alignItems:"center",flexWrap:"wrap"}},e("div.grow",e("b",q.name)')
 rep('x("Mes territoires",{icon:"map",kind:"ghost",size:"block",onClick:()=>{m.close();TerrList()}}))})}', 'x("Mes territoires",{icon:"map",kind:"ghost",size:"block",onClick:()=>{m.close();TerrList()}}),x("Partagés avec moi",{icon:"users",kind:"ghost",size:"block",onClick:()=>{m.close();ShareReceived()}}))})}')
 rep('/territoire=liste/.test(location.hash)&&setTimeout(()=>TerrList(),500);', '/territoire=liste/.test(location.hash)&&setTimeout(()=>TerrList(),500);/territoire=partages/.test(location.hash)&&setTimeout(()=>ShareReceived(),500);')
+rep(r'bathy:{label:"Bathym\xE9trie (p\xEAche)"', r'bathy:{label:"Bathym\xE9trie marine (côtes et mers)"')

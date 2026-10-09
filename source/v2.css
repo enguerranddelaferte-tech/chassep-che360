@@ -867,7 +867,7 @@ table.data td, table.data th { vertical-align: middle; }
 .wind-ramp i { width: 14px; height: 4px; border-radius: 2px; display: inline-block; margin-left: 4px; }
 .wind-ramp i:first-child { margin-left: 0; }
 .map-page.terr-on .wind-canvas, .map-page.terr-on .wind-legend { display: none; }
-@media (max-width: 760px) { .wind-legend { bottom: 84px; padding: 4px 9px; border-radius: 999px; } .wind-legend b { font-size: 12px; } .wind-legend .wind-ramp { display: none; } }
+@media (max-width: 760px) { .wind-legend { bottom: 14px; padding: 4px 9px; border-radius: 999px; } .wind-legend b { font-size: 12px; } .wind-legend .wind-ramp { display: none; } }
 /* ===== Carte : ergonomie (action principale en haut à gauche, colonne d'outils à droite) ===== */
 .map-tools { flex-direction: row; max-width: none; }
 .map-tools .btn { min-height: 48px; box-shadow: var(--shadow); }
