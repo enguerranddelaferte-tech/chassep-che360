@@ -51,8 +51,5 @@ _E=r'(\\xE9|é)'
 for _a,_b in [(r'Rond de s'+_E+'curit'+_E+r' (\\xE0|à) valider',r'Consignes de s\1curit\2 \3 valider'),(r'Rond de s'+_E+'curit'+_E+' valid'+_E,r'Consignes de s\1curit\2 valid\3es'),(r'\["briefing","Rond de s',r'["briefing","Consignes de s'),(r'x\("Faire le rond",',r'x("Valider les consignes",'),(r'(Valider|Validez|abord) le rond de s',r'\1 les consignes de s'),(r'lors du rond de s',r'lors des consignes de s'),(r'(\\xE0|à) chaque rond de s'+_E+'curit'+_E,r'avec les consignes de s\2curit\3'),(r'Organisation, rond de s',r'Organisation, consignes de s'),(r'title:"Rond de s',r'title:"Consignes de s')]:
     s,_n=_re.subn(_a,_b,s)
     assert _n,_a
-# 45) Menu : listes déroulantes (chasse, pêche, gestion de territoire, divers)
-rep('n.forEach(m=>{r.append(e("div.nav-group",e("span",m.group),','n.forEach(m=>{r.append(GxNavGrp(m,e("div.nav-group",e("span",m.group),')
-rep('T?e("span.count",{hidden:!0}):null))))}),r.append(e("div",{style:{marginTop:"auto"','T?e("span.count",{hidden:!0}):null)))))}),r.append(e("div",{style:{marginTop:"auto"')
 # 46) Traque en cours : bouton « Animal au tableau »
 rep('e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")','i.me?e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>GxAnimal(i)},b("plus"),"Animal au tableau"):null,e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")')
