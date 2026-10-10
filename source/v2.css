@@ -170,25 +170,16 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .scrim { position: fixed; inset: 0; background: rgba(8, 14, 11, .5); z-index: 1100; }
 .mobile-back { display: none; }
 
-/* ---------------------------------------------------------------- Tablette : rail d'icônes */
+/* ---------------------------------------------------------------- Tablette : même menu que sur PC (libellés et titres de rubriques), un peu plus étroit */
 @media (min-width: 761px) and (max-width: 1180px) {
-  :root { --sidebar: 100px; }
-  .sidebar { padding: 12px 6px 16px; align-items: stretch; }
-  .brand { justify-content: center; padding: 4px 0 12px; }
-  .brand-name { display: none; }
-  .side-user { margin: 0 0 6px; padding: 8px 0; justify-content: center; background: transparent; border-color: transparent; }
-  .side-user .btn, .side-user-link > div { display: none; }
-  .nav-group { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); }
-  .nav-group:first-of-type { border-top: 0; padding-top: 0; }
-  .nav-group > span { display: none; }
-  .nav-link { flex-direction: column; justify-content: center; gap: 4px; min-height: 58px; padding: 6px 2px; text-align: center; }
-  .nav-link svg { width: 24px; height: 24px; }
-  .nav-link > span:not(.count) { font-size: 10px; line-height: 1.12; font-weight: 600; max-width: 100%; letter-spacing: -.01em; }
-  .nav-link .count { position: absolute; top: 3px; right: 8px; margin: 0; min-width: 18px; height: 18px; font-size: 10.5px; }
+  :root { --sidebar: 236px; }
+  .nav-link { min-height: 44px; padding: 9px 11px; font-size: 14.5px; }
+  .nav-group > span { font-size: 11.5px; }
   .topbar { padding: 0 22px; }
   .content { padding: 24px 22px 120px; }
   .g-main { grid-template-columns: 1fr; }
 }
+@media (min-width: 761px) and (max-width: 900px) { :root { --sidebar: 214px; } .nav-link { font-size: 14px; } }
 @media (min-width: 761px) and (max-width: 960px) { .g-main { grid-template-columns: 1fr; } }
 @media (min-width: 961px) and (max-width: 1180px) { .g-main { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); } }
 
