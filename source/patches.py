@@ -228,7 +228,7 @@ rep('a.departments.map(p=>e("option"', 'RegDeptList().map(p=>e("option"')
 rep(r'p.covered?(r=p.code,u()):A(`${p.name} n\u2019est pas encore couvert : affichage du ${r}.`,"warn")', '(r=p.code,u())')
 
 # 30) Réglementation : tableaux d'espèces chassables / poissons (en tête des règles nationales)
-rep('var wl,Hi=H(()=>{wl=Ui({', open(D+'js_species.js',encoding='utf-8').read()+'\n'+open(D+'js_species_tips.js',encoding='utf-8').read()+'\n'+open(D+'js_species_info.js',encoding='utf-8').read()+'\n'+open(D+'js_premium.js',encoding='utf-8').read()+'\n'+open(D+'js_legal.js',encoding='utf-8').read()+'\nvar wl,Hi=H(()=>{wl=Ui({')
+rep('var wl,Hi=H(()=>{wl=Ui({', open(D+'js_species.js',encoding='utf-8').read()+'\n'+open(D+'js_species_tips.js',encoding='utf-8').read()+'\n'+open(D+'js_species_info.js',encoding='utf-8').read()+'\n'+open(D+'js_premium.js',encoding='utf-8').read()+'\n'+open(D+'js_legal.js',encoding='utf-8').read()+'\n'+open(D+'js_salaison.js',encoding='utf-8').read()+'\nvar wl,Hi=H(()=>{wl=Ui({')
 
 # 31) Territoire : sélection de parcelles cadastrales (API Carto IGN) + écran de création épuré pour téléphone
 _pc_helpers=open(D+'js_parcelles.js',encoding='utf-8').read()
@@ -363,3 +363,9 @@ rep('e("h2.display",{style:{fontSize:"26px",margin:"32px 0 12px"}},"Pour les ter
 
 # 49) Mentions d'usage : permis (profil) et tableau de chasse
 rep('a.el,e("div.row",{style:{justifyContent:"flex-end",marginTop:"14px"}},s))', 'a.el,LegalNote("permis"),e("div.row",{style:{justifyContent:"flex-end",marginTop:"14px"}},s))')
+
+# 50) Calculateur de salaisons
+rep('"./views/bag.js":()=>Promise.resolve().then(()=>(BagI(),BagM)),', '"./views/bag.js":()=>Promise.resolve().then(()=>(BagI(),BagM)),"./views/sal.js":()=>Promise.resolve().then(()=>(SalI(),SalM)),')
+rep('Z("/tableau-de-chasse",te("bag"));', 'Z("/tableau-de-chasse",te("bag"));Z("/salaisons",te("sal"));')
+rep('["/chien-de-sang","Chien de sang","shield"]]}', '["/chien-de-sang","Chien de sang","shield"],["/salaisons","Calculateur de salaisons","law"]]}')
+rep('q.startsWith("/tableau-de-chasse"))?ge("/carnet")', 'q.startsWith("/tableau-de-chasse")||q.startsWith("/salaisons"))?ge("/carnet")')
