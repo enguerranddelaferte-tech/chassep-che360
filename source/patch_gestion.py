@@ -16,7 +16,7 @@ rep('"map.offline":"chasse peche combo".split(" ")};','"map.offline":"chasse pec
 # page du territoire géré : onglets supplémentaires, calques, plan de chasse
 rep(r'Ne([["postes","Postes"],["membres","Membres"],["plan","Plan de chasse & bracelets"],["battues","Chasses"],["annonces","Annonces"],["reglement","R\xE8glement"]],a,',
     r'Ne([["postes","Postes"],["carte","Carte & gibier"],["membres","Membres"],["plan","Plan de chasse & bracelets"],["battues","Chasses"],["groupe","Vie du groupe"],["annonces","Annonces"],["reglement","R\xE8glement"],["bail","Bail & acc\xE8s"]].filter(z=>i.isManager||!["plan","bail"].includes(z[0])),a,')
-rep('async function Ss(t,{id:r}){let n=window.L,i=await v.get(`/territories/${r}`),a="postes"','async function Ss(t,{id:r}){let n=window.L,i=await v.get(`/territories/${r}`),a=(i.kind==="personal"&&setTimeout(()=>ge("/territoires"),0),GxStartTab(i,Jt().get("onglet")))')
+rep('async function Ss(t,{id:r}){let n=window.L,i=await v.get(`/territories/${r}`),a="postes"','async function Ss(t,{id:r},gxTab){let n=window.L,i=await v.get(`/territories/${r}`),a=(i.kind==="personal"&&setTimeout(()=>ge("/territoires"),0),GxStartTab(i,gxTab||Jt().get("onglet"),gxTab))')
 rep('function T(){m(),W(o);let E=i.isManager;if(a==="postes")','function T(){m(),W(o);GxLayers(d,i,a);let E=i.isManager;if(GxTab(a,o,i,d,S))return;if(a==="postes")')
 rep('k({title:"Bracelets"},P)),v.get(`/territories/${i.id}/tags`)','GxPlanExtra(i,S),k({title:"Bracelets"},P)),v.get(`/territories/${i.id}/tags`)')
 rep(r'Fi=[["manager","Responsable"],["chasseur","Chasseur"],["traqueur","Traqueur"],["garde","Garde-chasse"]]', r'Fi=[["manager","Responsable"],["adjoint","Gestionnaire adjoint"],["chefligne","Chef de ligne"],["chasseur","Chasseur"],["traqueur","Traqueur"],["garde","Garde-chasse"],["invite","Invit\xE9"]]')
@@ -33,3 +33,6 @@ rep('K.delete("/territories/:id/members/:userId",pe(async(t,r)=>{let{territory:n
 rep('E&&P.userId!==w.user.id?e("select.input"','(i.role==="manager"||w.user.role==="admin")&&P.userId!==w.user.id?e("select.input"')
 rep('E&&P.userId!==w.user.id?e("button.icon-btn"','(i.role==="manager"||w.user.role==="admin")&&P.userId!==w.user.id?e("button.icon-btn"')
 rep('else if(a==="membres")C(o,k({title:','else if(a==="membres")C(o,GxAccessCard(i,S),k({title:')
+
+# 42) Pages simples ouvertes depuis le menu Gestion : une seule fonction, sans rangée d'onglets
+rep('C(t,q({title:i.name,subtitle:[','C(t,gxTab?GxSimplePage(i,gxTab,l,u,o):q({title:i.name,subtitle:[')
