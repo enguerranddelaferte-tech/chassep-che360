@@ -44,3 +44,15 @@ rep(r'if(g.species!==a)throw new ce(400,`Ce bracelet est r\xE9serv\xE9 au ${g.sp
     r'if(g.species!==a)throw new ce(400,`Ce bracelet est r\xE9serv\xE9 au ${g.species.toLowerCase()}.`,{fields:{tagId:"Esp\xE8ce diff\xE9rente"}});let hh0=g.huntId&&_.hunts.get(g.huntId);if(hh0&&hh0.status!=="closed"&&hh0.id!==i)throw new ce(409,"Le bracelet "+g.number+" est accord\xE9 pour la chasse \xAB "+hh0.title+" \xBB.",{fields:{tagId:"R\xE9serv\xE9 pour une autre chasse"}});if(i&&g.huntId!==i&&_.tags.count(z=>z.huntId===i&&z.species===a&&z.status==="available")>0)throw new ce(400,"Utilisez un des bracelets accord\xE9s pour cette journ\xE9e de chasse.",{fields:{tagId:"Bracelet de la journ\xE9e attendu"}})}')
 rep('c=l.filter(m=>m.status==="available"),d=','c=l.filter(m=>m.status==="available"&&(r?(m.reservedFor?m.reservedFor.id===r:!l.some(z=>z.status==="available"&&z.reservedFor&&z.reservedFor.id===r&&z.species===m.species)):!m.reservedFor)),d=')
 rep(r'y.status==="available"?L("Disponible","ok"):L("Pos\xE9","gold","tag")', r'y.status==="available"?(y.reservedFor?L("Accord\xE9 \xB7 "+M.dateShort(y.reservedFor.date),"accent"):L("Disponible","ok")):L("Pos\xE9","gold","tag")')
+
+# 44) « Rond de sécurité » -> « Consignes de sécurité »
+import re as _re
+_E=r'(\\xE9|é)'
+for _a,_b in [(r'Rond de s'+_E+'curit'+_E+r' (\\xE0|à) valider',r'Consignes de s\1curit\2 \3 valider'),(r'Rond de s'+_E+'curit'+_E+' valid'+_E,r'Consignes de s\1curit\2 valid\3es'),(r'\["briefing","Rond de s',r'["briefing","Consignes de s'),(r'x\("Faire le rond",',r'x("Valider les consignes",'),(r'(Valider|Validez|abord) le rond de s',r'\1 les consignes de s'),(r'lors du rond de s',r'lors des consignes de s'),(r'(\\xE0|à) chaque rond de s'+_E+'curit'+_E,r'avec les consignes de s\2curit\3'),(r'Organisation, rond de s',r'Organisation, consignes de s'),(r'title:"Rond de s',r'title:"Consignes de s')]:
+    s,_n=_re.subn(_a,_b,s)
+    assert _n,_a
+# 45) Menu : listes déroulantes (chasse, pêche, gestion de territoire, divers)
+rep('n.forEach(m=>{r.append(e("div.nav-group",e("span",m.group),','n.forEach(m=>{r.append(GxNavGrp(m,e("div.nav-group",e("span",m.group),')
+rep('T?e("span.count",{hidden:!0}):null))))}),r.append(e("div",{style:{marginTop:"auto"','T?e("span.count",{hidden:!0}):null)))))}),r.append(e("div",{style:{marginTop:"auto"')
+# 46) Traque en cours : bouton « Animal au tableau »
+rep('e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")','i.me?e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>GxAnimal(i)},b("plus"),"Animal au tableau"):null,e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")')
