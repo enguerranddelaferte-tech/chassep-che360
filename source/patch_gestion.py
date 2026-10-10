@@ -36,3 +36,11 @@ rep('else if(a==="membres")C(o,k({title:','else if(a==="membres")C(o,GxAccessCar
 
 # 42) Pages simples ouvertes depuis le menu Gestion : une seule fonction, sans rangée d'onglets
 rep('C(t,q({title:i.name,subtitle:[','C(t,gxTab?GxSimplePage(i,gxTab,l,u,o):q({title:i.name,subtitle:[')
+
+# 43) Bracelets accordés par journée de chasse
+rep('r.json(_.tags.all(n=>n.territoryId===t.params.id).map(n=>({...n,harvest:n.harvestId?_.harvests.get(n.harvestId):null})))',
+    'r.json(_.tags.all(n=>n.territoryId===t.params.id).map(n=>({...n,harvest:n.harvestId?_.harvests.get(n.harvestId):null,reservedFor:n.huntId&&n.status==="available"&&(h0=>h0&&h0.status!=="closed"?{id:h0.id,title:h0.title,date:h0.date}:null)(_.hunts.get(n.huntId))||null})))')
+rep(r'if(g.species!==a)throw new ce(400,`Ce bracelet est r\xE9serv\xE9 au ${g.species.toLowerCase()}.`,{fields:{tagId:"Esp\xE8ce diff\xE9rente"}})}',
+    r'if(g.species!==a)throw new ce(400,`Ce bracelet est r\xE9serv\xE9 au ${g.species.toLowerCase()}.`,{fields:{tagId:"Esp\xE8ce diff\xE9rente"}});let hh0=g.huntId&&_.hunts.get(g.huntId);if(hh0&&hh0.status!=="closed"&&hh0.id!==i)throw new ce(409,"Le bracelet "+g.number+" est accord\xE9 pour la chasse \xAB "+hh0.title+" \xBB.",{fields:{tagId:"R\xE9serv\xE9 pour une autre chasse"}});if(i&&g.huntId!==i&&_.tags.count(z=>z.huntId===i&&z.species===a&&z.status==="available")>0)throw new ce(400,"Utilisez un des bracelets accord\xE9s pour cette journ\xE9e de chasse.",{fields:{tagId:"Bracelet de la journ\xE9e attendu"}})}')
+rep('c=l.filter(m=>m.status==="available"),d=','c=l.filter(m=>m.status==="available"&&(r?(m.reservedFor?m.reservedFor.id===r:!l.some(z=>z.status==="available"&&z.reservedFor&&z.reservedFor.id===r&&z.species===m.species)):!m.reservedFor)),d=')
+rep(r'y.status==="available"?L("Disponible","ok"):L("Pos\xE9","gold","tag")', r'y.status==="available"?(y.reservedFor?L("Accord\xE9 \xB7 "+M.dateShort(y.reservedFor.date),"accent"):L("Disponible","ok")):L("Pos\xE9","gold","tag")')
