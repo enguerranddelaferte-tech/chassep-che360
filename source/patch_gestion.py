@@ -1,11 +1,11 @@
 # 40) Gestion de territoire (territoires gérés, chasses, plan de chasse, vie du groupe) — exécuté par patches.py
-_gx_srv=open(D+'js_gestion_server.js',encoding='utf-8').read()
-_gx_cli=open(D+'js_gestion.js',encoding='utf-8').read()
+_gx_srv=open(D+'js_gestion_server.js',encoding='utf-8').read()+'\n'+open(D+'js_terrain_server.js',encoding='utf-8').read()
+_gx_cli=open(D+'js_gestion.js',encoding='utf-8').read()+'\n'+open(D+'js_terrain.js',encoding='utf-8').read()
 rep('huntads:"hda",terrshares:"tsh"},Xn=class','huntads:"hda",terrshares:"tsh",gestion:"gst",huntgx:"hgx",gxreqs:"gxr"},Xn=class')
 rep('"huntads","terrshares"];$i.forEach','"huntads","terrshares","gestion","huntgx","gxreqs"];$i.forEach')
 rep('\nBe.get("/articles",(t,r)=>{ArtSeed()', '\n'+_gx_srv+'\nBe.get("/articles",(t,r)=>{ArtSeed()')
-rep('var wl,Hi=H(()=>{wl=Ui({', _gx_cli+'\nvar wl,Hi=H(()=>{wl=Ui({"./views/gestion.js":()=>Promise.resolve().then(()=>(GxI(),GxM)),')
-rep('Z("/bourse",te("market"));','Z("/bourse",te("market"));Z("/gestion",te("gestion"));')
+rep('var wl,Hi=H(()=>{wl=Ui({', _gx_cli+'\nvar wl,Hi=H(()=>{wl=Ui({"./views/gestion.js":()=>Promise.resolve().then(()=>(GxI(),GxM)),"./views/journee.js":()=>Promise.resolve().then(()=>(GxJI(),GxJM)),"./views/partagejournee.js":()=>Promise.resolve().then(()=>(GxSDI(),GxSDM)),')
+rep('Z("/bourse",te("market"));','Z("/bourse",te("market"));Z("/gestion",te("gestion"));Z("/journee",te("journee"));Z("/partage-journee/:data",te("partagejournee"));')
 # pages de gestion accessibles (le reste du mode lancement est conservé)
 rep('if(IsLaunch()&&/^\\/(battues|prelevements|pro)(\\/|$)|^\\/territoires\\//.test(t))return ge("/carte");','')
 # menu Chasse : « Gestion de territoire » sous « Mes territoires »
@@ -19,7 +19,7 @@ rep(r'Ne([["postes","Postes"],["membres","Membres"],["plan","Plan de chasse & br
 rep('async function Ss(t,{id:r}){let n=window.L,i=await v.get(`/territories/${r}`),a="postes"','async function Ss(t,{id:r},gxTab){let n=window.L,i=await v.get(`/territories/${r}`),a=(i.kind==="personal"&&setTimeout(()=>ge("/territoires"),0),GxStartTab(i,gxTab||Jt().get("onglet"),gxTab))')
 rep('function T(){m(),W(o);let E=i.isManager;if(a==="postes")','function T(){m(),W(o);GxLayers(d,i,a);let E=i.isManager;if(GxTab(a,o,i,d,S))return;if(a==="postes")')
 rep('k({title:"Bracelets"},P)),v.get(`/territories/${i.id}/tags`)','GxPlanExtra(i,S),k({title:"Bracelets"},P)),v.get(`/territories/${i.id}/tags`)')
-rep(r'Fi=[["manager","Responsable"],["chasseur","Chasseur"],["traqueur","Traqueur"],["garde","Garde-chasse"]]', r'Fi=[["manager","Responsable"],["adjoint","Gestionnaire adjoint"],["chefligne","Chef de ligne"],["chasseur","Chasseur"],["traqueur","Traqueur"],["garde","Garde-chasse"],["invite","Invit\xE9"]]')
+rep(r'Fi=[["manager","Responsable"],["chasseur","Chasseur"],["traqueur","Traqueur"],["garde","Garde-chasse"]]', r'Fi=[["manager","Pr\xE9sident"],["adjoint","Gestionnaire adjoint"],["chefligne","Chef de ligne"],["chasseur","Chasseur"],["traqueur","Traqueur"],["garde","Garde-chasse"],["invite","Invit\xE9"]]')
 rep(r'if(n.members.some(s=>s.userId===i.id))throw new ce(409,"Cette personne est d\xE9j\xE0 membre.");', r'if(n.members.some(s=>s.userId===i.id))throw new ce(409,"Cette personne est d\xE9j\xE0 membre.");if(!n.b2bPlan&&n.members.length>=10)throw new ce(402,"Offre Premium : 10 membres maximum par territoire g\xE9r\xE9. Passez \xE0 l’offre Soci\xE9t\xE9 de chasse / ACCA pour un nombre illimit\xE9.",{feature:"territory.b2b"});')
 # page d'une chasse : présence, tirage au sort, suivi en direct, gibier blessé, bilan
 rep('function R(){if(W(c),!i.me)return;','function R(){if(W(c),GxHuntExtras(c,i,T,async()=>{i=await v.get(`/hunts/${r}`);y();P();R();N()}),!i.me)return;')
@@ -52,4 +52,16 @@ for _a,_b in [(r'Rond de s'+_E+'curit'+_E+r' (\\xE0|à) valider',r'Consignes de 
     s,_n=_re.subn(_a,_b,s)
     assert _n,_a
 # 46) Traque en cours : bouton « Animal au tableau »
-rep('e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")','i.me?e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>GxAnimal(i)},b("plus"),"Animal au tableau"):null,e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")')
+rep('e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")','i.me?e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:async()=>{await GxAnimal(i)&&$t()}},b("plus"),"Animal tu\xE9"):null,e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")')
+
+# 47) Nouvelles chasses : consignes de sécurité du territoire
+import re as _re2
+_m=_re2.search(r'briefing:\{done:!1,items:(\[[^\]]*\])\}\}\);r\.status\(201\)\.json\(vt\(i,t\.user\)\)',s)
+assert _m and s.count(_m.group(0))==1
+s=s.replace(_m.group(0),'briefing:{done:!1,items:((_.gestion.find(g0=>g0.territoryId===n.id)||{}).consignes)||'+_m.group(1)+'}});r.status(201).json(vt(i,t.user))')
+
+# 48) Gestion 2 : début de traque par traque, invités limités, membres & invités
+rep('let h=await Q({title:"Annoncer le d\\xE9but de traque",','if(await GxStartDrive(i,h0=>{i=h0,A("Traque lanc\\xE9e. Bonne chasse, en s\\xE9curit\\xE9.","warn"),st()}))return;let h=await Q({title:"Annoncer le d\\xE9but de traque",')
+rep('async function $a(t,{id:r}){let n=window.L,i=await v.get(`/hunts/${r}`),a="participants"','async function $a(t,{id:r}){let n=window.L,i=await v.get(`/hunts/${r}`),a=(GxIsGuest(i.territoryId)&&setTimeout(()=>ge("/journee"),0),"participants")')
+rep('else if(a==="membres")C(o,GxAccessCard(i,S),k({title:','else if(a==="membres")C(o,GxAccessCard(i,S),GxDayInviteCard(i),k({title:')
+rep('a=(i.kind==="personal"&&setTimeout(()=>ge("/territoires"),0),','a=(i.kind==="personal"&&setTimeout(()=>ge("/territoires"),0),i.role==="invite"&&setTimeout(()=>ge("/journee"),0),')
