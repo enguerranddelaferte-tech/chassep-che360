@@ -52,7 +52,7 @@ for _a,_b in [(r'Rond de s'+_E+'curit'+_E+r' (\\xE0|à) valider',r'Consignes de 
     s,_n=_re.subn(_a,_b,s)
     assert _n,_a
 # 46) Traque en cours : bouton « Animal au tableau »
-rep('e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")','i.me?e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:async()=>{await GxAnimal(i)&&$t()}},b("plus"),"Animal tu\xE9"):null,e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")')
+rep('e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")','i.me?e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:async()=>{await GxAnimal(i)&&$t()}},b("plus"),"Animal pr\xE9lev\xE9"):null,e("button.btn",{type:"button",style:{background:"#fff",color:"#131B19"},onclick:()=>ht(i.id)},b("sos"),"SOS chasse")')
 
 # 47) Nouvelles chasses : consignes de sécurité du territoire
 import re as _re2

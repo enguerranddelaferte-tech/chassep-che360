@@ -155,7 +155,7 @@ noAns=x0.members.filter(z=>!x0.rsvp[z.userId]&&z.userId!==me);
 C(slot,k({title:"Présence",sub:cnt.oui+" présent(s) · "+cnt.non+" absent(s)"},e("div.small",{style:{marginBottom:"8px"}},"Serez-vous là le "+M.day(i.date)+" ?"),e("div.gx-rsvp",bt("oui","Je serai présent"),bt("non","Je ne serai pas présent")),
 x0.isManager?e("div",{style:{marginTop:"12px"}},e("div.tiny.muted",noAns.length?"Sans réponse : "+noAns.map(z=>z.user.name).join(", "):"Tous les membres ont répondu."),e("div.row.wrap",{style:{gap:"8px",marginTop:"8px"}},GxIaBtn(i.territory.id,"Rédiger la convocation","convoc"),GxIaBtn(i.territory.id,"Préparer la chasse","prep")),noAns.length?e("div",{style:{marginTop:"8px"}},x("Relancer les membres",{icon:"bell",size:"sm",onClick:()=>act(()=>v.post("/gx/hunts/"+i.id+"/invite-all",{}),"Relance envoyée aux membres.")})):null):null))}
 /* animal au tableau pendant la traque */
-if(i.currentDrive&&i.me&&!closed)C(slot,e("button.gx-fab",{type:"button",onclick:async()=>{await GxAnimal(i)&&reload()}},b("plus"),"Animal tué"));
+if(i.currentDrive&&i.me&&!closed)C(slot,e("button.gx-fab",{type:"button",onclick:async()=>{await GxAnimal(i)&&reload()}},b("plus"),"Animal prélevé"));
 /* bracelets accordés pour la journée */
 if(x0.tags&&x0.tags.length||x0.isOwner&&x0.tagPlan&&x0.tagPlan.length){let by={};(x0.tags||[]).forEach(z=>{let o=by[z.species]||(by[z.species]={all:[],used:0});o.all.push(z);z.status!=="available"&&o.used++});
 let grant=async()=>{let sp=x0.tagPlan.filter(p=>p.free>0);if(!sp.length)return A("Plus aucun bracelet disponible sur le territoire. Ajoutez une série dans le plan de chasse.","warn");
