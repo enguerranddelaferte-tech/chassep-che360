@@ -17,7 +17,21 @@ function GxCss(){if(document.getElementById("gx-css"))return;let s=document.crea
 .gx-rsvp{display:flex;gap:8px;flex-wrap:wrap}.gx-rsvp .btn.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .gx-sg a{white-space:nowrap}
 .gx-fab{position:fixed;right:16px;bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:900;display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 18px;border:0;border-radius:26px;background:var(--accent);color:var(--accent-ink);font:700 16px var(--font);box-shadow:0 10px 24px rgba(0,0,0,.28);cursor:pointer}.gx-fab svg{width:22px;height:22px}@media(min-width:761px){.gx-fab{bottom:24px;right:24px}}
-@media print{body.gx-printing>*:not(.gx-print){display:none!important}.gx-print{display:block!important}}`;document.head.append(s)}
+@media print{body.gx-printing>*:not(.gx-print){display:none!important}.gx-print{display:block!important}}
+body.gx-on div:not(.stack):not(.grid):not(.gx-cards)>.panel+.panel{margin-top:16px}
+body.gx-on .panel-head{row-gap:8px;column-gap:10px;flex-wrap:wrap}body.gx-on .panel-head>h2,body.gx-on .panel-head>h3{flex:1 1 auto}body.gx-on .panel-head>.sub{flex:1 1 100%;line-height:1.4;order:3}
+body.gx-on .panel-head>.btn,body.gx-on .panel-head>select{margin-top:2px}
+body.gx-on .list-row .end{max-width:none;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+body.gx-on .list-row>.grow{min-width:0;flex:1 1 0}body.gx-on .row.wrap{row-gap:10px}
+body.gx-on .gx-rsvp{gap:10px}body.gx-on .panel p.small+.btn,body.gx-on .panel p.small+a.btn{margin-top:4px}
+@media(max-width:760px){
+body.gx-on .list-row:has(>.btn,>.end .btn,>.end select,>.end .icon-btn+.icon-btn){flex-wrap:wrap;row-gap:10px}
+body.gx-on .list-row>.btn,body.gx-on .list-row>.end:has(.btn,select,.icon-btn+.icon-btn){flex:1 1 100%;max-width:calc(100% - 54px);margin-left:54px;justify-content:flex-start;text-align:left}
+body.gx-on .list-row>.btn{justify-content:center}body.gx-on .list-row:has(>.gx-date)>.end{margin-left:66px!important;max-width:calc(100% - 66px)!important}body.gx-on .list-row>.end select{flex:1 1 auto;min-width:0;max-width:260px}
+body.gx-on .page-head .actions{display:flex;flex-wrap:wrap;gap:10px}body.gx-on .page-head .actions>.btn{flex:1 1 140px;justify-content:center}
+body.gx-on .page-head .actions>.btn.primary{flex-basis:100%;order:-1}body.gx-on .page-head .actions>.btn.ghost:not(:last-child){border:1px solid var(--line)}
+body.gx-on .panel-head h2,body.gx-on .panel-head h3{font-size:21px;line-height:1.2;flex:1 1 100%}body.gx-on .panel-head>.sub{order:0}body.gx-on .panel-head>*{order:1}body.gx-on .panel-head>h2,body.gx-on .panel-head>h3{order:-1}}`;document.head.append(s);
+let on=()=>document.body&&document.body.classList.toggle("gx-on",/^#\/(gestion|battues\/|journee|partage-journee)/.test(location.hash));window.addEventListener("hashchange",on);on()}
 function GxIcon(kind){let c=(GX_PT[kind]||GX_PT.autre)[1],ic={agrainage:"drop",sel:"star",souille:"drop",parking:"pin",rdv:"flag",culture:"sun",autre:"pin"}[kind]||"pin";return window.L.divIcon({className:"gx-pin",iconSize:[28,28],iconAnchor:[6,26],popupAnchor:[8,-24],html:'<span style="background:'+c+'">'+b(ic).outerHTML+"</span>"})}
 function GxDay(d){let t=new Date(d);return e("div.gx-date",e("b",String(t.getDate())),e("span",t.toLocaleDateString("fr-FR",{month:"short"}).replace(".","")))}
 function GxDaysTxt(n){return n<0?"échu depuis "+M.plural(-n,"jour","jours"):n===0?"échéance aujourd’hui":"échéance dans "+M.plural(n,"jour","jours")}
