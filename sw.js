@@ -1,4 +1,4 @@
-const V="cp360-v89",TILES="cp360-tiles",STATIC="cp360-static",SHELL=["./","index.html","manifest.webmanifest","icon.svg"],MAXT=500;
+const V="cp360-v90",TILES="cp360-tiles",STATIC="cp360-static",SHELL=["./","index.html","manifest.webmanifest","icon.svg"],MAXT=500;
 self.addEventListener("install",e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>![V,TILES,STATIC].includes(x)).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 async function trim(c,n){const k=await c.keys();if(k.length>n)await Promise.all(k.slice(0,k.length-n).map(x=>c.delete(x)))}
@@ -8,3 +8,6 @@ self.addEventListener("fetch",e=>{const r=e.request;if(r.method!=="GET")return;c
 if(u.hostname.includes("data.geopf.fr")||u.hostname.includes("tile.openstreetmap")||u.hostname.endsWith(".tile.openstreetmap.org")){e.respondWith(caches.open(TILES).then(async c=>{const m=await c.match(r);if(m)return m;try{const n=await fetch(r);if(n.ok){c.put(r,n.clone());trim(c,MAXT)}return n}catch{return Response.error()}}));return}
 if(u.hostname==="cdnjs.cloudflare.com"||u.hostname==="fonts.googleapis.com"||u.hostname==="fonts.gstatic.com"){e.respondWith(swr(r,STATIC));return}
 if(u.origin===location.origin){if(r.mode==="navigate"||u.pathname.endsWith("/")||u.pathname.endsWith("index.html")){e.respondWith(caches.open(V).then(c=>Promise.race([fetch(r).then(n=>{if(n&&n.ok)c.put(r,n.clone());return n}),new Promise((_,j)=>setTimeout(j,4e3))]).catch(async()=>await c.match(r)||await c.match("index.html")||Response.error())));return}e.respondWith(swr(r,V))}});
+
+self.addEventListener("push",e=>{let d={};try{d=e.data?e.data.json():{}}catch{}e.waitUntil(self.registration.showNotification(d.title||"Chasse & Pêche 360°",{body:d.body||"",tag:d.tag||"cp360",icon:"icon.svg",badge:"icon.svg",data:{link:d.link||"#/notifications"}}))});
+self.addEventListener("notificationclick",e=>{e.notification.close();const link=(e.notification.data&&e.notification.data.link)||"#/notifications";e.waitUntil(self.clients.matchAll({type:"window",includeUncontrolled:true}).then(cs=>{for(const c of cs){if("focus"in c){c.focus();c.postMessage({type:"nav",link});return}}return self.clients.openWindow("./"+link)}))});
