@@ -1,4 +1,4 @@
-# Chasse & Pêche 360°
+# Chasse & Pêche 360° — version 3.0
 
 Application web de démonstration pour chasseurs et pêcheurs : fil d'actualité, carte du territoire, calculateur d'angle de 30° (chasse), sorties avec suivi en direct et historique, amis, messagerie, réglementation, console administrateur.
 
@@ -23,3 +23,15 @@ Reconstruire : `cd source && python3 build.py` (génère `source/v2.html` et met
 
 ## YouTube
 Synchronisation des vidéos des ambassadeurs via l'API YouTube Data v3 : voir [YOUTUBE.md](YOUTUBE.md).
+
+## Version 3.0
+Nouvelle interface (navigation au pouce, menu en tuiles, recherche globale des personnes, amis, ambassadeurs, articles, recettes, spots…), accueil repensé, chargement allégé (réglementation et chien de sang dans `data/`, carte chargée à la demande).
+
+Sources dans `source/v3/` : `core3.css` (design), `shell3.js` (navigation, recherche, alertes), `home3.js` (accueil), `build.py` (assemblage à partir de la 2.0).
+
+## Alertes appli fermée (Web Push)
+1. Ouvrir le site en https (GitHub Pages) et se connecter avec un vrai compte.
+2. Menu → « Activer les alertes » (ou page Notifications / Profil).
+3. Sur iPhone : d'abord Partager → « Sur l'écran d'accueil », ouvrir l'appli depuis l'icône (iOS 16.4+).
+
+Côté serveur (Supabase) : les nouvelles lignes `notifications` et `messages` déclenchent la fonction `send-push`, qui envoie aux abonnements de `push_subscriptions`. Le service worker `sw.js` affiche l'alerte (SOS : vibration et alerte persistante).
