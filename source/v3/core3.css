@@ -569,7 +569,13 @@ input[type=date].input,input[type=datetime-local].input,input[type=time].input{m
 .sb-close{display:none}
 .sb-scroll{flex:1;overflow-y:auto;padding:6px 10px 14px;scrollbar-width:thin;overscroll-behavior:contain}
 .nav-group{margin-top:10px;display:flex;flex-direction:column;gap:1px}
-.nav-group>h3{margin:0;padding:6px 10px;font:700 11.5px/1 var(--font);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.nav-group-h{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;margin:0;padding:8px 10px;border:0;border-radius:var(--r-sm);background:none;cursor:pointer;font:700 11.5px/1 var(--font);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left}
+.nav-group-h:hover{background:var(--surface-3)}
+.nav-group-h:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.nav-group-h svg{width:16px;height:16px;flex:none;transition:transform .2s var(--ease)}
+.nav-group.closed .nav-group-h svg{transform:rotate(-90deg)}
+.nav-group.closed .nav-items{display:none}
+.nav-items{display:flex;flex-direction:column;gap:1px}
 .nav-link{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 10px;border-radius:var(--r-sm);text-decoration:none;color:var(--text-2);font-weight:500;font-size:15px;position:relative;border:0;background:none;width:100%;text-align:left;cursor:pointer}
 .nav-link svg{width:20px;height:20px;flex:none;color:var(--muted)}
 .nav-link span:not(.count){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -595,7 +601,8 @@ input[type=date].input,input[type=datetime-local].input,input[type=time].input{m
 :root[data-role=admin] .nav-link svg{color:var(--on-ink-muted)}
 :root[data-role=admin] .nav-link:hover{background:rgba(255,255,255,.07);color:var(--on-ink)}
 :root[data-role=admin] .nav-link.active{background:rgba(255,255,255,.1);color:var(--on-ink);box-shadow:inset 3px 0 0 var(--accent)}
-:root[data-role=admin] .nav-group>h3{color:rgba(243,240,232,.55)}
+:root[data-role=admin] .nav-group-h{color:rgba(243,240,232,.55)}
+:root[data-role=admin] .nav-group-h:hover{background:rgba(255,255,255,.07)}
 :root[data-role=admin] .side-user,:root[data-role=admin] .sb-search{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:var(--on-ink)}
 :root[data-role=admin] .sidebar .muted,:root[data-role=admin] .sidebar .brand-name small{color:var(--on-ink-muted)}
 :root[data-role=admin] .sidebar .icon-btn{color:var(--on-ink-muted)}

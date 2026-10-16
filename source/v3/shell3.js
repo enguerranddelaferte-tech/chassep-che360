@@ -35,8 +35,11 @@ function Sl(){
   /* Menu principal : le même sur PC (fixe) et sur téléphone (tiroir) */
   let nav=e("div.sb-scroll");
   S3Groups().forEach(g=>{
-    let grp=e("div.nav-group",e("h3",g.group));
-    g.items.forEach(([p,l,ic,ct])=>grp.append(e("a.nav-link",{href:"#"+p,title:l,dataset:{path:p,counter:ct||""}},b(ic),e("span",l),ct?e("span.count",{hidden:!0}):null)));
+    /* Rubriques pliables (mémorisées sur l'appareil), identiques sur PC, tablette et téléphone */
+    let key="navg:"+g.group,closed=Pe.get(key,0)===1,items=e("div.nav-items");
+    let head=e("button.nav-group-h",{type:"button","aria-expanded":String(!closed),onclick:()=>{let c=grp.classList.toggle("closed");head.setAttribute("aria-expanded",String(!c));Pe.set(key,c?1:0)}},e("span",g.group),b("chevron"));
+    let grp=e("div.nav-group"+(closed?".closed":""),head,items);
+    g.items.forEach(([p,l,ic,ct])=>items.append(e("a.nav-link",{href:"#"+p,title:l,dataset:{path:p,counter:ct||""}},b(ic),e("span",l),ct?e("span.count",{hidden:!0}):null)));
     nav.append(grp)
   });
   let inst=e("button.nav-link.install",{type:"button",hidden:!0,onclick:()=>{S3SheetClose(),S3Install()}},b("download"),e("span","Installer l’appli"));
