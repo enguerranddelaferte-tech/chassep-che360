@@ -11,6 +11,8 @@ app_css=open(B+'v2/app.css').read()
 ux70=grab(r'<style id="ux70">(.*?)</style>')
 logo=grab(r'(<template id="logo-tpl">.*?</template>)')
 bundle=open(B+'v2/bundle.js').read()
+from ang30 import patch_ang30
+bundle=patch_ang30(bundle)
 datas={i:grab(r'<script type="application/json" id="'+i+r'">(.*?)</script>') for i in ['d-regdept','d-regnat','d-sang']}
 saison=grab(r'<script>\s*(\(function\(\)\{try\{var o=JSON\.parse\(localStorage\.getItem\("cp360\.saison".*?)</script>')
 
