@@ -14,6 +14,7 @@ function S3AmbParse(txt){
   })
 }
 async function S3AmbBoot(){
+  S3AmbFiches().catch(()=>{});
   if(!w.user||!window.cp360Sb||!window.cp360Sb.on||!window.cp360Sb.on())return;
   if(S3Amb.uid===w.user.id&&S3Amb.checked)return;
   S3Amb.uid=w.user.id,S3Amb.checked=!0,S3Amb.id=null;
@@ -101,15 +102,65 @@ async function S3AmbInject(p){
   pg.append(box);
 }
 
-/* ----- Admin : donner ou retirer le statut ambassadeur d’un compte ----- */
+/* ----- Fiches ambassadeur : lues dans la table ambassadors (base partagée) ----- */
+async function S3AmbFiches(){
+  let r=await S3Sb("GET","ambassadors?select=id,data&deleted_at=is.null&order=created_at.asc&limit=500");
+  if(r&&r.ok&&Array.isArray(r.json))window.__ambDb=r.json.map(x=>({...(x.data||{}),id:x.id}));
+  return window.__ambDb||[];
+}
+function S3AmbSlug(t){
+  return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,40)||"ambassadeur";
+}
+
+/* ----- Admin : fiches ambassadeur, puis statut ambassadeur d’un compte ----- */
 async function S3AmbAdminBox(){
-  let arr=[];
-  try{let a=await v.get("/ambassadors");arr=Array.isArray(a)?a:(a&&a.ambassadors)||[]}catch{}
-  let pick=e("select.field-select",{"aria-label":"Fiche ambassadeur",style:{minHeight:"var(--touch)",padding:"0 10px",borderRadius:"var(--r-sm)",border:"1px solid var(--line-strong)",background:"var(--surface)",color:"inherit",width:"100%"}},
-    arr.length?arr.map(a=>e("option",{value:a.id},a.name)):e("option",{value:""},"Aucune fiche d’ambassadeur"));
-  let q=e("input",{type:"search",placeholder:"Nom de la personne (2 lettres minimum)","aria-label":"Chercher une personne",autocomplete:"off",style:{minHeight:"var(--touch)",padding:"0 12px",borderRadius:"var(--r-sm)",border:"1px solid var(--line-strong)",background:"var(--surface)",color:"inherit",width:"100%"}}),
+  let fiches=await S3AmbFiches(),arr=fiches;
+  const inputStyle={minHeight:"var(--touch)",padding:"0 12px",borderRadius:"var(--r-sm)",border:"1px solid var(--line-strong)",background:"var(--surface)",color:"inherit",width:"100%"};
+  let pick=e("select.field-select",{"aria-label":"Fiche ambassadeur",style:{...inputStyle,padding:"0 10px"}},
+    arr.length?arr.map(a=>e("option",{value:a.id},a.name||a.id)):e("option",{value:""},"Aucune fiche d’ambassadeur"));
+  let q=e("input",{type:"search",placeholder:"Nom de la personne (2 lettres minimum)","aria-label":"Chercher une personne",autocomplete:"off",style:inputStyle}),
       found=e("div.list"),linked=e("div.list"),msg=e("p.tiny.muted",{role:"status",style:{margin:"6px 0 0"}});
   let tm=null;
+  /* --- formulaire fiche : créer ou modifier --- */
+  let edit=e("select.field-select",{"aria-label":"Fiche à modifier",style:{...inputStyle,padding:"0 10px"}},e("option",{value:""},"+ Nouvelle fiche"),arr.map(a=>e("option",{value:a.id},a.name||a.id)));
+  let f={name:e("input",{type:"text",maxLength:80,style:inputStyle,"aria-label":"Nom"}),
+         handle:e("input",{type:"text",maxLength:60,placeholder:"@pseudo (facultatif)",style:inputStyle,"aria-label":"Pseudo"}),
+         channelUrl:e("input",{type:"url",placeholder:"https://www.youtube.com/@…",style:inputStyle,"aria-label":"Chaîne"}),
+         season:e("select",{"aria-label":"Saison",style:{...inputStyle,padding:"0 10px"}},e("option",{value:"chasse"},"Chasse"),e("option",{value:"peche"},"Pêche"),e("option",{value:"both"},"Chasse et pêche")),
+         speciality:e("input",{type:"text",maxLength:140,style:inputStyle,"aria-label":"Spécialité"}),
+         tags:e("input",{type:"text",maxLength:200,placeholder:"Séparés par des virgules",style:inputStyle,"aria-label":"Thèmes"}),
+         bio:e("textarea",{rows:4,maxLength:800,style:{...inputStyle,padding:"10px 12px"},"aria-label":"Présentation"})};
+  let fmsg=e("p.tiny.muted",{role:"status",style:{margin:"6px 0 0"}});
+  const fill=(a)=>{
+    f.name.value=a?a.name||"":"";f.handle.value=a&&a.handle||"";f.channelUrl.value=a&&a.channelUrl||"";
+    f.season.value=a&&a.season||"chasse";f.speciality.value=a&&a.speciality||"";f.tags.value=a&&Array.isArray(a.tags)?a.tags.join(", "):"";f.bio.value=a&&a.bio||"";
+  };
+  edit.addEventListener("change",()=>fill(arr.find(a=>a.id===edit.value)||null));
+  fill(null);
+  const refreshPick=(selId)=>{
+    W(pick);W(edit);
+    C(edit,e("option",{value:""},"+ Nouvelle fiche"));
+    arr.forEach(a=>{C(pick,e("option",{value:a.id},a.name||a.id));C(edit,e("option",{value:a.id},a.name||a.id))});
+    if(!arr.length)C(pick,e("option",{value:""},"Aucune fiche d’ambassadeur"));
+    if(selId){pick.value=selId;edit.value=selId}
+  };
+  let save=x("Enregistrer la fiche",{kind:"primary",size:"block",onClick:async()=>{
+    let name=f.name.value.trim(),url=f.channelUrl.value.trim();
+    if(name.length<2){fmsg.textContent="Indiquez au moins le nom de l’ambassadeur.";return}
+    if(url&&!/^https:\/\//.test(url)){fmsg.textContent="Le lien de la chaîne doit commencer par https://";return}
+    let existing=edit.value?arr.find(a=>a.id===edit.value):null,
+        id=existing?existing.id:"amb_"+S3AmbSlug(name)+"_"+Date.now().toString(36),
+        data={...(existing||{}),id,real:!0,name,handle:f.handle.value.trim()||null,channelUrl:url||null,season:f.season.value,speciality:f.speciality.value.trim(),
+              tags:f.tags.value.split(",").map(t=>t.trim()).filter(Boolean).slice(0,12),bio:f.bio.value.trim(),videos:existing&&Array.isArray(existing.videos)?existing.videos:[]};
+    save.disabled=!0;
+    let r=await S3Sb("POST","ambassadors?on_conflict=id",{id,data},{Prefer:"resolution=merge-duplicates,return=minimal"});
+    save.disabled=!1;
+    if(!r.ok){fmsg.textContent="Enregistrement impossible : "+(r.status===401||r.status===403?"vous n’êtes pas administrateur ou la session a expiré.":"vérifiez la base.");return}
+    arr=await S3AmbFiches();
+    refreshPick(id);fill(arr.find(a=>a.id===id));
+    fmsg.textContent="Fiche enregistrée : elle est visible dans la liste des ambassadeurs.";
+    A("Fiche enregistrée.","ok");
+  }});
   const loadLinks=async()=>{
     let r=await S3Sb("GET","ambassador_links?select=user_id,user_name,ambassador_id,ambassador_name&order=created_at.desc");
     W(linked);
@@ -137,7 +188,7 @@ async function S3AmbAdminBox(){
       e("div.grow",e("div.t",u.name||"Sans nom"),e("div.s",u.city||"")),
       x("Rendre ambassadeur",{size:"sm",kind:"primary",onClick:async()=>{
         let fid=pick.value,fname=pick.options[pick.selectedIndex]?pick.options[pick.selectedIndex].textContent:"";
-        if(!fid){A("Aucune fiche d’ambassadeur à relier.","warn");return}
+        if(!fid){A("Créez d’abord une fiche d’ambassadeur.","warn");return}
         let r=await S3Sb("POST","ambassador_links?on_conflict=user_id",{user_id:u.id,user_name:u.name||"",ambassador_id:fid,ambassador_name:fname},{Prefer:"resolution=merge-duplicates,return=minimal"});
         if(r.ok){A(u.name+" est maintenant ambassadeur."),msg.textContent="Enregistré. La personne verra son espace au prochain chargement de l’appli.";loadLinks()}
         else A("Enregistrement impossible : "+(r.status===401||r.status===403?"vous n’êtes pas administrateur ou la session a expiré.":"vérifiez la base."),"warn")
@@ -146,8 +197,19 @@ async function S3AmbAdminBox(){
   q.addEventListener("input",()=>{clearTimeout(tm);tm=setTimeout(search,250)});
   loadLinks();
   return e("div.card.amb-admin",
-    e("h3",{style:{margin:"0 0 4px"}},"Espace ambassadeur : accès"),
-    e("p.tiny.muted",{style:{margin:"0 0 12px"}},"Donne le statut ambassadeur à un compte et le relie à une fiche. Il pourra ensuite publier ses liens en lot."),
+    e("h3",{style:{margin:"0 0 4px"}},"Fiches ambassadeur"),
+    e("p.tiny.muted",{style:{margin:"0 0 12px"}},"Créez une fiche pour une nouvelle personne, ou modifiez une fiche existante. Les fiches enregistrées apparaissent aussitôt dans la liste publique."),
+    e("div.stack",
+      e("div.field",e("label","Fiche"),edit),
+      e("div.field",e("label","Nom"),f.name),
+      e("div.grid.g-2",e("div.field",e("label","Pseudo"),f.handle),e("div.field",e("label","Saison"),f.season)),
+      e("div.field",e("label","Lien de la chaîne"),f.channelUrl),
+      e("div.field",e("label","Spécialité"),f.speciality),
+      e("div.field",e("label","Thèmes"),f.tags),
+      e("div.field",e("label","Présentation"),f.bio),
+      save,fmsg),
+    e("h3",{style:{margin:"18px 0 4px",fontSize:"16px"}},"Donner le statut ambassadeur"),
+    e("p.tiny.muted",{style:{margin:"0 0 12px"}},"Donne le statut ambassadeur à un compte existant et le relie à une fiche. Il pourra ensuite publier ses liens en lot."),
     e("div.stack",
       e("div.field",e("label","Fiche d’ambassadeur"),pick),
       e("div.field",e("label","Personne"),q),

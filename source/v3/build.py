@@ -29,6 +29,8 @@ shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()
 home=open(B+'v3/home3.js').read()
 # 1. remplace la coque Sl()
 bundle=cut(bundle,'function Sl(){','function Il(t){',shell)
+# 1b. fiches ambassadeur : la base (table ambassadors) s'ajoute au catalogue local
+bundle=rep(bundle,'_.ambassadors.all())','(window.__ambDb||[]).reduce((L,d)=>{let i=L.findIndex(x=>x.id===d.id);i<0?L.push(d):L[i]=d;return L},_.ambassadors.all()))')
 # 2. remplace l'accueil
 bundle=cut(bundle,'async function ka(t){','function al(t){',home)
 # 3. routeur : chargements différés, squelette, décor
