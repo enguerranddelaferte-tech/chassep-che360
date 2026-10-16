@@ -25,7 +25,7 @@ def cut(s,start,end,new):
     j=s.find(end,i); assert j>=0,end
     return s[:i]+new+s[j:]
 
-shell=open(B+'v3/shell3.js').read()
+shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()
 home=open(B+'v3/home3.js').read()
 # 1. remplace la coque Sl()
 bundle=cut(bundle,'function Sl(){','function Il(t){',shell)

@@ -4,6 +4,7 @@ function S3Adm(u){return!!u&&["admin","moderator"].includes(u.role)}
 function S3Groups(all){
   let u=w.user,adm=S3Adm(u),gs=adm?AdmNavFor(u.role):GxNavR(xl);
   !IsLaunch()&&u&&u.isManager&&!adm&&(gs=[...gs,{group:"Espace pro",items:[["/pro","Tableau de bord territoire","chart"]]}]);
+  typeof S3Amb<"u"&&S3Amb.id&&u&&(gs=[...gs,{group:"Ambassadeur",items:[["/espace-ambassadeur","Mon espace ambassadeur","play"]]}]);
   return all?gs:gs.filter(g=>!g.season||g.season===w.season)
 }
 function S3Find(p){
@@ -89,6 +90,7 @@ function Sl(){
   Ot=e("div.shell",side,e("div.main",top,Mt),tabs,fab),B(Gi,Ot);
   S3InstallUI();
   S3Unread();
+  try{S3AmbBoot()}catch{}
   if(!S3.bound){S3.bound=!0;
     j.on("season",s=>{Ot=null,S3Flash(s)});
     window._sl||(window._sl=1,j.on("season",z=>{let q2=Li();z==="peche"&&(q2.startsWith("/battues")||q2.startsWith("/tableau-de-chasse")||q2.startsWith("/angle-30")||q2.startsWith("/sortie/chasse")||q2.startsWith("/historique/chasse")||q2.startsWith("/reglementation/chasse"))?ge(q2.startsWith("/sortie/")?"/sortie/peche":q2.startsWith("/historique/")?"/historique/peche":q2.startsWith("/reglementation/")?"/reglementation/peche":"/carnet"):z==="chasse"&&(q2.startsWith("/carnet")||q2.startsWith("/spots")||q2.startsWith("/niveaux-eau")||q2.startsWith("/sortie/peche")||q2.startsWith("/historique/peche")||q2.startsWith("/reglementation/peche"))?ge(q2.startsWith("/sortie/")?"/sortie/chasse":q2.startsWith("/historique/")?"/historique/chasse":q2.startsWith("/reglementation/")?"/reglementation/chasse":IsLaunch()?"/angle-30":"/battues"):Ie()}));
@@ -248,6 +250,7 @@ function S3Deco(p){
   if(S3.title){let h=Mt&&Mt.querySelector(".page-head h1");S3.title.firstChild.textContent=f?f.label:h?h.textContent:"Chasse & Pêche 360°",S3.title.lastChild.textContent=f?f.group:""}
   document.title=(f?f.label+" · ":"")+"Chasse & Pêche 360°";
   try{S3PushInject(p)}catch{}
+  try{S3AmbInject(p)}catch{}
   try{S3InstallUI()}catch{}
 }
 function S3Skel(){return e("div.page-skel",{"aria-busy":"true","aria-label":"Chargement"},e("i.skeleton",{style:{height:"14px",width:"90px"}}),e("i.skeleton",{style:{height:"38px",width:"min(360px,70%)"}}),e("i.skeleton",{style:{height:"120px"}}),e("i.skeleton",{style:{height:"220px"}}))}
