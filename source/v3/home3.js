@@ -26,5 +26,5 @@ async function ka(t){
   let posts=k({title:"Dernières sorties partagées",action:e("a.link-more",{href:"#/communaute"},"Fil",b("chevron"))},e("div.list",n.posts.map(S=>e("a.list-row",{href:"#/communaute"},oe(S.author,40),e("div.grow",e("div.t",S.author.name," ",zn(S.activity)),e("div.s",S.text.slice(0,110)+(S.text.length>110?"…":""))),e("div.end.small.muted",Ce(S.createdAt))))));
   let stats=e("div.grid.g-3",k({},ee(M.num(IsLaunch()?mt2:n.stats.harvests),IsLaunch()?"Territoire(s)":"Prélèvements")),k({},ee(M.num(n.stats.catches),"Prises au carnet")),k({},ee(M.num(n.stats.spots),"Spots")));
   let head=e("div.home-hello",e("div",e("h1",`${hello} ${i.name.split(" ")[0]}`),e("p",M.day(new Date))),e("span.mode-chip",b(PE?"fish":"deer"),PE?"Mode pêche":"Mode chasse"));
-  return C(t,e("div.page",head,S3PushNudge(),quick,e("div.grid.g-main",{style:{marginTop:"16px"}},e("div.stack",cond,HomeMapEl(),hunt,today,posts),e("div.stack",alerts,tools,stats,al(i)))))
+  return C(t,e("div.page",head,S3InstallNudge()||S3PushNudge(),quick,e("div.grid.g-main",{style:{marginTop:"16px"}},e("div.stack",cond,HomeMapEl(),hunt,today,posts),e("div.stack",alerts,tools,stats,al(i)))))
 }

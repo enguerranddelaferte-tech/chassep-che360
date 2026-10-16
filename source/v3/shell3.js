@@ -31,27 +31,30 @@ function S3Theme(){Ln(w.theme==="dark"?"light":"dark")}
 function S3Role(u){return u.role==="admin"?"Administrateur":u.role==="moderator"?"Modérateur":{chasseur:"Chasseur",pecheur:"Pêcheur",mixte:"Chasseur & pêcheur",usager:"Usager de la nature"}[u.profile]||"Membre"}
 
 function Sl(){
-  let u=w.user,adm=S3Adm(u),closed=new Set(Pe.get("navClosed",[]));
-  /* Barre latérale (PC) */
+  let u=w.user,adm=S3Adm(u);
+  /* Menu principal : le même sur PC (fixe) et sur téléphone (tiroir) */
   let nav=e("div.sb-scroll");
   S3Groups().forEach(g=>{
-    let grp=e("div.nav-group",{class:closed.has(g.group)?"closed":""});
-    grp.append(e("button",{type:"button","aria-expanded":String(!closed.has(g.group)),onclick:()=>{let c=grp.classList.toggle("closed");c?closed.add(g.group):closed.delete(g.group),Pe.set("navClosed",[...closed]),grp.firstChild.setAttribute("aria-expanded",String(!c))}},e("span",g.group),b("chevron")));
+    let grp=e("div.nav-group",e("h3",g.group));
     g.items.forEach(([p,l,ic,ct])=>grp.append(e("a.nav-link",{href:"#"+p,title:l,dataset:{path:p,counter:ct||""}},b(ic),e("span",l),ct?e("span.count",{hidden:!0}):null)));
     nav.append(grp)
   });
-  let side=e("nav.sidebar",{"aria-label":"Navigation principale"},
+  let inst=e("button.nav-link.install",{type:"button",hidden:!0,onclick:()=>{S3SheetClose(),S3Install()}},b("download"),e("span","Installer l’appli"));
+  let side=e("nav.sidebar#mainmenu",{"aria-label":"Menu principal"},
     e("div.sb-top",
-      e("div.sb-brand-row",kl(),e("button.icon-btn.rail-toggle.rail-keep",{type:"button","aria-label":"Replier le menu",title:"Replier / déplier le menu",onclick:()=>{let r=document.documentElement.classList.toggle("rail");Pe.set("rail",r)}},b("menu"))),
+      e("div.sb-brand-row",kl(),e("button.icon-btn.sb-close",{type:"button","aria-label":"Fermer le menu",onclick:()=>S3SheetClose()},b("close"))),
       adm?e("span.adm-tag",b("shield"),u.role==="admin"?"Console admin":"Modération"):S3Season("block"),
-      e("button.sb-search",{type:"button",onclick:()=>S3Palette()},b("search"),e("span","Rechercher"),e("kbd","Ctrl K"))),
+      e("button.sb-search",{type:"button",onclick:()=>{S3SheetClose(),S3Palette()}},b("search"),e("span","Rechercher"),e("kbd","Ctrl K"))),
     nav,
     e("div.sb-foot",
+      inst,
       adm?null:e("a.nav-link",{href:"#/abonnement",title:"Offres & abonnement",dataset:{path:"/abonnement"}},b("crown"),e("span","Offres & abonnement")),
+      e("a.nav-link",{href:"#/notifications",title:"Notifications",dataset:{path:"/notifications"}},b("bell"),e("span","Notifications et alertes")),
       e("div.side-user",
         e("a.side-user-link",{href:"#/profil",title:"Mon profil",dataset:{path:"/profil"}},oe(u,34),e("div",e("b",u.name),e("div.tiny.muted",S3Role(u)))),
         e("button.icon-btn",{type:"button","aria-label":"Thème jour / nuit",title:"Thème jour / nuit",dataset:{themeIc:"1"},onclick:S3Theme},b(w.theme==="dark"?"sun":"moon")),
-        e("button.icon-btn.rail-keep",{type:"button","aria-label":"Se déconnecter",title:"Se déconnecter",onclick:S3Logout},b("logout")))));
+        e("button.icon-btn",{type:"button","aria-label":"Se déconnecter",title:"Se déconnecter",onclick:S3Logout},b("logout")))));
+  side.addEventListener("click",ev=>{ev.target.closest("a")&&S3SheetClose()});
   /* Barre du haut */
   let net=e("span.net-status",{hidden:w.online},b("offline"),e("span","Hors ligne")),
     bell=e("button.icon-btn",{type:"button","aria-label":"Notifications",title:"Notifications",onclick:()=>ge("/notifications")},b("bell"),e("span.dot",{hidden:!0}));
@@ -63,6 +66,7 @@ function Sl(){
     e("button.tb-search",{type:"button",onclick:()=>S3Palette()},b("search"),e("span","Rechercher une personne, une page…"),e("kbd","Ctrl K")),
     e("div.spacer"),
     TripPillEl(),net,
+    e("button.btn.sm.tonal.tb-install",{type:"button",hidden:!0,onclick:()=>S3Install()},b("download"),"Installer l’appli"),
     e("button.icon-btn.tb-find",{type:"button","aria-label":"Rechercher",title:"Rechercher",onclick:()=>S3Palette()},b("search")),
     bell);
   /* Barre d'onglets (mobile) */
@@ -78,9 +82,9 @@ function Sl(){
     e("button.tab",{type:"button","aria-label":"Menu et compte",onclick:()=>S3SheetOpen()},b("menu"),e("span","Menu"),e("span.tab-badge",{hidden:!0})))}
   Mt=e("main.content",{id:"content",tabindex:-1});
   let fab=e("button.sos-fab",{type:"button","aria-label":"Envoyer un SOS",onclick:()=>ht()},b("sos"),"SOS");
-  S3.sheet=null;
+  document.documentElement.classList.remove("nav-open");
   Ot=e("div.shell",side,e("div.main",top,Mt),tabs,fab),B(Gi,Ot);
-  document.documentElement.classList.toggle("rail",!!Pe.get("rail",!1));
+  S3InstallUI();
   S3Unread();
   if(!S3.bound){S3.bound=!0;
     j.on("season",s=>{Ot=null,S3Flash(s)});
@@ -96,40 +100,65 @@ function S3Unread(){
   Ot.querySelectorAll(".topbar .icon-btn .dot").forEach(d=>{d.hidden=!n,d.textContent=n>9?"9+":n});
   Ot.querySelectorAll('[data-counter="messages"] .count').forEach(f=>{f.hidden=!m,f.textContent=m});
   Ot.querySelectorAll(".tabbar .tab-badge").forEach(f=>{f.hidden=!m,f.textContent=m>9?"9+":m});
-  S3.sheet&&S3.sheet.querySelectorAll('[data-counter="messages"] .count').forEach(f=>{f.hidden=!m,f.textContent=m})
+  }
+
+/* ----- Menu en tiroir (téléphone / tablette) ----- */
+function S3SheetOpen(){
+  if(!Ot)return;let d=document.documentElement;d.classList.add("nav-open");
+  let sc=document.querySelector(".scrim.nav-scrim");sc||document.body.append(e("div.scrim.nav-scrim",{onclick:()=>S3SheetClose()}));
+  S3.sheetKey||(S3.sheetKey=ev=>{ev.key==="Escape"&&S3SheetClose()},document.addEventListener("keydown",S3.sheetKey));
+  let side=document.getElementById("mainmenu");if(side){
+    let x0=null;side.ontouchstart=ev=>{x0=ev.touches[0].clientX};side.ontouchend=ev=>{x0!=null&&x0-ev.changedTouches[0].clientX>70&&S3SheetClose(),x0=null};
+    setTimeout(()=>{let f=side.querySelector(".sb-close");f&&getComputedStyle(f).display!=="none"&&f.focus({preventScroll:!0})},60)}
+}
+function S3SheetClose(){
+  document.documentElement.classList.remove("nav-open");document.querySelectorAll(".scrim.nav-scrim").forEach(x2=>x2.remove());
+  S3.sheetKey&&(document.removeEventListener("keydown",S3.sheetKey),S3.sheetKey=null)
 }
 
-/* ----- Feuille « Menu » (mobile / tablette) ----- */
-function S3SheetOpen(){
-  let u=w.user;if(!u)return;S3SheetClose(!0);
-  let p=Li(),adm=S3Adm(u),body=e("div.sheet-body");
-  C(body,
-    e("div.menu-user",
-      e("div.row",oe(u,46),e("div.grow",e("b",u.name),e("div.tiny.muted",S3Role(u)+(u.email?" · "+u.email:"")))),
-      e("div.menu-user-act",x("Profil et réglages",{icon:"user",size:"sm",href:"#/profil"}),x("Se déconnecter",{icon:"logout",size:"sm",kind:"ghost",onClick:S3Logout}))),
-    adm?null:S3PushCard(!0),
-    adm?null:S3Season("block"),
-    e("button.menu-search",{type:"button",onclick:()=>{S3SheetClose(),S3Palette()}},b("search"),e("span","Rechercher une personne, une page…")));
-  S3Groups().forEach(g=>{
-    body.append(e("section.menu-group",e("h3",e("span",g.group),e("i")),e("div.menu-tiles",g.items.map(([path,l,ic,ct])=>e("a.menu-tile",{href:"#"+path,class:p===path||p.startsWith(path+"/")?"active":"",dataset:{counter:ct||""},onclick:()=>S3SheetClose()},b(ic),e("span",l),ct?e("span.count",{hidden:!0}):null)))))
-  });
-  body.append(e("div.menu-foot",
-    adm?null:x("Offres & abonnement",{icon:"crown",href:"#/abonnement"}),
-    x(w.theme==="dark"?"Thème jour":"Thème nuit",{icon:w.theme==="dark"?"sun":"moon",onClick:()=>{S3SheetClose(),S3Theme()}}),
-    x("Notifications",{icon:"bell",href:"#/notifications"})));
-  body.addEventListener("click",ev=>{ev.target.closest(".menu-foot a,.menu-user a")&&S3SheetClose()});
-  let panel=e("div.sheet-panel",{role:"dialog","aria-modal":"true","aria-label":"Menu"},e("div.sheet-grip"),e("div.sheet-head",e("b.display",{style:{fontSize:"24px",flex:"1"}},"Menu"),e("button.icon-btn",{type:"button","aria-label":"Fermer le menu",onclick:()=>S3SheetClose()},b("close"))),body),
-    sh=e("div.sheet",e("div.sheet-back",{onclick:()=>S3SheetClose()}),panel);
-  document.body.append(sh),S3.sheet=sh,S3Unread();
-  requestAnimationFrame(()=>requestAnimationFrame(()=>sh.setAttribute("open","")));
-  let y0=null;panel.addEventListener("touchstart",ev=>{body.scrollTop<=0&&(y0=ev.touches[0].clientY)},{passive:!0});
-  panel.addEventListener("touchmove",ev=>{if(y0==null)return;let d=ev.touches[0].clientY-y0;d>0&&(panel.style.transform=`translateY(${d}px)`,panel.style.transition="none")},{passive:!0});
-  panel.addEventListener("touchend",ev=>{if(y0==null)return;let d=ev.changedTouches[0].clientY-y0;panel.style.transition="",panel.style.transform="",y0=null,d>110&&S3SheetClose()});
-  S3.sheetKey=ev=>{ev.key==="Escape"&&S3SheetClose()};document.addEventListener("keydown",S3.sheetKey)
+/* ----- Installation de l'appli (écran d'accueil / ordinateur) ----- */
+var S3SiteURL="https://enguerranddelaferte-tech.github.io/chassep-che360/";
+function S3Hosted(){try{return!!(window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on())||/github\.io$/.test(location.hostname)}catch{return!1}}
+function S3IsInstalled(){return S3Standalone()||Pe.get("installed",!1)&&S3Standalone()}
+function S3CanOffer(){return!S3Standalone()}
+function S3InstallUI(){
+  let show=S3CanOffer();
+  document.querySelectorAll(".nav-link.install,.tb-install,.guest-install").forEach(x2=>x2.hidden=!show);
+  let lbl=window.__bip?"Installer l’appli":"Installer l’appli";
+  document.querySelectorAll(".tb-install").forEach(x2=>{x2.title=window.__bip?"Installer sur cet appareil en un clic":"Comment installer l’appli"})
 }
-function S3SheetClose(now){
-  let sh=S3.sheet;if(!sh)return;S3.sheet=null;S3.sheetKey&&document.removeEventListener("keydown",S3.sheetKey);
-  if(now){sh.remove();return}sh.removeAttribute("open"),setTimeout(()=>sh.remove(),260)
+document.addEventListener("cp360:bip",()=>S3InstallUI());
+window.addEventListener("appinstalled",()=>{window.__bip=null,Pe.set("installed",!0),A("Appli installée. Vous la trouverez sur votre écran d’accueil ou dans vos applications.","ok"),S3InstallUI()});
+function S3Browser(){let ua=navigator.userAgent;return S3IsIOS()?(/CriOS|FxiOS|EdgiOS/.test(ua)?"ios-other":"ios"):/Android/.test(ua)?(/SamsungBrowser/.test(ua)?"samsung":/Firefox/.test(ua)?"android-ff":"android"):/Edg\//.test(ua)?"edge":/Firefox\//.test(ua)?"firefox":/Chrome\//.test(ua)?"chrome":/Safari\//.test(ua)?"safari-mac":"autre"}
+async function S3Install(){
+  if(window.__bip&&S3Hosted()){let ev=window.__bip;try{await ev.prompt();let r=await ev.userChoice;r&&r.outcome==="accepted"?(window.__bip=null,Pe.set("installed",!0),A("Installation en cours…","ok")):A("Installation annulée. Le bouton reste disponible dans le menu.","info")}catch{S3InstallHelp()}S3InstallUI();return}
+  S3InstallHelp()
+}
+function S3InstallHelp(){
+  let br=S3Browser(),steps={
+    ios:["Touchez le bouton Partager (le carré avec une flèche vers le haut), en bas de Safari.","Faites défiler et touchez « Sur l’écran d’accueil ».","Touchez « Ajouter » : l’icône Chasse & Pêche 360° apparaît sur votre écran d’accueil."],
+    "ios-other":["Sur iPhone, l’installation se fait depuis Safari.","Ouvrez l’adresse de l’appli dans Safari, puis Partager → « Sur l’écran d’accueil »."],
+    android:["Touchez le menu ⋮ en haut à droite de Chrome.","Touchez « Installer l’application » (ou « Ajouter à l’écran d’accueil »).","Confirmez : l’appli apparaît avec vos autres applications."],
+    samsung:["Touchez le menu ≡ en bas de Samsung Internet.","Touchez « Ajouter la page à » puis « Écran d’accueil »."],
+    "android-ff":["Touchez le menu ⋮ de Firefox.","Touchez « Installer » ou « Ajouter à l’écran d’accueil »."],
+    chrome:["Cliquez sur l’icône d’installation (un écran avec une flèche) à droite de la barre d’adresse.","Ou menu ⋮ → « Caster, enregistrer et partager » → « Installer la page en tant qu’appli »."],
+    edge:["Cliquez sur l’icône « Appli disponible » à droite de la barre d’adresse.","Ou menu … → « Applications » → « Installer ce site en tant qu’application »."],
+    "safari-mac":["Dans Safari (macOS Sonoma ou plus récent), menu Fichier → « Ajouter au Dock ».","L’appli s’ouvre ensuite dans sa propre fenêtre, depuis le Dock."],
+    firefox:["Firefox sur ordinateur n’installe pas les applis web.","Ouvrez l’appli dans Chrome ou Edge, puis utilisez le bouton « Installer l’appli »."],
+    autre:["Ouvrez l’appli dans Chrome, Edge ou Safari.","Utilisez ensuite le bouton « Installer l’appli » du menu."]
+  }[br];
+  let body=e("div.stack",{style:{gap:"14px"}});
+  if(!S3Hosted())body.append(e("div.panel.tint",{style:{padding:"14px 16px"}},e("b",{style:{display:"block",marginBottom:"4px"}},"L’installation se fait depuis le site de l’appli"),e("div.small","Cet aperçu ne peut pas être installé. Ouvrez le site sur votre téléphone ou votre ordinateur, puis suivez les étapes ci-dessous."),e("div.row.wrap",{style:{marginTop:"10px",gap:"8px"}},x("Ouvrir le site de l’appli",{icon:"nav",kind:"primary",size:"sm",href:S3SiteURL}),e("button.btn.sm",{type:"button",onclick:async ev=>{try{await navigator.clipboard.writeText(S3SiteURL);A("Adresse copiée.")}catch{A(S3SiteURL,"info",{title:"Adresse du site",timeout:12e3})}}},b("file"),"Copier l’adresse")),e("div.tiny.muted",{style:{marginTop:"8px",userSelect:"all",overflowWrap:"anywhere"}},S3SiteURL)));
+  body.append(e("ol.install-steps",steps.map(t=>e("li",t))),
+    e("div.install-why",b("check"),e("div",e("b","Pourquoi l’installer ?"),e("div.small.muted","Ouverture en plein écran depuis une icône, fonctionnement hors ligne sur le terrain, et alertes (SOS, traques, messages) même appli fermée."))));
+  let m=Le({title:"Installer Chasse & Pêche 360°",body,actions:[x("Fermer",{kind:"primary",onClick:()=>m.close()})]})
+}
+function S3InstallNudge(){
+  if(!S3CanOffer()||Pe.get("installNudge",0)>Date.now())return null;
+  let card=e("div.push-card.off.nudge.install-nudge",e("div.row",{style:{alignItems:"flex-start"}},e("span.ic",b("download")),e("div.grow",e("b","Installez l’appli sur cet appareil"),e("div.small.muted","Une icône sur l’écran d’accueil, l’appli en plein écran, hors ligne, avec les alertes appli fermée."))),
+    e("div.push-acts",x("Installer l’appli",{icon:"download",kind:"primary",size:"sm",onClick:()=>S3Install()})),
+    e("button.icon-btn.push-x",{type:"button","aria-label":"Plus tard",title:"Plus tard",onclick:()=>{Pe.set("installNudge",Date.now()+14*864e5),card.remove()}},b("close")));
+  return card
 }
 
 /* ----- Recherche rapide (Ctrl K) ----- */
@@ -216,6 +245,7 @@ function S3Deco(p){
   if(S3.title){let h=Mt&&Mt.querySelector(".page-head h1");S3.title.firstChild.textContent=f?f.label:h?h.textContent:"Chasse & Pêche 360°",S3.title.lastChild.textContent=f?f.group:""}
   document.title=(f?f.label+" · ":"")+"Chasse & Pêche 360°";
   try{S3PushInject(p)}catch{}
+  try{S3InstallUI()}catch{}
 }
 function S3Skel(){return e("div.page-skel",{"aria-busy":"true","aria-label":"Chargement"},e("i.skeleton",{style:{height:"14px",width:"90px"}}),e("i.skeleton",{style:{height:"38px",width:"min(360px,70%)"}}),e("i.skeleton",{style:{height:"120px"}}),e("i.skeleton",{style:{height:"220px"}}))}
 
