@@ -78,6 +78,16 @@ async function S3AmbList(list,id){
     }}))));
 }
 async function S3AmbInject(p){
+  if(p==="/admin/ambassadeurs"){
+    if(!S3Adm(w.user))return;
+    let pg=Mt&&Mt.querySelector(".page");
+    if(!pg||pg.querySelector(".amb-admin"))return;
+    let box=await S3AmbAdminBox();
+    if(location.hash.split("?")[0]!==p)return;
+    let h=pg.querySelector(".page-head");
+    h?h.after(box):pg.prepend(box);
+    return;
+  }
   if(!p.startsWith("/ambassadeurs/"))return;
   let id=decodeURIComponent(p.split("/")[2]||"");
   if(!id)return;
@@ -89,4 +99,59 @@ async function S3AmbInject(p){
   let box=k({title:"Publications ajoutées par l’ambassadeur",sub:"liens vers les publications"},e("div.list",r.json.map(x2=>e("a.list-row",{href:x2.url,target:"_blank",rel:"noopener"},e("span.ic",b(/youtube|youtu\.be/.test(x2.url)?"play":"camera")),e("div.grow",e("div.t",x2.title||"Publication"),e("div.s",x2.published_on||"")),e("div.end",b("chevron"))))));
   box.classList.add("amb-extra");
   pg.append(box);
+}
+
+/* ----- Admin : donner ou retirer le statut ambassadeur d’un compte ----- */
+async function S3AmbAdminBox(){
+  let arr=[];
+  try{let a=await v.get("/ambassadors");arr=Array.isArray(a)?a:(a&&a.ambassadors)||[]}catch{}
+  let pick=e("select.field-select",{"aria-label":"Fiche ambassadeur",style:{minHeight:"var(--touch)",padding:"0 10px",borderRadius:"var(--r-sm)",border:"1px solid var(--line-strong)",background:"var(--surface)",color:"inherit",width:"100%"}},
+    arr.length?arr.map(a=>e("option",{value:a.id},a.name)):e("option",{value:""},"Aucune fiche d’ambassadeur"));
+  let q=e("input",{type:"search",placeholder:"Nom de la personne (2 lettres minimum)","aria-label":"Chercher une personne",autocomplete:"off",style:{minHeight:"var(--touch)",padding:"0 12px",borderRadius:"var(--r-sm)",border:"1px solid var(--line-strong)",background:"var(--surface)",color:"inherit",width:"100%"}}),
+      found=e("div.list"),linked=e("div.list"),msg=e("p.tiny.muted",{role:"status",style:{margin:"6px 0 0"}});
+  let tm=null;
+  const loadLinks=async()=>{
+    let r=await S3Sb("GET","ambassador_links?select=user_id,user_name,ambassador_id,ambassador_name&order=created_at.desc");
+    W(linked);
+    let rows=r&&r.ok&&Array.isArray(r.json)?r.json:null;
+    if(!rows){C(linked,e("p.muted",{style:{margin:0}},"Liste indisponible."));return}
+    if(!rows.length){C(linked,e("p.muted",{style:{margin:0}},"Aucun compte ambassadeur pour le moment."));return}
+    rows.forEach(l=>C(linked,e("div.list-row",
+      e("span.ic",b("user")),
+      e("div.grow",e("div.t",l.user_name||"Compte sans nom"),e("div.s","Fiche : "+(l.ambassador_name||l.ambassador_id))),
+      x("Retirer",{size:"sm",kind:"ghost",onClick:async()=>{
+        if(!(await ve({title:"Retirer le statut ambassadeur ?",text:"Cette personne ne pourra plus publier sur la fiche.",confirm:"Retirer"})))return;
+        let d=await S3Sb("DELETE","ambassador_links?user_id=eq."+encodeURIComponent(l.user_id));
+        d.ok?(A("Statut retiré."),loadLinks()):A("Suppression impossible.","warn")
+      }}))));
+  };
+  const search=async()=>{
+    let s=q.value.trim();
+    W(found);
+    if(s.length<2)return;
+    let us=[];
+    try{let r=await v.get("/auth/users?q="+encodeURIComponent(s));us=Array.isArray(r)?r:(r&&r.users)||[]}catch{}
+    if(!us.length){C(found,e("p.muted",{style:{margin:0}},"Aucune personne trouvée."));return}
+    us.slice(0,8).forEach(u=>C(found,e("div.list-row",
+      oe(u,34),
+      e("div.grow",e("div.t",u.name||"Sans nom"),e("div.s",u.city||"")),
+      x("Rendre ambassadeur",{size:"sm",kind:"primary",onClick:async()=>{
+        let fid=pick.value,fname=pick.options[pick.selectedIndex]?pick.options[pick.selectedIndex].textContent:"";
+        if(!fid){A("Aucune fiche d’ambassadeur à relier.","warn");return}
+        let r=await S3Sb("POST","ambassador_links?on_conflict=user_id",{user_id:u.id,user_name:u.name||"",ambassador_id:fid,ambassador_name:fname},{Prefer:"resolution=merge-duplicates,return=minimal"});
+        if(r.ok){A(u.name+" est maintenant ambassadeur."),msg.textContent="Enregistré. La personne verra son espace au prochain chargement de l’appli.";loadLinks()}
+        else A("Enregistrement impossible : "+(r.status===401||r.status===403?"vous n’êtes pas administrateur ou la session a expiré.":"vérifiez la base."),"warn")
+      }}))));
+  };
+  q.addEventListener("input",()=>{clearTimeout(tm);tm=setTimeout(search,250)});
+  loadLinks();
+  return e("div.card.amb-admin",
+    e("h3",{style:{margin:"0 0 4px"}},"Espace ambassadeur : accès"),
+    e("p.tiny.muted",{style:{margin:"0 0 12px"}},"Donne le statut ambassadeur à un compte et le relie à une fiche. Il pourra ensuite publier ses liens en lot."),
+    e("div.stack",
+      e("div.field",e("label","Fiche d’ambassadeur"),pick),
+      e("div.field",e("label","Personne"),q),
+      found,msg,
+      e("h3",{style:{margin:"14px 0 6px",fontSize:"16px"}},"Ambassadeurs actuels"),
+      linked));
 }
