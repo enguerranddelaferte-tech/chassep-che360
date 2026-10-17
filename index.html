@@ -937,6 +937,7 @@ async function S3AlbBox(uid){
 async function S3AlbInject(p){
   let uid=S3AlbId(p);
   if(!uid)return;
+  if(!(window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on()))return; /* pas de base hors ligne : l’album est réservé à la version connectée */
   let pg=Mt&&Mt.querySelector(".page");
   if(!pg||pg.querySelector(".alb-box"))return;
   let box=await S3AlbBox(uid);
