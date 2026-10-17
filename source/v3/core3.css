@@ -679,3 +679,12 @@ html.kb-open .tabbar{transform:translateY(110%)}
 .sb-top .season button{padding:0 8px;font-size:14px;min-width:0}
 .sb-top .brand-name{font-size:19px}
 @media(min-width:900px) and (max-width:1100px){.sb-top .brand-name small{display:none}}
+
+.alb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.alb-item{margin:0;border-radius:var(--r-sm);overflow:hidden;background:var(--surface-2);display:flex;flex-direction:column}
+.alb-item img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.alb-item figcaption,.alb-foot{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:6px 8px;font-size:13px}
+.alb-video{padding:10px;justify-content:space-between;min-height:110px}
+.alb-video-link{display:flex;flex-direction:column;gap:8px;color:inherit;text-decoration:none;flex:1;justify-content:center;align-items:flex-start}
+.alb-video-link svg{width:28px;height:28px}
+.alb-add{margin:0 0 14px}

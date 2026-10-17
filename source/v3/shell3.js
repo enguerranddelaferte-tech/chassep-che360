@@ -251,6 +251,7 @@ function S3Deco(p){
   document.title=(f?f.label+" · ":"")+"Chasse & Pêche 360°";
   try{S3PushInject(p)}catch{}
   try{S3AmbInject(p)}catch{}
+  try{S3AlbInject(p)}catch{}
   try{S3InstallUI()}catch{}
 }
 function S3Skel(){return e("div.page-skel",{"aria-busy":"true","aria-label":"Chargement"},e("i.skeleton",{style:{height:"14px",width:"90px"}}),e("i.skeleton",{style:{height:"38px",width:"min(360px,70%)"}}),e("i.skeleton",{style:{height:"120px"}}),e("i.skeleton",{style:{height:"220px"}}))}
