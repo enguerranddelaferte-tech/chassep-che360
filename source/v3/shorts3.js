@@ -1,8 +1,8 @@
 
 /* ----- Vidéos courtes (3.0) : fil vertical plein écran, publication ouverte à tous les membres ----- */
-/* Fichiers dans le bucket « shorts » (public en lecture), lignes dans la table shorts. Max 60 s, 50 Mo. */
+/* Fichiers dans le bucket « shorts » (public en lecture), lignes dans la table shorts. MP4 ou MOV, 9:16 (ou 3:4), 720 px mini, 3 min max, 100 Mo max. */
 var S3Sh={registered:!1};
-const S3ShMax={sec:60,bytes:52428800};
+const S3ShMax={sec:180,bytes:104857600,minSide:720,ratioMin:1.25,ratioMax:2};
 function S3ShRegister(){
   if(S3Sh.registered)return;
   S3Sh.registered=!0;
@@ -11,11 +11,18 @@ function S3ShRegister(){
 function S3ShUrl(path){return window.cp360Sb.URL+"/storage/v1/object/public/shorts/"+path}
 function S3ShCheck(file){
   return new Promise((ok,ko)=>{
-    if(!/^video\/(mp4|webm|quicktime)$/.test(file.type))return ko("Format non accepté : MP4, WebM ou MOV.");
-    if(file.size>S3ShMax.bytes)return ko("Vidéo trop lourde : 50 Mo maximum.");
+    if(!/^video\/(mp4|quicktime)$/.test(file.type))return ko("Format non accepté : MP4 ou MOV uniquement.");
+    if(file.size>S3ShMax.bytes)return ko("Vidéo trop lourde : 100 Mo maximum.");
     let v=document.createElement("video"),url=URL.createObjectURL(file);
     v.preload="metadata";
-    v.onloadedmetadata=()=>{URL.revokeObjectURL(url);v.duration>S3ShMax.sec+.5?ko("Vidéo trop longue : 60 secondes maximum."):ok(v.duration)};
+    v.onloadedmetadata=()=>{
+      URL.revokeObjectURL(url);
+      let w2=v.videoWidth,h2=v.videoHeight,ratio=h2/Math.max(1,w2);
+      if(v.duration>S3ShMax.sec+.5)return ko("Vidéo trop longue : 3 minutes maximum.");
+      if(!(ratio>=S3ShMax.ratioMin&&ratio<=S3ShMax.ratioMax))return ko("Format vertical requis : 9:16 (ou 3:4). Votre vidéo est en paysage ou dans un autre format.");
+      if(Math.min(w2,h2)<S3ShMax.minSide)return ko("Résolution trop faible : 720 px minimum sur le petit côté.");
+      ok(v.duration);
+    };
     v.onerror=()=>{URL.revokeObjectURL(url);ko("Vidéo illisible.")};
     v.src=url;
   });
@@ -23,7 +30,7 @@ function S3ShCheck(file){
 async function S3ShUpload(file,caption){
   let tok=await window.cp360Sb.bearer();
   if(!tok)throw new Error("session");
-  let ext=file.type==="video/webm"?"webm":file.type==="video/quicktime"?"mov":"mp4",
+  let ext=file.type==="video/quicktime"?"mov":"mp4",
       path=w.user.id+"/"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8)+"."+ext;
   let up=await fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"POST",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY,"Content-Type":file.type,"x-upsert":"false"},body:file});
   if(!up.ok)throw new Error("upload");
@@ -61,11 +68,11 @@ async function S3ShPage(t){
     rows.forEach(s=>C(feed,S3ShCard(s,names,!!(w.user&&w.user.id===s.owner_id),load)));
   };
   if(w.user)form=S3ShForm(load);
-  C(t,q({title:"Vidéos courtes",subtitle:"Publiées par les membres, 60 secondes maximum."}),form||null,feed);
+  C(t,q({title:"Vidéos courtes",subtitle:"Publiées par les membres : vidéos verticales, 3 minutes maximum."}),form||null,feed);
   load();
 }
 function S3ShForm(done){
-  let file=e("input",{type:"file",accept:"video/mp4,video/webm,video/quicktime","aria-label":"Choisir une vidéo",style:{width:"100%"}}),
+  let file=e("input",{type:"file",accept:"video/mp4,video/quicktime","aria-label":"Choisir une vidéo",style:{width:"100%"}}),
       cap=e("input",{type:"text",maxLength:300,placeholder:"Légende (facultatif)","aria-label":"Légende",style:{minHeight:"var(--touch)",width:"100%",padding:"0 12px",borderRadius:"var(--r-sm)",border:"1px solid var(--line-strong)",background:"var(--surface)",color:"inherit"}}),
       msg=e("p.tiny.muted",{role:"status","aria-live":"polite",style:{margin:"6px 0 0"}});
   let go=x("Publier la vidéo",{icon:"check",kind:"primary",size:"block",onClick:async()=>{
@@ -85,5 +92,5 @@ function S3ShForm(done){
   }});
   return e("details.card.shorts-form",{style:{margin:"0 0 14px"}},
     e("summary",{style:{cursor:"pointer",fontWeight:600}},"Publier une vidéo"),
-    e("div.stack",{style:{marginTop:"10px"}},e("div.field",e("label","Vidéo (60 s max, 50 Mo max)"),file),e("div.field",e("label","Légende"),cap),go,msg));
+    e("div.stack",{style:{marginTop:"10px"}},e("div.field",e("label","Vidéo verticale 9:16 (3 min max, 100 Mo max, MP4 ou MOV)"),file),e("div.field",e("label","Légende"),cap),go,msg));
 }
