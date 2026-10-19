@@ -5,6 +5,7 @@ function S3Groups(all){
   let u=w.user,adm=S3Adm(u),gs=adm?AdmNavFor(u.role):GxNavR(xl);
   !IsLaunch()&&u&&u.isManager&&!adm&&(gs=[...gs,{group:"Espace pro",items:[["/pro","Tableau de bord territoire","chart"]]}]);
   typeof S3Amb<"u"&&S3Amb.id&&u&&(gs=[...gs,{group:"Ambassadeur",items:[["/espace-ambassadeur","Mon espace ambassadeur","play"]]}]);
+  window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on()&&(gs=[...gs,{group:"Vidéos",items:[["/courts","Vidéos courtes","play"]]}]);
   return all?gs:gs.filter(g=>!g.season||g.season===w.season)
 }
 function S3Find(p){

@@ -15,6 +15,7 @@ function S3AmbParse(txt){
 }
 async function S3AmbBoot(){
   S3AmbFiches().catch(()=>{});
+  try{S3ShRegister()}catch{}
   if(!w.user||!window.cp360Sb||!window.cp360Sb.on||!window.cp360Sb.on())return;
   if(S3Amb.uid===w.user.id&&S3Amb.checked)return;
   S3Amb.uid=w.user.id,S3Amb.checked=!0,S3Amb.id=null;

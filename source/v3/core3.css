@@ -688,3 +688,10 @@ html.kb-open .tabbar{transform:translateY(110%)}
 .alb-video-link{display:flex;flex-direction:column;gap:8px;color:inherit;text-decoration:none;flex:1;justify-content:center;align-items:flex-start}
 .alb-video-link svg{width:28px;height:28px}
 .alb-add{margin:0 0 14px}
+
+.shorts-feed{height:calc(100dvh - 210px);min-height:420px;overflow-y:auto;scroll-snap-type:y mandatory;border-radius:var(--r-md);background:#000}
+.short{position:relative;height:100%;min-height:420px;scroll-snap-align:start;display:flex;flex-direction:column}
+.short-media{flex:1;display:grid;place-items:center;overflow:hidden}
+.short-info{position:absolute;left:12px;right:12px;bottom:12px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.short-info p{margin:4px 0 0}
+.short-info .btn{color:#fff}
