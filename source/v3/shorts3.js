@@ -63,6 +63,12 @@ async function S3ShUpload(blob,caption){
   let r=await S3Sb("POST","shorts",{owner_id:w.user.id,path,caption:caption.trim()},{Prefer:"return=minimal"});
   if(!r.ok){fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"DELETE",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY}}).catch(()=>{});throw new Error("row")}
 }
+async function S3ShRemoveFile(path){
+  try{
+    let tok=await window.cp360Sb.bearer();
+    if(tok)await fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"DELETE",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY}});
+  }catch{}
+}
 async function S3ShNames(ids){
   if(!ids.length)return {};
   let r=await S3Sb("GET","profiles_public?select=id,data&id=in.("+ids.map(encodeURIComponent).join(",")+")");
@@ -75,7 +81,9 @@ function S3ShCard(s,names,mine,reload){
   let del=mine?x("Supprimer",{size:"sm",kind:"ghost",onClick:async()=>{
     if(!(await ve({title:"Supprimer cette vidéo ?",text:"Elle disparaîtra du fil pour tout le monde.",confirm:"Supprimer",danger:!0})))return;
     let d=await S3Sb("DELETE","shorts?id=eq."+encodeURIComponent(s.id));
-    d.ok?(A("Vidéo supprimée."),reload()):A("Suppression impossible.","warn");
+    if(!d.ok){A("Suppression impossible.","warn");return}
+    S3ShRemoveFile(s.path);
+    A("Vidéo supprimée."),reload();
   }}):null;
   return e("section.short",{"aria-label":"Vidéo courte"},
     e("div.short-media",v),
