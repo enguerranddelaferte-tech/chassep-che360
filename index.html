@@ -530,6 +530,7 @@ function S3Deco(p){
   try{S3PushInject(p)}catch{}
   try{S3AmbInject(p)}catch{}
   try{S3AlbInject(p)}catch{}
+  try{S3ShareWatch();S3ShareInject()}catch{}
   try{S3InstallUI()}catch{}
 }
 function S3Skel(){return e("div.page-skel",{"aria-busy":"true","aria-label":"Chargement"},e("i.skeleton",{style:{height:"14px",width:"90px"}}),e("i.skeleton",{style:{height:"38px",width:"min(360px,70%)"}}),e("i.skeleton",{style:{height:"120px"}}),e("i.skeleton",{style:{height:"220px"}}))}
@@ -876,11 +877,14 @@ function S3AlbItem(a,mine,reload){
     d.ok?(A("Élément supprimé."),reload()):A("Suppression impossible.","warn");
   }}):null;
   let tag=a.visibility==="private"?e("span.tag.tiny",mine?"Privé":""):null;
+  let share=S3ShareBtn(()=>a.kind==="photo"
+    ?{text:a.caption||"",img:a.photo,title:"Photo de l’album"}
+    :{text:a.caption||"",url:a.url,title:"Vidéo"});
   if(a.kind==="photo")return e("figure.alb-item",e("img",{src:a.photo,alt:a.caption||"Photo de l’album",loading:"lazy",decoding:"async"}),
-    e("figcaption",e("span",a.caption||""),tag,del));
+    e("figcaption",e("span",a.caption||""),tag,share,del));
   return e("div.alb-item.alb-video",
     e("a",{href:a.url,target:"_blank",rel:"noopener",class:"alb-video-link"},b("play"),e("span",a.caption||"Vidéo")),
-    e("div.alb-foot",tag,del));
+    e("div.alb-foot",tag,share,del));
 }
 async function S3AlbBox(uid){
   let mine=!!(w.user&&w.user.id===uid),msg=e("p.tiny.muted",{role:"status","aria-live":"polite",style:{margin:"6px 0 0"}});
@@ -943,6 +947,53 @@ async function S3AlbInject(p){
   let box=await S3AlbBox(uid);
   if(location.hash.split("?")[0]!==p)return;
   pg.querySelector(".alb-box")||pg.append(box);
+}
+
+
+/* ----- Partage (option 1) : feuille de partage du téléphone, repli sur copie du texte ----- */
+/* Sert aux publications du fil (texte + photo) et aux éléments de l’album (photo ou lien). */
+async function S3ShareData(d){
+  let data={title:d.title||"Chasse & Pêche 360°",text:d.text||""};
+  if(d.url)data.url=d.url;
+  if(d.img){
+    try{
+      let blob=await (await fetch(d.img)).blob(),f=new File([blob],"publication.jpg",{type:blob.type||"image/jpeg"});
+      if(navigator.canShare&&navigator.canShare({files:[f]}))data.files=[f];
+    }catch{}
+  }
+  if(navigator.share){
+    try{await navigator.share(data);return "shared"}
+    catch(err){if(err&&err.name==="AbortError")return "cancel"}
+  }
+  let txt=[d.text,d.url].filter(Boolean).join("\n\n");
+  try{await navigator.clipboard.writeText(txt);return "copied"}catch{return "none"}
+}
+function S3ShareBtn(getData){
+  return x("Partager",{icon:"send",kind:"ghost",size:"sm",onClick:async()=>{
+    let r=await S3ShareData(getData());
+    if(r==="copied")A("Texte copié : collez-le dans Instagram ou Facebook, avec la photo.","ok");
+    else if(r==="none")A("Partage indisponible sur cet appareil.","warn");
+  }});
+}
+function S3ShareInject(){
+  if(!Mt)return;
+  Mt.querySelectorAll("article.post:not([data-shr])").forEach(a=>{
+    a.dataset.shr="1";
+    let act=a.querySelector(".post-actions");if(!act)return;
+    act.append(S3ShareBtn(()=>{
+      let img=a.querySelector(".photo img"),who=(a.querySelector("a[href^='#/profil/']")||{}).textContent||"",
+          txt=(a.querySelector(".post-text")||{}).textContent||"";
+      let url=/github\.io$/.test(location.hostname)?location.href.split("#")[0]:"";
+      return {text:(who?who+" : ":"")+txt,img:img?img.src:"",url,title:"Chasse & Pêche 360°"};
+    }));
+  });
+}
+var S3ShareObs=null;
+function S3ShareWatch(){
+  if(S3ShareObs||!Mt)return;
+  let tm=null;
+  S3ShareObs=new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(()=>{try{S3ShareInject()}catch{}},150)});
+  S3ShareObs.observe(Mt,{childList:true,subtree:true});
 }
 function Il(t){Ot.querySelectorAll("[data-path]").forEach(r=>r.classList.toggle("active",t===r.dataset.path||t.startsWith(r.dataset.path+"/")))}async function Xt(){let t=Li();if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&!t.startsWith("/ambassadeurs")&&!t.startsWith("/articles")&&!t.startsWith("/partage"))return ge("/connexion");if(document.documentElement.dataset.role=w.user&&["admin","moderator"].includes(w.user.role)?"admin":"",w.user&&["admin","moderator"].includes(w.user.role)&&(t==="/connexion"||!location.hash||location.hash==="#"||location.hash==="#/")||w.user&&["admin","moderator"].includes(w.user.role)&&!/^\/(admin|articles|securite|ambassadeurs|communaute|profil)/.test(t))return ge(StartPath());if(w.user&&t==="/connexion")return ge("/communaute");if(w.season==="peche"&&t==="/angle-30")return ge("/securite");let r=Yr(t);if(typeof un=="function")try{un()}catch{}if(un=null,t==="/connexion"){Ot=null;S3SheetClose(!0);let n=await r.loader();W(Gi),un=await n.default(Gi,{});return}if(!w.user){Ot=null;document.documentElement.dataset.role="";await Need3(t);let n=await r.loader(),c=e("main.content",{id:"content",tabindex:-1}),h=e("header.topbar.guest-top",e("a.tb-brand",{href:"#/communaute"},S3Mark(),e("span.brand-name","Chasse & P\xEAche 360\xB0")),e("div.spacer"),x("Articles",{kind:"ghost",size:"sm",href:"#/articles"}),e("button.btn.sm.tonal.guest-install",{type:"button",hidden:!0,onclick:()=>S3Install(),title:"Installer l\u2019appli"},b("download"),e("span","Installer")),x("Ambassadeurs",{kind:"ghost",size:"sm",href:"#/ambassadeurs"}));B(Gi,e("div.main",h,c,e("div.guest-bar",e("span","Rejoignez la communaut\xE9",e("small","Chasse, p\xEAche et nature, toute l\u2019ann\xE9e")),x("Cr\xE9er un compte",{kind:"ghost",size:"sm",href:"#/connexion?inscription=1"}),x("Se connecter",{kind:"primary",href:"#/connexion"})))),Mt=c;let i=e("div");un=await n.default(i,r.params),B(c,i),S3Deco(t);return}if(Ot||Sl(),Il(t),!r){B(Mt,e("div.empty",e("h3","Page introuvable"),e("p","Ce lien ne m\xE8ne nulle part."),x("Retour \xE0 l\u2019accueil",{kind:"primary",href:"#/accueil"})));return}Mt.classList.toggle("full",t==="/carte"),B(Mt,S3Skel());try{await Need3(t);let n=await r.loader(),i=e("div");un=await n.default(i,r.params),B(Mt,i),Mt.scrollTop=0,window.scrollTo(0,0),S3Deco(t)}catch(n){console.error(n),B(Mt,e("div.empty",b("alert"),e("h3",n.status===403?"Acc\xE8s r\xE9serv\xE9":n.status===404?"\xC9l\xE9ment introuvable":"Chargement impossible"),e("p",n.message),x("R\xE9essayer",{kind:"primary",onClick:Xt})))}}function Ie(){Xt()}async function ht(t){let r=e("p.muted","Localisation en cours\u2026"),n=e("textarea.input",{placeholder:"Pr\xE9cisez si possible : blessure, chute, arme, animal\u2026 (facultatif)",style:{minHeight:"80px"}}),i=[["112","Urgence europ\xE9enne"],["15","SAMU"],["18","Pompiers"],["17","Gendarmerie"]],a=e("div.stack",e("div.panel.danger",e("div.row",b("sos"),e("div.grow",e("b","Alerte imm\xE9diate"),e("div.small","Vos coordonn\xE9es GPS sont envoy\xE9es aux participants de la chasse, aux responsables du territoire et aux pratiquants \xE0 moins de 5 km."))),r),e("div.field",e("label","Message"),n),e("div.grid.g-2",i.map(([u,c])=>e("a.btn",{href:`tel:${u}`},b("phone"),`${u} \xB7 ${c}`)))),s=w.position,o=Le({title:"Envoyer un SOS",body:a,actions:[x("Annuler",{kind:"ghost",onClick:()=>o.close()}),x("Envoyer l\u2019alerte SOS",{kind:"danger",icon:"sos",size:"xl",onClick:l})]});Ee().then(u=>{s=u,r.textContent=`${u.lat.toFixed(5)}, ${u.lng.toFixed(5)}${u.approx?" (position approximative, GPS indisponible)":u.accuracy?` (\xB1 ${Math.round(u.accuracy)} m)`:""}`});async function l(){try{let u=await v.post("/sos",{location:{lat:s.lat,lng:s.lng},text:n.value,huntId:t||void 0});o.close();let c=Le({title:"SOS envoy\xE9",body:e("div.stack",e("p",`${M.plural(u.notified,"personne a \xE9t\xE9 pr\xE9venue","personnes ont \xE9t\xE9 pr\xE9venues")} avec votre position. Restez joignable et, si vous le pouvez, appelez les secours.`),e("div.grid.g-2",i.map(([d,p])=>e("a.btn",{href:`tel:${d}`},b("phone"),`${d} \xB7 ${p}`))),e("a.btn.ghost",{href:`sms:?body=${encodeURIComponent(u.smsFallback)}`},b("send"),"Envoyer ma position par SMS \xE0 un proche")),actions:[x("Voir l\u2019alerte",{kind:"primary",onClick:()=>{c.close(),ge(`/securite/${u.alert.id}`)}})]})}catch{let c=`${s.lat.toFixed(5)}, ${s.lng.toFixed(5)}`;B(a,e("div.panel.danger",e("b","R\xE9seau indisponible : l\u2019alerte n\u2019a pas pu partir par l\u2019application."),e("p",`Appelez le 112 (fonctionne sur tous les r\xE9seaux disponibles) et donnez ces coordonn\xE9es : ${c}`)),e("a.btn.danger.block.xl",{href:"tel:112"},b("phone"),"Appeler le 112"),e("a.btn.block",{href:`sms:?body=${encodeURIComponent("SOS "+w.user.name+" "+c)}`},b("send"),"Envoyer ma position par SMS"))}}}function Ml(){j.on("rt:notification",t=>{w.unread.notifications++,j.emit("unread");let r=t.kind==="sos"?"sos":t.kind==="hunt-start"?"warn":"info";if(A(t.text,r,{title:{sos:"Alerte SOS","hunt-start":"D\xE9but de traque","hunt-end":"Fin de traque",message:"Message"}[t.kind],timeout:t.kind==="sos"?0:6e3,action:t.link?e("a.link-more",{href:t.link},"Ouvrir"):null}),t.kind==="sos"||t.kind.startsWith("hunt-"))try{navigator.vibrate&&navigator.vibrate(t.kind==="sos"?[400,200,400,200,400]:[300,150,300])}catch{}}),j.on("rt:message:badge",()=>{Li().startsWith("/messages")||(w.unread.messages++,j.emit("unread"))})}async function Ps(){try{let[t,r]=await Promise.all([v.get("/notifications"),v.get("/conversations")]);w.unread.notifications=t.filter(n=>!n.read).length,w.unread.messages=r.reduce((n,i)=>n+i.unread,0),j.emit("unread")}catch{}}async function Vn(t,r){_n(t),We(r);let ss2=r&&r.profile==="pecheur"?"peche":r&&r.profile==="chasseur"?"chasse":null;ss2&&ss2!==w.season&&(w.season=ss2,Pe.set("season",ss2),document.documentElement.dataset.season=ss2),Ot=null,Ei(),Ai(),Ps(),Dn(),ge(StartPath()),Xt()}function Oi(t=!1){window.cp360Sb&&window.cp360Sb.onLogout();_n(null),We(null),Wr(),Ot=null,t&&A("Votre session a expir\xE9. Reconnectez-vous.","warn"),ge("/connexion"),Xt()}async function $l(){try{await(window.cp360Db&&window.cp360Db.bootSafe(4e3))}catch{}try{await(window.cp360Sb&&window.cp360Sb.boot())}catch{}if(Ml(),w.token)try{We(await v.get("/auth/me")),Ei(),Ai(),Ps(),Dn()}catch(t){t.status!==0?_n(null):A("Hors ligne : donn\xE9es en cache.","warn")}Xt(),Ti()&&A(`${Ti()} saisie(s) en attente de synchronisation.`,"warn")}var te,xl,Gi,Ot,Mt,un,Ye=H(()=>{X(),ie(),re(),Fe(),ae(),Hi(),document.documentElement.dataset.season=w.season,document.documentElement.dataset.theme=w.theme,te=t=>()=>wl(`./views/${t}.js`),Z("/connexion",te("auth")),Z("/accueil",te("home")),Z("/carte",te("map")),Z("/meteo",te("weather")),Z("/securite",te("safety")),Z("/securite/:id",te("safety")),Z("/angle-30",te("ang30")),Z("/angle-30-carte",te("angle30")),Z("/battues",te("hunts")),Z("/battues/:id",te("hunt")),Z("/territoires",te("territories")),Z("/territoires/:id",te("territory")),Z("/prelevements",te("harvests")),Z("/carnet",te("logbook")),Z("/tableau-de-chasse",te("bag")),Z("/spots",te("spots")),Z("/reglementation",te("regulations")),Z("/communaute",te("feed")),Z("/ambassadeurs",te("ambassadors")),Z("/ambassadeurs/:id",te("ambassadors")),Z("/articles",te("articles")),Z("/articles/:id",te("articles")),Z("/messages",te("messages")),Z("/messages/:id",te("messages")),Z("/salaison",te("salaison")),Z("/recettes",te("recipes")),Z("/recettes/:id",te("recipe")),Z("/bourse",te("market")),Z("/gestion",te("gestion")),Z("/gestion/:section",te("gestion")),Z("/journee",te("journee")),Z("/partage-journee/:data",te("partagejournee")),Z("/chien-de-sang",te("sang")),Z("/annonces-chasse",te("annonces")),Z("/annuaire",te("directory")),Z("/profil",te("profile")),Z("/profil/:id",te("person")),Z("/abonnement",te("plans")),Z("/notifications",te("notifications")),Z("/amis",te("amis")),Z("/suivi",te("suivi")),Z("/sortie",te("sortie")),Z("/historique/:act",te("hist")),Z("/sortie-detail/:id",te("histd")),Z("/sortie/:act",te("sortie")),Z("/reglementation/:domain",te("regulations")),Z("/questions",te("qa")),Z("/groupes",te("qa")),Z("/niveaux-eau",te("eau")),Z("/partage/:data",te("share")),Z("/pro",te("pro")),Z("/pro/:id",te("pro")),Z("/admin",te("admin2")),Z("/admin/:section",te("admin2")),xl=LaunchNav([{group:"Communaut\xE9",items:[["/communaute","Fil d\u2019actualit\xE9","users"],["/amis","Amis","heart"],["/ambassadeurs","Ambassadeurs","crown"],["/articles","Articles","book"],["/questions","Entraide & groupes","users"],["/messages","Messagerie","chat","messages"]]},{group:"Terrain",items:[["/accueil","Accueil","home"],["/carte","Carte terrain","map"],["/meteo","M\xE9t\xE9o terrain","weather"],["/securite","S\xE9curit\xE9 & alertes","shield"],["/suivi","Suivi en direct","locate"]]},{group:"Chasse",season:"chasse",items:[["/battues","Chasse","flag"],["/angle-30","Viseur 30\xB0","target"],["/angle-30-carte","Calculateur 30\xB0 (carte)","map"],["/sortie/chasse","Sortie chasse","clock"],["/historique/chasse","Historique des sorties","book"],["/territoires","Territoires & postes","building"],["/reglementation/chasse","R\xE9glementation chasse","law"],["/prelevements","Pr\xE9l\xE8vements","tag"],["/tableau-de-chasse","Tableau de chasse","book"],["/chien-de-sang","Chien de sang","shield"]]},{group:"P\xEAche",season:"peche",items:[["/carnet","Carnet de prises","book"],["/spots","Mes spots","pin"],["/sortie/peche","Sortie p\xEAche","clock"],["/historique/peche","Historique des sorties","book"],["/reglementation/peche","R\xE9glementation p\xEAche","law"],["/niveaux-eau","Niveaux d\u2019eau","drop"]]},{group:"Cuisine & commerce",items:[["/recettes","Recettes","chef"],["/salaison","Salaison & s\xE9chage","drop"],["/bourse","Bourse de proximit\xE9","swap"],["/annonces-chasse","Annonces de chasse","flag"],["/annuaire","Annuaire","store"]]}]),Gi=document.getElementById("app"),Ot=null,Mt=null,un=null,window.addEventListener("hashchange",Xt),window.cp360={openSOS:ht},j.on("premium",t=>{let r=Le({title:"Fonctionnalit\xE9 Premium",body:e("div.stack",e("p",{style:{margin:0}},t.error),e("p.muted.small","La s\xE9curit\xE9 (SOS, calculateur 30\xB0, chasses visibles) reste gratuite pour tous.")),actions:[x("Plus tard",{kind:"ghost",onClick:()=>r.close()}),x("Voir les offres",{kind:"primary",icon:"crown",onClick:()=>{r.close(),ge("/abonnement")}})]})}),j.on("unauthorized",()=>Oi(!0)),j.on("outbox:flushed",t=>A(`${M.plural(t,"saisie hors ligne synchronis\xE9e","saisies hors ligne synchronis\xE9es")}.`,"ok")),$l()}),Ut=Oe(),{seed:No}=tr(),Vo=Tt(),{connectClient:Ho}=ii(),Mi="cp360.demo.db.v1";Vo.init(null);var Si=!1;try{let t=localStorage.getItem(Mi);if(t){let r=JSON.parse(t);for(let n of Object.keys(r))Ut[n]&&Ut[n].load&&Ut[n].load(r[n]);Si=!0}}catch{Si=!1}Si||No();var Ii=!1,$i=["users","territories","stands","hunts","harvests","tags","catches","spots","regulations","posts","comments","conversations","messages","recipes","listings","directory","partners","alerts","notifications","articles","reports","audits","announcements","ambassadors","questions","groups","friendships","fstatus","livesessions","huntads","terrshares","gestion","huntgx","gxreqs"];$i.forEach(t=>{Ut[t].onChange=()=>{Ii=!0}});function Nr(){if(window.__sbWipe||!Ii)return;Ii=!1;let t={};$i.forEach(r=>{t[r]=Ut[r].dump()});try{localStorage.setItem(Mi,JSON.stringify(t))}catch{}}window.cp360Sb=(()=>{
 const URL="https://frizrkjunbezywnhpjas.supabase.co",KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaXpya2p1bmJlenl3bmhwamFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwMjIyMzIsImV4cCI6MjEwNzU5ODIzMn0.hRUae36TKq4aMOn9iO8iXsvXPgYUbyZ-xGLkMdtg0h4",SK="cp360.sb.session",QK="cp360.sb.queue";

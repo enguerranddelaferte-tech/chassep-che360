@@ -30,11 +30,14 @@ function S3AlbItem(a,mine,reload){
     d.ok?(A("Élément supprimé."),reload()):A("Suppression impossible.","warn");
   }}):null;
   let tag=a.visibility==="private"?e("span.tag.tiny",mine?"Privé":""):null;
+  let share=S3ShareBtn(()=>a.kind==="photo"
+    ?{text:a.caption||"",img:a.photo,title:"Photo de l’album"}
+    :{text:a.caption||"",url:a.url,title:"Vidéo"});
   if(a.kind==="photo")return e("figure.alb-item",e("img",{src:a.photo,alt:a.caption||"Photo de l’album",loading:"lazy",decoding:"async"}),
-    e("figcaption",e("span",a.caption||""),tag,del));
+    e("figcaption",e("span",a.caption||""),tag,share,del));
   return e("div.alb-item.alb-video",
     e("a",{href:a.url,target:"_blank",rel:"noopener",class:"alb-video-link"},b("play"),e("span",a.caption||"Vidéo")),
-    e("div.alb-foot",tag,del));
+    e("div.alb-foot",tag,share,del));
 }
 async function S3AlbBox(uid){
   let mine=!!(w.user&&w.user.id===uid),msg=e("p.tiny.muted",{role:"status","aria-live":"polite",style:{margin:"6px 0 0"}});
