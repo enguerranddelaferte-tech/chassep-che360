@@ -13,7 +13,8 @@ function S3ShRegister(){
 function S3ShUrl(path){return window.cp360Sb.URL+"/storage/v1/object/public/shorts/"+path}
 function S3ShCheck(file){
   return new Promise((ok,ko)=>{
-    if(!/^video\/(mp4|quicktime)$/.test(file.type))return ko("Format non accepté : MP4 ou MOV uniquement.");
+    let okType=/^video\/(mp4|quicktime|x-m4v)$/.test(file.type)||(!file.type&&/\.(mp4|mov|m4v)$/i.test(file.name||""));
+    if(!okType)return ko("Format non accepté : MP4 ou MOV uniquement.");
     if(file.size>S3ShMax.bytes)return ko("Vidéo trop lourde à l’envoi : 300 Mo maximum avant compression.");
     let v=document.createElement("video"),url=URL.createObjectURL(file);
     v.preload="metadata";
@@ -97,7 +98,7 @@ async function S3ShPage(t){
   load();
 }
 function S3ShForm(done){
-  let file=e("input",{type:"file",accept:"video/mp4,video/quicktime","aria-label":"Choisir une vidéo",style:{width:"100%"}}),
+  let file=e("input",{type:"file",accept:"video/mp4,video/quicktime,.mp4,.mov,.m4v","aria-label":"Choisir une vidéo",style:{width:"100%"}}),
       cap=e("input",{type:"text",maxLength:300,placeholder:"Légende (facultatif)","aria-label":"Légende",style:{minHeight:"var(--touch)",width:"100%",padding:"0 12px",borderRadius:"var(--r-sm)",border:"1px solid var(--line-strong)",background:"var(--surface)",color:"inherit"}}),
       msg=e("p.tiny.muted",{role:"status","aria-live":"polite",style:{margin:"6px 0 0"}});
   let go=x("Publier la vidéo",{icon:"check",kind:"primary",size:"block",onClick:async()=>{
