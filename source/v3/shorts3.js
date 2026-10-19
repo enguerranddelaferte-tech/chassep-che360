@@ -1,8 +1,10 @@
 
 /* ----- Vidéos courtes (3.0) : fil vertical plein écran, publication ouverte à tous les membres ----- */
-/* Fichiers dans le bucket « shorts » (public en lecture), lignes dans la table shorts. MP4 ou MOV, 9:16 (ou 3:4), 720 px mini, 3 min max, 100 Mo max. */
+/* Fichiers dans le bucket « shorts » (public en lecture), lignes dans la table shorts. MP4 ou MOV à l’envoi, compressés en MP4 H.264 (50 Mo max stockés), 9:16 (ou 3:4), 720 px mini, 3 min max. */
 var S3Sh={registered:!1};
-const S3ShMax={sec:180,bytes:104857600,minSide:720,ratioMin:1.25,ratioMax:2};
+const S3ShMax={sec:180,bytes:314572800,outBytes:52428800,minSide:720,ratioMin:1.25,ratioMax:2};
+/* Compression à l’envoi (ffmpeg.wasm, chargé à la demande) : H.264 720 px de large, 30 i/s, ~1,2 Mbit/s, AAC 96 kbit/s. */
+const S3ShFF={base:"https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd",ff:"https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js",util:"https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/umd/index.js",inst:null};
 function S3ShRegister(){
   if(S3Sh.registered)return;
   S3Sh.registered=!0;
@@ -12,7 +14,7 @@ function S3ShUrl(path){return window.cp360Sb.URL+"/storage/v1/object/public/shor
 function S3ShCheck(file){
   return new Promise((ok,ko)=>{
     if(!/^video\/(mp4|quicktime)$/.test(file.type))return ko("Format non accepté : MP4 ou MOV uniquement.");
-    if(file.size>S3ShMax.bytes)return ko("Vidéo trop lourde : 100 Mo maximum.");
+    if(file.size>S3ShMax.bytes)return ko("Vidéo trop lourde à l’envoi : 300 Mo maximum avant compression.");
     let v=document.createElement("video"),url=URL.createObjectURL(file);
     v.preload="metadata";
     v.onloadedmetadata=()=>{
@@ -27,12 +29,35 @@ function S3ShCheck(file){
     v.src=url;
   });
 }
-async function S3ShUpload(file,caption){
+function S3ShScript(src){return new Promise((ok,ko)=>{let el=document.createElement("script");el.src=src;el.onload=ok;el.onerror=()=>ko(new Error("script"));document.head.append(el)})}
+async function S3ShLoadFF(){
+  if(S3ShFF.inst)return S3ShFF.inst;
+  if(!window.FFmpegWASM)await S3ShScript(S3ShFF.ff);
+  if(!window.FFmpegUtil)await S3ShScript(S3ShFF.util);
+  let ff=new window.FFmpegWASM.FFmpeg();
+  await ff.load({
+    coreURL:await window.FFmpegUtil.toBlobURL(S3ShFF.base+"/ffmpeg-core.js","text/javascript"),
+    wasmURL:await window.FFmpegUtil.toBlobURL(S3ShFF.base+"/ffmpeg-core.wasm","application/wasm")
+  });
+  S3ShFF.inst=ff;return ff;
+}
+async function S3ShCompress(file,onPct){
+  let ff=await S3ShLoadFF(),prog=({progress})=>onPct&&onPct(Math.round(Math.min(1,Math.max(0,progress))*100));
+  ff.on("progress",prog);
+  try{
+    await ff.writeFile("in.mp4",new Uint8Array(await file.arrayBuffer()));
+    await ff.exec(["-i","in.mp4","-vf","scale=720:-2,fps=30","-c:v","libx264","-preset","veryfast","-crf","30","-maxrate","1200k","-bufsize","2400k","-pix_fmt","yuv420p","-c:a","aac","-b:a","96k","-ac","2","-movflags","+faststart","out.mp4"]);
+    let data=await ff.readFile("out.mp4");
+    return new Blob([data.buffer],{type:"video/mp4"});
+  }finally{
+    try{ff.off&&ff.off("progress",prog);await ff.deleteFile("in.mp4");await ff.deleteFile("out.mp4")}catch{}
+  }
+}
+async function S3ShUpload(blob,caption){
   let tok=await window.cp360Sb.bearer();
   if(!tok)throw new Error("session");
-  let ext=file.type==="video/quicktime"?"mov":"mp4",
-      path=w.user.id+"/"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8)+"."+ext;
-  let up=await fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"POST",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY,"Content-Type":file.type,"x-upsert":"false"},body:file});
+  let path=w.user.id+"/"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8)+".mp4";
+  let up=await fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"POST",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY,"Content-Type":"video/mp4","x-upsert":"false"},body:blob});
   if(!up.ok)throw new Error("upload");
   let r=await S3Sb("POST","shorts",{owner_id:w.user.id,path,caption:caption.trim()},{Prefer:"return=minimal"});
   if(!r.ok){fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"DELETE",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY}}).catch(()=>{});throw new Error("row")}
@@ -80,17 +105,20 @@ function S3ShForm(done){
     go.disabled=!0;msg.textContent="Vérification de la vidéo…";
     try{
       await S3ShCheck(file.files[0]);
+      msg.textContent="Compression : 0 %. Sur téléphone, cela peut prendre plusieurs minutes.";
+      let out=await S3ShCompress(file.files[0],pct=>{msg.textContent="Compression : "+pct+" %. Sur téléphone, cela peut prendre plusieurs minutes."});
+      if(out.size>S3ShMax.outBytes)throw "Vidéo encore trop lourde après compression (50 Mo max) : raccourcissez-la.";
       msg.textContent="Envoi en cours…";
-      await S3ShUpload(file.files[0],cap.value);
+      await S3ShUpload(out,cap.value);
       A("Vidéo publiée.","ok");
       file.value="";cap.value="";msg.textContent="";
       done();
     }catch(err){
-      msg.textContent=typeof err==="string"?err:(err&&err.message==="session"?"Votre session a expiré : reconnectez-vous.":"Publication impossible pour le moment.");
+      msg.textContent=typeof err==="string"?err:(err&&err.message==="session"?"Votre session a expiré : reconnectez-vous.":"Publication impossible pour le moment. Si le problème continue, la compression n’a peut-être pas pu se charger.");
     }
     go.disabled=!1;
   }});
   return e("details.card.shorts-form",{style:{margin:"0 0 14px"}},
     e("summary",{style:{cursor:"pointer",fontWeight:600}},"Publier une vidéo"),
-    e("div.stack",{style:{marginTop:"10px"}},e("div.field",e("label","Vidéo verticale 9:16 (3 min max, 100 Mo max, MP4 ou MOV)"),file),e("div.field",e("label","Légende"),cap),go,msg));
+    e("div.stack",{style:{marginTop:"10px"}},e("div.field",e("label","Vidéo verticale 9:16 (3 min max, MP4 ou MOV, compressée automatiquement)"),file),e("div.field",e("label","Légende"),cap),go,msg));
 }

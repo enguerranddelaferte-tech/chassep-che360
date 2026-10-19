@@ -11,13 +11,13 @@ function S3AlbCompress(file){
   return new Promise((ok,ko)=>{
     let url=URL.createObjectURL(file),img=new Image();
     img.onload=()=>{
-      let sc=Math.min(1,1280/Math.max(img.width,img.height)),c=document.createElement("canvas");
+      let sc=Math.min(1,1080/Math.max(img.width,img.height)),c=document.createElement("canvas");
       c.width=Math.max(1,Math.round(img.width*sc));c.height=Math.max(1,Math.round(img.height*sc));
       c.getContext("2d").drawImage(img,0,0,c.width,c.height);
       URL.revokeObjectURL(url);
-      let q=.82,d=c.toDataURL("image/jpeg",q);
-      while(d.length>1e6&&q>.4){q-=.1;d=c.toDataURL("image/jpeg",q)}
-      d.length>1e6?ko(new Error("trop lourde")):ok(d);
+      let q=.75,d=c.toDataURL("image/jpeg",q);
+      while(d.length>8e5&&q>.4){q-=.1;d=c.toDataURL("image/jpeg",q)}
+      d.length>8e5?ko(new Error("trop lourde")):ok(d);
     };
     img.onerror=()=>{URL.revokeObjectURL(url);ko(new Error("illisible"))};
     img.src=url;
