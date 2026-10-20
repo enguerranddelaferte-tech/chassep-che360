@@ -25,12 +25,18 @@ def cut(s,start,end,new):
     j=s.find(end,i); assert j>=0,end
     return s[:i]+new+s[j:]
 
-shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()
+shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()
 home=open(B+'v3/home3.js').read()
+# 0b. publications : photo/vidéo depuis le téléphone, lecteur vidéo dans le fil
+bundle=rep(bundle,'accept:"image/*",capture:"environment",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await Gr($)),S())}','accept:l.video?"image/*,video/*":"image/*",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await S3PhotoPick($,Gr)),S())}')
+bundle=rep(bundle,'{name:"photo",label:"Photo",type:"photo"}],onSubmit:async d=>{if(!d.text||!d.text.trim())','{name:"photo",label:"Photo",type:"photo",video:!0}],onSubmit:async d=>{if(!d.text||!d.text.trim())')
+bundle=rep(bundle,'t.photo?e("div.photo",e("img",{src:t.photo,alt:"",loading:"eager"})):null','t.photo?e("div.photo",S3Media(t.photo,"",!0)):null')
+bundle=rep(bundle,'e("img",{src:n[l.name],alt:"Aper\\xE7u"})','S3Media(n[l.name],"Aper\\xE7u")')
 # 1. remplace la coque Sl()
 bundle=cut(bundle,'function Sl(){','function Il(t){',shell)
 # 1b. fiches ambassadeur : la base (table ambassadors) s'ajoute au catalogue local
-bundle=rep(bundle,'_.ambassadors.all())','(window.__ambDb||[]).reduce((L,d)=>{let i=L.findIndex(x=>x.id===d.id);i<0?L.push(d):L[i]=d;return L},_.ambassadors.all()))')
+bundle=rep(bundle,'_.ambassadors.all())','(window.__ambDb||[]).reduce((L,d)=>{let i=L.findIndex(x=>x.id===d.id);i<0?L.push(d):L[i]=d;return L},_.ambassadors.all()).filter(d=>!["amb_feliew","amb_marius","amb_chassehd"].includes(d.id)))')
+bundle=rep(bundle,'AmbData.filter(a=>a.real&&!_.ambassadors.get(a.id))','AmbData.filter(a=>a.real&&!["amb_feliew","amb_marius","amb_chassehd"].includes(a.id)&&!_.ambassadors.get(a.id))')
 # 2. remplace l'accueil
 bundle=cut(bundle,'async function ka(t){','function al(t){',home)
 # 3. routeur : chargements différés, squelette, décor
