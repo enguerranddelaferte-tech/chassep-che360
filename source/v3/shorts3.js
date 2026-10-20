@@ -38,11 +38,25 @@ async function S3ShLoadFF(){
   let ff=new window.FFmpegWASM.FFmpeg();
   await ff.load({
     coreURL:await window.FFmpegUtil.toBlobURL(S3ShFF.base+"/ffmpeg-core.js","text/javascript"),
-    wasmURL:await window.FFmpegUtil.toBlobURL(S3ShFF.base+"/ffmpeg-core.wasm","application/wasm")
+    wasmURL:await window.FFmpegUtil.toBlobURL(S3ShFF.base+"/ffmpeg-core.wasm","application/wasm"),
+    classWorkerURL:await window.FFmpegUtil.toBlobURL(S3ShFF.ff.replace(/ffmpeg\.js$/,"814.ffmpeg.js"),"text/javascript")
   });
   S3ShFF.inst=ff;return ff;
 }
+function S3ShRaw(file){
+  let mov=/quicktime/.test(file.type||"")||/\.mov$/i.test(file.name||"");
+  return new Blob([file],{type:mov?"video/quicktime":"video/mp4"});
+}
 async function S3ShCompress(file,onPct){
+  try{return await S3ShCompressFF(file,onPct)}
+  catch(err){
+    console.error("Compression vidéo impossible",err);
+    if(file.size<=S3ShMax.outBytes)return S3ShRaw(file);
+    throw new Error("compress");
+  }
+}
+function S3ShExt(blob){return blob.type==="video/quicktime"?".mov":".mp4"}
+async function S3ShCompressFF(file,onPct){
   let ff=await S3ShLoadFF(),prog=({progress})=>onPct&&onPct(Math.round(Math.min(1,Math.max(0,progress))*100));
   ff.on("progress",prog);
   try{
@@ -57,8 +71,8 @@ async function S3ShCompress(file,onPct){
 async function S3ShUpload(blob,caption){
   let tok=await window.cp360Sb.bearer();
   if(!tok)throw new Error("session");
-  let path=w.user.id+"/"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8)+".mp4";
-  let up=await fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"POST",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY,"Content-Type":"video/mp4","x-upsert":"false"},body:blob});
+  let path=w.user.id+"/"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8)+S3ShExt(blob);
+  let up=await fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"POST",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY,"Content-Type":blob.type||"video/mp4","x-upsert":"false"},body:blob});
   if(!up.ok)throw new Error("upload");
   let r=await S3Sb("POST","shorts",{owner_id:w.user.id,path,caption:caption.trim()},{Prefer:"return=minimal"});
   if(!r.ok){fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"DELETE",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY}}).catch(()=>{});throw new Error("row")}

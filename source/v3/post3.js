@@ -28,13 +28,14 @@ async function S3PhotoPick(file,gr){
     if(out.size>S3ShMax.outBytes){A("Vidéo encore trop lourde après compression. Essayez une vidéo plus courte.","warn");return null;}
     let tok=await window.cp360Sb.bearer();
     if(!tok)throw new Error("session");
-    let path=w.user.id+"/posts/"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8)+".mp4";
-    let up=await fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"POST",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY,"Content-Type":"video/mp4","x-upsert":"false"},body:out});
-    if(!up.ok)throw new Error("upload");
+    let path=w.user.id+"/posts/"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8)+S3ShExt(out);
+    let up=await fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"POST",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY,"Content-Type":out.type||"video/mp4","x-upsert":"false"},body:out});
+    if(!up.ok){console.error("Envoi vidéo refusé",up.status,await up.text().catch(()=>""));throw new Error("upload")}
     A("Vidéo prête.","ok");
     return S3ShUrl(path);
   }catch(err){
-    A("La vidéo n’a pas pu être envoyée. Vérifiez votre connexion et réessayez.","warn");
+    console.error("Vidéo de publication",err);
+    A(err&&err.message==="compress"?"La compression a échoué sur ce téléphone et la vidéo dépasse 50 Mo. Essayez une vidéo plus courte.":"La vidéo n’a pas pu être envoyée. Vérifiez votre connexion et réessayez.","warn");
     return null;
   }
 }
