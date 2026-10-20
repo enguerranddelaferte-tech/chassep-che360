@@ -37,6 +37,7 @@ bundle=rep(bundle,'{name:"photo",label:"Photo",type:"photo"}]),u=x("Publier",{ki
 bundle=rep(bundle,'type:"photo",video:!0}],onSubmit:async d=>{','type:"photo",video:!0}],onSubmit:async d=>{if(window.__s3VidBusy){let m=new Error("Vid\\xE9o en cours d\\u2019envoi : patientez avant de publier.");throw m.fields={photo:m.message},m}')
 bundle=rep(bundle,'}await v.post("/feed",d)}}','}await v.post("/feed",d);setTimeout(()=>S3AmbCross(d),400)}}')
 bundle=rep(bundle,'try{await v.post("/feed",l.values),A("Publi\\xE9 !"),Ie()}','try{let sv={...l.values};await v.post("/feed",sv),A("Publi\\xE9 !"),Ie(),setTimeout(()=>S3AmbCross(sv),400)}')
+bundle=rep(bundle,'setTimeout(()=>{let c=u.querySelector("input:not([type=hidden]),select,textarea");c&&c.focus()},30)','setTimeout(()=>{if(window.matchMedia&&matchMedia("(pointer:coarse)").matches)return;let c=u.querySelector("input:not([type=hidden]),select,textarea");c&&c.focus()},30)')
 # 1. remplace la coque Sl()
 bundle=cut(bundle,'function Sl(){','function Il(t){',shell)
 # 1b. fiches ambassadeur : la base (table ambassadors) s'ajoute au catalogue local
