@@ -15,38 +15,55 @@ function S3VidDur(file){
     v.src=u;
   });
 }
-async function S3PhotoPick(file,gr){
+function S3VidPut(path,blob,tok,onPct){
+  return new Promise((ok,ko)=>{
+    let x2=new XMLHttpRequest();
+    x2.open("POST",window.cp360Sb.URL+"/storage/v1/object/shorts/"+path);
+    x2.setRequestHeader("Authorization","Bearer "+tok);
+    x2.setRequestHeader("apikey",window.cp360Sb.KEY);
+    x2.setRequestHeader("Content-Type",blob.type||"video/mp4");
+    x2.upload.onprogress=ev=>{ev.lengthComputable&&onPct(Math.round(ev.loaded/ev.total*100))};
+    x2.onload=()=>x2.status>=200&&x2.status<300?ok():ko(new Error("upload "+x2.status+" "+(x2.responseText||"").slice(0,120)));
+    x2.onerror=()=>ko(new Error("network"));
+    x2.send(blob);
+  });
+}
+async function S3PhotoPick(file,gr,st){
+  st=st||(()=>{});
   let isVid=/^video\//.test(file.type||"")||/\.(mp4|mov|m4v)$/i.test(file.name||"");
-  if(!isVid)return gr(file);
-  if(!window.cp360Sb||!window.cp360Sb.on||!window.cp360Sb.on()){A("Connectez-vous pour publier une vidéo.","warn");return null;}
-  if(file.size>S3ShMax.bytes){A("Vidéo trop lourde : 300 Mo maximum avant compression.","warn");return null;}
+  if(!isVid){st("");return gr(file);}
+  if(!window.cp360Sb||!window.cp360Sb.on||!window.cp360Sb.on()){st("Connectez-vous pour publier une vidéo.");return null;}
+  if(file.size>S3ShMax.bytes){st("Vidéo trop lourde : 300 Mo maximum avant compression.");return null;}
   let dur=await S3VidDur(file);
-  if(dur>S3ShMax.sec){A("Vidéo trop longue : 3 minutes maximum.","warn");return null;}
+  if(dur>S3ShMax.sec+.5){st("Vidéo trop longue : 3 minutes maximum.");return null;}
+  window.__s3VidBusy=true;
   try{
-    A("Compression de la vidéo en cours. Sur téléphone, cela peut prendre plusieurs minutes.","ok");
-    let out=await S3ShCompress(file,()=>{});
-    if(out.size>S3ShMax.outBytes){A("Vidéo encore trop lourde après compression. Essayez une vidéo plus courte.","warn");return null;}
+    st("Compression de la vidéo… (sur téléphone, cela peut prendre un moment)");
+    let out=await S3ShCompress(file,pct=>st("Compression de la vidéo : "+pct+" %"));
+    if(out.size>S3ShMax.outBytes){st("Vidéo trop lourde après compression (50 Mo max). Essayez une vidéo plus courte.");return null;}
     let tok=await window.cp360Sb.bearer();
     if(!tok)throw new Error("session");
     let path=w.user.id+"/posts/"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8)+S3ShExt(out);
-    let up=await fetch(window.cp360Sb.URL+"/storage/v1/object/shorts/"+path,{method:"POST",headers:{Authorization:"Bearer "+tok,apikey:window.cp360Sb.KEY,"Content-Type":out.type||"video/mp4","x-upsert":"false"},body:out});
-    if(!up.ok){console.error("Envoi vidéo refusé",up.status,await up.text().catch(()=>""));throw new Error("upload")}
-    A("Vidéo prête.","ok");
+    st("Envoi de la vidéo : 0 %");
+    await S3VidPut(path,out,tok,pct=>st("Envoi de la vidéo : "+pct+" %"));
+    st("Vidéo prête. Vous pouvez publier.");
     return S3ShUrl(path);
   }catch(err){
     console.error("Vidéo de publication",err);
-    A(err&&err.message==="compress"?"La compression a échoué sur ce téléphone et la vidéo dépasse 50 Mo. Essayez une vidéo plus courte.":"La vidéo n’a pas pu être envoyée. Vérifiez votre connexion et réessayez.","warn");
+    let m=String(err&&err.message||err);
+    st(m==="compress"?"La compression a échoué et la vidéo dépasse 50 Mo. Essayez une vidéo plus courte.":m==="session"?"Session expirée : reconnectez-vous.":"Envoi impossible ("+m+"). Réessayez.");
     return null;
-  }
+  }finally{window.__s3VidBusy=false}
 }
 // Boutons : prendre une photo, filmer une vidéo, ou choisir un fichier
 function S3PickUI(video,onFile){
   let mk=(accept,capture)=>{
-    let i=e("input",{type:"file",accept:accept,hidden:true,onchange:async ev=>{let f=ev.target.files[0];ev.target.value="";if(f)await onFile(f)}});
+    let i=e("input",{type:"file",accept:accept,hidden:true,onchange:async ev=>{let f=ev.target.files[0];ev.target.value="";if(f)await onFile(f,setSt)}});
     if(capture)i.setAttribute("capture","environment");
     return i;
   };
+  let stEl=e("div.small.muted",{style:{width:"100%",marginTop:"6px"}}),setSt=t=>{stEl.textContent=t||""};
   let cam=mk("image/*",true),vid=video?mk("video/*",true):null,gal=mk(video?"image/*,video/*":"image/*",false);
   let btn=(icon,label,inp)=>x(label,{icon:icon,kind:"ghost",size:"sm",onClick:()=>inp.click()});
-  return e("div.row.wrap",{style:{gap:"8px"}},btn("camera","Prendre une photo",cam),vid?btn("play","Filmer une vidéo",vid):null,btn("plus","Choisir un fichier",gal),cam,vid,gal);
+  return e("div.row.wrap",{style:{gap:"8px"}},btn("camera","Prendre une photo",cam),vid?btn("play","Filmer une vidéo",vid):null,btn("plus","Choisir un fichier",gal),cam,vid,gal,stEl);
 }

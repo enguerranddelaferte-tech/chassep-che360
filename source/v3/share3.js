@@ -33,7 +33,8 @@ function S3ShareInject(){
       let img=a.querySelector(".photo img"),who=(a.querySelector("a[href^='#/profil/']")||{}).textContent||"",
           txt=(a.querySelector(".post-text")||{}).textContent||"";
       let url=/github\.io$/.test(location.hostname)?location.href.split("#")[0]:"";
-      return {text:(who?who+" : ":"")+txt,img:img?img.src:"",url,title:"Chasse & Pêche 360°"};
+      let vid=a.querySelector(".photo video");
+      return {text:(who?who+" : ":"")+txt+(vid?"\nVidéo : "+vid.src:""),img:img?img.src:"",url,title:"Chasse & Pêche 360°"};
     }));
   });
 }
