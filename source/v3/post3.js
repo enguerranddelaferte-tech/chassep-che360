@@ -65,5 +65,5 @@ function S3PickUI(video,onFile){
   let stEl=e("div.small.muted",{style:{width:"100%",marginTop:"6px"}}),setSt=t=>{stEl.textContent=t||""};
   let cam=mk("image/*",true),vid=video?mk("video/*",true):null,gal=mk(video?"image/*,video/*":"image/*",false);
   let btn=(icon,label,inp)=>x(label,{icon:icon,kind:"ghost",size:"sm",onClick:()=>inp.click()});
-  return e("div.row.wrap",{style:{gap:"8px"}},btn("camera","Prendre une photo",cam),vid?btn("play","Filmer une vidéo",vid):null,btn("plus","Choisir un fichier",gal),cam,vid,gal,stEl);
+  return e("div.row.wrap",{style:{gap:"8px"}},btn("camera","Prendre une photo",cam),vid?x("Filmer une vidéo",{icon:"play",kind:"ghost",size:"sm",onClick:()=>{try{S3ShLoadFF().catch(()=>{})}catch{}vid.click()}}):null,btn("plus","Choisir un fichier",gal),cam,vid,gal,stEl);
 }

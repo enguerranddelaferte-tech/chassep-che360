@@ -47,7 +47,9 @@ function S3ShRaw(file){
   let mov=/quicktime/.test(file.type||"")||/\.mov$/i.test(file.name||"");
   return new Blob([file],{type:mov?"video/quicktime":"video/mp4"});
 }
+const S3ShDirect=20971520;
 async function S3ShCompress(file,onPct){
+  if(file.size<=S3ShDirect){onPct&&onPct(100);return S3ShRaw(file)}
   try{return await S3ShCompressFF(file,onPct)}
   catch(err){
     console.error("Compression vidéo impossible",err);
@@ -61,7 +63,7 @@ async function S3ShCompressFF(file,onPct){
   ff.on("progress",prog);
   try{
     await ff.writeFile("in.mp4",new Uint8Array(await file.arrayBuffer()));
-    await ff.exec(["-i","in.mp4","-vf","scale=720:-2,fps=30","-c:v","libx264","-preset","veryfast","-crf","30","-maxrate","1200k","-bufsize","2400k","-pix_fmt","yuv420p","-c:a","aac","-b:a","96k","-ac","2","-movflags","+faststart","out.mp4"]);
+    await ff.exec(["-i","in.mp4","-vf","scale=720:-2,fps=30","-c:v","libx264","-preset","ultrafast","-crf","30","-maxrate","1200k","-bufsize","2400k","-pix_fmt","yuv420p","-c:a","aac","-b:a","96k","-ac","2","-movflags","+faststart","out.mp4"]);
     let data=await ff.readFile("out.mp4");
     return new Blob([data.buffer],{type:"video/mp4"});
   }finally{
