@@ -696,3 +696,10 @@ html.kb-open .tabbar{transform:translateY(110%)}
 .short-info p{margin:4px 0 0}
 .short-info .btn{color:#fff}
 @media (max-width:520px){.guest-top{flex-wrap:wrap;row-gap:6px}.guest-top a[href="#/articles"]{display:none}.guest-top .btn{white-space:nowrap}}
+/* Connexion en fenêtre */
+.login-back{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);background:rgba(19,27,25,.42)}
+.login-modal{width:min(440px,100%)}
+.login-modal .login-body{gap:14px}
+.login-modal .login-social{grid-template-columns:1fr;gap:8px}
+.login-modal .login-social .btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line-strong);background:var(--surface);min-height:48px}
+@media (max-width:620px){.login-back{place-items:end stretch;padding:0}.login-modal{width:100%;border-radius:24px 24px 0 0;max-height:92dvh;padding-bottom:env(safe-area-inset-bottom,0px)}}

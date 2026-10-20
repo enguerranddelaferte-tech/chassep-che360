@@ -25,7 +25,7 @@ def cut(s,start,end,new):
     j=s.find(end,i); assert j>=0,end
     return s[:i]+new+s[j:]
 
-shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()
+shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()
 home=open(B+'v3/home3.js').read()
 # 0b. publications : photo/vidéo depuis le téléphone, lecteur vidéo dans le fil
 bundle=rep(bundle,'accept:"image/*",capture:"environment",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await Gr($)),S())}','accept:l.video?"image/*,video/*":"image/*",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await S3PhotoPick($,Gr)),S())}')
@@ -38,6 +38,10 @@ bundle=rep(bundle,'type:"photo",video:!0}],onSubmit:async d=>{','type:"photo",vi
 bundle=rep(bundle,'}await v.post("/feed",d)}}','}await v.post("/feed",d);setTimeout(()=>S3AmbCross(d),400)}}')
 bundle=rep(bundle,'try{await v.post("/feed",l.values),A("Publi\\xE9 !"),Ie()}','try{let sv={...l.values};await v.post("/feed",sv),A("Publi\\xE9 !"),Ie(),setTimeout(()=>S3AmbCross(sv),400)}')
 bundle=rep(bundle,'setTimeout(()=>{let c=u.querySelector("input:not([type=hidden]),select,textarea");c&&c.focus()},30)','setTimeout(()=>{if(window.matchMedia&&matchMedia("(pointer:coarse)").matches)return;let c=u.querySelector("input:not([type=hidden]),select,textarea");c&&c.focus()},30)')
+bundle=rep(bundle,'const j0=r.json||{};if(!j0.access_token)','return authFinish(r.json||{},mode)}async function authFinish(j0,mode){if(!j0.access_token)')
+bundle=rep(bundle,'return{canPush,enablePush,','return{authFinish,canPush,enablePush,')
+bundle=rep(bundle,'ge=t=>{location.hash=t}','ge=t=>{if(t==="/connexion"&&typeof S3LoginOpen=="function"&&S3LoginOpen())return;location.hash=t}')
+bundle='(function(){try{var h=location.hash||"";if(/access_token=/.test(h)&&!/^#\\//.test(h)){sessionStorage.setItem("cp360.oauth",h.slice(1));history.replaceState(null,"",location.pathname+location.search+"#/communaute")}else if(/error_description=/.test(h)&&!/^#\\//.test(h)){sessionStorage.setItem("cp360.oautherr",h.slice(1));history.replaceState(null,"",location.pathname+location.search+"#/communaute")}}catch(e){}})();\n'+bundle
 # 1. remplace la coque Sl()
 bundle=cut(bundle,'function Sl(){','function Il(t){',shell)
 # 1b. fiches ambassadeur : la base (table ambassadors) s'ajoute au catalogue local
