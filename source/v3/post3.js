@@ -47,7 +47,8 @@ async function S3PhotoPick(file,gr,st){
     st("Envoi de la vidéo : 0 %");
     await S3VidPut(path,out,tok,pct=>st("Envoi de la vidéo : "+pct+" %"));
     st("Vidéo prête. Vous pouvez publier.");
-    return S3ShUrl(path);
+    let u=S3ShUrl(path);window.__s3LastVid={url:u,file:file};
+    return u;
   }catch(err){
     console.error("Vidéo de publication",err);
     let m=String(err&&err.message||err);

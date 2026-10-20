@@ -135,6 +135,7 @@ function S3ShForm(done){
       if(out.size>S3ShMax.outBytes)throw "Vidéo encore trop lourde après compression (50 Mo max) : raccourcissez-la.";
       msg.textContent="Envoi en cours…";
       await S3ShUpload(out,cap.value);
+      {let f0=file.files[0],c0=cap.value;setTimeout(()=>S3AmbCross({text:c0,file:f0}),400)}
       A("Vidéo publiée.","ok");
       file.value="";cap.value="";msg.textContent="";
       done();

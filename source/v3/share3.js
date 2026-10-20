@@ -4,7 +4,8 @@
 async function S3ShareData(d){
   let data={title:d.title||"Chasse & Pêche 360°",text:d.text||""};
   if(d.url)data.url=d.url;
-  if(d.img){
+  if(d.file&&navigator.canShare&&navigator.canShare({files:[d.file]}))data.files=[d.file];
+  else if(d.img){
     try{
       let blob=await (await fetch(d.img)).blob(),f=new File([blob],"publication.jpg",{type:blob.type||"image/jpeg"});
       if(navigator.canShare&&navigator.canShare({files:[f]}))data.files=[f];
@@ -44,4 +45,19 @@ function S3ShareWatch(){
   let tm=null;
   S3ShareObs=new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(()=>{try{S3ShareInject()}catch{}},150)});
   S3ShareObs.observe(Mt,{childList:true,subtree:true});
+}
+
+/* Ambassadeurs : juste après une publication, proposer de la partager sur Instagram, Facebook… (feuille de partage du téléphone) */
+async function S3AmbCross(d){
+  try{
+    if(!S3Amb.id||!d)return;
+    let lv=window.__s3LastVid,file=d.file||null,img="";
+    if(!file&&d.photo&&lv&&lv.url===d.photo)file=lv.file;
+    else if(!file&&d.photo&&/^data:image\//.test(d.photo))img=d.photo;
+    let ok=await ve({title:"Publier aussi ailleurs ?",text:"Votre publication est en ligne sur Chasse & Pêche 360°. Voulez-vous aussi la publier sur Instagram, Facebook ou une autre application ?",confirm:"Oui, partager"});
+    if(!ok)return;
+    let r=await S3ShareData({text:d.text||d.caption||"",img,file});
+    if(r==="copied")A("Texte copié : collez-le dans Instagram ou Facebook avec votre photo ou vidéo.","ok");
+    else if(r==="none")A("Partage indisponible sur cet appareil.","warn");
+  }catch{}
 }
