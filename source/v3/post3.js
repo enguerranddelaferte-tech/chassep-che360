@@ -38,3 +38,14 @@ async function S3PhotoPick(file,gr){
     return null;
   }
 }
+// Boutons : prendre une photo, filmer une vidéo, ou choisir un fichier
+function S3PickUI(video,onFile){
+  let mk=(accept,capture)=>{
+    let i=e("input",{type:"file",accept:accept,hidden:true,onchange:async ev=>{let f=ev.target.files[0];ev.target.value="";if(f)await onFile(f)}});
+    if(capture)i.setAttribute("capture","environment");
+    return i;
+  };
+  let cam=mk("image/*",true),vid=video?mk("video/*",true):null,gal=mk(video?"image/*,video/*":"image/*",false);
+  let btn=(icon,label,inp)=>x(label,{icon:icon,kind:"ghost",size:"sm",onClick:()=>inp.click()});
+  return e("div.row.wrap",{style:{gap:"8px"}},btn("camera","Prendre une photo",cam),vid?btn("play","Filmer une vidéo",vid):null,btn("plus","Choisir un fichier",gal),cam,vid,gal);
+}

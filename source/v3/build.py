@@ -32,6 +32,7 @@ bundle=rep(bundle,'accept:"image/*",capture:"environment",hidden:!0,onchange:asy
 bundle=rep(bundle,'{name:"photo",label:"Photo",type:"photo"}],onSubmit:async d=>{if(!d.text||!d.text.trim())','{name:"photo",label:"Photo",type:"photo",video:!0}],onSubmit:async d=>{if(!d.text||!d.text.trim())')
 bundle=rep(bundle,'t.photo?e("div.photo",e("img",{src:t.photo,alt:"",loading:"eager"})):null','t.photo?e("div.photo",S3Media(t.photo,"",!0)):null')
 bundle=rep(bundle,'e("img",{src:n[l.name],alt:"Aper\\xE7u"})','S3Media(n[l.name],"Aper\\xE7u")')
+bundle=rep(bundle,'T=e("input",{type:"file",accept:l.video?"image/*,video/*":"image/*",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await S3PhotoPick($,Gr)),S())}});d=e("div",e("div.dropzone",{role:"button",tabindex:0,onclick:()=>T.click(),onkeydown:F=>{F.key==="Enter"&&T.click()}},b("camera"),e("div","Prendre ou choisir une photo")),T,g),S();break}','T=null;d=e("div",S3PickUI(!!l.video,async $=>{p(await S3PhotoPick($,Gr)),S()}),g),S();break}')
 # 1. remplace la coque Sl()
 bundle=cut(bundle,'function Sl(){','function Il(t){',shell)
 # 1b. fiches ambassadeur : la base (table ambassadors) s'ajoute au catalogue local
