@@ -61,7 +61,7 @@ function S3AmbPage(t){
       }});
   C(t,q({title:"Mon espace ambassadeur",subtitle:"Collez vos liens d’un coup : ils apparaissent sur votre fiche publique."},
     e("div.grid.g-main",
-      e("div.stack",k({title:"Ajouter des publications"},e("div.field",e("label","Liens, un par ligne"),ta),e("p.tiny.muted",{style:{margin:"0 0 10px"}},"Dans Instagram : « … » puis « Copier le lien ». Pour un titre, ajoutez « | » puis le titre après le lien."),go,msg)),
+      e("div.stack",k({title:"Mes statistiques",sub:"abonnés, publications, partages"},S3AmbStatsBox()),k({title:"Ajouter des publications"},e("div.field",e("label","Liens, un par ligne"),ta),e("p.tiny.muted",{style:{margin:"0 0 10px"}},"Dans Instagram : « … » puis « Copier le lien ». Pour un titre, ajoutez « | » puis le titre après le lien."),go,msg)),
       e("div.stack",k({title:"Mes publications",sub:"sur ma fiche publique"},list)))));
   S3AmbList(list,id);
 }

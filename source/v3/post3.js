@@ -2,6 +2,7 @@
 const S3VidRe=/\.(mp4|mov|m4v)(\?|$)/i;
 function S3Media(src,alt,eager){
   if(!src)return null;
+  if(/^offline-video:/.test(src))return e("div.offline-video",b("clock"),e("span","Vidéo en attente d’envoi : elle apparaîtra dès le retour du réseau."));
   let isVid=/^data:video\//.test(src)||(S3VidRe.test(src)&&!/^data:image\//.test(src));
   if(isVid)return e("video",{src:src,controls:true,playsinline:true,preload:"metadata",style:{width:"100%",borderRadius:"12px"}});
   return e("img",{src:src,alt:alt||"",loading:eager?"eager":"lazy"});
@@ -36,6 +37,7 @@ async function S3PhotoPick(file,gr,st){
   if(file.size>S3ShMax.bytes){st("Vidéo trop lourde : 300 Mo maximum avant compression.");return null;}
   let dur=await S3VidDur(file);
   if(dur>S3ShMax.sec+.5){st("Vidéo trop longue : 3 minutes maximum.");return null;}
+  if(!navigator.onLine){try{let mk=await S3OffKeep(file);st("Hors ligne : la vidéo est gardée sur le téléphone et partira au retour du réseau. Vous pouvez publier.");return mk}catch{st("Hors ligne : impossible de garder la vidéo sur cet appareil.");return null}}
   window.__s3VidBusy=true;
   try{
     st("Compression de la vidéo… (sur téléphone, cela peut prendre un moment)");
@@ -52,6 +54,7 @@ async function S3PhotoPick(file,gr,st){
   }catch(err){
     console.error("Vidéo de publication",err);
     let m=String(err&&err.message||err);
+    if(m==="network"||!navigator.onLine){try{let mk=await S3OffKeep(file);st("Réseau perdu : la vidéo est gardée sur le téléphone et partira au retour du réseau. Vous pouvez publier.");return mk}catch{}}
     st(m==="compress"?"La compression a échoué et la vidéo dépasse 50 Mo. Essayez une vidéo plus courte.":m==="session"?"Session expirée : reconnectez-vous.":"Envoi impossible ("+m+"). Réessayez.");
     return null;
   }finally{window.__s3VidBusy=false}

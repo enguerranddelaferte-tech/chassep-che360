@@ -73,6 +73,7 @@ function S3ShareInject(){
           txt=(a.querySelector(".post-text")||{}).textContent||"";
       let url=/github\.io$/.test(location.hostname)?location.href.split("#")[0]:"";
       let vid=a.querySelector(".photo video");
+      try{S3AmbShareLog(S3PostAuthor(a))}catch{}
       return {text:(who?who+" : ":"")+txt+(vid?"\nVidéo : "+vid.src:""),img:img?img.src:"",video:vid?vid.src:"",url,title:"Chasse & Pêche 360°"};
     }));
   });
@@ -81,14 +82,14 @@ var S3ShareObs=null;
 function S3ShareWatch(){
   if(S3ShareObs||!Mt)return;
   let tm=null;
-  S3ShareObs=new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(()=>{try{S3ShareInject()}catch{}},150)});
+  S3ShareObs=new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(()=>{try{S3ShareInject()}catch{}try{S3AmbBadges()}catch{}},150)});
   S3ShareObs.observe(Mt,{childList:true,subtree:true});
 }
 
 /* Ambassadeurs : juste après une publication, proposer de la partager sur Instagram, Facebook… (feuille de partage du téléphone) */
 async function S3AmbCross(d){
   try{
-    if(!S3Amb.id||!d)return;
+    if(!S3Amb.id||!d||!navigator.onLine)return;
     let lv=window.__s3LastVid,file=d.file||null,img="";
     if(!file&&d.photo&&lv&&lv.url===d.photo)file=lv.file;
     else if(!file&&d.photo&&/^data:image\//.test(d.photo))img=d.photo;

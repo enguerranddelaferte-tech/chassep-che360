@@ -25,7 +25,7 @@ def cut(s,start,end,new):
     j=s.find(end,i); assert j>=0,end
     return s[:i]+new+s[j:]
 
-shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()
+shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()+'\n'+open(B+'v3/notif3.js').read()+'\n'+open(B+'v3/offline3.js').read()
 home=open(B+'v3/home3.js').read()
 # 0b. publications : photo/vidéo depuis le téléphone, lecteur vidéo dans le fil
 bundle=rep(bundle,'accept:"image/*",capture:"environment",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await Gr($)),S())}','accept:l.video?"image/*,video/*":"image/*",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await S3PhotoPick($,Gr)),S())}')
@@ -35,8 +35,8 @@ bundle=rep(bundle,'e("img",{src:n[l.name],alt:"Aper\\xE7u"})','S3Media(n[l.name]
 bundle=rep(bundle,'T=e("input",{type:"file",accept:l.video?"image/*,video/*":"image/*",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await S3PhotoPick($,Gr)),S())}});d=e("div",e("div.dropzone",{role:"button",tabindex:0,onclick:()=>T.click(),onkeydown:F=>{F.key==="Enter"&&T.click()}},b("camera"),e("div","Prendre ou choisir une photo")),T,g),S();break}','T=null;d=e("div",S3PickUI(!!l.video,async($,st)=>{p(await S3PhotoPick($,Gr,st)),S()}),g),S();break}')
 bundle=rep(bundle,'{name:"photo",label:"Photo",type:"photo"}]),u=x("Publier",{kind:"primary",icon:"send",onClick:async()=>{','{name:"photo",label:"Photo",type:"photo",video:!0}]),u=x("Publier",{kind:"primary",icon:"send",onClick:async()=>{if(window.__s3VidBusy){A("Vid\\xE9o en cours d\\u2019envoi : patientez avant de publier.","warn");return}')
 bundle=rep(bundle,'type:"photo",video:!0}],onSubmit:async d=>{','type:"photo",video:!0}],onSubmit:async d=>{if(window.__s3VidBusy){let m=new Error("Vid\\xE9o en cours d\\u2019envoi : patientez avant de publier.");throw m.fields={photo:m.message},m}')
-bundle=rep(bundle,'}await v.post("/feed",d)}}','}await v.post("/feed",d);setTimeout(()=>S3AmbCross(d),400)}}')
-bundle=rep(bundle,'try{await v.post("/feed",l.values),A("Publi\\xE9 !"),Ie()}','try{let sv={...l.values};await v.post("/feed",sv),A("Publi\\xE9 !"),Ie(),setTimeout(()=>S3AmbCross(sv),400)}')
+bundle=rep(bundle,'}await v.post("/feed",d)}}','}await v.post("/feed",d);S3OfflineNote();setTimeout(()=>S3AmbCross(d),400)}}')
+bundle=rep(bundle,'try{await v.post("/feed",l.values),A("Publi\\xE9 !"),Ie()}','try{let sv={...l.values};await v.post("/feed",sv),A("Publi\\xE9 !"),Ie(),S3OfflineNote(),setTimeout(()=>S3AmbCross(sv),400)}')
 bundle=rep(bundle,'setTimeout(()=>{let c=u.querySelector("input:not([type=hidden]),select,textarea");c&&c.focus()},30)','setTimeout(()=>{if(window.matchMedia&&matchMedia("(pointer:coarse)").matches)return;let c=u.querySelector("input:not([type=hidden]),select,textarea");c&&c.focus()},30)')
 bundle=rep(bundle,'const j0=r.json||{};if(!j0.access_token)','return authFinish(r.json||{},mode)}async function authFinish(j0,mode){if(!j0.access_token)')
 bundle=rep(bundle,'return{canPush,enablePush,','return{authFinish,canPush,enablePush,')
