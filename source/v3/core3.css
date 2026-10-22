@@ -718,3 +718,15 @@ html.kb-open .tabbar{transform:translateY(110%)}
 .offline-video{display:flex;align-items:center;gap:10px;padding:18px;border-radius:12px;background:var(--surface-3);color:var(--text-2);font-size:14px}
 .amb-prev-av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);font-family:var(--font-display);font-weight:700;font-size:20px;flex:none}
 .amb-tag{padding:3px 10px;border-radius:999px;background:var(--surface-3);font-size:12px;font-weight:600;color:var(--text-2)}
+/* Lancement : Pionniers / Fondateurs */
+.launch-chip{display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.02em;vertical-align:middle}
+.launch-chip.pio{background:#E3B04B;color:#131B19}
+.launch-chip.fon{background:var(--accent-soft);color:var(--accent-deep)}
+.launch-box{border:2px solid #E3B04B;margin-bottom:16px}
+.launch-bar{height:8px;border-radius:999px;background:var(--surface-3);overflow:hidden;margin-top:12px}
+.launch-bar i{display:block;height:100%;background:#E3B04B}
+.launch-old{color:var(--muted);font-size:.55em;margin-right:8px;font-weight:600}
+.launch-invites{display:flex;flex-direction:column;gap:8px}
+.launch-inv{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 12px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface-2)}
+.launch-inv code{font-size:16px;font-weight:700;letter-spacing:.08em}
+.launch-guest{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:14px;font-weight:600}

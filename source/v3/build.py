@@ -26,7 +26,7 @@ def cut(s,start,end,new):
     j=s.find(end,i); assert j>=0,end
     return s[:i]+new+s[j:]
 
-shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()+'\n'+open(B+'v3/notif3.js').read()+'\n'+open(B+'v3/offline3.js').read()
+shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()+'\n'+open(B+'v3/notif3.js').read()+'\n'+open(B+'v3/offline3.js').read()+'\n'+open(B+'v3/launch3.js').read()
 home=open(B+'v3/home3.js').read()
 # 0b. publications : photo/vidéo depuis le téléphone, lecteur vidéo dans le fil
 bundle=rep(bundle,'accept:"image/*",capture:"environment",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await Gr($)),S())}','accept:l.video?"image/*,video/*":"image/*",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await S3PhotoPick($,Gr)),S())}')
@@ -45,6 +45,7 @@ bundle=rep(bundle,'ge=t=>{location.hash=t}','ge=t=>{if(t==="/connexion"&&typeof 
 bundle='(function(){try{var h=location.hash||"";if(/access_token=/.test(h)&&!/^#\\//.test(h)){sessionStorage.setItem("cp360.oauth",h.slice(1));history.replaceState(null,"",location.pathname+location.search+"#/communaute")}else if(/error_description=/.test(h)&&!/^#\\//.test(h)){sessionStorage.setItem("cp360.oautherr",h.slice(1));history.replaceState(null,"",location.pathname+location.search+"#/communaute")}}catch(e){}})();\n'+bundle
 bundle=rep(bundle,'e("select.input",{style:{minHeight:"36px",width:"auto"},onchange:async o=>{try{await v.patch("/admin/users/"+u.id,{role:o.target.value}),A("R\\xF4le mis \\xE0 jour.")}catch(er){A(er.message,"err")}}},[["user","Utilisateur"],["moderator","Mod\\xE9rateur"]].map(([k0,l0])=>e("option",{value:k0,selected:u.role==="moderator"==(k0==="moderator")},l0)))','e("select.input",{style:{minHeight:"36px",width:"auto"},"data-uid":u.id,"aria-label":"R\\xF4le",onchange:async o=>{let vv=o.target.value;if(await S3RoleChange(u,vv,o.target))return;try{await v.patch("/admin/users/"+u.id,{role:vv}),u.role=vv,A("R\\xF4le mis \\xE0 jour.")}catch(er){A(er.message,"err")}}},[["user","Utilisateur"],["moderator","Mod\\xE9rateur"],["ambassador","Ambassadeur"]].map(([k0,l0])=>e("option",{value:k0,selected:k0!=="ambassador"&&u.role==="moderator"==(k0==="moderator")},l0)))')
 bundle=rep(bundle,'function Yr(t){for(let r of Jr)','function Yr(t){try{S3EarlyRoutes()}catch{}for(let r of Jr)')
+bundle=rep(bundle,'data:{name:String(vals.name||"").trim(),profile:vals.profile||"mixte"}','data:{name:String(vals.name||"").trim(),profile:vals.profile||"mixte",invite:String(vals.invite||"").trim().toUpperCase()}')
 # 1. remplace la coque Sl()
 bundle=cut(bundle,'function Sl(){','function Il(t){',shell)
 # 1b. fiches ambassadeur : la base (table ambassadors) s'ajoute au catalogue local
