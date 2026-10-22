@@ -118,7 +118,7 @@ async function S3AmbAdminBox(){
   let fiches=await S3AmbFiches(),arr=fiches;
   const inputStyle={minHeight:"var(--touch)",padding:"0 12px",borderRadius:"var(--r-sm)",border:"1px solid var(--line-strong)",background:"var(--surface)",color:"inherit",width:"100%"};
   let pick=e("select.field-select",{"aria-label":"Fiche ambassadeur",style:{...inputStyle,padding:"0 10px"}},
-    arr.length?arr.map(a=>e("option",{value:a.id},a.name||a.id)):e("option",{value:""},"Aucune fiche d’ambassadeur"));
+    e("option",{value:"__new"},"Créer une fiche au nom de la personne"),arr.map(a=>e("option",{value:a.id},a.name||a.id)));
   let q=e("input",{type:"search",placeholder:"Nom de la personne (2 lettres minimum)","aria-label":"Chercher une personne",autocomplete:"off",style:inputStyle}),
       found=e("div.list"),linked=e("div.list"),msg=e("p.tiny.muted",{role:"status",style:{margin:"6px 0 0"}});
   let tm=null;
@@ -142,7 +142,7 @@ async function S3AmbAdminBox(){
     W(pick);W(edit);
     C(edit,e("option",{value:""},"+ Nouvelle fiche"));
     arr.forEach(a=>{C(pick,e("option",{value:a.id},a.name||a.id));C(edit,e("option",{value:a.id},a.name||a.id))});
-    if(!arr.length)C(pick,e("option",{value:""},"Aucune fiche d’ambassadeur"));
+    pick.prepend(e("option",{value:"__new"},"Créer une fiche au nom de la personne"));
     if(selId){pick.value=selId;edit.value=selId}
   };
   let save=x("Enregistrer la fiche",{kind:"primary",size:"block",onClick:async()=>{
@@ -189,8 +189,8 @@ async function S3AmbAdminBox(){
       e("div.grow",e("div.t",u.name||"Sans nom"),e("div.s",u.city||"")),
       x("Rendre ambassadeur",{size:"sm",kind:"primary",onClick:async()=>{
         let fid=pick.value,fname=pick.options[pick.selectedIndex]?pick.options[pick.selectedIndex].textContent:"";
-        if(!fid){A("Créez d’abord une fiche d’ambassadeur.","warn");return}
-        let r=await S3Sb("POST","ambassador_links?on_conflict=user_id",{user_id:u.id,user_name:u.name||"",ambassador_id:fid,ambassador_name:fname},{Prefer:"resolution=merge-duplicates,return=minimal"});
+        let r={ok:!1,status:0};
+        try{if(fid==="__new"||!fid){let f=await S3AmbCreateFor(u);fid=f.id;fname=f.name;arr=await S3AmbFiches();refreshPick()}await S3AmbLink(u,fid,fname);r={ok:!0}}catch(er){r={ok:!1,status:/administrateur/.test(er.message)?403:0}}
         if(r.ok){A(u.name+" est maintenant ambassadeur."),msg.textContent="Enregistré. La personne verra son espace au prochain chargement de l’appli.";loadLinks()}
         else A("Enregistrement impossible : "+(r.status===401||r.status===403?"vous n’êtes pas administrateur ou la session a expiré.":"vérifiez la base."),"warn")
       }}))));
@@ -217,4 +217,68 @@ async function S3AmbAdminBox(){
       found,msg,
       e("h3",{style:{margin:"14px 0 6px",fontSize:"16px"}},"Ambassadeurs actuels"),
       linked));
+}
+
+/* ----- Admin : faire d’un utilisateur un ambassadeur en un geste (liste des utilisateurs ou page Ambassadeurs) ----- */
+async function S3AmbCreateFor(u){
+  let name=(u.name||"").trim()||"Ambassadeur",
+      id="amb_"+S3AmbSlug(name)+"_"+Date.now().toString(36),
+      season=u.profile==="pecheur"?"peche":u.profile==="chasseur"?"chasse":"both",
+      data={id,real:!0,name,handle:null,channelUrl:null,season,speciality:"",tags:[],bio:"",videos:[]};
+  let r=await S3Sb("POST","ambassadors?on_conflict=id",{id,data},{Prefer:"resolution=merge-duplicates,return=minimal"});
+  if(!r.ok)throw new Error(r.status===401||r.status===403?"Vous n’êtes pas administrateur ou la session a expiré.":"Création de la fiche impossible.");
+  try{await S3AmbFiches()}catch{}
+  return {id,name};
+}
+async function S3AmbLink(u,fid,fname){
+  let r=await S3Sb("POST","ambassador_links?on_conflict=user_id",{user_id:u.id,user_name:u.name||"",ambassador_id:fid,ambassador_name:fname},{Prefer:"resolution=merge-duplicates,return=minimal"});
+  if(!r.ok)throw new Error(r.status===401||r.status===403?"Vous n’êtes pas administrateur ou la session a expiré.":"Enregistrement impossible.");
+  try{let set=await S3AmbUsers();set.add(u.id)}catch{}
+}
+function S3AmbMakeDlg(u){
+  return new Promise(async done=>{
+    let fiches=[];try{fiches=await S3AmbFiches()}catch{}
+    let sel=e("select.input",{"aria-label":"Fiche ambassadeur"},
+      e("option",{value:"__new"},"Créer une fiche au nom de "+(u.name||"cette personne")),
+      fiches.map(a=>e("option",{value:a.id},"Relier à la fiche existante : "+(a.name||a.id))));
+    let msg=e("p.small.muted",{role:"status",style:{margin:0}}),ok=false,dlg;
+    let go=x("Rendre ambassadeur",{kind:"primary",onClick:async()=>{
+      go.disabled=!0;msg.textContent="Enregistrement…";
+      try{
+        let f=sel.value==="__new"?await S3AmbCreateFor(u):{id:sel.value,name:(fiches.find(a=>a.id===sel.value)||{}).name||sel.value};
+        await S3AmbLink(u,f.id,f.name);
+        ok=true;dlg.close();
+        A((u.name||"La personne")+" est maintenant ambassadeur. Sa fiche se complète dans Admin › Ambassadeurs.","ok");
+      }catch(er){msg.textContent=er.message;go.disabled=!1}
+    }});
+    dlg=Le({title:"Rendre ambassadeur",body:e("div.stack",
+      e("p",{style:{margin:0}},(u.name||"Cette personne")+" gardera tout le reste de l’appli et aura en plus son espace ambassadeur, un badge sur ses publications et ses statistiques."),
+      e("div.field",e("label","Fiche publique"),sel),msg),
+      actions:[x("Annuler",{kind:"ghost",onClick:()=>dlg.close()}),go],onClose:()=>done(ok)});
+  });
+}
+async function S3RoleChange(u,val,selEl){
+  let set=await S3AmbUsers(),was=set.has(u.id),prev=was?"ambassador":(u.role==="moderator"?"moderator":"user");
+  if(val==="ambassador"){
+    if(was)return true;
+    let ok=await S3AmbMakeDlg(u);
+    if(!ok&&selEl)selEl.value=prev;
+    return true;
+  }
+  if(was){
+    let yes=await ve({title:"Retirer le statut ambassadeur ?",text:"La fiche publique reste en place, mais cette personne ne pourra plus publier dessus.",confirm:"Retirer"});
+    if(!yes){if(selEl)selEl.value=prev;return true}
+    let d=await S3Sb("DELETE","ambassador_links?user_id=eq."+encodeURIComponent(u.id));
+    if(!d.ok){A("Retrait impossible.","warn");if(selEl)selEl.value=prev;return true}
+    set.delete(u.id);A("Statut ambassadeur retiré.","ok");
+    if(val===(u.role==="moderator"?"moderator":"user"))return true;
+  }
+  return false;
+}
+/* Affiche « Ambassadeur » dans la colonne Rôle pour les comptes déjà reliés */
+async function S3RoleSync(){
+  if(!Mt||!S3Adm(w.user))return;
+  let sels=Mt.querySelectorAll("select[data-uid]:not([data-rs])");if(!sels.length)return;
+  let set=await S3AmbUsers();
+  sels.forEach(s=>{s.dataset.rs="1";if(set.has(s.dataset.uid))s.value="ambassador"});
 }

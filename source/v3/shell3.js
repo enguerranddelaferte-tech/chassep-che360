@@ -252,7 +252,7 @@ function S3Deco(p){
   document.title=(f?f.label+" · ":"")+"Chasse & Pêche 360°";
   try{S3PushInject(p)}catch{}
   try{S3AmbInject(p)}catch{}
-  try{S3AlbInject(p)}catch{}try{S3AmbBadges()}catch{}if(!window.__s3oa){window.__s3oa=1;setTimeout(()=>{try{S3OAuthFinish()}catch{}},300)}
+  try{S3AlbInject(p)}catch{}try{S3AmbBadges()}catch{}try{S3RoleSync()}catch{}if(!window.__s3oa){window.__s3oa=1;setTimeout(()=>{try{S3OAuthFinish()}catch{}},300)}
   try{S3ShareWatch();S3ShareInject()}catch{}
   try{S3InstallUI()}catch{}
 }

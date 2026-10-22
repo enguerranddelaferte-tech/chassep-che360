@@ -82,7 +82,7 @@ var S3ShareObs=null;
 function S3ShareWatch(){
   if(S3ShareObs||!Mt)return;
   let tm=null;
-  S3ShareObs=new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(()=>{try{S3ShareInject()}catch{}try{S3AmbBadges()}catch{}},150)});
+  S3ShareObs=new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(()=>{try{S3ShareInject()}catch{}try{S3AmbBadges()}catch{}try{S3RoleSync()}catch{}},150)});
   S3ShareObs.observe(Mt,{childList:true,subtree:true});
 }
 
