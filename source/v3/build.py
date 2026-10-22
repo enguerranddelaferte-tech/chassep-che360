@@ -10,6 +10,7 @@ leaflet_css=grab(r'<style>(\.leaflet-pane.*?)</style>')
 app_css=open(B+'v2/app.css').read()
 ux70=grab(r'<style id="ux70">(.*?)</style>')
 logo=grab(r'(<template id="logo-tpl">.*?</template>)')
+logo='<template id="logo-tpl"><img src="data:image/png;base64,'+open(B+'newlogo/b64_96.txt').read()+'" alt="" width="96" height="96"></template>'
 bundle=open(B+'v2/bundle.js').read()
 from ang30 import patch_ang30
 bundle=patch_ang30(bundle)
@@ -85,6 +86,7 @@ css=mincss(leaflet_css)+mincss(legacy)+mincss(ux)+mincss(core)+pw
 # polices
 fonts='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap"><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://api.open-meteo.com"><link rel="dns-prefetch" href="https://data.geopf.fr">'
 icon=grab(r'(<link rel="icon"[^>]*>)')
+icon='<link rel="icon" type="image/png" href="data:image/png;base64,'+open(B+'newlogo/b64_64.txt').read()+'">'
 boot='(function(){try{var d=document.documentElement,g=function(k,v){try{var x=localStorage.getItem("cp360."+k);return x==null?v:JSON.parse(x)}catch(e){return v}},m=new Date().getMonth();d.dataset.season=g("season",m>=8||m<=1?"chasse":"peche");d.dataset.theme=g("theme","light");d.lang="fr"}catch(e){}})();'
 html=f'''<title>Chasse &amp; Pêche 360° 3.0</title>
 <meta name="theme-color" content="#F3F0E8">
@@ -113,7 +115,7 @@ head='''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icon.svg">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Chasse&amp;Pêche">
