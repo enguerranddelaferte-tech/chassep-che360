@@ -716,3 +716,5 @@ html.kb-open .tabbar{transform:translateY(110%)}
 .offline-pill{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:1500;padding:8px 14px;border-radius:999px;background:var(--ink);color:var(--on-ink);font-size:13px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.2);max-width:calc(100vw - 32px);text-align:center}
 .offline-pill.off{background:#5b4a12}
 .offline-video{display:flex;align-items:center;gap:10px;padding:18px;border-radius:12px;background:var(--surface-3);color:var(--text-2);font-size:14px}
+.amb-prev-av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);font-family:var(--font-display);font-weight:700;font-size:20px;flex:none}
+.amb-tag{padding:3px 10px;border-radius:999px;background:var(--surface-3);font-size:12px;font-weight:600;color:var(--text-2)}

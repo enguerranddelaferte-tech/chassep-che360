@@ -67,7 +67,24 @@ function S3PickUI(video,onFile){
     return i;
   };
   let stEl=e("div.small.muted",{style:{width:"100%",marginTop:"6px"}}),setSt=t=>{stEl.textContent=t||""};
-  let cam=mk("image/*",true),vid=video?mk("video/*",true):null,gal=mk(video?"image/*,video/*":"image/*",false);
+  let desk=typeof S3IsDesk=="function"&&S3IsDesk();
+  let cam=desk?null:mk("image/*",true),vid=video&&!desk?mk("video/*",true):null,gal=mk(video?"image/*,video/*":"image/*",false);
   let btn=(icon,label,inp)=>x(label,{icon:icon,kind:"ghost",size:"sm",onClick:()=>inp.click()});
-  return e("div.row.wrap",{style:{gap:"8px"}},btn("camera","Prendre une photo",cam),vid?x("Filmer une vidéo",{icon:"play",kind:"ghost",size:"sm",onClick:()=>{try{S3ShLoadFF().catch(()=>{})}catch{}vid.click()}}):null,btn("plus","Choisir un fichier",gal),cam,vid,gal,stEl);
+  return e("div.row.wrap",{style:{gap:"8px"}},cam?btn("camera","Prendre une photo",cam):null,vid?x("Filmer une vidéo",{icon:"play",kind:"ghost",size:"sm",onClick:()=>{try{S3ShLoadFF().catch(()=>{})}catch{}vid.click()}}):null,btn("plus",desk?(video?"Ajouter une photo ou une vidéo":"Ajouter une photo"):"Choisir un fichier",gal),cam,vid,gal,stEl);
 }
+
+/* Fenêtre « Nouvelle publication » (même formulaire que le fil), ouverte de n’importe où */
+function S3FeedCompose(){
+  if(!w.user)return S3LoginOpen&&S3LoginOpen();
+  return Q({title:"Nouvelle publication",submit:"Publier",fields:[
+    {name:"text",label:"Quoi de neuf sur le terrain ?",type:"textarea",required:!0,placeholder:"Racontez votre sortie, posez une question, partagez un conseil…"},
+    {name:"activity",label:"Activité",type:"seg",value:w.season==="chasse"?"chasse":"peche",options:[["chasse","Chasse"],["peche","Pêche"],["nature","Nature"]]},
+    {name:"place",label:"Lieu (facultatif)",placeholder:"Sologne, étang des Brosses…"},
+    {name:"photo",label:"Photo ou vidéo",type:"photo",video:!0}],
+    onSubmit:async d=>{
+      if(window.__s3VidBusy){let m=new Error("Vidéo en cours d’envoi : patientez avant de publier.");throw m.fields={photo:m.message},m}
+      if(!d.text||!d.text.trim()){let m=new Error("Écrivez quelques mots.");throw m.fields={text:m.message},m}
+      await v.post("/feed",d);S3OfflineNote();setTimeout(()=>S3AmbCross(d),400);
+    }}).then(ok=>{ok&&A("Publié !","ok");return ok});
+}
+window.S3FeedCompose=S3FeedCompose;

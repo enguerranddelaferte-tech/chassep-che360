@@ -68,7 +68,7 @@ function S3AmbFicheBox(id){
     let r=await S3Sb("POST","rpc/update_my_amb_fiche",{patch:{speciality:f.speciality.value.trim(),channelUrl:url||null,handle:f.handle.value.trim()||null,season:f.season.value,
       tags:f.tags.value.split(",").map(t=>t.trim()).filter(Boolean).slice(0,12),bio:f.bio.value.trim()}});
     save.disabled=!1;
-    if(r&&r.ok){msg.textContent="Fiche mise à jour : elle est visible tout de suite.";A("Fiche enregistrée.","ok");S3AmbFiches().catch(()=>{})}
+    if(r&&r.ok){msg.textContent="Fiche mise à jour : elle est visible tout de suite.";A("Fiche enregistrée.","ok");S3AmbFiches().then(()=>{S3Amb.prevEl&&S3AmbPreview(S3Amb.prevEl,id)}).catch(()=>{})}
     else msg.textContent="Enregistrement impossible. Réessayez ou reconnectez-vous.";
   }});
   return e("div.stack",{style:{gap:"10px"}},
@@ -109,17 +109,18 @@ async function S3AmbPage(t){
   let quick=e("div.stack",{style:{gap:"10px"}},
     e("p.small.muted",{style:{margin:0}},"Après chaque publication, l’appli vous propose de la partager sur Instagram ou Facebook (le texte est copié, il ne reste qu’à le coller)."),
     e("div.row.wrap",{style:{gap:"8px"}},
-      x("Publier dans le fil",{icon:"send",kind:"primary",href:"#/communaute"}),
-      x("Publier une vidéo courte",{icon:"play",kind:"ghost",href:"#/courts"}),
-      x("Voir ma fiche publique",{icon:"eye",kind:"ghost",href:"#/ambassadeurs/"+encodeURIComponent(id)})));
-  C(t,head("Fiche : "+name,[x("Voir ma fiche",{icon:"eye",kind:"ghost",href:"#/ambassadeurs/"+encodeURIComponent(id)})]),
+      x("Publier dans le fil",{icon:"send",kind:"primary",onClick:()=>S3FeedCompose()}),
+      x("Publier une vidéo courte",{icon:"play",kind:"ghost",onClick:()=>S3ShCompose()})));
+  let prev=e("div.amb-prev");S3AmbPreview(prev,id);S3Amb.prevEl=prev;
+  C(t,head("Fiche : "+name),
     e("div.grid.g-main",
       e("div.stack",
         k({title:"Mes statistiques",sub:"abonnés, publications, partages"},S3AmbStatsBox()),
         k({title:"Publier"},quick),
         k({title:"Ajouter des liens à ma fiche",sub:"Instagram ou YouTube, en lot"},e("div.field",e("label",{for:"amb-bulk"},"Liens, un par ligne"),ta),e("p.tiny.muted",{style:{margin:"0 0 10px"}},"Dans Instagram : « … » puis « Copier le lien ». Pour un titre, ajoutez « | » puis le titre après le lien."),go,msg)),
       e("div.stack",
-        k({title:"Ma fiche",sub:"visible par tous les membres"},S3AmbFicheBox(id)),
+        k({title:"Aperçu de ma fiche",sub:"ce que voient les membres"},prev),
+        k({title:"Modifier ma fiche"},S3AmbFicheBox(id)),
         k({title:"Mes liens publiés",sub:"sur ma fiche publique"},list))));
   S3AmbList(list,id);
 }
@@ -339,4 +340,24 @@ async function S3RoleSync(){
   let sels=Mt.querySelectorAll("select[data-uid]:not([data-rs])");if(!sels.length)return;
   let set=await S3AmbUsers();
   sels.forEach(s=>{s.dataset.rs="1";if(set.has(s.dataset.uid))s.value="ambassador"});
+}
+
+/* Aperçu de la fiche publique, directement dans « Mon espace ambassadeur » */
+async function S3AmbPreview(box,id){
+  let a=(window.__ambDb||[]).find(x2=>x2.id===id)||{};
+  let seas={chasse:"Chasse",peche:"Pêche",both:"Chasse et pêche"}[a.season]||"";
+  let ini=String(a.name||"?").split(/\s+/).map(s2=>s2[0]||"").join("").slice(0,2).toUpperCase();
+  W(box);
+  box.append(
+    e("div.row",{style:{gap:"12px",alignItems:"center"}},
+      e("div.amb-prev-av",ini),
+      e("div.grow",e("b",{style:{fontSize:"18px"}},a.name||"Ma fiche"),
+        e("div.small.muted",[a.handle,seas].filter(Boolean).join(" · ")||"Ambassadeur"))),
+    a.speciality?e("p",{style:{margin:"10px 0 0",fontWeight:600}},a.speciality):null,
+    a.bio?e("p.small",{style:{margin:"6px 0 0",whiteSpace:"pre-line"}},a.bio):e("p.small.muted",{style:{margin:"6px 0 0"}},"Ajoutez une présentation pour que les membres vous connaissent."),
+    Array.isArray(a.tags)&&a.tags.length?e("div.row.wrap",{style:{gap:"6px",marginTop:"8px"}},a.tags.map(t2=>e("span.amb-tag",t2))):null,
+    a.channelUrl?e("a.small",{href:a.channelUrl,target:"_blank",rel:"noopener",style:{display:"inline-block",marginTop:"8px"}},"Chaîne YouTube ↗"):null);
+  let r=await S3Sb("GET","amb_posts?ambassador_id=eq."+encodeURIComponent(id)+"&select=url,title,published_on&order=published_on.desc,created_at.desc&limit=3");
+  if(r&&r.ok&&Array.isArray(r.json)&&r.json.length)box.append(e("div.small.muted",{style:{margin:"12px 0 4px"}},"Dernières publications sur la fiche"),
+    e("div.list",r.json.map(x2=>e("a.list-row",{href:x2.url,target:"_blank",rel:"noopener"},e("span.ic",b(/youtube|youtu\.be/.test(x2.url)?"play":"camera")),e("div.grow",e("div.t",x2.title||"Publication"),e("div.s",x2.published_on||""))))));
 }

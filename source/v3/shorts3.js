@@ -121,7 +121,7 @@ async function S3ShPage(t){
   C(t,q({title:"Vidéos courtes",subtitle:"Publiées par les membres : vidéos verticales, 3 minutes maximum."}),form||null,feed);
   load();
 }
-function S3ShForm(done){
+function S3ShForm(done,inModal){
   let file=e("input",{type:"file",accept:"video/mp4,video/quicktime,.mp4,.mov,.m4v","aria-label":"Choisir une vidéo",style:{width:"100%"}}),
       cap=e("input",{type:"text",maxLength:300,placeholder:"Légende (facultatif)","aria-label":"Légende",style:{minHeight:"var(--touch)",width:"100%",padding:"0 12px",borderRadius:"var(--r-sm)",border:"1px solid var(--line-strong)",background:"var(--surface)",color:"inherit"}}),
       msg=e("p.tiny.muted",{role:"status","aria-live":"polite",style:{margin:"6px 0 0"}});
@@ -144,7 +144,15 @@ function S3ShForm(done){
     }
     go.disabled=!1;
   }});
+  let inner=e("div.stack",{style:{marginTop:inModal?"0":"10px"}},e("div.field",e("label","Vidéo verticale 9:16 (3 min max, MP4 ou MOV, compressée automatiquement)"),file),e("div.field",e("label","Légende"),cap),go,msg);
+  if(inModal)return inner;
   return e("details.card.shorts-form",{style:{margin:"0 0 14px"}},
-    e("summary",{style:{cursor:"pointer",fontWeight:600}},"Publier une vidéo"),
-    e("div.stack",{style:{marginTop:"10px"}},e("div.field",e("label","Vidéo verticale 9:16 (3 min max, MP4 ou MOV, compressée automatiquement)"),file),e("div.field",e("label","Légende"),cap),go,msg));
+    e("summary",{style:{cursor:"pointer",fontWeight:600}},"Publier une vidéo"),inner);
 }
+
+function S3ShCompose(){
+  if(!w.user)return S3LoginOpen&&S3LoginOpen();
+  let dlg=Le({title:"Publier une vidéo courte",body:S3ShForm(()=>{dlg&&dlg.close()},!0)});
+  return dlg;
+}
+window.S3ShCompose=S3ShCompose;
