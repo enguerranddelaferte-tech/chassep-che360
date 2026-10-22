@@ -66,7 +66,8 @@ function S3AmbStatsBox(){
       tile(s.shorts,"vidéos courtes"),
       tile(s.likes,"j’aime reçus"),
       tile(s.comments,"commentaires reçus"),
-      tile(s.shares,"partages",s.shares30?s.shares30+" en 30 jours":null));
+      tile(s.shares,"partages",s.shares30?s.shares30+" en 30 jours":null),
+      tile(s.signups||0,"inscrits avec ton code",s.code?"code "+s.code:null));
   }).catch(()=>{W(box);box.append(e("p.small.muted",{style:{margin:0}},"Statistiques indisponibles pour le moment."))});
   return box;
 }

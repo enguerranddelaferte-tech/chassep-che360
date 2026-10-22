@@ -119,6 +119,7 @@ async function S3AmbPage(t){
   C(t,head("Fiche : "+name),
     e("div.grid.g-main",
       e("div.stack",
+        k({title:"Mon code ambassadeur",sub:"vos avantages et votre code à partager"},S3AmbCodeBox()),
         k({title:"Mes statistiques",sub:"abonnés, publications, partages"},S3AmbStatsBox()),
         k({title:"Publier"},quick),
         k({title:"Ajouter des liens à ma fiche",sub:"Instagram ou YouTube, en lot"},e("div.field",e("label",{for:"amb-bulk"},"Liens, un par ligne"),ta),e("p.tiny.muted",{style:{margin:"0 0 10px"}},"Dans Instagram : « … » puis « Copier le lien ». Pour un titre, ajoutez « | » puis le titre après le lien."),go,msg)),
@@ -127,6 +128,28 @@ async function S3AmbPage(t){
         k({title:"Modifier ma fiche"},S3AmbFicheBox(id)),
         k({title:"Mes liens publiés",sub:"sur ma fiche publique"},list))));
   S3AmbList(list,id);
+}
+/* Code personnel : tarif Fondateurs pour les personnes qui s’inscrivent avec, compteur d’inscrits */
+function S3AmbCodeBox(){
+  let box=e("div.stack.amb-code",{style:{gap:"10px"}},e("p.small.muted",{style:{margin:0}},"Chargement…"));
+  S3Sb("POST","rpc/my_amb_code",{}).then(r=>{
+    W(box);
+    let c=r&&r.ok&&r.json;
+    box.append(e("div.row",{style:{gap:"10px",alignItems:"center",flexWrap:"wrap"}},e("span.launch-chip.pio","Combo 360° offert"),e("span.small","tant que vous êtes ambassadeur")));
+    if(!c||!c.code){box.append(e("p.small.muted",{style:{margin:0}},"Votre code est en préparation. Revenez dans un instant."));return}
+    let url=location.origin+location.pathname+"#/communaute?invite="+c.code;
+    box.append(
+      e("div.amb-code-row",e("code",c.code),e("span.small",(c.signups||0)+" inscrit"+((c.signups||0)>1?"s":"")+" avec votre code")),
+      e("p.small",{style:{margin:0}},"Les personnes qui s’inscrivent avec votre code ont le tarif Fondateurs, même quand les 500 places sont parties."),
+      e("div.row.wrap",{style:{gap:"8px"}},
+        x("Partager mon code",{icon:"send",kind:"primary",onClick:async()=>{
+          let res=await S3ShareData({text:"Rejoins-moi sur Chasse & Pêche 360°, l’appli des chasseurs et des pêcheurs. Avec mon code "+c.code+" tu as le tarif Fondateurs :",url,title:"Chasse & Pêche 360°"});
+          if(res==="copied")A("Lien copié : collez-le dans un message ou en bio.","ok");
+        }}),
+        x("Copier le lien",{kind:"ghost",onClick:async()=>{try{await navigator.clipboard.writeText(url);A("Lien copié.","ok")}catch{A(url,"info")}}})),
+      e("p.tiny.muted",{style:{margin:0}},"Rappel : le Combo offert est un avantage. Quand vous parlez de l’appli sur vos réseaux, indiquez « Collaboration commerciale » ou « Partenariat » (loi du 9 juin 2023 sur l’influence commerciale)."));
+  }).catch(()=>{W(box);box.append(e("p.small.muted",{style:{margin:0}},"Code indisponible pour le moment."))});
+  return box;
 }
 async function S3AmbList(list,id){
   let r=await S3Sb("GET","amb_posts?ambassador_id=eq."+encodeURIComponent(id)+"&select=id,url,title,published_on&order=created_at.desc&limit=300");
@@ -226,16 +249,19 @@ async function S3AmbAdminBox(){
     A("Fiche enregistrée.","ok");
   }});
   const loadLinks=async()=>{
-    let r=await S3Sb("GET","ambassador_links?select=user_id,user_name,ambassador_id,ambassador_name&order=created_at.desc");
+    let [r,rc,rs]=await Promise.all([S3Sb("GET","ambassador_links?select=user_id,user_name,ambassador_id,ambassador_name&order=created_at.desc"),S3Sb("GET","amb_codes?select=code,amb_id"),S3Sb("GET","users?select=data->>referredBy&data->>referredBy=not.is.null")]);
     W(linked);
     let rows=r&&r.ok&&Array.isArray(r.json)?r.json:null;
+    let codes=new Map(rc&&rc.ok&&Array.isArray(rc.json)?rc.json.map(c=>[c.amb_id,c.code]):[]),cnt={};
+    (rs&&rs.ok&&Array.isArray(rs.json)?rs.json:[]).forEach(u=>{let k2=u.referredBy;if(k2)cnt[k2]=(cnt[k2]||0)+1});
     if(!rows){C(linked,e("p.muted",{style:{margin:0}},"Liste indisponible."));return}
     if(!rows.length){C(linked,e("p.muted",{style:{margin:0}},"Aucun compte ambassadeur pour le moment."));return}
     rows.forEach(l=>C(linked,e("div.list-row",
       e("span.ic",b("user")),
-      e("div.grow",e("div.t",l.user_name||"Compte sans nom"),e("div.s","Fiche : "+(l.ambassador_name||l.ambassador_id))),
+      e("div.grow",e("div.t",l.user_name||"Compte sans nom"),e("div.s","Fiche : "+(l.ambassador_name||l.ambassador_id)+" · Combo offert · code "+(codes.get(l.ambassador_id)||"—")+" · "+(cnt[l.ambassador_id]||0)+" inscrit(s)")),
+      x("Code",{size:"sm",kind:"ghost",onClick:()=>S3AmbCodeDlg(l.ambassador_id,codes.get(l.ambassador_id)||"").then(c=>{if(c)loadLinks()})}),
       x("Retirer",{size:"sm",kind:"ghost",onClick:async()=>{
-        if(!(await ve({title:"Retirer le statut ambassadeur ?",text:"Cette personne ne pourra plus publier sur la fiche.",confirm:"Retirer"})))return;
+        if(!(await ve({title:"Retirer le statut ambassadeur ?",text:"Cette personne ne pourra plus publier sur la fiche, et son Combo offert s’arrête (elle revient à son offre d’avant).",confirm:"Retirer"})))return;
         let d=await S3Sb("DELETE","ambassador_links?user_id=eq."+encodeURIComponent(l.user_id));
         d.ok?(A("Statut retiré."),loadLinks()):A("Suppression impossible.","warn")
       }}))));
@@ -298,6 +324,20 @@ async function S3AmbLink(u,fid,fname){
   if(!r.ok)throw new Error(r.status===401||r.status===403?"Vous n’êtes pas administrateur ou la session a expiré.":"Enregistrement impossible.");
   try{let set=await S3AmbUsers();set.add(u.id)}catch{}
 }
+function S3AmbCodeDlg(ambId,cur){
+  return new Promise(done=>{
+    let inp=e("input.input",{type:"text",value:cur,maxLength:16,autocomplete:"off","aria-label":"Code ambassadeur",style:{textTransform:"uppercase"}}),
+        msg=e("p.small.muted",{role:"status",style:{margin:0}},"4 à 16 lettres ou chiffres, sans espace. Ex. : FLORIAN, CHASSEHD."),res=null,dlg;
+    let go=x("Enregistrer",{kind:"primary",onClick:async()=>{
+      go.disabled=!0;
+      let r=await S3Sb("POST","rpc/set_amb_code",{p_amb:ambId,p_code:inp.value});
+      go.disabled=!1;
+      if(!r.ok){msg.textContent=(r.json&&r.json.message)||"Enregistrement impossible.";return}
+      res=r.json;dlg.close();A("Code enregistré : "+res,"ok");
+    }});
+    dlg=Le({title:"Code ambassadeur",body:e("div.stack",e("div.field",e("label","Code"),inp),msg),actions:[x("Annuler",{kind:"ghost",onClick:()=>dlg.close()}),go],onClose:()=>done(res)});
+  });
+}
 function S3AmbMakeDlg(u){
   return new Promise(async done=>{
     let fiches=[];try{fiches=await S3AmbFiches()}catch{}
@@ -315,7 +355,7 @@ function S3AmbMakeDlg(u){
       }catch(er){msg.textContent=er.message;go.disabled=!1}
     }});
     dlg=Le({title:"Rendre ambassadeur",body:e("div.stack",
-      e("p",{style:{margin:0}},(u.name||"Cette personne")+" gardera tout le reste de l’appli et aura en plus son espace ambassadeur, un badge sur ses publications et ses statistiques."),
+      e("p",{style:{margin:0}},(u.name||"Cette personne")+" gardera tout le reste de l’appli et aura en plus son espace ambassadeur, un badge sur ses publications, ses statistiques, le Combo 360° offert tant qu’il est ambassadeur et un code personnel à partager."),
       e("div.field",e("label","Fiche publique"),sel),msg),
       actions:[x("Annuler",{kind:"ghost",onClick:()=>dlg.close()}),go],onClose:()=>done(ok)});
   });
@@ -329,7 +369,7 @@ async function S3RoleChange(u,val,selEl){
     return true;
   }
   if(was){
-    let yes=await ve({title:"Retirer le statut ambassadeur ?",text:"La fiche publique reste en place, mais cette personne ne pourra plus publier dessus.",confirm:"Retirer"});
+    let yes=await ve({title:"Retirer le statut ambassadeur ?",text:"La fiche publique reste en place, mais cette personne ne pourra plus publier dessus et son Combo offert s’arrête.",confirm:"Retirer"});
     if(!yes){if(selEl)selEl.value=prev;return true}
     let d=await S3Sb("DELETE","ambassador_links?user_id=eq."+encodeURIComponent(u.id));
     if(!d.ok){A("Retrait impossible.","warn");if(selEl)selEl.value=prev;return true}
