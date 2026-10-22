@@ -36,9 +36,13 @@ async function S3AmbBoot(){
   S3AmbFiches().catch(()=>{});
   S3EarlyRoutes();
   let id=await S3AmbCheck();
-  if(id)S3AmbMenu();
+  if(id){S3AmbMenu();S3AmbHideShorts()}
 }
 function S3AmbRoute(){S3EarlyRoutes()}
+/* Compte ambassadeur : pas d’entrée « Vidéos courtes » dans le menu (elle est dans Mon espace ambassadeur) */
+function S3AmbHideShorts(){
+  document.querySelectorAll('#mainmenu [data-path="/courts"]').forEach(l=>{let g=l.closest(".nav-group");(g&&g.querySelectorAll(".nav-link").length===1?g:l).remove()});
+}
 function S3AmbMenu(){
   let sb=document.querySelector("#mainmenu .sb-scroll");
   if(!sb||sb.querySelector('[data-path="/espace-ambassadeur"]'))return;

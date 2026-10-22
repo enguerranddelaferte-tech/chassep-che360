@@ -284,7 +284,7 @@ function S3Groups(all){
   let u=w.user,adm=S3Adm(u),gs=adm?AdmNavFor(u.role):GxNavR(xl);
   !IsLaunch()&&u&&u.isManager&&!adm&&(gs=[...gs,{group:"Espace pro",items:[["/pro","Tableau de bord territoire","chart"]]}]);
   typeof S3Amb<"u"&&S3Amb.id&&u&&(gs=[...gs,{group:"Ambassadeur",items:[["/espace-ambassadeur","Mon espace ambassadeur","play"]]}]);
-  window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on()&&(gs=[...gs,{group:"Vidéos",items:[["/courts","Vidéos courtes","play"]]}]);
+  window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on()&&!(typeof S3Amb<"u"&&S3Amb.id)&&(gs=[...gs,{group:"Vidéos",items:[["/courts","Vidéos courtes","play"]]}]);
   return all?gs:gs.filter(g=>!g.season||g.season===w.season)
 }
 function S3Find(p){
@@ -665,9 +665,13 @@ async function S3AmbBoot(){
   S3AmbFiches().catch(()=>{});
   S3EarlyRoutes();
   let id=await S3AmbCheck();
-  if(id)S3AmbMenu();
+  if(id){S3AmbMenu();S3AmbHideShorts()}
 }
 function S3AmbRoute(){S3EarlyRoutes()}
+/* Compte ambassadeur : pas d’entrée « Vidéos courtes » dans le menu (elle est dans Mon espace ambassadeur) */
+function S3AmbHideShorts(){
+  document.querySelectorAll('#mainmenu [data-path="/courts"]').forEach(l=>{let g=l.closest(".nav-group");(g&&g.querySelectorAll(".nav-link").length===1?g:l).remove()});
+}
 function S3AmbMenu(){
   let sb=document.querySelector("#mainmenu .sb-scroll");
   if(!sb||sb.querySelector('[data-path="/espace-ambassadeur"]'))return;
