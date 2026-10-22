@@ -13,23 +13,32 @@ function S3AmbParse(txt){
     return{url,title:r.join("|").trim(),ok:S3AmbRe.test(url)}
   })
 }
+/* Routes 3.0 enregistrées tôt (avant la première navigation), au format attendu par le routeur : module {default} */
+var S3Routes=!1;
+function S3EarlyRoutes(){
+  if(S3Routes)return;S3Routes=!0;
+  Z("/espace-ambassadeur",()=>Promise.resolve({default:t=>S3AmbPage(t)}));
+  try{S3ShRegister()}catch{}
+}
+async function S3AmbCheck(){
+  if(!w.user||!window.cp360Sb||!window.cp360Sb.on||!window.cp360Sb.on()){S3Amb.id=null;return null}
+  if(S3Amb.uid===w.user.id&&S3Amb.checked)return S3Amb.id;
+  if(S3Amb.uid===w.user.id&&S3Amb.p)return S3Amb.p;
+  S3Amb.uid=w.user.id;S3Amb.id=null;
+  S3Amb.p=S3Sb("GET","ambassador_links?select=ambassador_id,ambassador_name&user_id=eq."+encodeURIComponent(w.user.id)).then(r=>{
+    let row=r&&r.ok&&Array.isArray(r.json)&&r.json[0];
+    S3Amb.checked=!!(r&&r.ok);S3Amb.id=row?row.ambassador_id:null;S3Amb.name=row?row.ambassador_name:null;S3Amb.p=null;
+    return S3Amb.id;
+  }).catch(()=>{S3Amb.p=null;return null});
+  return S3Amb.p;
+}
 async function S3AmbBoot(){
   S3AmbFiches().catch(()=>{});
-  try{S3ShRegister()}catch{}
-  if(!w.user||!window.cp360Sb||!window.cp360Sb.on||!window.cp360Sb.on())return;
-  if(S3Amb.uid===w.user.id&&S3Amb.checked)return;
-  S3Amb.uid=w.user.id,S3Amb.checked=!0,S3Amb.id=null;
-  let r=await S3Sb("GET","ambassador_links?select=ambassador_id");
-  let row=r&&r.ok&&Array.isArray(r.json)&&r.json[0];
-  if(!row)return;
-  S3Amb.id=row.ambassador_id;
-  S3AmbRoute();S3AmbMenu();
+  S3EarlyRoutes();
+  let id=await S3AmbCheck();
+  if(id)S3AmbMenu();
 }
-function S3AmbRoute(){
-  if(S3Amb.routed)return;
-  S3Amb.routed=!0;
-  Z("/espace-ambassadeur",S3AmbPage);
-}
+function S3AmbRoute(){S3EarlyRoutes()}
 function S3AmbMenu(){
   let sb=document.querySelector("#mainmenu .sb-scroll");
   if(!sb||sb.querySelector('[data-path="/espace-ambassadeur"]'))return;
@@ -39,10 +48,48 @@ function S3AmbMenu(){
   items.append(e("a.nav-link",{href:"#/espace-ambassadeur",title:"Mon espace ambassadeur",dataset:{path:"/espace-ambassadeur"}},b("play"),e("span","Mon espace ambassadeur")));
   sb.append(grp);
 }
-function S3AmbPage(t){
-  if(!w.user){C(t,q({title:"Mon espace ambassadeur"},V({icon:"user",title:"Connectez-vous",text:"Cet espace est réservé aux ambassadeurs."})));return}
-  if(!S3Amb.id){C(t,q({title:"Mon espace ambassadeur"},V({icon:"user",title:"Espace réservé",text:"Cet espace est ouvert aux ambassadeurs. Contactez l’équipe pour être ajouté."})));return}
-  let id=S3Amb.id,ta=e("textarea",{id:"amb-bulk",rows:7,"aria-label":"Liens de publications, un par ligne",placeholder:"https://www.instagram.com/p/…\nhttps://www.youtube.com/watch?v=… | Titre facultatif"}),
+/* Ma fiche : l’ambassadeur complète lui-même sa fiche publique (champs autorisés seulement) */
+function S3AmbFicheBox(id){
+  const st={minHeight:"var(--touch)",padding:"0 12px",borderRadius:"var(--r-sm)",border:"1px solid var(--line-strong)",background:"var(--surface)",color:"inherit",width:"100%",boxSizing:"border-box"};
+  let a=(window.__ambDb||[]).find(x2=>x2.id===id)||{};
+  let f={speciality:e("input",{type:"text",maxLength:140,style:st,value:a.speciality||"",id:"af-sp"}),
+         channelUrl:e("input",{type:"url",maxLength:200,placeholder:"https://www.youtube.com/@…",style:st,value:a.channelUrl||"",id:"af-ch"}),
+         handle:e("input",{type:"text",maxLength:60,placeholder:"@pseudo Instagram",style:st,value:a.handle||"",id:"af-ha"}),
+         season:e("select",{style:{...st,padding:"0 10px"},id:"af-se"},e("option",{value:"chasse"},"Chasse"),e("option",{value:"peche"},"Pêche"),e("option",{value:"both"},"Chasse et pêche")),
+         tags:e("input",{type:"text",maxLength:200,placeholder:"Séparés par des virgules",style:st,value:Array.isArray(a.tags)?a.tags.join(", "):"",id:"af-ta"}),
+         bio:e("textarea",{rows:5,maxLength:800,style:{...st,padding:"10px 12px"},id:"af-bi"},a.bio||"")};
+  f.season.value=a.season||"chasse";
+  let msg=e("p.tiny.muted",{role:"status",style:{margin:"6px 0 0"}});
+  let fld=(lab,el,hint)=>e("div.field",e("label",{for:el.id},lab),el,hint?e("span.hint",hint):null);
+  let save=x("Enregistrer ma fiche",{kind:"primary",size:"block",onClick:async()=>{
+    let url=f.channelUrl.value.trim();
+    if(url&&!/^https:\/\//.test(url)){msg.textContent="Le lien de la chaîne doit commencer par https://";return}
+    save.disabled=!0;msg.textContent="Enregistrement…";
+    let r=await S3Sb("POST","rpc/update_my_amb_fiche",{patch:{speciality:f.speciality.value.trim(),channelUrl:url||null,handle:f.handle.value.trim()||null,season:f.season.value,
+      tags:f.tags.value.split(",").map(t=>t.trim()).filter(Boolean).slice(0,12),bio:f.bio.value.trim()}});
+    save.disabled=!1;
+    if(r&&r.ok){msg.textContent="Fiche mise à jour : elle est visible tout de suite.";A("Fiche enregistrée.","ok");S3AmbFiches().catch(()=>{})}
+    else msg.textContent="Enregistrement impossible. Réessayez ou reconnectez-vous.";
+  }});
+  return e("div.stack",{style:{gap:"10px"}},
+    fld("Spécialité",f.speciality,"Ex. : battues au sanglier, pêche des carnassiers"),
+    fld("Chaîne YouTube",f.channelUrl),fld("Instagram",f.handle),fld("Saison",f.season),fld("Thèmes",f.tags),fld("Présentation",f.bio),save,msg);
+}
+async function S3AmbPage(t){
+  let head=(sub,acts)=>q({title:"Mon espace ambassadeur",subtitle:sub,actions:acts||[]});
+  if(!w.user){C(t,head("Réservé aux ambassadeurs."),V({icon:"user",title:"Connectez-vous",text:"Connectez-vous avec votre compte ambassadeur pour ouvrir votre espace."}));return}
+  C(t,head("Chargement…"));
+  let id=await S3AmbCheck();
+  W(t);
+  if(!id){
+    let adm=S3Adm(w.user);
+    C(t,head(adm?"Vous êtes administrateur, sans fiche d’ambassadeur.":"Cet espace est réservé aux ambassadeurs.",adm?[x("Gérer les ambassadeurs",{icon:"crown",kind:"primary",href:"#/admin/ambassadeurs"})]:[]),
+      V({icon:"crown",title:adm?"Aucune fiche reliée à votre compte":"Espace réservé",text:adm?"Pour donner ce statut à quelqu’un : Admin › Utilisateurs, colonne Rôle, choisissez « Ambassadeur ».":"Cet espace est ouvert aux ambassadeurs choisis par l’équipe 360°. Contactez-nous pour en faire partie."}));
+    return;
+  }
+  try{await S3AmbFiches()}catch{}
+  let fiche=(window.__ambDb||[]).find(x2=>x2.id===id)||{},name=fiche.name||S3Amb.name||"Ma fiche";
+  let ta=e("textarea",{id:"amb-bulk",rows:6,"aria-label":"Liens de publications, un par ligne",placeholder:"https://www.instagram.com/p/…\nhttps://www.youtube.com/watch?v=… | Titre facultatif",style:{width:"100%",boxSizing:"border-box"}}),
       msg=e("p.small.muted",{role:"status","aria-live":"polite",style:{margin:"8px 0 0"}}),
       list=e("div.list"),
       go=x("Publier ces liens",{icon:"check",kind:"primary",size:"block",onClick:async()=>{
@@ -59,10 +106,21 @@ function S3AmbPage(t){
         A(added?added+" publication(s) en ligne.":"Ces liens étaient déjà publiés.",added?"ok":"warn");
         ta.value="";S3AmbList(list,id);
       }});
-  C(t,q({title:"Mon espace ambassadeur",subtitle:"Collez vos liens d’un coup : ils apparaissent sur votre fiche publique."},
+  let quick=e("div.stack",{style:{gap:"10px"}},
+    e("p.small.muted",{style:{margin:0}},"Après chaque publication, l’appli vous propose de la partager sur Instagram ou Facebook (le texte est copié, il ne reste qu’à le coller)."),
+    e("div.row.wrap",{style:{gap:"8px"}},
+      x("Publier dans le fil",{icon:"send",kind:"primary",href:"#/communaute"}),
+      x("Publier une vidéo courte",{icon:"play",kind:"ghost",href:"#/courts"}),
+      x("Voir ma fiche publique",{icon:"eye",kind:"ghost",href:"#/ambassadeurs/"+encodeURIComponent(id)})));
+  C(t,head("Fiche : "+name,[x("Voir ma fiche",{icon:"eye",kind:"ghost",href:"#/ambassadeurs/"+encodeURIComponent(id)})]),
     e("div.grid.g-main",
-      e("div.stack",k({title:"Mes statistiques",sub:"abonnés, publications, partages"},S3AmbStatsBox()),k({title:"Ajouter des publications"},e("div.field",e("label","Liens, un par ligne"),ta),e("p.tiny.muted",{style:{margin:"0 0 10px"}},"Dans Instagram : « … » puis « Copier le lien ». Pour un titre, ajoutez « | » puis le titre après le lien."),go,msg)),
-      e("div.stack",k({title:"Mes publications",sub:"sur ma fiche publique"},list)))));
+      e("div.stack",
+        k({title:"Mes statistiques",sub:"abonnés, publications, partages"},S3AmbStatsBox()),
+        k({title:"Publier"},quick),
+        k({title:"Ajouter des liens à ma fiche",sub:"Instagram ou YouTube, en lot"},e("div.field",e("label",{for:"amb-bulk"},"Liens, un par ligne"),ta),e("p.tiny.muted",{style:{margin:"0 0 10px"}},"Dans Instagram : « … » puis « Copier le lien ». Pour un titre, ajoutez « | » puis le titre après le lien."),go,msg)),
+      e("div.stack",
+        k({title:"Ma fiche",sub:"visible par tous les membres"},S3AmbFicheBox(id)),
+        k({title:"Mes liens publiés",sub:"sur ma fiche publique"},list))));
   S3AmbList(list,id);
 }
 async function S3AmbList(list,id){

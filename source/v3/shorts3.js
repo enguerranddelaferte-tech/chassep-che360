@@ -8,7 +8,7 @@ const S3ShFF={base:"https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd",f
 function S3ShRegister(){
   if(S3Sh.registered)return;
   S3Sh.registered=!0;
-  Z("/courts",S3ShPage);
+  Z("/courts",()=>Promise.resolve({default:(t,p)=>S3ShPage(t,p)}));
 }
 function S3ShUrl(path){return window.cp360Sb.URL+"/storage/v1/object/public/shorts/"+path}
 function S3ShCheck(file){
