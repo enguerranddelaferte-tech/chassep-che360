@@ -60,13 +60,13 @@ function S3LoginOpen(tab){
     let d=jt(mode==="login"?[{name:"email",label:"Adresse e-mail",type:"email",required:!0,full:!0,autocomplete:"email"},{name:"password",label:"Mot de passe",type:"password",required:!0,full:!0,autocomplete:"current-password"}]:[{name:"name",label:"Prénom et nom",required:!0,full:!0},{name:"email",label:"Adresse e-mail",type:"email",required:!0,full:!0,autocomplete:"email"},{name:"password",label:"Mot de passe",type:"password",required:!0,full:!0,hint:"6 caractères minimum",autocomplete:"new-password"},{name:"profile",label:"Je suis plutôt…",type:"seg",full:!0,value:"mixte",options:[["chasseur","Chasseur"],["pecheur","Pêcheur"],["mixte","Les deux"],["usager","Promeneur"]]},{name:"invite",label:"Code d’invitation ou d’ambassadeur (facultatif)",full:!0,value:S3LInviteCode(),placeholder:"Ex. : PA1B2C3D"}]);
     let err=e("div.panel.danger",{hidden:!0,style:{padding:"10px 14px"}}),btn=x(mode==="login"?"Se connecter":"Créer mon compte",{kind:"primary",size:"block",type:"submit"});
     let form=e("form.stack",{novalidate:!0,onsubmit:async f=>{
-      f.preventDefault();err.hidden=!0;if(!d.validate())return;btn.disabled=!0;
+      f.preventDefault();err.hidden=!0;if(!d.validate())return;if(mode!=="login"&&!S3ConsentOk(form))return;btn.disabled=!0;
       try{
         let g=await(live?window.cp360Sb.auth(mode,d.values):v.post(mode==="login"?"/auth/login":"/auth/register",d.values));
         dlg&&dlg.close();S3Login.open=null;await Vn(g.token,g.user);S3LoginBack(back);
       }catch(g){d.setErrors&&d.setErrors(g.fields);err.textContent=g.message;err.hidden=!1}
       finally{btn.disabled=!1}
-    }},err,d.el,btn);
+    }},err,d.el,mode==="login"?null:S3ConsentEl(),btn);
     C(body,
       ke([["login","Se connecter"],["register","Créer un compte"]],mode,m2=>{mode=m2;draw();try{dlg.el.querySelector(".modal-head h2").textContent=mode==="login"?"Bon retour !":"Créer votre compte"}catch{}}),
       form,
@@ -74,6 +74,7 @@ function S3LoginOpen(tab){
       e("div.grid.g-2.login-social",
         x("",{kind:"ghost",size:"block",onClick:()=>S3LoginSocial("google")}),
         x("",{kind:"ghost",size:"block",onClick:()=>S3LoginSocial("facebook")})),
+      mode==="login"?null:e("p.tiny.muted",{style:{margin:"-4px 0 0",textAlign:"center"}},"Avec Google ou Facebook, vous acceptez aussi les conditions d’utilisation et confirmez avoir au moins 15 ans."),
       x("Continuer sans compte",{kind:"ghost",size:"block",onClick:()=>{dlg&&dlg.close()}}),
       e("p.tiny.muted",{style:{margin:0,textAlign:"center"}},e("a",{href:"#/connexion",onclick:()=>{dlg&&dlg.close()}},"Ouvrir la page de connexion complète")," · ",e("a",{href:"#/mentions-legales",onclick:()=>{dlg&&dlg.close()}},"Mentions légales"))
     );

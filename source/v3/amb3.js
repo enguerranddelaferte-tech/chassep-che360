@@ -19,6 +19,10 @@ function S3EarlyRoutes(){
   if(S3Routes)return;S3Routes=!0;
   Z("/espace-ambassadeur",()=>Promise.resolve({default:t=>S3AmbPage(t)}));
   Z("/mentions-legales",()=>Promise.resolve({default:t=>S3LegalPage(t)}));
+  Z("/cgu",()=>Promise.resolve({default:t=>S3CguPage(t)}));
+  Z("/confidentialite",()=>Promise.resolve({default:t=>S3PrivPage(t)}));
+  Z("/aide",()=>Promise.resolve({default:t=>S3HelpPage(t)}));
+  Z("/charte-ambassadeur",()=>Promise.resolve({default:t=>S3CharterPage(t)}));
   try{S3ShRegister()}catch{}
 }
 async function S3AmbCheck(){
@@ -148,7 +152,7 @@ function S3AmbCodeBox(){
           if(res==="copied")A("Lien copié : collez-le dans un message ou en bio.","ok");
         }}),
         x("Copier le lien",{kind:"ghost",onClick:async()=>{try{await navigator.clipboard.writeText(url);A("Lien copié.","ok")}catch{A(url,"info")}}})),
-      e("p.tiny.muted",{style:{margin:0}},"Rappel : le Combo offert est un avantage. Quand vous parlez de l’appli sur vos réseaux, indiquez « Collaboration commerciale » ou « Partenariat » (loi du 9 juin 2023 sur l’influence commerciale)."));
+      e("p.tiny.muted",{style:{margin:0}},"Rappel : le Combo offert est un avantage. Quand vous parlez de l’appli sur vos réseaux, indiquez « Collaboration commerciale » ou « Partenariat » (loi du 9 juin 2023 sur l’influence commerciale). ",e("a",{href:"#/charte-ambassadeur"},"Lire la charte ambassadeur"),"."));
   }).catch(()=>{W(box);box.append(e("p.small.muted",{style:{margin:0}},"Code indisponible pour le moment."))});
   return box;
 }

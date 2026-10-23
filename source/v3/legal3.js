@@ -46,7 +46,10 @@ function S3AcctBox(){
     e("p.small.muted",{style:{margin:"0 0 12px"}},"La suppression efface votre profil, vos publications, commentaires, messages, photos, vidéos, sorties et territoires. Elle est définitive."),
     e("div.row.wrap",{style:{gap:"8px"}},
       x("Supprimer mon compte",{kind:"danger",icon:"trash",onClick:S3AcctDelete}),
-      x("Mentions légales",{kind:"ghost",href:"#/mentions-legales"}))));
+      x("Aide",{kind:"ghost",href:"#/aide"})),
+    e("label.check",{style:{marginTop:"14px"}},e("input",{type:"checkbox",checked:(()=>{try{return localStorage.getItem("cp360.noTrack")!=="1"}catch{return true}})(),onchange:ev=>{try{ev.target.checked?localStorage.removeItem("cp360.noTrack"):localStorage.setItem("cp360.noTrack","1")}catch{}A(ev.target.checked?"Mesure d’audience activée.":"Mesure d’audience désactivée sur cet appareil.")}}),
+      e("span","Mesure d’audience",e("div.hint.muted.small","Compte les ouvertures de l’appli (pays, type d’appareil), sans publicité ni traceur tiers. Décochez pour la refuser sur cet appareil."))),
+    e("p.tiny.muted",{style:{margin:"12px 0 0"}},e("a",{href:"#/cgu"},"Conditions d’utilisation")," · ",e("a",{href:"#/confidentialite"},"Confidentialité")," · ",e("a",{href:"#/mentions-legales"},"Mentions légales"))));
 }
 function S3AcctDelete(){
   let live=window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on();
