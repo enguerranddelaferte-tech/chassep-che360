@@ -68,7 +68,7 @@ function S3PrivPage(t){
       "Terrain : territoires, postes, spots, prises, prélèvements, historique de sorties.",
       "Position : seulement si vous l’activez, pendant une sortie, un suivi en direct ou une alerte SOS.",
       "Notifications : l’adresse technique de votre appareil, si vous acceptez les notifications.",
-      "Analyse des photos : les photos publiées dans le fil sont analysées par notre service de modération (modèle de reconnaissance d’images YOLOv8), hébergé sur un serveur séparé. Il repère par exemple une espèce protégée probable ; la publication est alors vérifiée par l’équipe. La photo n’est pas conservée par ce service : seuls les éléments repérés sont enregistrés avec la publication.",
+      "Analyse des photos : les photos publiées dans le fil sont analysées par notre service de modération (modèle de reconnaissance d’images CLIP, sous licence libre MIT), hébergé sur un serveur séparé. Il repère par exemple une espèce protégée probable, une image choquante ou de la nudité ; la publication est alors vérifiée par l’équipe. La photo n’est pas conservée par ce service : seuls les éléments repérés sont enregistrés avec la publication.",
       "Mesure d’audience : à l’ouverture de l’appli, le pays, le type d’appareil, la page et un identifiant de session effacé à la fermeture de l’onglet. Vous pouvez la refuser depuis Mon profil."]],
     ["Pourquoi et sur quelle base",
      ["Fournir le service, gérer le compte et les abonnements : exécution du contrat.",

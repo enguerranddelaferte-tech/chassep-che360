@@ -1,66 +1,48 @@
-"""Service de modération YOLOv8 de Chasse & Pêche 360°.
+"""Service de modération des photos de Chasse & Pêche 360°.
 
 Tourne sur un serveur séparé de l'appli (VPS, conteneur Docker). Rôle :
   1. recevoir de la base Supabase l'identifiant de chaque nouvelle publication avec photo (/webhook) ;
-  2. relire la publication avec la clé « service », analyser la photo avec YOLOv8n-cls ;
+  2. relire la publication avec la clé « service », analyser la photo avec CLIP (OpenCLIP, licence MIT) ;
   3. renvoyer le résultat à la base (fonction apply_server_vision), qui masque la publication
-     et prévient l'équipe si une espèce protégée ou une tenue légère est probable.
+     et prévient l'équipe si une espèce protégée, une image choquante, de la nudité ou un geste dangereux est probable.
 Un balayage régulier rattrape les publications manquées (service arrêté, réseau coupé).
-
-Dépendances : numpy, pillow, onnxruntime. Aucune autre bibliothèque.
 """
-import base64, hmac, io, json, logging, os, queue, threading, time, urllib.parse, urllib.request
+import base64, hmac, json, logging, os, queue, threading, time, urllib.parse, urllib.request
 from datetime import datetime, timedelta, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-import numpy as np
-import onnxruntime as ort
-from PIL import Image
-
-from rules import evaluate
+from rules import evaluate, PROMPTS
 
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "").rstrip("/")
 SERVICE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
 SECRET = os.environ.get("MODERATION_SECRET", "")
 PORT = int(os.environ.get("PORT", "8080"))
 SWEEP_MINUTES = float(os.environ.get("SWEEP_MINUTES", "5"))
-MODEL_PATH = os.environ.get("MODEL_PATH", os.path.join(os.path.dirname(__file__), "model", "yolov8n-cls.onnx"))
-LABELS_PATH = os.environ.get("LABELS_PATH", os.path.join(os.path.dirname(__file__), "labels_en.json"))
 MAX_IMAGE_BYTES = 12 * 1024 * 1024
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger("moderation")
 
-SESSION = ort.InferenceSession(MODEL_PATH, providers=["CPUExecutionProvider"])
-INPUT = SESSION.get_inputs()[0].name
-SIZE = SESSION.get_inputs()[0].shape[-1] if isinstance(SESSION.get_inputs()[0].shape[-1], int) else 224
-LABELS = json.load(open(LABELS_PATH))
-MODEL_NAME = os.path.basename(MODEL_PATH).rsplit(".", 1)[0]
+if os.environ.get("BACKEND") == "stub":  # tests sans le modèle : probabilités imposées par STUB_PROMPT
+    MODEL_NAME = "stub"
+    def probabilities(_img):
+        want = os.environ.get("STUB_PROMPT", "")
+        hits = [i for i, t in enumerate(PROMPTS) if want and want in t] or [len(PROMPTS) - 1]
+        return [(0.9 / len(hits) if i in hits else 0.1 / (len(PROMPTS) - len(hits))) for i in range(len(PROMPTS))]
+else:
+    from clipmodel import probabilities, NAME as MODEL_NAME
 
 jobs: "queue.Queue[str]" = queue.Queue(maxsize=5000)
 state = {"started": time.time(), "analysed": 0, "flagged": 0, "errors": 0, "last": None, "last_error": None}
+_lock = threading.Lock()  # une analyse à la fois : le modèle occupe déjà les processeurs
 
 
 # ---------- analyse ----------
-def preprocess(img: Image.Image) -> np.ndarray:
-    """Comme à l'entraînement : petit côté à 224 px, recadrage central, RVB entre 0 et 1."""
-    img = img.convert("RGB")
-    w, h = img.size
-    s = SIZE / min(w, h)
-    img = img.resize((max(SIZE, round(w * s)), max(SIZE, round(h * s))), Image.BILINEAR)
-    w, h = img.size
-    l, t = (w - SIZE) // 2, (h - SIZE) // 2
-    img = img.crop((l, t, l + SIZE, t + SIZE))
-    return (np.asarray(img, np.float32) / 255.0).transpose(2, 0, 1)[None]
-
-
 def classify(img_bytes: bytes) -> dict:
-    img = Image.open(io.BytesIO(img_bytes))
-    img.draft("RGB", (SIZE * 2, SIZE * 2))  # décodage JPEG plus rapide sur les grandes photos
-    probs = SESSION.run(None, {INPUT: preprocess(img)})[0][0]
+    with _lock:
+        probs = probabilities(img_bytes)
     res = evaluate(probs)
-    res.update(model=MODEL_NAME, at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
-               top=[[LABELS[i], round(float(probs[i]), 3)] for i in np.argsort(-probs)[:3]])
+    res.update(model=MODEL_NAME, at=datetime.now(timezone.utc).isoformat(timespec="seconds"))
     return res
 
 
@@ -152,7 +134,7 @@ def sweeper():
 
 # ---------- HTTP ----------
 class Handler(BaseHTTPRequestHandler):
-    server_version = "cp360-moderation/1.0"
+    server_version = "cp360-moderation/2.0"
 
     def _send(self, code, body):
         raw = json.dumps(body, ensure_ascii=False).encode()
@@ -210,7 +192,7 @@ def main():
         threading.Thread(target=worker, daemon=True).start()
     if SWEEP_MINUTES > 0:
         threading.Thread(target=sweeper, daemon=True).start()
-    log.info("modèle %s chargé, écoute sur le port %d", MODEL_NAME, PORT)
+    log.info("modèle %s chargé (%d descriptions), écoute sur le port %d", MODEL_NAME, len(PROMPTS), PORT)
     ThreadingHTTPServer(("0.0.0.0", PORT), Handler).serve_forever()
 
 

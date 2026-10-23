@@ -2094,7 +2094,7 @@ function S3PrivPage(t){
       "Terrain : territoires, postes, spots, prises, prélèvements, historique de sorties.",
       "Position : seulement si vous l’activez, pendant une sortie, un suivi en direct ou une alerte SOS.",
       "Notifications : l’adresse technique de votre appareil, si vous acceptez les notifications.",
-      "Analyse des photos : les photos publiées dans le fil sont analysées par notre service de modération (modèle de reconnaissance d’images YOLOv8), hébergé sur un serveur séparé. Il repère par exemple une espèce protégée probable ; la publication est alors vérifiée par l’équipe. La photo n’est pas conservée par ce service : seuls les éléments repérés sont enregistrés avec la publication.",
+      "Analyse des photos : les photos publiées dans le fil sont analysées par notre service de modération (modèle de reconnaissance d’images CLIP, sous licence libre MIT), hébergé sur un serveur séparé. Il repère par exemple une espèce protégée probable, une image choquante ou de la nudité ; la publication est alors vérifiée par l’équipe. La photo n’est pas conservée par ce service : seuls les éléments repérés sont enregistrés avec la publication.",
       "Mesure d’audience : à l’ouverture de l’appli, le pays, le type d’appareil, la page et un identifiant de session effacé à la fermeture de l’onglet. Vous pouvez la refuser depuis Mon profil."]],
     ["Pourquoi et sur quelle base",
      ["Fournir le service, gérer le compte et les abonnements : exécution du contrat.",
@@ -2227,13 +2227,13 @@ async function S3LaunchAdmin(p){
       e("div.list",s.by_code.map(c=>e("div.list-row",e("div.grow",e("div.t",c.name),e("div.s","code "+c.code)),e("b",String(c.n)))))):null,
     (s.last_errors||[]).length?e("details",{style:{marginTop:"14px"}},e("summary.small","Dernières erreurs chez les utilisateurs"),
       e("div.list",s.last_errors.map(x2=>e("div.list-row",e("div.grow",e("div.t",{style:{fontWeight:500,fontSize:"14px"}},x2.msg),e("div.s",new Date(x2.at).toLocaleString("fr-FR")+" · "+(x2.path||""))))))):null);
-  let svc=e("div.small.svc-state",{style:{marginTop:"12px"}},"Service de modération YOLOv8 : vérification…");box.append(svc);
+  let svc=e("div.small.svc-state",{style:{marginTop:"12px"}},"Service de modération des photos : vérification…");box.append(svc);
   S3Sb("POST","rpc/moderation_service_status",{}).then(r2=>{
-    let v=r2&&r2.ok&&r2.json;if(!v){svc.textContent="Service de modération YOLOv8 : état indisponible.";return}
+    let v=r2&&r2.ok&&r2.json;if(!v){svc.textContent="Service de modération des photos : état indisponible.";return}
     let ago=v.last?Math.round((Date.now()-new Date(v.last))/60000):null;
     let ok=v.configured&&!(v.waiting>0&&(ago==null||ago>30));
     svc.className="small svc-state "+(v.configured?(ok?"svc-ok":"svc-warn"):"svc-off");
-    svc.textContent="Service de modération YOLOv8 : "+(!v.configured?"pas encore branché (voir le guide d’installation).":
+    svc.textContent="Service de modération des photos : "+(!v.configured?"pas encore branché (voir le guide d’installation).":
       (ok?"en marche":"à vérifier")+" · dernière analyse "+(ago==null?"jamais":ago<60?"il y a "+ago+" min":"il y a "+Math.round(ago/60)+" h")+
       " · "+v.analysed7+" photo(s) analysée(s) et "+v.flagged7+" signalée(s) sur 7 jours"+(v.waiting?" · "+v.waiting+" en attente":"")+".");
   }).catch(()=>{});
@@ -2243,12 +2243,12 @@ async function S3LaunchAdmin(p){
 /* ----- Pré-modération (3.0) : les 3 premières publications d’un nouveau membre attendent une validation ----- */
 /* La règle est appliquée par la base (déclencheur post_moderation + règle de lecture). Ici : affichage et validation. */
 var S3Mod={at:0,rows:null,p:null,told:{}};
-/* Résultat du service de modération YOLOv8 (serveur séparé), en clair pour l’équipe */
+/* Résultat du service de modération des photos (serveur séparé), en clair pour l’équipe */
 function S3VisionText(v){
   if(!v)return "";
   if(v.skipped)return "Non analysée ("+v.skipped+").";
   let f=(v.found||[]).map(x2=>x2.label+" "+Math.round(x2.p*100)+" %").join(", ");
-  return (v.flag==="espece-protegee"?"Espèce protégée probable : "+v.flagLabel+". ":v.flag==="tenue"?"Tenue légère probable. ":"")+(f?"Repéré : "+f+".":"Rien de particulier repéré.");
+  return (v.flag==="espece-protegee"?"Espèce protégée probable : "+v.flagLabel+". ":v.flag?(v.flagLabel||"À vérifier")+" probable. ":"")+(f?"Repéré : "+f+".":"Rien de particulier repéré.");
 }
 function S3ModStaff(){return !!(w.user&&(S3Adm(w.user)||w.user.role==="moderator"))}
 async function S3ModPending(force){
@@ -2310,7 +2310,7 @@ async function S3ModQueue(p){
     let d=r2.data||{},ph=d.photo||d.image||null;
     let row=e("div.list-row.mod-row",
       ph?S3Media(ph,"",false):e("span.ic",b("chat")),
-      e("div.grow",e("div.t",names[d.authorId]||"Nouveau membre"),e("div.s",new Date(r2.created_at).toLocaleString("fr-FR")),e("p.small",{style:{margin:"4px 0 0",whiteSpace:"pre-wrap"}},String(d.text||"").slice(0,400)),(d.vision_server||d.vision)?e("p.small.mod-vision",{style:{margin:"6px 0 0"}},b("eye")," Analyse YOLOv8 : "+S3VisionText(d.vision_server||d.vision)):e("p.tiny.muted",{style:{margin:"6px 0 0"}},"Analyse YOLOv8 : en attente du service.")),
+      e("div.grow",e("div.t",names[d.authorId]||"Nouveau membre"),e("div.s",new Date(r2.created_at).toLocaleString("fr-FR")),e("p.small",{style:{margin:"4px 0 0",whiteSpace:"pre-wrap"}},String(d.text||"").slice(0,400)),(d.vision_server||d.vision)?e("p.small.mod-vision",{style:{margin:"6px 0 0"}},b("eye")," Analyse automatique : "+S3VisionText(d.vision_server||d.vision)):e("p.tiny.muted",{style:{margin:"6px 0 0"}},"Analyse automatique : en attente du service.")),
       e("div.row",{style:{gap:"6px",flexWrap:"wrap"}},
         x("Valider",{size:"sm",kind:"primary",onClick:async()=>{if(await S3ModDecide(r2.id,true))row.remove()}}),
         x("Refuser",{size:"sm",kind:"ghost",onClick:async()=>{if(await S3ModRefuse(r2.id))row.remove()}})));
