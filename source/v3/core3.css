@@ -57,8 +57,8 @@ button{-webkit-tap-highlight-color:transparent}
 
 /* Photo de fond (option « Photo de fond ») : limitée au haut de l'écran, sans repeint au défilement */
 :root[data-banniere=on]:not([data-theme=contrast]):not([data-role=admin]) body::after{content:"";position:fixed;inset:0 0 auto;height:min(46vh,420px);z-index:-1;pointer-events:none;
-  background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 42%,transparent),color-mix(in srgb,var(--bg) 84%,transparent) 50%,var(--bg)),url(img/fond-chasse.webp) 62% 50%/cover no-repeat}
-:root[data-banniere=on][data-season=peche]:not([data-theme=contrast]):not([data-role=admin]) body::after{background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 46%,transparent),color-mix(in srgb,var(--bg) 86%,transparent) 50%,var(--bg)),url(img/fond-peche.webp) 30% 50%/cover no-repeat}
+  background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 42%,transparent),color-mix(in srgb,var(--bg) 84%,transparent) 50%,var(--bg)),url(img/fond-chasse.webp?v=3) 62% 50%/cover no-repeat}
+:root[data-banniere=on][data-season=peche]:not([data-theme=contrast]):not([data-role=admin]) body::after{background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 46%,transparent),color-mix(in srgb,var(--bg) 86%,transparent) 50%,var(--bg)),url(img/fond-peche.webp?v=3) 30% 50%/cover no-repeat}
 
 /* ---------- Typo utilitaires ---------- */
 .muted{color:var(--muted)}
