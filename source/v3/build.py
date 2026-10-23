@@ -35,7 +35,8 @@ bundle=rep(bundle,'onsubmit:async f=>{if(f.preventDefault(),p.hidden=!0,!!d.vali
 bundle=rep(bundle,'},p,d.el,m)','},p,d.el,s==="login"?null:S3ConsentEl(),m)')
 # mesure d'audience : refus possible
 bundle=rep(bundle,'function track(kind){if(!on())return;','function track(kind){if(!on())return;try{if(localStorage.getItem("cp360.noTrack")==="1")return}catch{}')
-shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()+'\n'+open(B+'v3/notif3.js').read()+'\n'+open(B+'v3/offline3.js').read()+'\n'+open(B+'v3/launch3.js').read()+'\n'+open(B+'v3/legal3.js').read()+'\n'+open(B+'v3/pages3.js').read()+'\n'+open(B+'v3/ops3.js').read()
+bundle=rep(bundle,'e("article.panel.post",e("div.post-head",oe(t.author,44),e("div.grow",e("a",{href:`#/profil/${t.author.id}`','e("article.panel.post",{dataset:{pid:t.id||""}},e("div.post-head",oe(t.author,44),e("div.grow",e("a",{href:`#/profil/${t.author.id}`')
+shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()+'\n'+open(B+'v3/notif3.js').read()+'\n'+open(B+'v3/offline3.js').read()+'\n'+open(B+'v3/launch3.js').read()+'\n'+open(B+'v3/legal3.js').read()+'\n'+open(B+'v3/pages3.js').read()+'\n'+open(B+'v3/ops3.js').read()+'\n'+open(B+'v3/mod3.js').read()
 home=open(B+'v3/home3.js').read()
 # 0b. publications : photo/vidéo depuis le téléphone, lecteur vidéo dans le fil
 bundle=rep(bundle,'accept:"image/*",capture:"environment",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await Gr($)),S())}','accept:l.video?"image/*,video/*":"image/*",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await S3PhotoPick($,Gr)),S())}')
