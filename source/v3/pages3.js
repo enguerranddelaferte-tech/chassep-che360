@@ -68,6 +68,7 @@ function S3PrivPage(t){
       "Terrain : territoires, postes, spots, prises, prélèvements, historique de sorties.",
       "Position : seulement si vous l’activez, pendant une sortie, un suivi en direct ou une alerte SOS.",
       "Notifications : l’adresse technique de votre appareil, si vous acceptez les notifications.",
+      "Analyse des photos : quand vous ajoutez une photo à une publication, un modèle de reconnaissance d’images (YOLOv8) l’analyse sur votre appareil, sans l’envoyer ailleurs. Seuls les éléments repérés (par exemple « cervidé » ou « espèce protégée probable ») accompagnent la publication, pour aider la modération.",
       "Mesure d’audience : à l’ouverture de l’appli, le pays, le type d’appareil, la page et un identifiant de session effacé à la fermeture de l’onglet. Vous pouvez la refuser depuis Mon profil."]],
     ["Pourquoi et sur quelle base",
      ["Fournir le service, gérer le compte et les abonnements : exécution du contrat.",

@@ -38,7 +38,7 @@ async function S3ModMark(){
     let id=a.dataset.pid;if(!ids.has(id))return;
     a.classList.add("post-pending");
     let bar=staff
-      ?e("div.mod-bar",e("span",b("shield")," En attente de validation"),e("div.row",{style:{gap:"6px"}},
+      ?e("div.mod-bar",e("span",b("shield")," En attente de validation",(()=>{let r0=rows.find(x3=>x3.id===id),v0=r0&&r0.data&&r0.data.vision;return v0&&v0.flag?" · "+S3VisionText(v0):""})()),e("div.row",{style:{gap:"6px"}},
           x("Valider",{size:"sm",kind:"primary",onClick:async()=>{if(await S3ModDecide(id,true)){a.classList.remove("post-pending");bar.remove()}}}),
           x("Refuser",{size:"sm",kind:"ghost",onClick:async()=>{if(await S3ModRefuse(id))a.remove()}})))
       :e("div.mod-bar",e("span",b("clock")," En attente de validation · visible par vous seul"));
@@ -61,7 +61,7 @@ async function S3ModQueue(p){
     let d=r2.data||{},ph=d.photo||d.image||null;
     let row=e("div.list-row.mod-row",
       ph?S3Media(ph,"",false):e("span.ic",b("chat")),
-      e("div.grow",e("div.t",names[d.authorId]||"Nouveau membre"),e("div.s",new Date(r2.created_at).toLocaleString("fr-FR")),e("p.small",{style:{margin:"4px 0 0",whiteSpace:"pre-wrap"}},String(d.text||"").slice(0,400))),
+      e("div.grow",e("div.t",names[d.authorId]||"Nouveau membre"),e("div.s",new Date(r2.created_at).toLocaleString("fr-FR")),e("p.small",{style:{margin:"4px 0 0",whiteSpace:"pre-wrap"}},String(d.text||"").slice(0,400)),d.vision?e("p.small.mod-vision",{style:{margin:"6px 0 0"}},b("eye")," Analyse YOLOv8 : "+S3VisionText(d.vision)):null),
       e("div.row",{style:{gap:"6px",flexWrap:"wrap"}},
         x("Valider",{size:"sm",kind:"primary",onClick:async()=>{if(await S3ModDecide(r2.id,true))row.remove()}}),
         x("Refuser",{size:"sm",kind:"ghost",onClick:async()=>{if(await S3ModRefuse(r2.id))row.remove()}})));
