@@ -56,9 +56,16 @@ button{-webkit-tap-highlight-color:transparent}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 /* Photo de fond (option « Photo de fond ») : limitée au haut de l'écran, sans repeint au défilement */
-:root[data-banniere=on]:not([data-theme=contrast]):not([data-role=admin]) body::after{content:"";position:fixed;inset:0 0 auto;height:min(46vh,420px);z-index:-1;pointer-events:none;
-  background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 42%,transparent),color-mix(in srgb,var(--bg) 84%,transparent) 50%,var(--bg)),url(img/fond-chasse.webp?v=3) 62% 50%/cover no-repeat}
-:root[data-banniere=on][data-season=peche]:not([data-theme=contrast]):not([data-role=admin]) body::after{background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 46%,transparent),color-mix(in srgb,var(--bg) 86%,transparent) 50%,var(--bg)),url(img/fond-peche.webp?v=3) 30% 50%/cover no-repeat}
+/* Cadrage : téléphone = chasseur, chien et cerf (chasse) ou pêcheur (pêche) au centre ; tablette = bande plus large ;
+   ordinateur = la photo commence après le menu latéral et la bande est plus haute, pour garder les sujets entiers. */
+:root[data-banniere=on]:not([data-theme=contrast]):not([data-role=admin]) body::after{content:"";position:fixed;inset:0 0 auto;height:min(42vh,380px);z-index:-1;pointer-events:none;
+  background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 40%,transparent),color-mix(in srgb,var(--bg) 82%,transparent) 55%,var(--bg)),url(img/fond-chasse.webp?v=3) 50% 45%/cover no-repeat}
+:root[data-banniere=on][data-season=peche]:not([data-theme=contrast]):not([data-role=admin]) body::after{background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 44%,transparent),color-mix(in srgb,var(--bg) 84%,transparent) 55%,var(--bg)),url(img/fond-peche.webp?v=3) 25% 62%/cover no-repeat}
+@media(min-width:600px){:root[data-banniere=on]:not([data-theme=contrast]):not([data-role=admin]) body::after{height:min(46vh,440px)}}
+@media(min-width:900px){
+  :root[data-banniere=on]:not([data-theme=contrast]):not([data-role=admin]) body::after{left:var(--sidebar);height:min(58vh,540px);background-position:0 0,50% 40%}
+  :root[data-banniere=on][data-season=peche]:not([data-theme=contrast]):not([data-role=admin]) body::after{background-position:0 0,40% 60%}
+}
 
 /* ---------- Typo utilitaires ---------- */
 .muted{color:var(--muted)}
