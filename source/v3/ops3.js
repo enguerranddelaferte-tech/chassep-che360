@@ -35,5 +35,15 @@ async function S3LaunchAdmin(p){
       e("div.list",s.by_code.map(c=>e("div.list-row",e("div.grow",e("div.t",c.name),e("div.s","code "+c.code)),e("b",String(c.n)))))):null,
     (s.last_errors||[]).length?e("details",{style:{marginTop:"14px"}},e("summary.small","Dernières erreurs chez les utilisateurs"),
       e("div.list",s.last_errors.map(x2=>e("div.list-row",e("div.grow",e("div.t",{style:{fontWeight:500,fontSize:"14px"}},x2.msg),e("div.s",new Date(x2.at).toLocaleString("fr-FR")+" · "+(x2.path||""))))))):null);
+  let svc=e("div.small.svc-state",{style:{marginTop:"12px"}},"Service de modération YOLOv8 : vérification…");box.append(svc);
+  S3Sb("POST","rpc/moderation_service_status",{}).then(r2=>{
+    let v=r2&&r2.ok&&r2.json;if(!v){svc.textContent="Service de modération YOLOv8 : état indisponible.";return}
+    let ago=v.last?Math.round((Date.now()-new Date(v.last))/60000):null;
+    let ok=v.configured&&!(v.waiting>0&&(ago==null||ago>30));
+    svc.className="small svc-state "+(v.configured?(ok?"svc-ok":"svc-warn"):"svc-off");
+    svc.textContent="Service de modération YOLOv8 : "+(!v.configured?"pas encore branché (voir le guide d’installation).":
+      (ok?"en marche":"à vérifier")+" · dernière analyse "+(ago==null?"jamais":ago<60?"il y a "+ago+" min":"il y a "+Math.round(ago/60)+" h")+
+      " · "+v.analysed7+" photo(s) analysée(s) et "+v.flagged7+" signalée(s) sur 7 jours"+(v.waiting?" · "+v.waiting+" en attente":"")+".");
+  }).catch(()=>{});
   let h=pg.querySelector(".page-head");h?h.after(box):pg.prepend(box);
 }

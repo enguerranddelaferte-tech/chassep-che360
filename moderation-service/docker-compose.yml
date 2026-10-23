@@ -1,0 +1,17 @@
+# Lancement : docker compose up -d --build
+# Caddy fournit le HTTPS automatiquement pour le nom de domaine indiqué dans .env (DOMAIN).
+services:
+  moderation:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    expose: ["8080"]
+  caddy:
+    image: caddy:2.8
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    command: caddy reverse-proxy --from ${DOMAIN} --to moderation:8080
+    volumes: ["caddy_data:/data"]
+    depends_on: [moderation]
+volumes:
+  caddy_data:

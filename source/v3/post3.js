@@ -32,7 +32,7 @@ function S3VidPut(path,blob,tok,onPct){
 async function S3PhotoPick(file,gr,st){
   st=st||(()=>{});
   let isVid=/^video\//.test(file.type||"")||/\.(mp4|mov|m4v)$/i.test(file.name||"");
-  if(!isVid){st("");let r=await gr(file);try{S3VisionStart(file,r,st)}catch{}return r;}
+  if(!isVid){st("");return gr(file);}
   if(!window.cp360Sb||!window.cp360Sb.on||!window.cp360Sb.on()){st("Connectez-vous pour publier une vidéo.");return null;}
   if(file.size>S3ShMax.bytes){st("Vidéo trop lourde : 300 Mo maximum avant compression.");return null;}
   let dur=await S3VidDur(file);
