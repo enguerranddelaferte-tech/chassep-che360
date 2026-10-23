@@ -29,7 +29,9 @@ def cut(s,start,end,new):
 # salaison : dosages affinés (sel nitrité, contrôle du dosage, saumure)
 bundle=cut(bundle,'var SalPresets=','var ArtAct=',open(B+'v3/sal3.js').read())
 bundle=rep(bundle,'preset:"maison",ep:"4",forme:"plate"}','preset:"maison",ep:"4",forme:"plate",nit:"0",nitPct:"0.6",bm:"litre",bw:"1",bp:"9",bv:"1000",bep:"3"}')
-shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()+'\n'+open(B+'v3/notif3.js').read()+'\n'+open(B+'v3/offline3.js').read()+'\n'+open(B+'v3/launch3.js').read()
+bundle=rep(bundle,'if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&','if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&t!=="/mentions-legales"&&')
+bundle=rep(bundle,'!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil)/.test(t)','!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil|mentions-legales)/.test(t)')
+shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()+'\n'+open(B+'v3/notif3.js').read()+'\n'+open(B+'v3/offline3.js').read()+'\n'+open(B+'v3/launch3.js').read()+'\n'+open(B+'v3/legal3.js').read()
 home=open(B+'v3/home3.js').read()
 # 0b. publications : photo/vidéo depuis le téléphone, lecteur vidéo dans le fil
 bundle=rep(bundle,'accept:"image/*",capture:"environment",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await Gr($)),S())}','accept:l.video?"image/*,video/*":"image/*",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await S3PhotoPick($,Gr)),S())}')

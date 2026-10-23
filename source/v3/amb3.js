@@ -18,6 +18,7 @@ var S3Routes=!1;
 function S3EarlyRoutes(){
   if(S3Routes)return;S3Routes=!0;
   Z("/espace-ambassadeur",()=>Promise.resolve({default:t=>S3AmbPage(t)}));
+  Z("/mentions-legales",()=>Promise.resolve({default:t=>S3LegalPage(t)}));
   try{S3ShRegister()}catch{}
 }
 async function S3AmbCheck(){

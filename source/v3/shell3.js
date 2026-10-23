@@ -55,6 +55,7 @@ function Sl(){
       inst,
       adm?null:e("a.nav-link",{href:"#/abonnement",title:"Offres & abonnement",dataset:{path:"/abonnement"}},b("crown"),e("span","Offres & abonnement")),
       e("a.nav-link",{href:"#/notifications",title:"Notifications",dataset:{path:"/notifications"}},b("bell"),e("span","Notifications et alertes")),
+      e("a.sb-legal",{href:"#/mentions-legales",dataset:{path:"/mentions-legales"}},"Mentions légales"),
       e("div.side-user",
         e("a.side-user-link",{href:"#/profil",title:"Mon profil",dataset:{path:"/profil"}},oe(u,34),e("div",e("b",u.name),e("div.tiny.muted",S3Role(u)))),
         e("button.icon-btn",{type:"button","aria-label":"Thème jour / nuit",title:"Thème jour / nuit",dataset:{themeIc:"1"},onclick:S3Theme},b(w.theme==="dark"?"sun":"moon")),
@@ -252,7 +253,7 @@ function S3Deco(p){
   document.title=(f?f.label+" · ":"")+"Chasse & Pêche 360°";
   try{S3PushInject(p)}catch{}
   try{S3AmbInject(p)}catch{}
-  try{S3AlbInject(p)}catch{}try{S3AmbBadges()}catch{}try{S3RoleSync()}catch{}try{S3LaunchDeco(p);S3LBadges()}catch{}if(!window.__s3oa){window.__s3oa=1;setTimeout(()=>{try{S3OAuthFinish()}catch{}},300)}
+  try{S3AlbInject(p)}catch{}try{S3AmbBadges()}catch{}try{S3RoleSync()}catch{}try{S3LaunchDeco(p);S3LBadges()}catch{}try{if(p==="/profil")S3AcctBox()}catch{}if(!window.__s3oa){window.__s3oa=1;setTimeout(()=>{try{S3OAuthFinish()}catch{}},300)}
   try{S3ShareWatch();S3ShareInject()}catch{}
   try{S3InstallUI()}catch{}
 }
@@ -266,7 +267,7 @@ function MapLib3(quiet){
   return window.__mapLib||(window.__mapLib=(async()=>{try{await S3Script("https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js")}catch(er){window.__mapLib=null;quiet||S3MapFail++||A("La bibliothèque de carte n’a pas pu se charger (bloqueur de contenu ou réseau) : les cartes ne s’afficheront pas.","err");return!1}try{await S3Script("https://cdn.jsdelivr.net/npm/leaflet-rotate@0.2.8/dist/leaflet-rotate-src.js")}catch{}return!0})())
 }
 window.cp360MapLib=MapLib3;
-var S3NoMap=/^\/(communaute|ambassadeurs|articles|connexion|abonnement|recettes|salaison|notifications|questions|groupes|amis|messages|reglementation|profil|admin\/(tableau|utilisateurs|abonnements|articles|signalements|annonces|journal|partenaires|ambassadeurs))(\/|$)/;
+var S3NoMap=/^\/(mentions-legales|communaute|ambassadeurs|articles|connexion|abonnement|recettes|salaison|notifications|questions|groupes|amis|messages|reglementation|profil|admin\/(tableau|utilisateurs|abonnements|articles|signalements|annonces|journal|partenaires|ambassadeurs))(\/|$)/;
 var S3Data={},S3DataP={};
 function Data3(id){return S3DataP[id]||(S3DataP[id]=fetch("data/"+id+".json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(d=>(S3Data[id]=d,d)).catch(er=>{delete S3DataP[id];throw er}))}
 function Data3Sync(id){

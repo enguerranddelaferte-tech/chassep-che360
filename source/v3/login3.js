@@ -75,7 +75,7 @@ function S3LoginOpen(tab){
         x("",{kind:"ghost",size:"block",onClick:()=>S3LoginSocial("google")}),
         x("",{kind:"ghost",size:"block",onClick:()=>S3LoginSocial("facebook")})),
       x("Continuer sans compte",{kind:"ghost",size:"block",onClick:()=>{dlg&&dlg.close()}}),
-      e("p.tiny.muted",{style:{margin:0,textAlign:"center"}},e("a",{href:"#/connexion",onclick:()=>{dlg&&dlg.close()}},"Ouvrir la page de connexion complète"))
+      e("p.tiny.muted",{style:{margin:0,textAlign:"center"}},e("a",{href:"#/connexion",onclick:()=>{dlg&&dlg.close()}},"Ouvrir la page de connexion complète")," · ",e("a",{href:"#/mentions-legales",onclick:()=>{dlg&&dlg.close()}},"Mentions légales"))
     );
     let sb=body.querySelectorAll(".login-social .btn");
     if(sb[0]){sb[0].textContent="";sb[0].append(S3LoginIcon("google"),e("span",mode==="login"?"Continuer avec Google":"S’inscrire avec Google"))}
