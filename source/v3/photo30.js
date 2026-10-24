@@ -111,6 +111,12 @@ function A30SweepDraw(cv,pz,sides,m,cw){
   else lab(cw/2,"Pas de zone de tir : obstacles trop proches","#FFB4A8",ch-14);
   return {zone,between};
 }
+/* Pictogramme : téléphone tenu à l'horizontale (paysage) */
+function A30Landscape(txt){
+  let i=document.createElement("span");i.setAttribute("aria-hidden","true");i.style.cssText="flex:none;display:inline-flex";
+  i.innerHTML='<svg width="64" height="44" viewBox="0 0 64 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="46" height="26" rx="5"/><circle cx="48" cy="25" r="1.6" fill="currentColor"/><path d="M14 7c6-5 16-5 22 0"/><path d="M32 3l4 4-5 2"/></svg>';
+  return e("div.row",{style:{gap:"12px",alignItems:"center",padding:"10px 12px",borderRadius:"12px",background:"rgba(47,111,143,.10)",color:"var(--ink,#1d2a27)"}},i,e("div.small",txt));
+}
 function A30Photo(host,m0,back){
   let m=+Pe.get("ang30:marge",0)||m0||0,sides={L:null,R:null},step="L";
   const lensOpts=[["13","Ultra grand-angle (13 mm)"],["24","Principal 24 mm"],["26","Principal 26 mm"],["28","Principal 28 mm"],["35","Principal 35 mm"]];
@@ -129,7 +135,11 @@ function A30Photo(host,m0,back){
     let head=e("div.panel",{style:{background:"#2F6F8F",color:"#fff",borderColor:"transparent"}},
       e("div.display",{style:{fontSize:"22px",fontWeight:700}},(side==="L"?"1/2":"2/2")+" · Photo de l’obstacle de "+other),
       e("div.small",{style:{marginTop:"4px"}},side==="L"?"Placez le dernier obstacle de gauche (voisin, poste, chemin…) dans la moitié GAUCHE de la photo, avec de la place à sa droite.":"Placez le dernier obstacle de droite dans la moitié DROITE de la photo, avec de la place à sa gauche."));
-    let tips=e("p.tiny.muted",{style:{margin:0}},"Téléphone bien droit, sans zoom, objectif principal. En paysage, la photo couvre plus large et la limite des 30° y entre plus facilement.");
+    let tips=A30Landscape([e("b","Tenez le téléphone à l’horizontale (paysage)."),e("br")," La photo couvre alors environ 69° de large au lieu de 53° : la limite des 30° y entre avec de la marge. Sans zoom, objectif principal, téléphone bien droit."]);
+    let portrait=st&&st.W<st.H?e("div.panel.stack",{style:{gap:"8px",borderColor:"#E0A030",background:"rgba(224,160,48,.12)"}},
+      e("b","Photo prise en portrait (à la verticale)"),
+      e("div.small","Elle ne couvre qu’environ "+Math.round(2*Math.atan(A30PhotoTan(st))*180/Math.PI)+"° de large : la limite des 30° risque de sortir de la photo. Reprenez-la téléphone à l’horizontale pour plus de largeur. Vous pouvez aussi continuer avec celle-ci si la ligne jaune apparaît."),
+      x("Reprendre en paysage",{icon:"camera",kind:"primary",size:"sm",onClick:()=>pickInput(!0,async f=>{sides[side]=await load(f);sides.pano=null;view()})})):null;
     let shoot=e("div.row",{style:{gap:"8px",flexWrap:"wrap"}},
       x(st?"Reprendre la photo":"Prendre la photo",{icon:"camera",kind:st?"ghost":"primary",onClick:()=>pickInput(!0,async f=>{sides[side]=await load(f);sides.pano=null;view()})}),
       x("Choisir une photo",{icon:"plus",kind:"ghost",onClick:()=>pickInput(!1,async f=>{sides[side]=await load(f);sides.pano=null;view()})}));
@@ -155,7 +165,7 @@ function A30Photo(host,m0,back){
     cv.onpointerdown=ev=>{cv.setPointerCapture&&cv.setPointerCapture(ev.pointerId);let p=pos(ev);st.x=Math.max(0,Math.min(st.W,p.x*st.W));showLoupe(p);redraw()};
     cv.onpointermove=ev=>{if(!ev.buttons&&ev.pointerType==="mouse")return;if(ev.pressure===0&&ev.pointerType!=="mouse")return;let p=pos(ev);st.x=Math.max(0,Math.min(st.W,p.x*st.W));showLoupe(p);redraw()};
     cv.onpointerup=cv.onpointercancel=()=>{loupe.style.display="none"};
-    C(host,e("div.stack",head,wrap,msg,fine,go,e("div.field",e("label","Objectif utilisé"),lensSel),lensInfo,
+    C(host,e("div.stack",head,portrait,wrap,msg,fine,go,e("div.field",e("label","Objectif utilisé"),lensSel),lensInfo,
       e("div.field",e("label","Marge en plus des 30°"),ke([["0","Aucune (30° exacts)"],["5","+5°"],["10","+10°"]],String(m),v9=>{m=+v9;Pe.set("ang30:marge",m);view()})),
       shoot,x(side==="L"?"Retour":"Revenir à la photo de gauche",{kind:"ghost",onClick:()=>side==="L"?back():(step="L",view())})));
     requestAnimationFrame(redraw);
@@ -168,12 +178,16 @@ function A30Photo(host,m0,back){
     let info=e("p.small",{style:{margin:0}},"Ouverture de la caméra…"),prev=e("canvas",{style:{display:"none",width:"100%",borderRadius:"8px",background:"#131b19"}});
     let bGo=x("Départ : je vise l’obstacle de gauche",{icon:"camera",kind:"primary",size:"block",onClick:()=>begin()}),bEnd=x("Arrivé à l’obstacle de droite",{icon:"check",kind:"primary",size:"block",onClick:()=>finish()});
     bGo.disabled=!0;bEnd.style.display="none";
+    let okPort=!1,rot=A30Landscape([e("b","Tournez le téléphone à l’horizontale."),e("br")," En paysage, chaque image couvre plus large : l’assemblage est plus sûr, même si vous tournez un peu vite."]),
+      bPort=x("Continuer à la verticale quand même",{kind:"ghost",size:"sm",onClick:()=>{okPort=!0;orient()}});
+    rot.style.display=bPort.style.display="none";
+    let orient=()=>{if(S.run||!pv.videoWidth)return;let pr=pv.videoWidth<pv.videoHeight;rot.style.display=pr?"":"none";bPort.style.display=pr&&!okPort?"":"none";bGo.disabled=pr&&!okPort};
     let head=e("div.panel",{style:{background:"#2F6F8F",color:"#fff",borderColor:"transparent"}},
       e("div.display",{style:{fontSize:"22px",fontWeight:700}},"Filmer la zone"),
-      e("div.small",{style:{marginTop:"4px"}},"Placez l’obstacle de gauche sur le trait jaune et appuyez sur Départ. Tournez ensuite lentement sur vous-même vers la droite, téléphone droit, jusqu’à l’obstacle de droite, puis appuyez sur Arrivé."));
+      e("div.small",{style:{marginTop:"4px"}},"Téléphone à l’horizontale. Placez l’obstacle de gauche sur le trait jaune et appuyez sur Départ. Tournez ensuite lentement sur vous-même vers la droite, téléphone droit, jusqu’à l’obstacle de droite, puis appuyez sur Arrivé."));
     let close=()=>{dead=!0;cancelAnimationFrame(raf);try{stream&&stream.getTracks().forEach(t=>t.stop())}catch{}},
       leave=()=>{close();step="done";view()};
-    C(host,e("div.stack",head,vbox,info,prev,bGo,bEnd,
+    C(host,e("div.stack",head,rot,vbox,info,prev,bGo,bPort,bEnd,
       e("p.tiny.muted",{style:{margin:0}},"Rien n’est enregistré ni envoyé : les images servent seulement à assembler le panorama sur cet appareil. Tournez sur place (pivotez autour du téléphone, sans marcher), sans zoom."),
       x("Annuler",{kind:"ghost",onClick:leave})));
     let S={run:0,K:null,HK:0,H:0,Hp:0,lost:0,cmin:1e9,cmax:-1e9,t:0,tp:0},G=null;
@@ -192,6 +206,7 @@ function A30Photo(host,m0,back){
     function add(F,H){let base=Math.round(H*pt)+F.o-Wo;for(let bi=0;bi<F.b.length;bi++){let fb=F.b[bi],sb=sum[bi],cb=cnt[bi];for(let k=0;k<F.n;k++){let i=base+k,v=fb[k];if(i<0||i>=nW||v!==v)continue;sb[i]+=v;cb[i]++}}}
     function grab(){let g=A30Gray(pv,G.TW,G.TH,tc);return A30Prof(A30Cum(g,G.TW,G.TH),G.TW,G.TH,G.fS,1)}
     function frame(){
+      if(pv.videoWidth!==G.vw||pv.videoHeight!==G.vh){S.run=0;bEnd.style.display="none";info.textContent="Le téléphone a changé de sens pendant le film : gardez-le à l’horizontale du début à la fin, puis recommencez.";info.style.color="var(--danger,#D2513F)";reset();return}
       let F=grab();
       if(!S.K){S.K=F;S.HK=0;S.H=0;add(F,0);paint(0,-G.lim,.4);S.Hp=0;return}
       let pred=Math.round((S.H-S.HK)*pt),r=A30Match(S.K,F,pred-8*pt,pred+8*pt,Math.round(F.n*F.b.length*.35));
@@ -207,8 +222,9 @@ function A30Photo(host,m0,back){
     function loop(){if(dead)return;if(!host.isConnected){close();return}
       let now=performance.now();if(S.run&&pv.readyState>=2&&now-S.t>=40){S.t=now;try{frame()}catch(er){}}
       if(S.run&&now-S.tp>300){S.tp=now;preview()}
+      if(!S.run)orient();
       raf=requestAnimationFrame(loop)}
-    function begin(){if(!G)setup();S.run=1;bGo.style.display="none";bEnd.style.display="";info.textContent="Tournez lentement vers la droite…";S.t=0}
+    function begin(){if(S.run)return;setup();S.run=1;bGo.style.display="none";bEnd.style.display="";info.textContent="Tournez lentement vers la droite…";S.t=0}
     function finish(){
       if(!S.run)return;S.run=0;try{if(S.K)paint(S.H,S.Hp-S.H-.4,G.lim)}catch{}
       bEnd.style.display="none";
@@ -229,7 +245,7 @@ function A30Photo(host,m0,back){
         stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:"environment"},width:{ideal:1280},height:{ideal:720}},audio:!1});
         if(dead){close();return}pv.srcObject=stream;try{await pv.play()}catch{}
         let t0=Date.now();while(!pv.videoWidth&&Date.now()-t0<5000)await new Promise(r=>setTimeout(r,100));
-        if(!pv.videoWidth)throw 0;setup();bGo.disabled=!1;info.textContent="Visez l’obstacle de gauche avec le trait jaune, puis appuyez sur Départ.";raf=requestAnimationFrame(loop);
+        if(!pv.videoWidth)throw 0;setup();bGo.disabled=!1;orient();info.textContent="Visez l’obstacle de gauche avec le trait jaune, puis appuyez sur Départ.";raf=requestAnimationFrame(loop);
       }catch(er){info.textContent="Caméra indisponible : autorisez l’accès à la caméra pour filmer la zone. Vos deux photos restent valables.";info.style.color="var(--danger,#D2513F)"}
     })();
   }
