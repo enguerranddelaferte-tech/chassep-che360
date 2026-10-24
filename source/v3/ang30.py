@@ -20,7 +20,7 @@ function banner(c,W2,H2,hd,res){
 }
 /* ---- Panorama grand angle : on balaie la zone, l’appli assemble les tranches d’image selon le cap ---- */
 function panoStart(){let res=A30Calc(Lh,Rh,m);if(!res)return;if(noCam||!vd.videoWidth){A("Caméra indisponible : le panorama a besoin de la caméra.","warn");return}
-  let pad=15,span=Math.min(300,((Rh-Lh+360)%360)+2*pad),start=((Lh-pad)%360+360)%360,W2=cv.clientWidth||360,H2=cv.clientHeight||420,ppd=10,PH=Math.max(240,Math.min(900,Math.round(ppd*FV*H2/W2)));
+  let pad=25,span=Math.min(320,((Rh-Lh+360)%360)+2*pad),start=((Lh-pad)%360+360)%360,W2=cv.clientWidth||360,H2=cv.clientHeight||420,ppd=10,PH=Math.max(240,Math.min(900,Math.round(ppd*FV*H2/W2)));
   let can=document.createElement("canvas");can.width=Math.round(span*ppd),can.height=PH;let g=can.getContext("2d");g.fillStyle="#0b1210",g.fillRect(0,0,can.width,PH);
   pano={state:"cap",start,span,ppd,can,g,cov:new Uint8Array(Math.ceil(span)+1),t:0};panoHide();fzRef&&fzRef()}
 function panoCov(){if(!pano)return 0;let n=0;for(let i=0;i<pano.cov.length;i++)n+=pano.cov[i];return n/pano.cov.length}
@@ -30,8 +30,37 @@ function panoGrab(W2,H2,hd){let P=pano,tn=performance.now();if(tn-P.t<45||!vd.vi
   try{P.g.drawImage(vd,vw/2-sw/2,(vh-dH)/2,sw,dH,(rel-wd/2)*P.ppd,0,wd*P.ppd,P.can.height)}catch{return}
   for(let d=Math.ceil(rel-wd/2);d<=Math.floor(rel+wd/2);d++)d>=0&&d<P.cov.length&&(P.cov[d]=1);
   panoCov()>=.97&&panoDone()}
-function panoDone(){if(!pano)return;pano.state="done";navigator.vibrate&&navigator.vibrate(60);panoShow();fzRef&&fzRef()}
-function panoCancel(){pano=null;panoHide();fzRef&&fzRef()}
+function panoDone(){if(!pano)return;pano.state="done";pano.show=!0;vis=null;vadj=0;vok=!1;navigator.vibrate&&navigator.vibrate(60);panoShow();fzRef&&fzRef()}
+function panoCancel(){pano=null;vis=null;vadj=0;vok=!1;panoHide();fzRef&&fzRef()}
+function panoLive(){if(!pano)return;pano.show=!1;panoHide();fzRef&&fzRef()}
+function panoView(){if(!pano)return;pano.show=!0;panoShow();fzRef&&fzRef()}
+/* ---- Repère visuel : la caméra est comparée au panorama pour corriger la dérive du gyroscope ---- */
+const VPD=2,VH=24;
+function visGray(src,sx,sy,sw,sh,w,h){let c2=visGray.c||(visGray.c=document.createElement("canvas"));c2.width=w,c2.height=h;let g=c2.getContext("2d",{willReadFrequently:!0});g.drawImage(src,sx,sy,sw,sh,0,0,w,h);let d=g.getImageData(0,0,w,h).data,o=new Float32Array(w*h);for(let i=0;i<w*h;i++)o[i]=.299*d[i*4]+.587*d[i*4+1]+.114*d[i*4+2];return o}
+function visTrack(raw,W2,H2){
+  if(!pano||pano.state!=="done"||!vd.videoWidth)return raw;
+  let tn=performance.now();if(tn-vT<140)return (raw+vadj+360)%360;vT=tn;
+  try{
+    let P=pano;if(!vis){let pw=Math.round(P.span*VPD);vis={pw,pd:visGray(P.can,0,0,P.can.width,P.can.height,pw,VH),bad:0}}
+    let vw=vd.videoWidth,vh2=vd.videoHeight,s=Math.max(W2/vw,H2/vh2),dW=W2/s,dH=H2/s,LW=Math.max(20,Math.round(FV*VPD));
+    let L=visGray(vd,(vw-dW)/2,(vh2-dH)/2,dW,dH,LW,VH),x0=Math.round(LW*.2),pwid=Math.round(LW*.6),r0=4,rh=VH-8;
+    let tot=0,mA=0;for(let y=0;y<rh;y++)for(let x=0;x<pwid;x++)mA+=L[(y+r0)*LW+x0+x];mA/=pwid*rh;for(let y=0;y<rh;y++)for(let x=0;x<pwid;x++){let v=L[(y+r0)*LW+x0+x]-mA;tot+=v*v}if(tot<pwid*rh*4){vok=!1;return (raw+vadj+360)%360}
+    let pred=((raw+vadj-P.start)%360+360)%360;if(pred>P.span+30&&pred<330){vok=!1;return (raw+vadj+360)%360}pred>180&&(pred-=360);
+    let pc=Math.round(pred*VPD),best=-2,bx=0,sec=-2,pd=vis.pd,pw=vis.pw,minW=Math.round(pwid*.45);
+    for(let dx=-26;dx<=26;dx++){let cx=pc+dx,lft=cx-Math.round(pwid/2),a0=Math.max(0,-lft),a1=Math.min(pwid,pw-lft),w=a1-a0;if(w<minW)continue;let n=w*rh;
+      let mL=0;for(let y=0;y<rh;y++){let lr=(y+r0)*LW+x0;for(let x=a0;x<a1;x++)mL+=L[lr+x]}mL/=n;let sL=0;for(let y=0;y<rh;y++){let lr=(y+r0)*LW+x0;for(let x=a0;x<a1;x++){let v=L[lr+x]-mL;sL+=v*v}}if(sL<n*4)continue;
+      for(let dy=-3;dy<=3;dy++){let mP=0;for(let y=0;y<rh;y++){let row=(y+r0+dy)*pw+lft;for(let x=a0;x<a1;x++)mP+=pd[row+x]}mP/=n;
+        let sP=0,cr=0;for(let y=0;y<rh;y++){let row=(y+r0+dy)*pw+lft,lr=(y+r0)*LW+x0;for(let x=a0;x<a1;x++){let a=pd[row+x]-mP;sP+=a*a;cr+=a*(L[lr+x]-mL)}}
+        if(sP<n*4)continue;let ncc=cr/Math.sqrt(sP*sL)*(.85+.15*w/pwid);
+        if(ncc>best){Math.abs(cx-bx)>4&&(sec=Math.max(sec,best));best=ncc,bx=cx}else Math.abs(cx-bx)>4&&ncc>sec&&(sec=ncc)}}
+    vconf=best;
+    if(best>.55&&(best-sec>.03||best>.9)){let vhd=(P.start+bx/VPD)%360,tgt=hl2(raw,vhd),d=hl2(vadj,tgt);
+      if(Math.abs(d)>6&&vok){vis.bad++;if(vis.bad<3)return (raw+vadj+360)%360}
+      vis.bad=0,vadj=(vadj+d*(vok?.35:1)+360)%360;vadj>180&&(vadj-=360);vok=!0}
+    else vok=!1;
+  }catch{vok=!1}
+  return (raw+vadj+360)%360}
+
 function panoHide(){pv&&(pv.style.display="none");vd.style.visibility="";cv.style.visibility=""}
 function panoDraw(c,Wd,Hd,res,big){let P=pano,cen=(P.start+P.span/2)%360,cw=Wd/P.span;
   c.drawImage(P.can,0,0,Wd,Hd);c.fillStyle="rgba(11,18,16,.88)";for(let d=0;d<P.cov.length;d++)P.cov[d]||c.fillRect(d*cw-.5,0,cw+1,Hd);
@@ -60,7 +89,7 @@ function panoExport(){let P=pano,res=A30Calc(Lh,Rh,m),Wn=P.can.width,Hn=P.can.he
   },"image/png")}
 function freeze(){frozen={bg:snapBg(),hd:dh!=null?dh:dir(),FV:FV,drawn:!1,W:0,H:0};vd.style.visibility="hidden";fzRef&&fzRef()}
 function unfreeze(){frozen=null;vd.style.visibility="";fzRef&&fzRef()}
-function apercu(){if(pano&&pano.state==="done")return panoExport();
+function apercu(){if(pano&&pano.state==="done"&&pano.show)return panoExport();
   let fz=frozen||{bg:snapBg(),hd:dh!=null?dh:dir(),FV:FV},res=A30Calc(Lh,Rh,m),f0=a=>Math.round((a%360+360)%360),W0=cv.clientWidth||360,H0=cv.clientHeight||420,S=2,FOOT=96;
   if(!res)return;
   let ex=document.createElement("canvas");ex.width=W0*S;ex.height=(H0+FOOT)*S;
@@ -82,7 +111,7 @@ function apercu(){if(pano&&pano.state==="done")return panoExport();
   },"image/png")
 }
 function draw(){FV=A30Fov(vd,cv,dv);let W2=cv.clientWidth,H2=cv.clientHeight;
-  if(pano&&pano.state==="done"){rf=requestAnimationFrame(draw);return}
+  if(pano&&pano.state==="done"&&pano.show){rf=requestAnimationFrame(draw);return}
   if(frozen){
     if(W2&&H2&&!(frozen.drawn&&frozen.W===W2&&frozen.H===H2)){
       (cv.width!==W2||cv.height!==H2)&&(cv.width=W2,cv.height=H2);
@@ -97,7 +126,7 @@ function draw(){FV=A30Fov(vd,cv,dv);let W2=cv.clientWidth,H2=cv.clientHeight;
   if(camStab&&!noCam&&vd.readyState>=2){let tn=performance.now();if(tn-stT>80){stT=tn;try{sctx||(sc.width=96,sc.height=72,sctx=sc.getContext("2d",{willReadFrequently:!0}));sctx.drawImage(vd,0,0,96,72);let r0=still(sctx.getImageData(0,0,96,72).data,96,72);stN=r0.ok&&r0.still?stN+1:0;cmp.hold(stN>=3)}catch{cmp.hold(!1)}}}else cmp.hold(!1);
   if(!W2){rf=requestAnimationFrame(draw);return}
   (cv.width!==W2||cv.height!==H2)&&(cv.width=W2,cv.height=H2);
-  let raw=dir();if(dh==null)dh=raw;else{let d=hl2(dh,raw);dh=(dh+d*(Math.abs(d)>.5?.3:.06)+360)%360}
+  let raw=visTrack(dir(),W2,H2);if(dh==null)dh=raw;else{let d=hl2(dh,raw);dh=(dh+d*(Math.abs(d)>.5?.3:.06)+360)%360}
   let c=cv.getContext("2d"),hd=dh,res=step===3?A30Calc(Lh,Rh,m):null;
   c.clearRect(0,0,W2,H2),paint(c,W2,H2,hd,FV,res);
   let ok=banner(c,W2,H2,hd,res);
@@ -109,6 +138,7 @@ function draw(){FV=A30Fov(vd,cv,dv);let W2=cv.clientWidth,H2=cv.clientHeight;
   c.textAlign="center",noCam&&(c.font="600 12px Barlow, sans-serif",c.fillStyle="rgba(255,255,255,.8)",c.fillText("Caméra indisponible : visée sur fond neutre",W2/2,H2-44)),
   cur()==null&&(c.font="600 12px Barlow, sans-serif",c.fillStyle="#FFD27A",c.fillText("Boussole indisponible : faites glisser pour tourner",W2/2,H2/2-44)),
   cur()!=null&&(c.font="600 12px Barlow, sans-serif",c.fillStyle=!cmp.locked()||cmp.mode()!=="gyro"?"#FFD27A":"rgba(155,227,177,.95)",c.fillText(cmp.locked()?cmp.mode()==="gyro"?"Repère verrouillé (gyroscope seul)"+(cmp.holding()?" · stabilisé par la caméra":""):"Gyroscope indisponible : mesure impossible":"Calibrage : tenez le téléphone immobile…",W2/2,H2-6)),
+  pano&&pano.state==="done"&&(c.font="700 13px Barlow, sans-serif",c.textAlign="center",c.fillStyle=vok?"rgba(155,227,177,.98)":"#FFD27A",c.fillText(vok?"Repère visuel verrouillé sur le panorama · pas de dérive":"Repère visuel : visez la zone filmée pour recaler",W2/2,H2-44));
   live&&live._needle(cur()),rf=requestAnimationFrame(draw)}
 '''
 
@@ -125,7 +155,7 @@ def patch_ang30(bundle):
     k = bundle.find('async function Ang30(t){'); assert k >= 0
     end = bundle.find('var A30M={};', k); assert end > k
     ang = bundle[k:end]
-    ang = _rep(ang, 'noCam=!1,onEv=null,host=e("div")', 'noCam=!1,onEv=null,dh=null,frozen=null,fzRef=null,pano=null,pv=null,pcv=null,host=e("div")')
+    ang = _rep(ang, 'noCam=!1,onEv=null,host=e("div")', 'noCam=!1,onEv=null,dh=null,frozen=null,fzRef=null,pano=null,pv=null,pcv=null,vis=null,vadj=0,vok=!1,vT=0,vconf=0,host=e("div")')
     ang = _cut(ang, 'function draw(){', 'function intro(){', NEWDRAW)
     ang = _rep(ang, 'function intro(){step=0,', 'function intro(){frozen=null,pano=null,panoHide(),step=0,')
     ang = _rep(ang, 'function aim(n){step=n,', 'function aim(n){frozen=null,pano=null,panoHide(),step=n,')
@@ -133,8 +163,9 @@ def patch_ang30(bundle):
         'function result(){step=3,frozen=null,pano=null,panoHide(),W(host),top0(),rb.style.display="block";'
         'let fzBox=e("div.stack",{style:{gap:"8px"}}),fzUI=()=>{W(fzBox);let row=e("div.row",{style:{gap:"8px",flexWrap:"wrap"}});'
         'if(pano&&pano.state==="cap")C(fzBox,e("p.small",{style:{margin:0}},"Partez de l’obstacle de gauche et tournez lentement vers la droite, téléphone bien droit, jusqu’après l’obstacle de droite. Le panorama se termine tout seul."),row),C(row,x("Terminer le panorama",{icon:"check",kind:"primary",size:"sm",onClick:panoDone}),x("Annuler",{kind:"ghost",size:"sm",onClick:panoCancel}));'
-        'else if(pano&&pano.state==="done")C(fzBox,e("p.small.muted",{style:{margin:0}},"Image figée de toute la zone : faites-la glisser pour voir les obstacles. Vert : zone de tir ; rouge : interdit ; gris : partie non filmée."),row),C(row,x("Aperçu à partager",{icon:"download",kind:"primary",size:"sm",onClick:apercu}),x("Refaire le panorama",{icon:"camera",size:"sm",onClick:panoStart}),x("Reprendre le direct",{kind:"ghost",size:"sm",onClick:panoCancel}));'
-        'else C(fzBox,row),C(row,x("Panorama de la zone",{icon:"camera",kind:"primary",size:"sm",onClick:panoStart}),x("Aperçu à partager",{icon:"download",size:"sm",onClick:apercu}))};fzRef=fzUI,fzUI();'
+        'else if(pano&&pano.state==="done"&&pano.show)C(fzBox,e("p.small.muted",{style:{margin:0}},"Image figée de toute la zone : faites-la glisser pour voir les obstacles. Vert : zone de tir ; rouge : interdit ; gris : partie non filmée. En revenant au direct, le panorama sert de repère visuel : l’angle ne dérive plus."),row),C(row,x("Revenir au direct",{icon:"camera",kind:"primary",size:"sm",onClick:panoLive}),x("Aperçu à partager",{icon:"download",size:"sm",onClick:apercu}),x("Refaire le panorama",{kind:"ghost",size:"sm",onClick:panoStart}));'
+        'else if(pano&&pano.state==="done")C(fzBox,e("p.small",{style:{margin:0}},"Repère visuel actif : la caméra se recale sur le panorama dès qu’elle voit la zone filmée, ce qui supprime la dérive. Gardez le téléphone droit."),row),C(row,x("Voir le panorama",{icon:"eye",kind:"primary",size:"sm",onClick:panoView}),x("Refaire le panorama",{size:"sm",onClick:panoStart}),x("Arrêter le repère visuel",{kind:"ghost",size:"sm",onClick:panoCancel}));'
+        'else C(fzBox,e("p.small",{style:{margin:0}},"Conseil : faites le panorama (10 secondes). Il sert ensuite de repère visuel et empêche l’angle de dériver."),row),C(row,x("Panorama de la zone",{icon:"camera",kind:"primary",size:"sm",onClick:panoStart}),x("Aperçu à partager",{icon:"download",size:"sm",onClick:apercu}))};fzRef=fzUI,fzUI();'
         'let res=A30Calc(Lh,Rh,m),f0=a=>Math.round((a%360+360)%360),warn=[]')
     ang = _rep(ang, 'e("div.stack",stage,head,', 'e("div.stack",stage,fzBox,head,')
     return bundle[:k] + ang + bundle[end:]
