@@ -2475,6 +2475,73 @@ function A30PhotoDraw(cv,st,side,m,cw){
   }
   return out;
 }
+/* ----- Panorama filmé (photo + vidéo) : assemblage optique image par image, sans capteur -----
+   Chaque image du film est ramenée en coordonnées cylindriques (degrés), puis on mesure de combien elle
+   a glissé par rapport à l'image clé précédente. Les deux photos sont ensuite retrouvées dans le panorama :
+   elles fixent l'échelle exacte (objectif lu dans la photo) et la position des obstacles. */
+const A30SW={ppt:4,ppd:6,bands:[[-9,0],[0,9]],w0:-70,w1:340};
+function A30Gray(src,w,h,cv){cv=cv||document.createElement("canvas");if(cv.width!==w)cv.width=w;if(cv.height!==h)cv.height=h;let c=cv.getContext("2d",{willReadFrequently:!0});c.drawImage(src,0,0,w,h);let d=c.getImageData(0,0,w,h).data,g=new Float32Array(w*h);for(let i=0,j=0;i<g.length;i++,j+=4)g[i]=.299*d[j]+.587*d[j+1]+.114*d[j+2];return g}
+function A30Cum(g,w,h){let H1=h+1,cu=new Float32Array(w*H1);for(let x0=0;x0<w;x0++){let a=0,b=x0*H1;for(let y=0;y<h;y++){a+=g[y*w+x0];cu[b+y+1]=a}}return cu}
+/* Profil cylindrique : moyenne de deux bandes horizontales (au-dessus / au-dessous de l'horizon), une valeur par 1/ppt degré.
+   s = échelle « degrés du panorama » / « vrais degrés » de l'image. */
+function A30Prof(cu,w,h,f,s){
+  let pt=A30SW.ppt,R=Math.PI/180,lim=Math.atan((w/2-1)/f)/R*s,k0=Math.ceil(-lim*pt),k1=Math.floor(lim*pt),n=k1-k0+1,H1=h+1,bd=A30SW.bands,b=bd.map(()=>new Float32Array(n));
+  for(let k=0;k<n;k++){let ut=(k0+k)/pt/s*R,xf=w/2+f*Math.tan(ut)-.5,x0=Math.floor(xf),fr=xf-x0,cs=Math.cos(ut);
+    for(let bi=0;bi<bd.length;bi++){let y1=Math.round(h/2+f*Math.tan(bd[bi][0]/s*R)/cs),y2=Math.round(h/2+f*Math.tan(bd[bi][1]/s*R)/cs),v=NaN;
+      if(x0>=0&&x0<w-1&&y1>=0&&y2<=h&&y2>y1){let p=x0*H1,q=p+H1;v=((cu[p+y2]-cu[p+y1])*(1-fr)+(cu[q+y2]-cu[q+y1])*fr)/(y2-y1)}
+      b[bi][k]=v}}
+  return {o:k0,n,b};
+}
+/* Corrélation normalisée (par bande) de B décalé de j échantillons sur A */
+function A30Ncc(A,B,j,minOv){
+  let lo=Math.max(0,A.o-B.o-j),hi=Math.min(B.n,A.o+A.n-B.o-j),cov=0,va=0,vb=0,N=0;
+  for(let bi=0;bi<A.b.length;bi++){let ab=A.b[bi],bb=B.b[bi],sa=0,sb=0,saa=0,sbb=0,sab=0,n=0,off=B.o+j-A.o;
+    for(let k=lo;k<hi;k++){let a=ab[k+off],c=bb[k];if(a!==a||c!==c)continue;sa+=a;sb+=c;saa+=a*a;sbb+=c*c;sab+=a*c;n++}
+    if(n>1){cov+=sab-sa*sb/n;va+=saa-sa*sa/n;vb+=sbb-sb*sb/n;N+=n}}
+  if(N<minOv||va<1e-3||vb<1e-3)return -2;return cov/Math.sqrt(va*vb);
+}
+function A30Match(A,B,j0,j1,minOv,prior){
+  let best={c:-9,j:j0,r:-2},cs={};
+  for(let j=j0;j<=j1;j++){let c=A30Ncc(A,B,j,minOv);cs[j]=c;let sc=c>-2&&prior?c-prior(j):c;if(sc>best.c)best={c:sc,j,r:c}}
+  let cm=cs[best.j-1],cp=cs[best.j+1],sub=0,c0=best.r;
+  if(cm>-2&&cp>-2){let den=cm-2*c0+cp;if(den<0)sub=Math.max(-.5,Math.min(.5,.5*(cm-cp)/den))}
+  return {c:c0,sc:best.c,j:best.j+sub};
+}
+/* Demi-angle (tangente) horizontal de la vidéo, estimé à partir de l'objectif de la photo ; l'échelle exacte est recalée ensuite */
+function A30VidTan(st,vw,vh){let td=43.2666/(2*(st.f35||26)),tl=td*Math.max(st.W,st.H)/Math.hypot(st.W,st.H);return vw>=vh?tl:tl*vw/vh}
+function A30PhA0(st){let fpx=(st.W/2)/A30PhotoTan(st);return Math.atan((st.x-st.W/2)/fpx)*180/Math.PI}
+/* Retrouve les deux photos dans le panorama : échelle commune s, centre de chaque photo (degrés du panorama) */
+function A30SweepSolve(P,sides,Hend){
+  let pt=A30SW.ppt,prep=st=>{let w=400,h=Math.max(2,Math.round(w*st.H/st.W)),g=A30Gray(st.img,w,h);return {cu:A30Cum(g,w,h),w,h,f:(w/2)/A30PhotoTan(st)}};
+  let pL=prep(sides.L),pR=prep(sides.R),aL=A30PhA0(sides.L),aR=A30PhA0(sides.R);
+  let one=(pp,s,exp)=>{let B=A30Prof(pp.cu,pp.w,pp.h,pp.f,s),half=Math.floor(B.n/2),j0=P.o-B.o-half,j1=P.o+P.n-B.o-half,
+      prior=j=>{let dv=Math.abs(j/pt-exp(s));return dv>20?.004*(dv-20):0};
+    let r=A30Match(P,B,j0,j1,Math.round(B.n*A30SW.bands.length*.45),prior);return {c:r.c,sc:r.sc,ctr:r.j/pt}};
+  /* centre attendu : obstacle gauche au début du film (0°), obstacle droit à la fin */
+  let expL=s=>-s*aL,expR=s=>Hend-s*aR,best=null,tryS=s=>{let L=one(pL,s,expL),R=one(pR,s,expR),ok=L.ctr+s*aL<R.ctr+s*aR,sc=L.sc+R.sc-(ok?0:1);if(!best||sc>best.sc)best={s,sc,L,R};return sc};
+  for(let i=0;i<=36;i++)tryS(.7*Math.pow(1.45/.7,i/36));
+  let s0=best.s;for(let i=-6;i<=6;i++)i&&tryS(s0*(1+i*.004));
+  let b=best;return {ok:b.L.c>=.5&&b.R.c>=.5&&b.L.ctr+b.s*aL<b.R.ctr+b.s*aR,s:b.s,cL:b.L.c,cR:b.R.c,PcL:b.L.ctr,PcR:b.R.ctr,edge:b.s<.72||b.s>1.42};
+}
+/* Dessin du panorama annoté */
+function A30SweepDraw(cv,pz,sides,m,cw){
+  let ppd=pz.ppd,sw=(pz.cmax-pz.cmin)*ppd,sc=cw/sw,ch=Math.round(pz.can.height*sc),dpr=Math.min(2,window.devicePixelRatio||1);
+  cv.width=Math.round(cw*dpr),cv.height=Math.round(ch*dpr),cv.style.width=cw+"px",cv.style.height=ch+"px";
+  let c=cv.getContext("2d");c.setTransform(dpr,0,0,dpr,0,0);c.fillStyle="#131b19";c.fillRect(0,0,cw,ch);
+  c.drawImage(pz.can,(pz.cmin-A30SW.w0)*ppd,0,sw,pz.can.height,0,0,cw,ch);
+  let s=pz.s,PL=pz.PcL+s*A30PhA0(sides.L),PR=pz.PcR+s*A30PhA0(sides.R),ex=s*(30+m),YL=PL+ex,YR=PR-ex,X=wd=>(wd-pz.cmin)*ppd*sc,zone=(YR-YL)/s,between=(PR-PL)/s;
+  let red="rgba(210,81,63,.34)",grn="rgba(63,122,85,.30)";
+  if(YL<YR){c.fillStyle=red;c.fillRect(0,0,Math.max(0,X(YL)),ch);c.fillRect(X(YR),0,Math.max(0,cw-X(YR)),ch);c.fillStyle=grn;c.fillRect(X(YL),0,X(YR)-X(YL),ch)}
+  else{c.fillStyle=red;c.fillRect(0,0,cw,ch)}
+  let fs=Math.max(11,Math.round(cw/40));c.font="700 "+fs+"px Barlow, sans-serif";c.textAlign="center";
+  let lab=(x0,t,col,y)=>{let w=c.measureText(t).width+12,cx=Math.min(cw-w/2-2,Math.max(w/2+2,x0));c.fillStyle="rgba(19,27,25,.8)";c.fillRect(cx-w/2,y-fs,w,fs+8);c.fillStyle=col;c.fillText(t,cx,y+1)};
+  c.setLineDash([8,6]);c.lineWidth=3;c.strokeStyle="#8EC5FF";[PL,PR].forEach(p=>{c.beginPath();c.moveTo(X(p),0);c.lineTo(X(p),ch);c.stroke()});c.setLineDash([]);
+  lab(X(PL),"Obstacle gauche","#8EC5FF",fs+6);lab(X(PR),"Obstacle droit","#8EC5FF",2*fs+16);
+  if(YL<YR){c.lineWidth=4;c.strokeStyle="#FFD27A";[YL,YR].forEach(p=>{c.beginPath();c.moveTo(X(p),0);c.lineTo(X(p),ch);c.stroke()});
+    lab((X(YL)+X(YR))/2,"Zone de tir : "+Math.round(zone)+"° de large","#fff",ch-14)}
+  else lab(cw/2,"Pas de zone de tir : obstacles trop proches","#FFB4A8",ch-14);
+  return {zone,between};
+}
 function A30Photo(host,m0,back){
   let m=+Pe.get("ang30:marge",0)||m0||0,sides={L:null,R:null},step="L";
   const lensOpts=[["13","Ultra grand-angle (13 mm)"],["24","Principal 24 mm"],["26","Principal 26 mm"],["28","Principal 28 mm"],["35","Principal 35 mm"]];
@@ -2488,14 +2555,15 @@ function A30Photo(host,m0,back){
   function view(){
     W(host);
     if(step==="done")return result();
+    if(step==="sweep")return sweep();
     let side=step,st=sides[side],other=side==="L"?"gauche":"droite";
     let head=e("div.panel",{style:{background:"#2F6F8F",color:"#fff",borderColor:"transparent"}},
       e("div.display",{style:{fontSize:"22px",fontWeight:700}},(side==="L"?"1/2":"2/2")+" · Photo de l’obstacle de "+other),
       e("div.small",{style:{marginTop:"4px"}},side==="L"?"Placez le dernier obstacle de gauche (voisin, poste, chemin…) dans la moitié GAUCHE de la photo, avec de la place à sa droite.":"Placez le dernier obstacle de droite dans la moitié DROITE de la photo, avec de la place à sa gauche."));
     let tips=e("p.tiny.muted",{style:{margin:0}},"Téléphone bien droit, sans zoom, objectif principal. En paysage, la photo couvre plus large et la limite des 30° y entre plus facilement.");
     let shoot=e("div.row",{style:{gap:"8px",flexWrap:"wrap"}},
-      x(st?"Reprendre la photo":"Prendre la photo",{icon:"camera",kind:st?"ghost":"primary",onClick:()=>pickInput(!0,async f=>{sides[side]=await load(f);view()})}),
-      x("Choisir une photo",{icon:"plus",kind:"ghost",onClick:()=>pickInput(!1,async f=>{sides[side]=await load(f);view()})}));
+      x(st?"Reprendre la photo":"Prendre la photo",{icon:"camera",kind:st?"ghost":"primary",onClick:()=>pickInput(!0,async f=>{sides[side]=await load(f);sides.pano=null;view()})}),
+      x("Choisir une photo",{icon:"plus",kind:"ghost",onClick:()=>pickInput(!1,async f=>{sides[side]=await load(f);sides.pano=null;view()})}));
     if(!st){C(host,e("div.stack",head,shoot,tips,x("Retour",{kind:"ghost",onClick:()=>side==="L"?back():(step="L",view())})));return}
     let cv=e("canvas",{style:{display:"block",width:"100%",borderRadius:"12px",touchAction:"none",cursor:"crosshair"}}),wrap=e("div",{style:{position:"relative"}},cv);
     let loupe=e("canvas",{width:160,height:160,style:{position:"absolute",width:"120px",height:"120px",borderRadius:"50%",border:"3px solid #FFD27A",pointerEvents:"none",display:"none",boxShadow:"0 4px 16px rgba(0,0,0,.4)"}});wrap.append(loupe);
@@ -2523,12 +2591,86 @@ function A30Photo(host,m0,back){
       shoot,x(side==="L"?"Retour":"Revenir à la photo de gauche",{kind:"ghost",onClick:()=>side==="L"?back():(step="L",view())})));
     requestAnimationFrame(redraw);
   }
+  function sweep(){
+    let SW=A30SW,pt=SW.ppt,ppd=SW.ppd,R=Math.PI/180,dead=!1,stream=null,raf=0;
+    let pv=e("video",{style:{display:"block",width:"100%",maxHeight:"50vh",objectFit:"contain",background:"#000",borderRadius:"12px"}});pv.muted=!0;pv.playsInline=!0;pv.autoplay=!0;pv.setAttribute("playsinline","");pv.setAttribute("muted","");
+    let mark=e("div",{style:{position:"absolute",left:"50%",top:0,bottom:0,width:"3px",marginLeft:"-1.5px",background:"#FFD27A",boxShadow:"0 0 4px rgba(0,0,0,.7)",pointerEvents:"none"}});
+    let vbox=e("div",{style:{position:"relative"}},pv,mark);
+    let info=e("p.small",{style:{margin:0}},"Ouverture de la caméra…"),prev=e("canvas",{style:{display:"none",width:"100%",borderRadius:"8px",background:"#131b19"}});
+    let bGo=x("Départ : je vise l’obstacle de gauche",{icon:"camera",kind:"primary",size:"block",onClick:()=>begin()}),bEnd=x("Arrivé à l’obstacle de droite",{icon:"check",kind:"primary",size:"block",onClick:()=>finish()});
+    bGo.disabled=!0;bEnd.style.display="none";
+    let head=e("div.panel",{style:{background:"#2F6F8F",color:"#fff",borderColor:"transparent"}},
+      e("div.display",{style:{fontSize:"22px",fontWeight:700}},"Filmer la zone"),
+      e("div.small",{style:{marginTop:"4px"}},"Placez l’obstacle de gauche sur le trait jaune et appuyez sur Départ. Tournez ensuite lentement sur vous-même vers la droite, téléphone droit, jusqu’à l’obstacle de droite, puis appuyez sur Arrivé."));
+    let close=()=>{dead=!0;cancelAnimationFrame(raf);try{stream&&stream.getTracks().forEach(t=>t.stop())}catch{}},
+      leave=()=>{close();step="done";view()};
+    C(host,e("div.stack",head,vbox,info,prev,bGo,bEnd,
+      e("p.tiny.muted",{style:{margin:0}},"Rien n’est enregistré ni envoyé : les images servent seulement à assembler le panorama sur cet appareil. Tournez sur place (pivotez autour du téléphone, sans marcher), sans zoom."),
+      x("Annuler",{kind:"ghost",onClick:leave})));
+    let S={run:0,K:null,HK:0,H:0,Hp:0,lost:0,cmin:1e9,cmax:-1e9,t:0,tp:0},G=null;
+    let nW=Math.round((SW.w1-SW.w0)*pt),sum=SW.bands.map(()=>new Float32Array(nW)),cnt=SW.bands.map(()=>new Float32Array(nW)),Wo=Math.round(SW.w0*pt);
+    let tc=document.createElement("canvas"),pc=document.createElement("canvas"),px=pc.getContext("2d");
+    function setup(){
+      let vw=pv.videoWidth,vh=pv.videoHeight,th=A30VidTan(sides.L,vw,vh),TW=200,TH=Math.max(2,Math.round(TW*vh/vw));
+      G={vw,vh,th,TW,TH,fS:(TW/2)/th,fV:(vw/2)/th,lim:Math.atan(th)/R};
+      G.k=ppd*180/(Math.PI*G.fV);pc.width=Math.round((SW.w1-SW.w0)*ppd);pc.height=Math.ceil(vh*G.k)+2;px.fillStyle="#131b19";px.fillRect(0,0,pc.width,pc.height);
+    }
+    function paint(H,lo,hi){
+      for(let u=lo;u<hi;u+=1.5){let u1=Math.min(hi,u+1.5),xa=G.vw/2+G.fV*Math.tan(u*R),xb=G.vw/2+G.fV*Math.tan(u1*R);xa=Math.max(0,xa);xb=Math.min(G.vw,xb);if(xb-xa<.5)continue;
+        let uc=(u+u1)/2,dh=G.vh*Math.cos(uc*R)*G.k;try{px.drawImage(pv,xa,0,xb-xa,G.vh,(H+u-SW.w0)*ppd,pc.height/2-dh/2,(u1-u)*ppd+.6,dh)}catch{}}
+      S.cmin=Math.min(S.cmin,H+Math.max(lo,-G.lim)),S.cmax=Math.max(S.cmax,H+Math.min(hi,G.lim));
+    }
+    function add(F,H){let base=Math.round(H*pt)+F.o-Wo;for(let bi=0;bi<F.b.length;bi++){let fb=F.b[bi],sb=sum[bi],cb=cnt[bi];for(let k=0;k<F.n;k++){let i=base+k,v=fb[k];if(i<0||i>=nW||v!==v)continue;sb[i]+=v;cb[i]++}}}
+    function grab(){let g=A30Gray(pv,G.TW,G.TH,tc);return A30Prof(A30Cum(g,G.TW,G.TH),G.TW,G.TH,G.fS,1)}
+    function frame(){
+      let F=grab();
+      if(!S.K){S.K=F;S.HK=0;S.H=0;add(F,0);paint(0,-G.lim,.4);S.Hp=0;return}
+      let pred=Math.round((S.H-S.HK)*pt),r=A30Match(S.K,F,pred-8*pt,pred+8*pt,Math.round(F.n*F.b.length*.35));
+      if(r.c<.55){S.lost++;if(S.lost>3)info.textContent="Image perdue : revenez un peu en arrière, puis tournez plus lentement.",info.style.color="var(--danger,#D2513F)";return}
+      S.lost=0;let d=r.j/pt;S.H=S.HK+d;add(F,S.H);
+      if(S.H>S.Hp+.3){paint(S.H,S.Hp-S.H-.4,.4);S.Hp=S.H}
+      if(Math.abs(d)>.25*2*G.lim){S.K=F;S.HK=S.H}
+      info.style.color="";info.textContent=S.H<-8?"Tournez vers la droite : de l’obstacle de gauche vers celui de droite.":"Tournez lentement vers la droite, jusqu’à l’obstacle de droite : le panorama se construit ci-dessous.";
+      if(S.H>SW.w1-G.lim-5)finish();
+    }
+    function preview(){if(S.cmax<=S.cmin)return;let sw=(S.cmax-S.cmin)*ppd,cw=prev.clientWidth||340,ch=Math.max(40,Math.round(pc.height*Math.min(1,cw/sw)));
+      prev.width=cw;prev.height=ch;let c=prev.getContext("2d");c.fillStyle="#131b19";c.fillRect(0,0,cw,ch);let sc=Math.min(cw/sw,ch/pc.height);c.drawImage(pc,(S.cmin-SW.w0)*ppd,0,sw,pc.height,0,0,sw*sc,pc.height*sc);prev.style.display="block"}
+    function loop(){if(dead)return;if(!host.isConnected){close();return}
+      let now=performance.now();if(S.run&&pv.readyState>=2&&now-S.t>=40){S.t=now;try{frame()}catch(er){}}
+      if(S.run&&now-S.tp>300){S.tp=now;preview()}
+      raf=requestAnimationFrame(loop)}
+    function begin(){if(!G)setup();S.run=1;bGo.style.display="none";bEnd.style.display="";info.textContent="Tournez lentement vers la droite…";S.t=0}
+    function finish(){
+      if(!S.run)return;S.run=0;try{if(S.K)paint(S.H,S.Hp-S.H-.4,G.lim)}catch{}
+      bEnd.style.display="none";
+      if(S.H<15){info.textContent="Balayage trop court : recommencez en allant jusqu’à l’obstacle de droite.";info.style.color="var(--danger,#D2513F)";reset();return}
+      info.style.color="";info.textContent="Assemblage du panorama…";
+      setTimeout(()=>{
+        let P={o:Wo,n:nW,b:sum.map((sb,bi)=>{let o=new Float32Array(nW),cb=cnt[bi];for(let i=0;i<nW;i++)o[i]=cb[i]?sb[i]/cb[i]:NaN;return o})},r;
+        try{r=A30SweepSolve(P,sides,S.H)}catch(er){r={ok:!1}}
+        window.__a30sweep={H:S.H,cmin:S.cmin,cmax:S.cmax,res:r};
+        if(!r.ok){info.textContent="Les photos n’ont pas été retrouvées dans le film (mouvement trop rapide, lumière, ou film qui ne part pas de l’obstacle de gauche). Vos deux photos restent valables ; vous pouvez recommencer le film.";info.style.color="var(--danger,#D2513F)";reset();return}
+        sides.pano={can:pc,ppd,cmin:S.cmin,cmax:S.cmax,s:r.s,PcL:r.PcL,PcR:r.PcR,conf:Math.min(r.cL,r.cR),edge:r.edge};
+        close();step="done";view();
+      },30);
+    }
+    function reset(){S.K=null;S.H=S.Hp=S.HK=0;S.cmin=1e9;S.cmax=-1e9;sum.forEach(a=>a.fill(0));cnt.forEach(a=>a.fill(0));if(G){px.fillStyle="#131b19";px.fillRect(0,0,pc.width,pc.height)}bGo.style.display="";bGo.textContent="";bGo.append(document.createTextNode("Recommencer : je vise l’obstacle de gauche"));}
+    (async()=>{
+      try{if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)throw 0;
+        stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:"environment"},width:{ideal:1280},height:{ideal:720}},audio:!1});
+        if(dead){close();return}pv.srcObject=stream;try{await pv.play()}catch{}
+        let t0=Date.now();while(!pv.videoWidth&&Date.now()-t0<5000)await new Promise(r=>setTimeout(r,100));
+        if(!pv.videoWidth)throw 0;setup();bGo.disabled=!1;info.textContent="Visez l’obstacle de gauche avec le trait jaune, puis appuyez sur Départ.";raf=requestAnimationFrame(loop);
+      }catch(er){info.textContent="Caméra indisponible : autorisez l’accès à la caméra pour filmer la zone. Vos deux photos restent valables.";info.style.color="var(--danger,#D2513F)"}
+    })();
+  }
   function compose(){
-    let cw=1080,parts=["L","R"].map(sd=>{let cv=document.createElement("canvas");A30PhotoDraw(cv,sides[sd],sd,m,cw/ (Math.min(2,window.devicePixelRatio||1)) );return cv});
+    let cw=1080,dp=Math.min(2,window.devicePixelRatio||1),pz=null,parts=["L","R"].map(sd=>{let cv=document.createElement("canvas");A30PhotoDraw(cv,sides[sd],sd,m,cw/dp);return cv});
+    if(sides.pano){let cv=document.createElement("canvas");pz=A30SweepDraw(cv,sides.pano,sides,m,cw/dp);parts.unshift(cv)}
     let H=parts.reduce((a,p)=>a+p.height,0)+170,out=document.createElement("canvas");out.width=parts[0].width;out.height=H;let c=out.getContext("2d");c.fillStyle="#131b19";c.fillRect(0,0,out.width,H);
     let y=0;parts.forEach(p=>{c.drawImage(p,0,y);y+=p.height});
     c.fillStyle="#fff";c.font="700 34px Barlow, sans-serif";c.textAlign="left";c.fillText("Zone de tir : entre les deux lignes jaunes"+(m?" (30° + "+m+"° de marge)":" (30° réglementaires)"),24,y+50);
-    c.font="600 24px Barlow, sans-serif";c.fillStyle="rgba(255,255,255,.8)";c.fillText("Haut : obstacle de gauche · Bas : obstacle de droite · méthode photo, sans boussole",24,y+92);
+    c.font="600 24px Barlow, sans-serif";c.fillStyle="rgba(255,255,255,.8)";c.fillText(pz?"Panorama filmé (zone de "+Math.round(pz.zone)+"° de large), puis photos des obstacles de gauche et de droite":"Haut : obstacle de gauche · Bas : obstacle de droite · méthode photo, sans boussole",24,y+92);
     c.fillText(new Date().toLocaleString("fr-FR")+" · Chasse & Pêche 360° · aide visuelle, à valider sur le terrain",24,y+132);
     return out;
   }
@@ -2543,15 +2685,25 @@ function A30Photo(host,m0,back){
   }
   function result(){
     let cvL=e("canvas",{style:{display:"block",width:"100%",borderRadius:"12px"}}),cvR=e("canvas",{style:{display:"block",width:"100%",borderRadius:"12px"}}),gl=e("div.stack",{style:{gap:"6px"}},e("b","Côté gauche : à partir de la ligne jaune"),cvL),gr=e("div.stack",{style:{gap:"6px"}},e("b","Côté droit : jusqu’à la ligne jaune"),cvR);
+    let pz=sides.pano,pcv=e("canvas",{style:{display:"block",width:"100%",borderRadius:"12px"}}),pinfo=e("div.small");
+    let pblock=pz?e("div.stack",{style:{gap:"6px"}},e("b","Vue d’ensemble filmée"),pcv,pinfo,
+        e("div.row",{style:{gap:"8px",flexWrap:"wrap"}},x("Refilmer la zone",{icon:"camera",kind:"ghost",size:"sm",onClick:()=>{step="sweep";view()}}),x("Retirer le panorama",{kind:"ghost",size:"sm",onClick:()=>{sides.pano=null;view()}}))):
+      e("div.panel.stack",{style:{gap:"8px"}},e("b","Facultatif : filmer la zone pour voir l’ensemble"),
+        e("div.small","Partez de l’obstacle de gauche et tournez lentement jusqu’à celui de droite. L’appli assemble le film en panorama, y retrouve vos deux photos et y place les deux lignes jaunes, avec la largeur de la zone de tir."),
+        x("Filmer la zone",{icon:"camera",kind:"ghost",onClick:()=>{step="sweep";view()}}));
     C(host,e("div.stack",
       e("div.panel",{style:{background:"#3F7A55",color:"#fff",borderColor:"transparent"}},
         e("div.display",{style:{fontSize:"24px",fontWeight:700}},"Votre zone de tir : entre les deux lignes jaunes"),
         e("div.small",{style:{marginTop:"4px"}},(m?"30° réglementaires + "+m+"° de marge":"30° réglementaires exacts")+". Choisissez un repère fixe sur chaque ligne (arbre, piquet, souche) : au poste, tirez seulement entre ces deux repères.")),
+      pblock,
       e("div.grid.g-2",gl,gr),
       e("div.row",{style:{gap:"8px",flexWrap:"wrap"}},x("Partager l’image des repères",{icon:"download",kind:"primary",onClick:share}),x("Refaire la photo de gauche",{kind:"ghost",onClick:()=>{step="L";view()}}),x("Refaire la photo de droite",{kind:"ghost",onClick:()=>{step="R";view()}})),
       e("p.tiny.muted",{style:{margin:0}},"La méthode photo n’utilise ni boussole ni gyroscope : rien ne dérive. Elle suppose une photo prise téléphone droit, sans zoom, avec l’objectif indiqué. Aide visuelle : elle ne remplace ni les consignes du chef de ligne, ni l’identification de la cible et de l’arrière-plan."),
       x("Terminer",{kind:"ghost",size:"block",onClick:back})));
-    requestAnimationFrame(()=>{A30PhotoDraw(cvL,sides.L,"L",m,cvL.parentElement.clientWidth||340);A30PhotoDraw(cvR,sides.R,"R",m,cvR.parentElement.clientWidth||340)});
+    requestAnimationFrame(()=>{if(pz){let r=A30SweepDraw(pcv,pz,sides,m,pcv.parentElement.clientWidth||340);
+        pinfo.textContent="Entre les deux obstacles : "+Math.round(r.between)+"°. "+(r.zone>0?"Zone de tir : "+Math.round(r.zone)+"° de large (en vert).":"Il n’y a pas de zone de tir : il faut au moins "+(60+2*m)+"° entre les obstacles.")+" Le panorama sert à voir l’ensemble ; les lignes exactes sont celles des photos."+(pz.edge||pz.conf<.65?" Assemblage peu sûr : refilmez plus lentement si les lignes ne tombent pas aux mêmes repères que sur les photos.":"");
+        if(r.zone<=0)pinfo.style.color="var(--danger,#D2513F)"}
+      A30PhotoDraw(cvL,sides.L,"L",m,cvL.parentElement.clientWidth||340);A30PhotoDraw(cvR,sides.R,"R",m,cvR.parentElement.clientWidth||340)});
   }
   view();
 }
