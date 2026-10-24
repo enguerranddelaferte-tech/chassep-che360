@@ -255,8 +255,8 @@ function A30Fov(vd,cv,D){let vw=vd.videoWidth,vh=vd.videoHeight,W=cv.clientWidth
 function A30Heading(ev){if(ev.webkitCompassHeading!=null&&isFinite(ev.webkitCompassHeading))return ev.webkitCompassHeading;if(!ev.absolute||ev.alpha==null)return null;let d=Math.PI/180,x2=(ev.beta||0)*d,y=(ev.gamma||0)*d,z=ev.alpha*d,cY=Math.cos(y),cZ=Math.cos(z),sX=Math.sin(x2),sY=Math.sin(y),sZ=Math.sin(z),Vx=-cZ*sY-sZ*sX*cY,Vy=-sZ*sY+cZ*sX*cY,h=Math.atan(Vx/Vy);return Vy<0?h+=Math.PI:Vx<0&&(h+=2*Math.PI),h*180/Math.PI}async function Ang30(t){let FV=62,dv=+Pe.get("ang30:d",78),forceOk=!1,anc=null,gt=0,cmp=A30Cmp(h=>{sm=h,lastEv=Date.now()},!0),step=0,m=+Pe.get("ang30:m",5),camStab=Pe.get("ang30:s","1")!=="0",still=A30Still(),sc=document.createElement("canvas"),sctx=null,stN=0,stT=0,Lh=null,Rh=null,hm=0,sm=null,lastEv=0,st=null,rf=0,wl2=null,live=null,pf=!1,noCam=!1,onEv=null,dh=null,frozen=null,fzRef=null,pano=null,pv=null,pcv=null,vis=null,vadj=0,vok=!1,vT=0,vconf=0,host=e("div"),vd=e("video",{style:{position:"absolute",inset:"0",width:"100%",height:"100%",objectFit:"cover"}}),cv=e("canvas",{style:{position:"absolute",inset:"0",width:"100%",height:"100%",touchAction:"none"}}),stage=e("div",{style:{position:"relative",height:"min(50dvh,500px)",background:"linear-gradient(160deg,#1c2a26,#0b1210)",borderRadius:"14px",overflow:"hidden"}},vd,cv),hl2=(a,b0)=>(b0-a+540)%360-180,inArc=(h,f,to)=>(h-f+360)%360<=(to-f+360)%360,cur=()=>sm,dir=()=>{let c=cur();return c??hm};vd.muted=!0,vd.autoplay=!0,vd.setAttribute("playsinline","");let rb=e("button",{type:"button","aria-label":"R\xE9initialiser l\u2019angle",onclick:()=>reset(),style:{position:"absolute",right:"10px",top:"44px",display:"none",border:"0",borderRadius:"999px",padding:"8px 14px",background:"rgba(19,27,25,.72)",color:"#fff",font:"600 14px Barlow, sans-serif",cursor:"pointer"}},"\u21BA R\xE9initialiser");C(stage,rb),onEv=cmp.onEv,cv.onpointermove=ev=>{cur()==null&&ev.buttons&&(hm=((hm-ev.movementX*FV/cv.clientWidth)%360+360)%360)};async function startSensors(){navigator.wakeLock&&!wl2&&navigator.wakeLock.request("screen").then(s=>{wl2=s}).catch(()=>{});try{typeof DeviceOrientationEvent<"u"&&DeviceOrientationEvent.requestPermission&&await DeviceOrientationEvent.requestPermission()}catch{}if(cmp.unlock(),cmp.start(),setTimeout(()=>cmp.lock(),2500),!st&&navigator.mediaDevices&&navigator.mediaDevices.getUserMedia)try{st=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:"environment"}},audio:!1}),vd.srcObject=st,vd.play().catch(()=>{}),noCam=!1}catch{noCam=!0}else st||(noCam=!0);cancelAnimationFrame(rf),rf=requestAnimationFrame(draw)}function stopSensors(){cancelAnimationFrame(rf),cmp.stop(),clearInterval(gt),st&&st.getTracks().forEach(z=>z.stop()),st=null,wl2&&wl2.release().catch(()=>{}),wl2=null}function drawCover(c,img,W2,H2){let s=Math.max(W2/img.width,H2/img.height),iw=img.width*s,ih=img.height*s;c.drawImage(img,(W2-iw)/2,(H2-ih)/2,iw,ih)}
 function snapBg(){try{if(!vd.videoWidth)return null;let c=document.createElement("canvas");c.width=vd.videoWidth;c.height=vd.videoHeight;c.getContext("2d").drawImage(vd,0,0);return c}catch{return null}}
 function paint(c,W2,H2,hd,FVx,res,noCross){
-  let X2=d=>(d/FVx+.5)*W2;
-  if(res)for(let x2=0;x2<W2;x2+=4){let b0=((hd+(x2/W2-.5)*FVx)%360+360)%360;if(res.free&&inArc(b0,res.free[0],res.free[1]))c.fillStyle="rgba(63,122,85,.45)";else{let nr=inArc(b0,Lh-res.ex,Lh+res.ex)||inArc(b0,Rh-res.ex,Rh+res.ex)||res.width<=0&&inArc(b0,Lh-res.ex,Rh+res.ex);c.fillStyle=nr?"rgba(210,81,63,.55)":"rgba(210,81,63,.28)"}c.fillRect(x2,0,4,H2)}
+  let tF=Math.tan(Math.min(FVx,170)*Math.PI/360),X2=d=>noCross?(d/FVx+.5)*W2:(.5+.5*Math.tan(Math.max(-80,Math.min(80,d))*Math.PI/180)/tF)*W2,B2=x2=>noCross?(x2/W2-.5)*FVx:Math.atan((x2/W2-.5)*2*tF)*180/Math.PI;
+  if(res)for(let x2=0;x2<W2;x2+=4){let b0=((hd+B2(x2+2))%360+360)%360;if(res.free&&inArc(b0,res.free[0],res.free[1]))c.fillStyle="rgba(63,122,85,.45)";else{let nr=inArc(b0,Lh-res.ex,Lh+res.ex)||inArc(b0,Rh-res.ex,Rh+res.ex)||res.width<=0&&inArc(b0,Lh-res.ex,Rh+res.ex);c.fillStyle=nr?"rgba(210,81,63,.55)":"rgba(210,81,63,.28)"}c.fillRect(x2,0,4,H2)}
   c.font="600 13px Barlow, sans-serif",c.textAlign="center",c.fillStyle="#fff",c.strokeStyle="rgba(255,255,255,.75)",c.lineWidth=1;
   for(let d=Math.ceil((hd-FVx/2)/10)*10;d<=hd+FVx/2;d+=10){let x2=X2(d-hd);c.beginPath(),c.moveTo(x2,H2),c.lineTo(x2,H2-(d%30===0?18:10)),c.stroke(),d%30===0&&c.fillText(String((d%360+360)%360),x2,H2-24)}
   let mark=(b0,lab,col2)=>{let d=hl2(hd,b0);if(Math.abs(d)<FVx/2){let x2=X2(d);c.strokeStyle=col2,c.fillStyle=col2,c.lineWidth=3,c.setLineDash([6,5]),c.beginPath(),c.moveTo(x2,64),c.lineTo(x2,H2-40),c.stroke(),c.setLineDash([]),c.fillText(lab,x2,58)}else c.fillStyle=col2,c.fillText(d<0?"◀ "+lab:lab+" ▶",d<0?64:W2-64,H2/2+30)};
@@ -277,21 +277,30 @@ function panoStart(){let res=A30Calc(Lh,Rh,m);if(!res)return;if(noCam||!vd.video
   let can=document.createElement("canvas");can.width=Math.round(span*ppd),can.height=PH;let g=can.getContext("2d");g.fillStyle="#0b1210",g.fillRect(0,0,can.width,PH);
   pano={state:"cap",start,span,ppd,can,g,cov:new Uint8Array(Math.ceil(span)+1),t:0};panoHide();fzRef&&fzRef()}
 function panoCov(){if(!pano)return 0;let n=0;for(let i=0;i<pano.cov.length;i++)n+=pano.cov[i];return n/pano.cov.length}
+let hh=[];function hAt(t0){for(let i=hh.length-1;i>0;i--)if(hh[i-1][0]<=t0){let a=hh[i-1],b=hh[i],f=(t0-a[0])/Math.max(1,b[0]-a[0]);return (a[1]+hl2(a[1],b[1])*f+360)%360}return hh.length?hh[0][1]:null}
 function panoGrab(W2,H2,hd){let P=pano,tn=performance.now();if(tn-P.t<45||!vd.videoWidth)return;P.t=tn;
   const wd=6;let rel=((hd-P.start)%360+360)%360;if(rel>=360-wd)rel-=360;if(rel>P.span+wd/2)return;
-  let vw=vd.videoWidth,vh=vd.videoHeight,s=Math.max(W2/vw,H2/vh),dW=W2/s,dH=H2/s,k=dW/FV,sw=k*wd;
+  let vw=vd.videoWidth,vh=vd.videoHeight,s=Math.max(W2/vw,H2/vh),dW=W2/s,dH=H2/s,k=dW/2/Math.tan(FV*Math.PI/360)*Math.PI/180,sw=k*wd;
+  /* calibrage automatique du champ de vision : décalage de l’image entre deux prises comparé à la rotation mesurée */
+  try{let pr=visGray(vd,(vw-dW)/2,(vh-dH)/2,dW,dH,160,30),col=new Float32Array(160);for(let y=0;y<30;y++)for(let x=0;x<160;x++)col[x]+=pr[y*160+x]/30;
+    if(P.pp){let dth=hl2(P.ph,hd);if(Math.abs(dth)>1&&Math.abs(dth)<9){let bs=0,bv=-2,cc={};for(let sh=-45;sh<=45;sh++){let a0=Math.max(20,20-sh),a1=Math.min(140,140-sh),ma=0,mb=0,nn=a1-a0;if(nn<60)continue;for(let x=a0;x<a1;x++)ma+=col[x],mb+=P.pp[x+sh];ma/=nn,mb/=nn;let sa=0,sb=0,cr=0;for(let x=a0;x<a1;x++){let u=col[x]-ma,v=P.pp[x+sh]-mb;sa+=u*u,sb+=v*v,cr+=u*v}let nc=sa>nn&&sb>nn?cr/Math.sqrt(sa*sb):-2;cc[sh]=nc;nc>bv&&(bv=nc,bs=sh)}
+      if(cc[bs-1]!=null&&cc[bs+1]!=null){let dn=cc[bs-1]-2*bv+cc[bs+1];dn<0&&(bs+=(cc[bs-1]-cc[bs+1])/(2*dn))}
+      bv>.9&&Math.abs(bs)>2&&Math.abs(bs)<44&&(P.fs=P.fs||[]).push(Math.abs(bs)/Math.abs(dth))}}
+    P.pp=col,P.ph=hd}catch{}
   try{P.g.drawImage(vd,vw/2-sw/2,(vh-dH)/2,sw,dH,(rel-wd/2)*P.ppd,0,wd*P.ppd,P.can.height)}catch{return}
   for(let d=Math.ceil(rel-wd/2);d<=Math.floor(rel+wd/2);d++)d>=0&&d<P.cov.length&&(P.cov[d]=1);
   panoCov()>=.97&&panoDone()}
-function panoDone(){if(!pano)return;pano.state="done";pano.show=!0;vis=null;vadj=0;vok=!1;navigator.vibrate&&navigator.vibrate(60);panoShow();fzRef&&fzRef()}
-function panoCancel(){pano=null;vis=null;vadj=0;vok=!1;panoHide();fzRef&&fzRef()}
+function panoDone(){if(!pano)return;
+  try{let f=(pano.fs||[]).slice().sort((a,b)=>a-b);if(f.length>=8){let pm=f[f.length>>1],fh=2*Math.atan(80*Math.PI/180/pm)*180/Math.PI;for(let it=0;it<6;it++){let U=.75*Math.tan(fh*Math.PI/360);fh=2*Math.atan(80*Math.PI/180/(pm/(1+U*U/3)))*180/Math.PI}let vw=vd.videoWidth,vh=vd.videoHeight,W=cv.clientWidth,H=cv.clientHeight,s0=Math.max(W/vw,H/vh),fr=Math.min(1,W/(s0*vw)),D=2*Math.atan(Math.tan(fh*Math.PI/360)/fr*Math.hypot(vw,vh)/vw)*180/Math.PI;
+    if(fh>35&&fh<100&&D>50&&D<120){dv=Math.round(D),Pe.set("ang30:d",dv),A("Champ de vision de la caméra calibré automatiquement : "+Math.round(fh)+"° en largeur.","ok")}}}catch{}pano.state="done";pano.show=!0;vis=null;vok=!1;navigator.vibrate&&navigator.vibrate(60);panoShow();fzRef&&fzRef()}
+function panoCancel(){pano=null;vis=null;vok=!1;panoHide();fzRef&&fzRef()}
 function panoLive(){if(!pano)return;pano.show=!1;panoHide();fzRef&&fzRef()}
 function panoView(){if(!pano)return;pano.show=!0;panoShow();fzRef&&fzRef()}
 /* ---- Repère visuel : la caméra est comparée au panorama pour corriger la dérive du gyroscope ---- */
 const VPD=2,VH=24;
 function visGray(src,sx,sy,sw,sh,w,h){let c2=visGray.c||(visGray.c=document.createElement("canvas"));c2.width=w,c2.height=h;let g=c2.getContext("2d",{willReadFrequently:!0});g.drawImage(src,sx,sy,sw,sh,0,0,w,h);let d=g.getImageData(0,0,w,h).data,o=new Float32Array(w*h);for(let i=0;i<w*h;i++)o[i]=.299*d[i*4]+.587*d[i*4+1]+.114*d[i*4+2];return o}
 function visTrack(raw,W2,H2){
-  if(!pano||pano.state!=="done"||!vd.videoWidth)return raw;
+  if(!pano||pano.state!=="done"||!vd.videoWidth)return (raw+vadj+360)%360;
   let tn=performance.now();if(tn-vT<140)return (raw+vadj+360)%360;vT=tn;
   try{
     let P=pano;if(!vis){let pw=Math.round(P.span*VPD);vis={pw,pd:visGray(P.can,0,0,P.can.width,P.can.height,pw,VH),bad:0}}
@@ -379,11 +388,11 @@ function draw(){FV=A30Fov(vd,cv,dv);let W2=cv.clientWidth,H2=cv.clientHeight;
   if(camStab&&!noCam&&vd.readyState>=2){let tn=performance.now();if(tn-stT>80){stT=tn;try{sctx||(sc.width=96,sc.height=72,sctx=sc.getContext("2d",{willReadFrequently:!0}));sctx.drawImage(vd,0,0,96,72);let r0=still(sctx.getImageData(0,0,96,72).data,96,72);stN=r0.ok&&r0.still?stN+1:0;cmp.hold(stN>=3)}catch{cmp.hold(!1)}}}else cmp.hold(!1);
   if(!W2){rf=requestAnimationFrame(draw);return}
   (cv.width!==W2||cv.height!==H2)&&(cv.width=W2,cv.height=H2);
-  let raw=visTrack(dir(),W2,H2);if(dh==null)dh=raw;else{let d=hl2(dh,raw);dh=(dh+d*(Math.abs(d)>.5?.3:.06)+360)%360}
+  let raw=visTrack(dir(),W2,H2),tnow=performance.now();hh.push([tnow,raw]);while(hh.length>40)hh.shift();if(dh==null)dh=raw;else{let d=hl2(dh,raw);dh=(dh+d*(Math.abs(d)>.5?.3:.06)+360)%360}
   let c=cv.getContext("2d"),hd=dh,res=step===3?A30Calc(Lh,Rh,m):null;
   c.clearRect(0,0,W2,H2),paint(c,W2,H2,hd,FV,res);
   let ok=banner(c,W2,H2,hd,res);
-  if(pano&&pano.state==="cap"){panoGrab(W2,H2,hd);let P=pano,pc=panoCov(),rel=((hd-P.start)%360+360)%360,bw=W2-40;
+  if(pano&&pano.state==="cap"){let hl=hAt(tnow-70);hl!=null&&panoGrab(W2,H2,hl);let P=pano,pc=panoCov(),rel=((hd-P.start)%360+360)%360,bw=W2-40;
     c.fillStyle="#2F6F8F",c.fillRect(0,0,W2,34),c.fillStyle="#fff",c.font="700 17px Barlow Condensed, sans-serif",c.textAlign="center",c.fillText("PANORAMA · tournez lentement vers la droite · "+Math.round(pc*100)+" %",W2/2,23);
     c.fillStyle="rgba(19,27,25,.75)",c.fillRect(16,H2-64,bw+8,22);for(let d=0;d<P.cov.length;d++)c.fillStyle=P.cov[d]?"#9BE3B1":"rgba(255,255,255,.25)",c.fillRect(20+d*bw/P.span,H2-60,Math.max(1,bw/P.span),14);
     rel<=P.span&&(c.fillStyle="#FFD27A",c.fillRect(20+rel*bw/P.span-2,H2-66,4,26));pano&&pano.state==="cap"&&fzRef&&P.lastPc!==Math.round(pc*20)&&(P.lastPc=Math.round(pc*20))}
