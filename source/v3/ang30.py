@@ -169,12 +169,21 @@ def patch_ang30(bundle):
     ang = _rep(ang, 'function intro(){step=0,', 'function intro(){frozen=null,pano=null,panoHide(),step=0,')
     ang = _rep(ang, 'function aim(n){step=n,', 'function aim(n){frozen=null,pano=null,panoHide(),step=n,')
     ang = _rep(ang, 'function result(){step=3,W(host),top0(),rb.style.display="block";let res=A30Calc(Lh,Rh,m),f0=a=>Math.round((a%360+360)%360),warn=[]',
-        'function result(){step=3,frozen=null,pano=null,panoHide(),W(host),top0(),rb.style.display="block";'
+        'function result(){step=3,frozen=null,keepPano||(pano=null,panoHide()),keepPano=!1,W(host),top0(),rb.style.display="block";'
+        'let mgBox=e("div.field",{style:{margin:0}},e("label","Marge en plus des 30\xB0"),ke([["0","Aucune (30\xB0 exacts)"],["5","+5\xB0"],["10","+10\xB0"]],String(m),v9=>{m=+v9,Pe.set("ang30:marge",m),keepPano=!0,result(),requestAnimationFrame(()=>{pano&&pano.state==="done"&&pano.show&&panoShow()})}));'
         'let fzBox=e("div.stack",{style:{gap:"8px"}}),fzUI=()=>{W(fzBox);let row=e("div.row",{style:{gap:"8px",flexWrap:"wrap"}});'
         'if(pano&&pano.state==="cap")C(fzBox,e("p.small",{style:{margin:0}},"Partez de l’obstacle de gauche et tournez lentement vers la droite, téléphone bien droit, jusqu’après l’obstacle de droite. Le panorama se termine tout seul."),row),C(row,x("Terminer le panorama",{icon:"check",kind:"primary",size:"sm",onClick:panoDone}),x("Annuler",{kind:"ghost",size:"sm",onClick:panoCancel}));'
         'else if(pano&&pano.state==="done"&&pano.show)C(fzBox,e("p.small.muted",{style:{margin:0}},"Image figée de toute la zone : faites-la glisser pour voir les obstacles. Vert : zone de tir ; rouge : interdit ; gris : partie non filmée. En revenant au direct, le panorama sert de repère visuel : l’angle ne dérive plus."),row),C(row,x("Revenir au direct",{icon:"camera",kind:"primary",size:"sm",onClick:panoLive}),x("Aperçu à partager",{icon:"download",size:"sm",onClick:apercu}),x("Refaire le panorama",{kind:"ghost",size:"sm",onClick:panoStart}));'
         'else if(pano&&pano.state==="done")C(fzBox,e("p.small",{style:{margin:0}},"Repère visuel actif : la caméra se recale sur le panorama dès qu’elle voit la zone filmée, ce qui supprime la dérive. Gardez le téléphone droit."),row),C(row,x("Voir le panorama",{icon:"eye",kind:"primary",size:"sm",onClick:panoView}),x("Refaire le panorama",{size:"sm",onClick:panoStart}),x("Arrêter le repère visuel",{kind:"ghost",size:"sm",onClick:panoCancel}));'
         'else C(fzBox,e("p.small",{style:{margin:0}},"Conseil : faites le panorama (10 secondes). Il sert ensuite de repère visuel et empêche l’angle de dériver."),row),C(row,x("Panorama de la zone",{icon:"camera",kind:"primary",size:"sm",onClick:panoStart}),x("Aperçu à partager",{icon:"download",size:"sm",onClick:apercu}))};fzRef=fzUI,fzUI();'
         'let res=A30Calc(Lh,Rh,m),f0=a=>Math.round((a%360+360)%360),warn=[]')
-    ang = _rep(ang, 'e("div.stack",stage,head,', 'e("div.stack",stage,fzBox,head,')
+    ang = _rep(ang, 'e("div.stack",stage,head,', 'e("div.stack",stage,fzBox,head,mgBox,')
+    # Marge : 0 par défaut (30° réglementaires exacts), marge facultative proposée à l'utilisateur
+    ang = _rep(ang, 'm=+Pe.get("ang30:m",5)', 'm=+Pe.get("ang30:marge",0),keepPano=!1')
+    ang = _rep(ang, 'Pe.set("ang30:m",m)', 'Pe.set("ang30:marge",m)')
+    ang = _rep(ang, 'e("label","Marge de s\\xE9curit\\xE9, en plus des 30\\xB0"),ke([["0","0\\xB0"],["5","5\\xB0"],["10","10\\xB0"]]',
+        'e("label","Marge en plus des 30\\xB0 (facultative)"),ke([["0","Aucune : 30\\xB0 exacts"],["5","+5\\xB0"],["10","+10\\xB0"]]')
+    ang = _rep(ang, '"L\\u2019angle est mesur\\xE9 au gyroscope seul, sans la boussole. Par d\\xE9faut, l\\u2019appli ajoute 5\\xB0 de s\\xE9curit\\xE9 de chaque c\\xF4t\\xE9 : les zones interdites font alors "+2*(30+m)+"\\xB0 chacune."',
+        '(m?"Avec cette marge, les zones interdites font "+2*(30+m)+"\\xB0 chacune (30\\xB0 r\\xE9glementaires + "+m+"\\xB0 de chaque c\\xF4t\\xE9).":"Calcul r\\xE9glementaire : 30\\xB0 de part et d\\u2019autre de la direction de chaque voisin, soit une zone interdite de 60\\xB0 autour de chacun. Ajoutez une marge si vous voulez plus de s\\xE9curit\\xE9.")+" L\\u2019angle est mesur\\xE9 au gyroscope, sans la boussole."')
+    ang = _rep(ang, '\\xB7 marge boussole "+m+"\\xB0."', '\\xB7 "+(m?"marge ajout\\xE9e : "+m+"\\xB0 de chaque c\\xF4t\\xE9.":"30\\xB0 exacts, sans marge.")')
     return bundle[:k] + ang + bundle[end:]
