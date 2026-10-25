@@ -292,3 +292,22 @@ function A30Photo(host,m0,back){
   }
   view();
 }
+/* ----- Sur ordinateur : le calculateur de 30° n'est pas proposé (il se fait au poste, avec l'appareil photo d'un téléphone ou d'une tablette) ----- */
+function A30IsDesk(){try{return matchMedia("(hover:hover) and (pointer:fine)").matches&&!(navigator.maxTouchPoints>0)&&window.innerWidth>=1024}catch{return !1}}
+function A30DeskFlag(){try{document.documentElement.classList.toggle("is-desk",A30IsDesk())}catch{}}
+A30DeskFlag();window.addEventListener("resize",A30DeskFlag);
+function A30DeskPage(t){
+  let url=(typeof S3SiteURL==="string"?S3SiteURL:location.href.split("#")[0])+"#/angle-30";
+  let copy=x("Copier l’adresse",{kind:"ghost",onClick:async()=>{try{await navigator.clipboard.writeText(url);A("Adresse copiée : ouvrez-la sur votre téléphone.","ok")}catch{A(url,"info")}}});
+  C(t,q({title:"Angle de 30°",subtitle:"Un outil de terrain, à utiliser au poste."},
+    e("div.stack",{style:{maxWidth:"720px"}},
+      e("div.panel",{style:{background:"#2F6F8F",color:"#fff",borderColor:"transparent"}},
+        e("div.display",{style:{fontSize:"24px",fontWeight:700}},"À ouvrir sur votre téléphone ou votre tablette"),
+        e("div.small",{style:{marginTop:"6px"}},"Le calculateur de 30° se sert de l’appareil photo : on photographie chaque voisin depuis son poste, puis on peut filmer la zone. Il n’est donc pas proposé sur ordinateur.")),
+      e("p",{style:{margin:0}},"Sur votre téléphone ou votre tablette, ouvrez l’appli, puis touchez « Tir 30° » dans la barre du bas (mode Chasse)."),
+      e("div.row",{style:{gap:"8px",flexWrap:"wrap",alignItems:"center"}},e("code",{style:{padding:"6px 10px",borderRadius:"8px",background:"var(--bg-deep,#E9E5DA)",wordBreak:"break-all"}},url),copy),
+      x("Retour au fil d’actualité",{kind:"ghost",onClick:()=>{location.hash="#/communaute"}}))));
+}
+function A30DeskRoutes(){
+  try{["/angle-30","/angle-30-carte"].forEach(p=>{let r=Jr.find(x2=>x2.pattern===p);if(!r||r.desk)return;let ld=r.loader;r.desk=1;r.loader=()=>A30IsDesk()?Promise.resolve({default:t=>A30DeskPage(t)}):ld()})}catch{}
+}

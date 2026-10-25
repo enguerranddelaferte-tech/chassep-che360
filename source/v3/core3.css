@@ -767,3 +767,6 @@ html.kb-open .tabbar{transform:translateY(110%)}
 .mod-row>img,.mod-row>video{width:72px;height:72px;object-fit:cover;border-radius:var(--r-sm);flex:none}
 .svc-state{padding:8px 12px;border-radius:var(--r-sm);background:var(--surface-2)}
 .svc-ok{background:color-mix(in srgb,var(--ok) 14%,transparent)}.svc-warn{background:color-mix(in srgb,var(--warn) 16%,transparent)}.svc-off{background:var(--surface-2)}
+
+/* Ordinateur : pas de calculateur de 30° dans les menus */
+html.is-desk a[href="#/angle-30"],html.is-desk a[href="#/angle-30-carte"]{display:none!important}

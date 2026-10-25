@@ -24,6 +24,7 @@ function S3EarlyRoutes(){
   Z("/aide",()=>Promise.resolve({default:t=>S3HelpPage(t)}));
   Z("/charte-ambassadeur",()=>Promise.resolve({default:t=>S3CharterPage(t)}));
   try{S3ShRegister()}catch{}
+  try{A30DeskRoutes()}catch{}
 }
 async function S3AmbCheck(){
   if(!w.user||!window.cp360Sb||!window.cp360Sb.on||!window.cp360Sb.on()){S3Amb.id=null;return null}
