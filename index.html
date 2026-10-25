@@ -3456,10 +3456,13 @@ async function S3FlyDraw(cv,o){
   try{await document.fonts.load("700 60px Barlow");await document.fonts.load("700 60px 'Barlow Condensed'")}catch{}
   let ff=(wt,px,cond)=>wt+" "+Math.round(px*u)+"px "+(cond?"'Barlow Condensed', Barlow, ":"Barlow, ")+"Arial, sans-serif";
   /* fond : photo recadrée + voile sombre */
+  let style=o.style||"photo",photoH=style==="carte"?Math.round(H2*({carre:.42,portrait:.44,story:.46,a5:.42}[F.id])):H2;
   c.fillStyle="#131B19";c.fillRect(0,0,W2,H2);
   let bg=await S3FlyImg(T.bg);
-  if(bg){let s=Math.max(W2/bg.width,H2/bg.height),dw=bg.width*s,dh=bg.height*s;c.drawImage(bg,(W2-dw)*T.pos[0],(H2-dh)*T.pos[1],dw,dh)}
-  let g=c.createLinearGradient(0,0,0,H2);g.addColorStop(0,"rgba(19,27,25,.55)");g.addColorStop(.42,"rgba(19,27,25,.35)");g.addColorStop(1,"rgba(19,27,25,.92)");c.fillStyle=g;c.fillRect(0,0,W2,H2);
+  if(bg){let s=Math.max(W2/bg.width,photoH/bg.height),dw=bg.width*s,dh=bg.height*s;c.drawImage(bg,(W2-dw)*T.pos[0],(photoH-dh)*T.pos[1],dw,dh)}
+  if(style==="photo"){let g=c.createLinearGradient(0,0,0,H2);g.addColorStop(0,"rgba(19,27,25,.55)");g.addColorStop(.42,"rgba(19,27,25,.35)");g.addColorStop(1,"rgba(19,27,25,.92)");c.fillStyle=g;c.fillRect(0,0,W2,H2)}
+  else{let g=c.createLinearGradient(0,0,0,photoH*.5);g.addColorStop(0,"rgba(19,27,25,.6)");g.addColorStop(1,"rgba(19,27,25,0)");c.fillStyle=g;c.fillRect(0,0,W2,photoH*.5);
+    if(style==="bandeau"){let g2=c.createLinearGradient(0,H2*.25,0,H2*.62);g2.addColorStop(0,"rgba(19,27,25,0)");g2.addColorStop(1,"rgba(19,27,25,.55)");c.fillStyle=g2;c.fillRect(0,H2*.25,W2,H2*.4)}}
   let pad=72*u,y=pad;
   /* en-tête : logo + nom de l'appli */
   let logo=await S3FlyImg("icons/icon-512.png"),ls=96*u;
@@ -3467,10 +3470,7 @@ async function S3FlyDraw(cv,o){
   c.fillStyle="#F3F0E8";c.font=ff("700",46,!0);c.textBaseline="middle";c.fillText("Chasse & Pêche 360°",pad+(logo?ls+24*u:0),y+ls/2);
   c.textBaseline="alphabetic";
   /* mention légale de partenariat (loi du 9 juin 2023) */
-  let nameW=(c.font=ff("700",46,!0),c.measureText("Chasse & Pêche 360°").width),extraH=0;
-  if(o.collab){c.font=ff("600",24);let t="Collaboration commerciale",tw=c.measureText(t).width+28*u,bx=W2-pad-tw,by=y+ls/2-22*u;
-    if(bx<pad+ls+24*u+nameW+24*u){bx=pad;by=y+ls+18*u;extraH=62*u}
-    c.fillStyle="rgba(243,240,232,.92)";c.fillRect(bx,by,tw,44*u);c.fillStyle="#131B19";c.fillText(t,bx+14*u,by+30*u)}
+  let extraH=0;
   let headerBottom=y+ls+extraH,site=(typeof S3SiteURL==="string"?S3SiteURL:"").replace(/^https?:\/\//,"").replace(/\/$/,""),N=" ";
   /* Textes adaptés à chaque format */
   const TX={
@@ -3480,10 +3480,11 @@ async function S3FlyDraw(cv,o){
     a5:{title:"L’appli des chasseurs et des pêcheurs",list:["Fil d’actualité et communauté","Carte, territoires, météo et lune","Sorties suivies et bouton SOS","Calculateur d’angle de 30° au poste"],promo:"Avec mon code, tarif Fondateurs la 1re année : Combo 29,99"+N+"€ au lieu de 44,99"+N+"€ · Chasse ou Pêche 19,99"+N+"€ au lieu de 29,99"+N+"€"}
   }[F.id];
   let title=o.title||TX.title,amb=("Ambassadeur"+(o.name?" · "+o.name:"")).toUpperCase().slice(0,48);
-  let pill=(cx,cy0,h,align)=>{let csz=88;c.font=ff("700",csz,!0);while(c.measureText(o.code).width+56*u>W2-pad*2&&csz>40){csz-=4;c.font=ff("700",csz,!0)}
+  let pill=(cx,cy0,h,align,mw)=>{let csz=88;c.font=ff("700",csz,!0);while(c.measureText(o.code).width+56*u>(mw||W2-pad*2)&&csz>36){csz-=4;c.font=ff("700",csz,!0)}
     let w=c.measureText(o.code).width+56*u,x0=align==="center"?cx-w/2:cx;c.fillStyle=T.acc;if(c.roundRect){c.beginPath();c.roundRect(x0,cy0,w,h,18*u);c.fill()}else c.fillRect(x0,cy0,w,h);
     c.fillStyle="#131B19";c.textBaseline="middle";c.textAlign="left";c.fillText(o.code,x0+28*u,cy0+h/2+3*u);c.textBaseline="alphabetic";return w};
-  if(F.id==="carre"||F.id==="portrait"){
+  if(style!=="photo"){S3FlyAlt(c,{F,T,o,u,ff,W2,H2,pad,headerBottom,photoH,style,TX,title,amb,site,pill})}
+  else if(F.id==="carre"||F.id==="portrait"){
     /* Publication : code + tarif à gauche, QR à droite, message au-dessus */
     let urlY=H2-pad*0.55,bottom=urlY-34*u,qs=(F.id==="carre"?280:320)*u,qx=W2-pad-qs,qy=bottom-qs;
     let hasQR=S3FlyQR(c,S3FlyUrl(o.code),qx,qy,qs);
@@ -3491,7 +3492,7 @@ async function S3FlyDraw(cv,o){
     let colW=W2-pad*2-(hasQR?qs+44*u:0);
     c.font=ff("600",28);let promo=S3FlyWrap(c,TX.promo,colW),plh=37*u;
     let py=bottom-(promo.length-1)*plh;c.fillStyle="#F3F0E8";promo.forEach((l,i)=>c.fillText(l,pad,py+i*plh));
-    let codeH=104*u,codeY=py-28*u-26*u-codeH;pill(pad,codeY,codeH,"left");
+    let codeH=104*u,codeY=py-28*u-26*u-codeH;pill(pad,codeY,codeH,"left",colW);
     c.font=ff("700",28);c.fillStyle=T.acc2;c.fillText("MON CODE",pad,codeY-14*u);
     let zoneTop=Math.min(codeY-14*u-28*u,hasQR?qy-16*u-24*u:1e9)-40*u;
     let hs=F.id==="carre"?80:88,head,sub=[],lh,slh=40*u,blockH;
@@ -3506,7 +3507,7 @@ async function S3FlyDraw(cv,o){
   }else{
     /* Story et affiche : une colonne centrée, de haut en bas ; tailles réduites si besoin pour tout faire tenir */
     let story=F.id==="story",cx=W2/2,maxW=W2-pad*2;
-    let top=story?Math.max(headerBottom+50*u,250*u):headerBottom+60*u,bot=story?H2-250*u:H2-pad*0.8;
+    let top=story?Math.max(headerBottom+50*u,250*u):headerBottom+60*u,bot=story?H2-280*u:H2-pad*0.8-(o.collab?44*u:0);
     let qs0=(story?420:560),hs0=(story?88:100),k=1,items,total;
     for(let it2=0;it2<14;it2++){
       items=[];let add=(h,draw,gap)=>items.push({h,draw,gap:gap||0});
@@ -3527,10 +3528,51 @@ async function S3FlyDraw(cv,o){
     items.forEach((it,i)=>{yy+=it.gap+(i===qi?free*.5:0);it.draw(yy);yy+=it.h});
     c.textAlign="left";
   }
+  /* mention légale de partenariat (loi du 9 juin 2023) : en petit, en bas, mais lisible */
+  if(o.collab){let dark=style==="carte";c.font=ff("600",21);let t="Collaboration commerciale",tw=c.measureText(t).width+22*u,th=32*u,
+      bx=W2-pad-tw,by=(F.id==="story"?H2-232*u:H2-pad*0.55-th+9*u);
+    if(F.id==="story"||(style==="photo"&&F.id==="a5"))bx=W2/2-tw/2;
+    c.fillStyle=dark?"rgba(19,27,25,.08)":"rgba(19,27,25,.55)";if(c.roundRect){c.beginPath();c.roundRect(bx,by,tw,th,8*u);c.fill()}else c.fillRect(bx,by,tw,th);
+    c.fillStyle=dark?"#4A5550":"rgba(243,240,232,.92)";c.textAlign="left";c.fillText(t,bx+11*u,by+th-10*u)}
   return cv;
 }
+/* Styles « carte » (photo en haut, panneau clair) et « bandeau » (photo pleine, bande sombre en bas) */
+function S3FlyAlt(c,P){
+  let {F,T,o,u,ff,W2,H2,pad,headerBottom,photoH,style,TX,title,amb,site,pill}=P,carte=style==="carte";
+  let ink=carte?"#131B19":"#F3F0E8",soft=carte?"#4A5550":"#D9D4C7",lab=carte?(o.theme==="peche"?"#1B4757":"#9C3B05"):T.acc2;
+  let qs=({carre:250,portrait:290,story:330,a5:330}[F.id])*u,urlY=H2-pad*0.55,rowBottom=urlY-40*u;
+  if(F.id==="story"){rowBottom=H2-290*u;urlY=H2-262*u}
+  let colW=W2-pad*2-qs-44*u;c.font=ff("600",27);let promo=S3FlyWrap(c,TX.promo,colW),plh=36*u,codeH=96*u;
+  let rowTopEst=rowBottom-Math.max(qs+36*u,(promo.length-1)*plh+51*u+codeH+38*u);
+  let panelTop;
+  if(carte){panelTop=photoH;c.fillStyle="#F3F0E8";c.fillRect(0,panelTop,W2,H2-panelTop);c.fillStyle=T.acc;c.fillRect(0,panelTop-10*u,W2,10*u)}
+  else{panelTop=Math.min(H2*(1-({carre:.38,portrait:.34,story:.30,a5:.33}[F.id])),rowTopEst-46*u);c.fillStyle="#131B19";c.fillRect(0,panelTop,W2,H2-panelTop);c.fillStyle=T.acc;c.fillRect(0,panelTop,W2,10*u)}
+  /* rangée du bas : code + tarif à gauche, QR à droite */
+  let qx=W2-pad-qs,qy=rowBottom-qs;S3FlyQR(c,S3FlyUrl(o.code),qx,qy,qs);
+  c.fillStyle=ink;c.font=ff("600",22);c.textAlign="center";c.fillText("Scannez pour vous inscrire",qx+qs/2,qy-14*u);c.textAlign="left";
+  c.font=ff("600",27);let py=rowBottom-(promo.length-1)*plh;
+  c.fillStyle=ink;promo.forEach((l,i)=>c.fillText(l,pad,py+i*plh));
+  let codeY=py-27*u-24*u-codeH;pill(pad,codeY,codeH,"left",colW);
+  c.font=ff("700",26);c.fillStyle=lab;c.fillText("MON CODE",pad,codeY-12*u);
+  let rowTop=Math.min(codeY-12*u-26*u,qy-14*u-22*u);
+  c.font=ff("500",22);c.fillStyle=carte?"#66726C":"rgba(243,240,232,.75)";c.fillText(site,pad,urlY);
+  /* message */
+  let maxW=W2-pad*2,hs=({carre:70,portrait:80,story:84,a5:84}[F.id]),head,lh,sub=[],list=TX.list||null,slh=40*u,blockH,top0,bot0;
+  if(carte){top0=panelTop+44*u;bot0=rowTop-36*u}else{top0=headerBottom+50*u;bot0=panelTop-50*u}
+  if(TX.sub){c.font=ff("500",30);sub=S3FlyWrap(c,TX.sub,maxW)}
+  for(;;){c.font=ff("700",hs,!0);head=S3FlyWrap(c,title,maxW);lh=hs*u*1.04;
+    blockH=40*u+head.length*lh+(sub.length?12*u+sub.length*slh:0)+(list?16*u+list.length*44*u:0);
+    if(blockH<=bot0-top0||hs<=44)break;hs-=4}
+  if(blockH>bot0-top0&&list){list=null;blockH=40*u+head.length*lh+(sub.length?12*u+sub.length*slh:0)}
+  if(blockH>bot0-top0&&sub.length){sub=[];blockH=40*u+head.length*lh}
+  let yy=carte?top0:bot0-blockH;
+  c.fillStyle=lab;c.font=ff("700",26);c.fillText(amb,pad,yy+26*u);yy+=40*u;
+  c.fillStyle=ink;c.font=ff("700",hs,!0);head.forEach(l=>{yy+=lh;c.fillText(l,pad,yy-lh*.18)});
+  if(sub.length){yy+=12*u;c.font=ff("500",30);c.fillStyle=soft;sub.forEach(l=>{yy+=slh;c.fillText(l,pad,yy-8*u)})}
+  if(list){yy+=16*u;c.font=ff("500",30);list.forEach(l=>{yy+=44*u;c.fillStyle=T.acc;c.fillRect(pad,yy-20*u,10*u,10*u);c.fillStyle=soft;c.fillText(l,pad+26*u,yy-8*u)})}
+}
 function S3AmbFlyer(code,name){
-  let o={fmt:"carre",theme:"chasse",code,name:name||"",collab:!0,title:""};
+  let o={fmt:"carre",theme:"chasse",style:"carte",code,name:name||"",collab:!0,title:""};
   let cv=e("canvas",{style:{width:"100%",height:"auto",display:"block",borderRadius:"12px",background:"#131b19"}}),busy=0,again=0;
   async function draw(){if(busy){again=1;return}busy=1;try{await S3FlyDraw(cv,o)}catch{}busy=0;if(again){again=0;draw()}}
   let seg=(arr,key)=>ke(arr,o[key],v=>{o[key]=v;draw()});
@@ -3544,6 +3586,7 @@ function S3AmbFlyer(code,name){
   let dl=x("Télécharger",{icon:"download",kind:"ghost",onClick:()=>cv.toBlob(b=>{if(!b)return;let u2=URL.createObjectURL(b),a=e("a",{href:u2,download:fname()});document.body.append(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(u2)},4e3)},"image/png")});
   let dlg=Le({title:"Créer un visuel avec mon code",wide:!0,body:e("div.stack",{style:{gap:"12px"}},
       e("div.field",{style:{margin:0}},e("label","Format"),seg(S3FlyFormats.map(f=>[f.id,f.label]),"fmt")),
+      e("div.field",{style:{margin:0}},e("label","Style"),seg([["carte","Photo + panneau"],["bandeau","Bandeau"],["photo","Pleine photo"]],"style")),
       e("div.field",{style:{margin:0}},e("label","Ambiance"),seg([["chasse","Chasse"],["peche","Pêche"]],"theme")),
       e("div.field",{style:{margin:0}},e("label","Titre (facultatif)"),titleIn),
       collab,
