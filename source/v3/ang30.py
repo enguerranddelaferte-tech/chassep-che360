@@ -193,4 +193,6 @@ def patch_ang30(bundle):
     # Méthode photo (sans capteurs) proposée en premier
     ang = _rep(ang, 'C(host,e("div.grid.g-main",e("div.stack",x("Commencer",{icon:"camera",kind:"primary",size:"block",onClick:()=>{startSensors(),aim(1)}}),',
         'C(host,e("div.grid.g-main",e("div.stack",k({title:"M\\xE9thode photo",sub:"recommand\\xE9e"},e("p.small",{style:{margin:"0 0 10px"}},"Sans boussole ni gyroscope, donc sans d\\xE9rive. Une photo par voisin : touchez l\\u2019obstacle sur la photo, l\\u2019appli trace la limite exacte des 30\\xB0. Vous rep\\xE9rez un arbre ou un piquet sur chaque limite, et vous chassez avec ces rep\\xE8res."),x("Commencer avec des photos",{icon:"camera",kind:"primary",size:"block",onClick:()=>{stopSensors(),A30Photo(host,m,intro)}}),A30HistBox(host,m,intro)),x("Vis\\xE9e en direct (cam\\xE9ra et gyroscope)",{icon:"target",kind:"ghost",size:"block",onClick:()=>{startSensors(),aim(1)}}),')
+    # « Angles mémorisés » (visée gyroscope) retiré : l'historique de la méthode photo le remplace
+    ang = _rep(ang, 'aim(1)}}),hPanel(),k({title:"Comment', 'aim(1)}}),k({title:"Comment')
     return bundle[:k] + ang + bundle[end:]

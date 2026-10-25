@@ -186,12 +186,12 @@ function A30Photo(host,m0,back,rec){
   let saveT=0;
   async function persist(){
     try{if(!sides.L||!sides.R||sides.L.x==null||sides.R.x==null)return;
-      rid=rid||("r"+Date.now().toString(36)+Math.random().toString(36).slice(2,6));rat=rat||Date.now();
+      if(!rid)return;rat=rat||Date.now();
       let zone=null;if(sides.pano){try{let s2=sides.pano.s,PL=sides.pano.PcL+s2*A30PhA0(sides.L),PR=sides.pano.PcR+s2*A30PhA0(sides.R);zone=(PR-PL)/s2-60-2*m}catch{}}
       let r={id:rid,at:rat,upd:Date.now(),name:rname,m,zone,L:await A30PackSide(sides.L),R:await A30PackSide(sides.R),pano:await A30PackPano(sides.pano)};
       await A30HPut(r);saved=Date.now();
       let all=await A30HList();for(let o of all.slice(A30H.max))await A30HDel(o.id);
-      let st=host.querySelector(".a30h-state");st&&(st.textContent="Enregistré dans l’historique de cet appareil.");
+      let st=host.querySelector(".a30h-state");st&&(st.textContent="Enregistré dans l’historique de cet appareil : vos modifications sont prises en compte.");
     }catch(er){let st=host.querySelector(".a30h-state");st&&(st.textContent="Historique indisponible ici (stockage bloqué) : partagez l’image pour la garder.")}
   }
   const persistSoon=()=>{clearTimeout(saveT);saveT=setTimeout(persist,400)};
@@ -357,7 +357,10 @@ function A30Photo(host,m0,back,rec){
       e("div.panel",{style:{background:"#3F7A55",color:"#fff",borderColor:"transparent"}},
         e("div.display",{style:{fontSize:"24px",fontWeight:700}},"Votre zone de tir : entre les deux lignes jaunes"),
         e("div.small",{style:{marginTop:"4px"}},(m?"30° réglementaires + "+m+"° de marge":"30° réglementaires exacts")+". Choisissez un repère fixe sur chaque ligne (arbre, piquet, souche) : au poste, tirez seulement entre ces deux repères.")),
-      e("div.field",{style:{margin:0}},e("label","Nom du poste ou du lieu (facultatif)"),e("input.input",{value:rname,placeholder:"ex. : Poste 4, battue du Grand Bois",maxLength:80,oninput:ev=>{rname=ev.target.value;persistSoon()}}),e("div.tiny.muted.a30h-state",{style:{marginTop:"4px"}},"Enregistrement dans l’historique…")),
+      e("div.panel.stack",{style:{gap:"8px"}},
+        e("div.field",{style:{margin:0}},e("label","Nom du poste ou du lieu (facultatif)"),e("input.input",{value:rname,placeholder:"ex. : Poste 4, battue du Grand Bois",maxLength:80,oninput:ev=>{rname=ev.target.value;persistSoon()}})),
+        rid?null:x("Enregistrer dans l’historique",{icon:"check",kind:"primary",size:"block",onClick:async ev=>{let bt=ev&&ev.currentTarget;if(bt){if(bt.disabled)return;bt.disabled=!0}let st=host.querySelector(".a30h-state");st&&(st.textContent="Enregistrement en cours…");rid="r"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);await persist();if(saved)view();else{rid=null;bt&&(bt.disabled=!1)}}}),
+        e("div.tiny.muted.a30h-state",rid?"Enregistré dans l’historique de cet appareil : vos modifications sont prises en compte.":"Enregistrez ces repères pour les revoir plus tard (photos, lignes et panorama restent sur cet appareil).")),
       pblock,
       e("div.grid.g-2",gl,gr),
       e("div.row",{style:{gap:"8px",flexWrap:"wrap"}},x("Partager l’image des repères",{icon:"download",kind:"primary",onClick:share}),x("Refaire la photo de gauche",{kind:"ghost",onClick:()=>{step="L";view()}}),x("Refaire la photo de droite",{kind:"ghost",onClick:()=>{step="R";view()}})),
@@ -367,7 +370,7 @@ function A30Photo(host,m0,back,rec){
         pinfo.textContent="Entre les deux obstacles : "+Math.round(r.between)+"°. "+(r.zone>0?"Zone de tir : "+Math.round(r.zone)+"° de large (en vert).":"Il n’y a pas de zone de tir : il faut au moins "+(60+2*m)+"° entre les obstacles.")+" Le panorama sert à voir l’ensemble"+(pz.noPh?"":" (vos deux photos y sont incrustées, plus nettes)")+" ; les lignes exactes sont celles des photos."+(pz.edge||pz.conf<.65?" Assemblage peu sûr : refilmez plus lentement si les lignes ne tombent pas aux mêmes repères que sur les photos.":"");
         if(r.zone<=0)pinfo.style.color="var(--danger,#D2513F)"}
       A30PhotoDraw(cvL,sides.L,"L",m,cvL.parentElement.clientWidth||340);A30PhotoDraw(cvR,sides.R,"R",m,cvR.parentElement.clientWidth||340)});
-    persistSoon();
+    rid&&persistSoon();
   }
   if(rec){rid=rec.id;rname=rec.name||"";rat=rec.at;m=rec.m||0;step="done";
     C(host,e("p.small.muted","Ouverture de vos repères…"));
