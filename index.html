@@ -969,24 +969,30 @@ async function S3AmbPage(t){
 /* Code personnel : tarif Fondateurs pour les personnes qui s’inscrivent avec, compteur d’inscrits */
 function S3AmbCodeBox(){
   let box=e("div.stack.amb-code",{style:{gap:"10px"}},e("p.small.muted",{style:{margin:0}},"Chargement…"));
+  S3AmbCodeFill(box);
+  return box;
+}
+function S3AmbCodeFill(box){
   S3Sb("POST","rpc/my_amb_code",{}).then(r=>{
     W(box);
     let c=r&&r.ok&&r.json;
     box.append(e("div.row",{style:{gap:"10px",alignItems:"center",flexWrap:"wrap"}},e("span.launch-chip.pio","Combo 360° offert"),e("span.small","tant que vous êtes ambassadeur")));
     if(!c||!c.code){box.append(e("p.small.muted",{style:{margin:0}},"Votre code est en préparation. Revenez dans un instant."));return}
-    let url=location.origin+location.pathname+"#/communaute?invite="+c.code;
+    let url=S3FlyUrl(c.code);
     box.append(
       e("div.amb-code-row",e("code",c.code),e("span.small",(c.signups||0)+" inscrit"+((c.signups||0)>1?"s":"")+" avec votre code")),
+      e("div.row.wrap",{style:{gap:"8px"}},
+        x("Créer un visuel avec QR code",{icon:"camera",kind:"primary",onClick:()=>S3AmbFlyer(c.code,(S3Amb&&S3Amb.name)||(w.user&&w.user.name)||"")}),
+        x("Choisir mon code",{kind:"ghost",onClick:async()=>{let nc=await S3AmbMyCodeDlg(c.code);if(nc){W(box);box.append(e("p.small.muted",{style:{margin:0}},"Chargement…"));S3AmbCodeFill(box)}}})),
       e("p.small",{style:{margin:0}},"Les personnes qui s’inscrivent avec votre code ont le tarif Fondateurs, même quand les 500 places sont parties."),
       e("div.row.wrap",{style:{gap:"8px"}},
-        x("Partager mon code",{icon:"send",kind:"primary",onClick:async()=>{
+        x("Partager mon lien",{icon:"send",kind:"ghost",onClick:async()=>{
           let res=await S3ShareData({text:"Rejoins-moi sur Chasse & Pêche 360°, l’appli des chasseurs et des pêcheurs. Avec mon code "+c.code+" tu as le tarif Fondateurs :",url,title:"Chasse & Pêche 360°"});
           if(res==="copied")A("Lien copié : collez-le dans un message ou en bio.","ok");
         }}),
         x("Copier le lien",{kind:"ghost",onClick:async()=>{try{await navigator.clipboard.writeText(url);A("Lien copié.","ok")}catch{A(url,"info")}}})),
       e("p.tiny.muted",{style:{margin:0}},"Rappel : le Combo offert est un avantage. Quand vous parlez de l’appli sur vos réseaux, indiquez « Collaboration commerciale » ou « Partenariat » (loi du 9 juin 2023 sur l’influence commerciale). ",e("a",{href:"#/charte-ambassadeur"},"Lire la charte ambassadeur"),"."));
   }).catch(()=>{W(box);box.append(e("p.small.muted",{style:{margin:0}},"Code indisponible pour le moment."))});
-  return box;
 }
 async function S3AmbList(list,id){
   let r=await S3Sb("GET","amb_posts?ambassador_id=eq."+encodeURIComponent(id)+"&select=id,url,title,published_on&order=created_at.desc&limit=300");
@@ -2827,6 +2833,707 @@ function A30DeskPage(t){
 }
 function A30DeskRoutes(){
   try{["/angle-30","/angle-30-carte"].forEach(p=>{let r=Jr.find(x2=>x2.pattern===p);if(!r||r.desk)return;let ld=r.loader;r.desk=1;r.loader=()=>A30IsDesk()?Promise.resolve({default:t=>A30DeskPage(t)}):ld()})}catch{}
+}
+
+/* QR Code generator library — Copyright (c) Project Nayuki. MIT License. https://www.nayuki.io/page/qr-code-generator-library
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * - The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ * - The Software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the Software or the use or other dealings in the Software. */
+var qrcodegen;
+(function (qrcodegen) {
+    class QrCode {
+        static encodeText(text, ecl) {
+            const segs = qrcodegen.QrSegment.makeSegments(text);
+            return QrCode.encodeSegments(segs, ecl);
+        }
+        static encodeBinary(data, ecl) {
+            const seg = qrcodegen.QrSegment.makeBytes(data);
+            return QrCode.encodeSegments([seg], ecl);
+        }
+        static encodeSegments(segs, ecl, minVersion = 1, maxVersion = 40, mask = -1, boostEcl = true) {
+            if (!(QrCode.MIN_VERSION <= minVersion && minVersion <= maxVersion && maxVersion <= QrCode.MAX_VERSION)
+                || mask < -1 || mask > 7)
+                throw new RangeError("Invalid value");
+            let version;
+            let dataUsedBits;
+            for (version = minVersion;; version++) {
+                const dataCapacityBits = QrCode.getNumDataCodewords(version, ecl) * 8;
+                const usedBits = QrSegment.getTotalBits(segs, version);
+                if (usedBits <= dataCapacityBits) {
+                    dataUsedBits = usedBits;
+                    break;
+                }
+                if (version >= maxVersion)
+                    throw new RangeError("Data too long");
+            }
+            for (const newEcl of [QrCode.Ecc.MEDIUM, QrCode.Ecc.QUARTILE, QrCode.Ecc.HIGH]) {
+                if (boostEcl && dataUsedBits <= QrCode.getNumDataCodewords(version, newEcl) * 8)
+                    ecl = newEcl;
+            }
+            let bb = [];
+            for (const seg of segs) {
+                appendBits(seg.mode.modeBits, 4, bb);
+                appendBits(seg.numChars, seg.mode.numCharCountBits(version), bb);
+                for (const b of seg.getData())
+                    bb.push(b);
+            }
+            assert(bb.length == dataUsedBits);
+            const dataCapacityBits = QrCode.getNumDataCodewords(version, ecl) * 8;
+            assert(bb.length <= dataCapacityBits);
+            appendBits(0, Math.min(4, dataCapacityBits - bb.length), bb);
+            appendBits(0, (8 - bb.length % 8) % 8, bb);
+            assert(bb.length % 8 == 0);
+            for (let padByte = 0xEC; bb.length < dataCapacityBits; padByte ^= 0xEC ^ 0x11)
+                appendBits(padByte, 8, bb);
+            let dataCodewords = [];
+            while (dataCodewords.length * 8 < bb.length)
+                dataCodewords.push(0);
+            bb.forEach((b, i) => dataCodewords[i >>> 3] |= b << (7 - (i & 7)));
+            return new QrCode(version, ecl, dataCodewords, mask);
+        }
+        constructor(version, errorCorrectionLevel, dataCodewords, msk) {
+            this.version = version;
+            this.errorCorrectionLevel = errorCorrectionLevel;
+            this.modules = [];
+            this.isFunction = [];
+            if (version < QrCode.MIN_VERSION || version > QrCode.MAX_VERSION)
+                throw new RangeError("Version value out of range");
+            if (msk < -1 || msk > 7)
+                throw new RangeError("Mask value out of range");
+            this.size = version * 4 + 17;
+            let row = [];
+            for (let i = 0; i < this.size; i++)
+                row.push(false);
+            for (let i = 0; i < this.size; i++) {
+                this.modules.push(row.slice());
+                this.isFunction.push(row.slice());
+            }
+            this.drawFunctionPatterns();
+            const allCodewords = this.addEccAndInterleave(dataCodewords);
+            this.drawCodewords(allCodewords);
+            if (msk == -1) {
+                let minPenalty = 1000000000;
+                for (let i = 0; i < 8; i++) {
+                    this.applyMask(i);
+                    this.drawFormatBits(i);
+                    const penalty = this.getPenaltyScore();
+                    if (penalty < minPenalty) {
+                        msk = i;
+                        minPenalty = penalty;
+                    }
+                    this.applyMask(i);
+                }
+            }
+            assert(0 <= msk && msk <= 7);
+            this.mask = msk;
+            this.applyMask(msk);
+            this.drawFormatBits(msk);
+            this.isFunction = [];
+        }
+        getModule(x, y) {
+            return 0 <= x && x < this.size && 0 <= y && y < this.size && this.modules[y][x];
+        }
+        drawFunctionPatterns() {
+            for (let i = 0; i < this.size; i++) {
+                this.setFunctionModule(6, i, i % 2 == 0);
+                this.setFunctionModule(i, 6, i % 2 == 0);
+            }
+            this.drawFinderPattern(3, 3);
+            this.drawFinderPattern(this.size - 4, 3);
+            this.drawFinderPattern(3, this.size - 4);
+            const alignPatPos = this.getAlignmentPatternPositions();
+            const numAlign = alignPatPos.length;
+            for (let i = 0; i < numAlign; i++) {
+                for (let j = 0; j < numAlign; j++) {
+                    if (!(i == 0 && j == 0 || i == 0 && j == numAlign - 1 || i == numAlign - 1 && j == 0))
+                        this.drawAlignmentPattern(alignPatPos[i], alignPatPos[j]);
+                }
+            }
+            this.drawFormatBits(0);
+            this.drawVersion();
+        }
+        drawFormatBits(mask) {
+            const data = this.errorCorrectionLevel.formatBits << 3 | mask;
+            let rem = data;
+            for (let i = 0; i < 10; i++)
+                rem = (rem << 1) ^ ((rem >>> 9) * 0x537);
+            const bits = (data << 10 | rem) ^ 0x5412;
+            assert(bits >>> 15 == 0);
+            for (let i = 0; i <= 5; i++)
+                this.setFunctionModule(8, i, getBit(bits, i));
+            this.setFunctionModule(8, 7, getBit(bits, 6));
+            this.setFunctionModule(8, 8, getBit(bits, 7));
+            this.setFunctionModule(7, 8, getBit(bits, 8));
+            for (let i = 9; i < 15; i++)
+                this.setFunctionModule(14 - i, 8, getBit(bits, i));
+            for (let i = 0; i < 8; i++)
+                this.setFunctionModule(this.size - 1 - i, 8, getBit(bits, i));
+            for (let i = 8; i < 15; i++)
+                this.setFunctionModule(8, this.size - 15 + i, getBit(bits, i));
+            this.setFunctionModule(8, this.size - 8, true);
+        }
+        drawVersion() {
+            if (this.version < 7)
+                return;
+            let rem = this.version;
+            for (let i = 0; i < 12; i++)
+                rem = (rem << 1) ^ ((rem >>> 11) * 0x1F25);
+            const bits = this.version << 12 | rem;
+            assert(bits >>> 18 == 0);
+            for (let i = 0; i < 18; i++) {
+                const color = getBit(bits, i);
+                const a = this.size - 11 + i % 3;
+                const b = Math.floor(i / 3);
+                this.setFunctionModule(a, b, color);
+                this.setFunctionModule(b, a, color);
+            }
+        }
+        drawFinderPattern(x, y) {
+            for (let dy = -4; dy <= 4; dy++) {
+                for (let dx = -4; dx <= 4; dx++) {
+                    const dist = Math.max(Math.abs(dx), Math.abs(dy));
+                    const xx = x + dx;
+                    const yy = y + dy;
+                    if (0 <= xx && xx < this.size && 0 <= yy && yy < this.size)
+                        this.setFunctionModule(xx, yy, dist != 2 && dist != 4);
+                }
+            }
+        }
+        drawAlignmentPattern(x, y) {
+            for (let dy = -2; dy <= 2; dy++) {
+                for (let dx = -2; dx <= 2; dx++)
+                    this.setFunctionModule(x + dx, y + dy, Math.max(Math.abs(dx), Math.abs(dy)) != 1);
+            }
+        }
+        setFunctionModule(x, y, isDark) {
+            this.modules[y][x] = isDark;
+            this.isFunction[y][x] = true;
+        }
+        addEccAndInterleave(data) {
+            const ver = this.version;
+            const ecl = this.errorCorrectionLevel;
+            if (data.length != QrCode.getNumDataCodewords(ver, ecl))
+                throw new RangeError("Invalid argument");
+            const numBlocks = QrCode.NUM_ERROR_CORRECTION_BLOCKS[ecl.ordinal][ver];
+            const blockEccLen = QrCode.ECC_CODEWORDS_PER_BLOCK[ecl.ordinal][ver];
+            const rawCodewords = Math.floor(QrCode.getNumRawDataModules(ver) / 8);
+            const numShortBlocks = numBlocks - rawCodewords % numBlocks;
+            const shortBlockLen = Math.floor(rawCodewords / numBlocks);
+            let blocks = [];
+            const rsDiv = QrCode.reedSolomonComputeDivisor(blockEccLen);
+            for (let i = 0, k = 0; i < numBlocks; i++) {
+                let dat = data.slice(k, k + shortBlockLen - blockEccLen + (i < numShortBlocks ? 0 : 1));
+                k += dat.length;
+                const ecc = QrCode.reedSolomonComputeRemainder(dat, rsDiv);
+                if (i < numShortBlocks)
+                    dat.push(0);
+                blocks.push(dat.concat(ecc));
+            }
+            let result = [];
+            for (let i = 0; i < blocks[0].length; i++) {
+                blocks.forEach((block, j) => {
+                    if (i != shortBlockLen - blockEccLen || j >= numShortBlocks)
+                        result.push(block[i]);
+                });
+            }
+            assert(result.length == rawCodewords);
+            return result;
+        }
+        drawCodewords(data) {
+            if (data.length != Math.floor(QrCode.getNumRawDataModules(this.version) / 8))
+                throw new RangeError("Invalid argument");
+            let i = 0;
+            for (let right = this.size - 1; right >= 1; right -= 2) {
+                if (right == 6)
+                    right = 5;
+                for (let vert = 0; vert < this.size; vert++) {
+                    for (let j = 0; j < 2; j++) {
+                        const x = right - j;
+                        const upward = ((right + 1) & 2) == 0;
+                        const y = upward ? this.size - 1 - vert : vert;
+                        if (!this.isFunction[y][x] && i < data.length * 8) {
+                            this.modules[y][x] = getBit(data[i >>> 3], 7 - (i & 7));
+                            i++;
+                        }
+                    }
+                }
+            }
+            assert(i == data.length * 8);
+        }
+        applyMask(mask) {
+            if (mask < 0 || mask > 7)
+                throw new RangeError("Mask value out of range");
+            for (let y = 0; y < this.size; y++) {
+                for (let x = 0; x < this.size; x++) {
+                    let invert;
+                    switch (mask) {
+                        case 0:
+                            invert = (x + y) % 2 == 0;
+                            break;
+                        case 1:
+                            invert = y % 2 == 0;
+                            break;
+                        case 2:
+                            invert = x % 3 == 0;
+                            break;
+                        case 3:
+                            invert = (x + y) % 3 == 0;
+                            break;
+                        case 4:
+                            invert = (Math.floor(x / 3) + Math.floor(y / 2)) % 2 == 0;
+                            break;
+                        case 5:
+                            invert = x * y % 2 + x * y % 3 == 0;
+                            break;
+                        case 6:
+                            invert = (x * y % 2 + x * y % 3) % 2 == 0;
+                            break;
+                        case 7:
+                            invert = ((x + y) % 2 + x * y % 3) % 2 == 0;
+                            break;
+                        default: throw new Error("Unreachable");
+                    }
+                    if (!this.isFunction[y][x] && invert)
+                        this.modules[y][x] = !this.modules[y][x];
+                }
+            }
+        }
+        getPenaltyScore() {
+            let result = 0;
+            for (let y = 0; y < this.size; y++) {
+                let runColor = false;
+                let runX = 0;
+                let runHistory = [0, 0, 0, 0, 0, 0, 0];
+                for (let x = 0; x < this.size; x++) {
+                    if (this.modules[y][x] == runColor) {
+                        runX++;
+                        if (runX == 5)
+                            result += QrCode.PENALTY_N1;
+                        else if (runX > 5)
+                            result++;
+                    }
+                    else {
+                        this.finderPenaltyAddHistory(runX, runHistory);
+                        if (!runColor)
+                            result += this.finderPenaltyCountPatterns(runHistory) * QrCode.PENALTY_N3;
+                        runColor = this.modules[y][x];
+                        runX = 1;
+                    }
+                }
+                result += this.finderPenaltyTerminateAndCount(runColor, runX, runHistory) * QrCode.PENALTY_N3;
+            }
+            for (let x = 0; x < this.size; x++) {
+                let runColor = false;
+                let runY = 0;
+                let runHistory = [0, 0, 0, 0, 0, 0, 0];
+                for (let y = 0; y < this.size; y++) {
+                    if (this.modules[y][x] == runColor) {
+                        runY++;
+                        if (runY == 5)
+                            result += QrCode.PENALTY_N1;
+                        else if (runY > 5)
+                            result++;
+                    }
+                    else {
+                        this.finderPenaltyAddHistory(runY, runHistory);
+                        if (!runColor)
+                            result += this.finderPenaltyCountPatterns(runHistory) * QrCode.PENALTY_N3;
+                        runColor = this.modules[y][x];
+                        runY = 1;
+                    }
+                }
+                result += this.finderPenaltyTerminateAndCount(runColor, runY, runHistory) * QrCode.PENALTY_N3;
+            }
+            for (let y = 0; y < this.size - 1; y++) {
+                for (let x = 0; x < this.size - 1; x++) {
+                    const color = this.modules[y][x];
+                    if (color == this.modules[y][x + 1] &&
+                        color == this.modules[y + 1][x] &&
+                        color == this.modules[y + 1][x + 1])
+                        result += QrCode.PENALTY_N2;
+                }
+            }
+            let dark = 0;
+            for (const row of this.modules)
+                dark = row.reduce((sum, color) => sum + (color ? 1 : 0), dark);
+            const total = this.size * this.size;
+            const k = Math.ceil(Math.abs(dark * 20 - total * 10) / total) - 1;
+            assert(0 <= k && k <= 9);
+            result += k * QrCode.PENALTY_N4;
+            assert(0 <= result && result <= 2568888);
+            return result;
+        }
+        getAlignmentPatternPositions() {
+            if (this.version == 1)
+                return [];
+            else {
+                const numAlign = Math.floor(this.version / 7) + 2;
+                const step = Math.floor((this.version * 8 + numAlign * 3 + 5) / (numAlign * 4 - 4)) * 2;
+                let result = [6];
+                for (let pos = this.size - 7; result.length < numAlign; pos -= step)
+                    result.splice(1, 0, pos);
+                return result;
+            }
+        }
+        static getNumRawDataModules(ver) {
+            if (ver < QrCode.MIN_VERSION || ver > QrCode.MAX_VERSION)
+                throw new RangeError("Version number out of range");
+            let result = (16 * ver + 128) * ver + 64;
+            if (ver >= 2) {
+                const numAlign = Math.floor(ver / 7) + 2;
+                result -= (25 * numAlign - 10) * numAlign - 55;
+                if (ver >= 7)
+                    result -= 36;
+            }
+            assert(208 <= result && result <= 29648);
+            return result;
+        }
+        static getNumDataCodewords(ver, ecl) {
+            return Math.floor(QrCode.getNumRawDataModules(ver) / 8) -
+                QrCode.ECC_CODEWORDS_PER_BLOCK[ecl.ordinal][ver] *
+                    QrCode.NUM_ERROR_CORRECTION_BLOCKS[ecl.ordinal][ver];
+        }
+        static reedSolomonComputeDivisor(degree) {
+            if (degree < 1 || degree > 255)
+                throw new RangeError("Degree out of range");
+            let result = [];
+            for (let i = 0; i < degree - 1; i++)
+                result.push(0);
+            result.push(1);
+            let root = 1;
+            for (let i = 0; i < degree; i++) {
+                for (let j = 0; j < result.length; j++) {
+                    result[j] = QrCode.reedSolomonMultiply(result[j], root);
+                    if (j + 1 < result.length)
+                        result[j] ^= result[j + 1];
+                }
+                root = QrCode.reedSolomonMultiply(root, 0x02);
+            }
+            return result;
+        }
+        static reedSolomonComputeRemainder(data, divisor) {
+            let result = divisor.map(_ => 0);
+            for (const b of data) {
+                const factor = b ^ result.shift();
+                result.push(0);
+                divisor.forEach((coef, i) => result[i] ^= QrCode.reedSolomonMultiply(coef, factor));
+            }
+            return result;
+        }
+        static reedSolomonMultiply(x, y) {
+            if (x >>> 8 != 0 || y >>> 8 != 0)
+                throw new RangeError("Byte out of range");
+            let z = 0;
+            for (let i = 7; i >= 0; i--) {
+                z = (z << 1) ^ ((z >>> 7) * 0x11D);
+                z ^= ((y >>> i) & 1) * x;
+            }
+            assert(z >>> 8 == 0);
+            return z;
+        }
+        finderPenaltyCountPatterns(runHistory) {
+            const n = runHistory[1];
+            assert(n <= this.size * 3);
+            const core = n > 0 && runHistory[2] == n && runHistory[3] == n * 3 && runHistory[4] == n && runHistory[5] == n;
+            return (core && runHistory[0] >= n * 4 && runHistory[6] >= n ? 1 : 0)
+                + (core && runHistory[6] >= n * 4 && runHistory[0] >= n ? 1 : 0);
+        }
+        finderPenaltyTerminateAndCount(currentRunColor, currentRunLength, runHistory) {
+            if (currentRunColor) {
+                this.finderPenaltyAddHistory(currentRunLength, runHistory);
+                currentRunLength = 0;
+            }
+            currentRunLength += this.size;
+            this.finderPenaltyAddHistory(currentRunLength, runHistory);
+            return this.finderPenaltyCountPatterns(runHistory);
+        }
+        finderPenaltyAddHistory(currentRunLength, runHistory) {
+            if (runHistory[0] == 0)
+                currentRunLength += this.size;
+            runHistory.pop();
+            runHistory.unshift(currentRunLength);
+        }
+    }
+    QrCode.MIN_VERSION = 1;
+    QrCode.MAX_VERSION = 40;
+    QrCode.PENALTY_N1 = 3;
+    QrCode.PENALTY_N2 = 3;
+    QrCode.PENALTY_N3 = 40;
+    QrCode.PENALTY_N4 = 10;
+    QrCode.ECC_CODEWORDS_PER_BLOCK = [
+        [-1, 7, 10, 15, 20, 26, 18, 20, 24, 30, 18, 20, 24, 26, 30, 22, 24, 28, 30, 28, 28, 28, 28, 30, 30, 26, 28, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+        [-1, 10, 16, 26, 18, 24, 16, 18, 22, 22, 26, 30, 22, 22, 24, 24, 28, 28, 26, 26, 26, 26, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28],
+        [-1, 13, 22, 18, 26, 18, 24, 18, 22, 20, 24, 28, 26, 24, 20, 30, 24, 28, 28, 26, 30, 28, 30, 30, 30, 30, 28, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+        [-1, 17, 28, 22, 16, 22, 28, 26, 26, 24, 28, 24, 28, 22, 24, 24, 30, 28, 28, 26, 28, 30, 24, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
+    ];
+    QrCode.NUM_ERROR_CORRECTION_BLOCKS = [
+        [-1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 4, 4, 4, 4, 4, 6, 6, 6, 6, 7, 8, 8, 9, 9, 10, 12, 12, 12, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21, 22, 24, 25],
+        [-1, 1, 1, 1, 2, 2, 4, 4, 4, 5, 5, 5, 8, 9, 9, 10, 10, 11, 13, 14, 16, 17, 17, 18, 20, 21, 23, 25, 26, 28, 29, 31, 33, 35, 37, 38, 40, 43, 45, 47, 49],
+        [-1, 1, 1, 2, 2, 4, 4, 6, 6, 8, 8, 8, 10, 12, 16, 12, 17, 16, 18, 21, 20, 23, 23, 25, 27, 29, 34, 34, 35, 38, 40, 43, 45, 48, 51, 53, 56, 59, 62, 65, 68],
+        [-1, 1, 1, 2, 4, 4, 4, 5, 6, 8, 8, 11, 11, 16, 16, 18, 16, 19, 21, 25, 25, 25, 34, 30, 32, 35, 37, 40, 42, 45, 48, 51, 54, 57, 60, 63, 66, 70, 74, 77, 81],
+    ];
+    qrcodegen.QrCode = QrCode;
+    function appendBits(val, len, bb) {
+        if (len < 0 || len > 31 || val >>> len != 0)
+            throw new RangeError("Value out of range");
+        for (let i = len - 1; i >= 0; i--)
+            bb.push((val >>> i) & 1);
+    }
+    function getBit(x, i) {
+        return ((x >>> i) & 1) != 0;
+    }
+    function assert(cond) {
+        if (!cond)
+            throw new Error("Assertion error");
+    }
+    class QrSegment {
+        static makeBytes(data) {
+            let bb = [];
+            for (const b of data)
+                appendBits(b, 8, bb);
+            return new QrSegment(QrSegment.Mode.BYTE, data.length, bb);
+        }
+        static makeNumeric(digits) {
+            if (!QrSegment.isNumeric(digits))
+                throw new RangeError("String contains non-numeric characters");
+            let bb = [];
+            for (let i = 0; i < digits.length;) {
+                const n = Math.min(digits.length - i, 3);
+                appendBits(parseInt(digits.substring(i, i + n), 10), n * 3 + 1, bb);
+                i += n;
+            }
+            return new QrSegment(QrSegment.Mode.NUMERIC, digits.length, bb);
+        }
+        static makeAlphanumeric(text) {
+            if (!QrSegment.isAlphanumeric(text))
+                throw new RangeError("String contains unencodable characters in alphanumeric mode");
+            let bb = [];
+            let i;
+            for (i = 0; i + 2 <= text.length; i += 2) {
+                let temp = QrSegment.ALPHANUMERIC_CHARSET.indexOf(text.charAt(i)) * 45;
+                temp += QrSegment.ALPHANUMERIC_CHARSET.indexOf(text.charAt(i + 1));
+                appendBits(temp, 11, bb);
+            }
+            if (i < text.length)
+                appendBits(QrSegment.ALPHANUMERIC_CHARSET.indexOf(text.charAt(i)), 6, bb);
+            return new QrSegment(QrSegment.Mode.ALPHANUMERIC, text.length, bb);
+        }
+        static makeSegments(text) {
+            if (text == "")
+                return [];
+            else if (QrSegment.isNumeric(text))
+                return [QrSegment.makeNumeric(text)];
+            else if (QrSegment.isAlphanumeric(text))
+                return [QrSegment.makeAlphanumeric(text)];
+            else
+                return [QrSegment.makeBytes(QrSegment.toUtf8ByteArray(text))];
+        }
+        static makeEci(assignVal) {
+            let bb = [];
+            if (assignVal < 0)
+                throw new RangeError("ECI assignment value out of range");
+            else if (assignVal < (1 << 7))
+                appendBits(assignVal, 8, bb);
+            else if (assignVal < (1 << 14)) {
+                appendBits(0b10, 2, bb);
+                appendBits(assignVal, 14, bb);
+            }
+            else if (assignVal < 1000000) {
+                appendBits(0b110, 3, bb);
+                appendBits(assignVal, 21, bb);
+            }
+            else
+                throw new RangeError("ECI assignment value out of range");
+            return new QrSegment(QrSegment.Mode.ECI, 0, bb);
+        }
+        static isNumeric(text) {
+            return QrSegment.NUMERIC_REGEX.test(text);
+        }
+        static isAlphanumeric(text) {
+            return QrSegment.ALPHANUMERIC_REGEX.test(text);
+        }
+        constructor(mode, numChars, bitData) {
+            this.mode = mode;
+            this.numChars = numChars;
+            this.bitData = bitData;
+            if (numChars < 0)
+                throw new RangeError("Invalid argument");
+            this.bitData = bitData.slice();
+        }
+        getData() {
+            return this.bitData.slice();
+        }
+        static getTotalBits(segs, version) {
+            let result = 0;
+            for (const seg of segs) {
+                const ccbits = seg.mode.numCharCountBits(version);
+                if (seg.numChars >= (1 << ccbits))
+                    return Infinity;
+                result += 4 + ccbits + seg.bitData.length;
+            }
+            return result;
+        }
+        static toUtf8ByteArray(str) {
+            str = encodeURI(str);
+            let result = [];
+            for (let i = 0; i < str.length; i++) {
+                if (str.charAt(i) != "%")
+                    result.push(str.charCodeAt(i));
+                else {
+                    result.push(parseInt(str.substring(i + 1, i + 3), 16));
+                    i += 2;
+                }
+            }
+            return result;
+        }
+    }
+    QrSegment.NUMERIC_REGEX = /^[0-9]*$/;
+    QrSegment.ALPHANUMERIC_REGEX = /^[A-Z0-9 $%*+.\/:-]*$/;
+    QrSegment.ALPHANUMERIC_CHARSET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:";
+    qrcodegen.QrSegment = QrSegment;
+})(qrcodegen || (qrcodegen = {}));
+(function (qrcodegen) {
+    var QrCode;
+    (function (QrCode) {
+        class Ecc {
+            constructor(ordinal, formatBits) {
+                this.ordinal = ordinal;
+                this.formatBits = formatBits;
+            }
+        }
+        Ecc.LOW = new Ecc(0, 1);
+        Ecc.MEDIUM = new Ecc(1, 0);
+        Ecc.QUARTILE = new Ecc(2, 3);
+        Ecc.HIGH = new Ecc(3, 2);
+        QrCode.Ecc = Ecc;
+    })(QrCode = qrcodegen.QrCode || (qrcodegen.QrCode = {}));
+})(qrcodegen || (qrcodegen = {}));
+(function (qrcodegen) {
+    var QrSegment;
+    (function (QrSegment) {
+        class Mode {
+            constructor(modeBits, numBitsCharCount) {
+                this.modeBits = modeBits;
+                this.numBitsCharCount = numBitsCharCount;
+            }
+            numCharCountBits(ver) {
+                return this.numBitsCharCount[Math.floor((ver + 7) / 17)];
+            }
+        }
+        Mode.NUMERIC = new Mode(0x1, [10, 12, 14]);
+        Mode.ALPHANUMERIC = new Mode(0x2, [9, 11, 13]);
+        Mode.BYTE = new Mode(0x4, [8, 16, 16]);
+        Mode.KANJI = new Mode(0x8, [8, 10, 12]);
+        Mode.ECI = new Mode(0x7, [0, 0, 0]);
+        QrSegment.Mode = Mode;
+    })(QrSegment = qrcodegen.QrSegment || (qrcodegen.QrSegment = {}));
+})(qrcodegen || (qrcodegen = {}));
+
+/* ----- Ambassadeurs (3.0) : choisir son code et créer un visuel à publier, avec QR code ----- */
+const S3FlyFormats=[
+  {id:"carre",label:"Carré",w:1080,h:1080},
+  {id:"portrait",label:"Portrait",w:1080,h:1350},
+  {id:"story",label:"Story",w:1080,h:1920},
+  {id:"a5",label:"Affiche A5",w:1748,h:2480}
+];
+const S3FlyThemes={
+  chasse:{bg:"img/fond-chasse.webp?v=3",acc:"#F26F21",acc2:"#FFB27A",pos:[.5,.4],word:"chasse"},
+  peche:{bg:"img/fond-peche.webp?v=3",acc:"#4FC3E8",acc2:"#9FD4E6",pos:[.4,.6],word:"pêche"}
+};
+function S3FlyUrl(code){return (typeof S3SiteURL==="string"?S3SiteURL:location.origin+location.pathname)+"#/communaute?invite="+encodeURIComponent(code)}
+function S3FlyImg(src){return new Promise(ok=>{let im=new Image();im.onload=()=>ok(im);im.onerror=()=>ok(null);im.src=src})}
+/* QR code dessiné en carrés nets, avec sa marge blanche */
+function S3FlyQR(c,text,x0,y0,size){
+  let q;try{q=qrcodegen.QrCode.encodeText(text,qrcodegen.QrCode.Ecc.MEDIUM)}catch{return !1}
+  let n=q.size+8,m=size/n;c.fillStyle="#FFFFFF";c.fillRect(x0,y0,size,size);c.fillStyle="#131B19";
+  for(let y=0;y<q.size;y++)for(let x=0;x<q.size;x++)if(q.getModule(x,y))c.fillRect(Math.floor(x0+(x+4)*m),Math.floor(y0+(y+4)*m),Math.ceil(m),Math.ceil(m));
+  return !0;
+}
+function S3FlyWrap(c,txt,maxW){let words=String(txt).split(" "),lines=[],cur="";words.forEach(wd=>{let t=cur?cur+" "+wd:wd;if(c.measureText(t).width>maxW&&cur){lines.push(cur);cur=wd}else cur=t});cur&&lines.push(cur);return lines}
+async function S3FlyDraw(cv,o){
+  let F=S3FlyFormats.find(f=>f.id===o.fmt)||S3FlyFormats[0],T=S3FlyThemes[o.theme]||S3FlyThemes.chasse,W2=F.w,H2=F.h,u=W2/1080*(F.id==="story"?1.12:1);
+  cv.width=W2;cv.height=H2;let c=cv.getContext("2d");
+  try{await document.fonts.load("700 60px Barlow");await document.fonts.load("700 60px 'Barlow Condensed'")}catch{}
+  let ff=(wt,px,cond)=>wt+" "+Math.round(px*u)+"px "+(cond?"'Barlow Condensed', Barlow, ":"Barlow, ")+"Arial, sans-serif";
+  /* fond : photo recadrée + voile sombre */
+  c.fillStyle="#131B19";c.fillRect(0,0,W2,H2);
+  let bg=await S3FlyImg(T.bg);
+  if(bg){let s=Math.max(W2/bg.width,H2/bg.height),dw=bg.width*s,dh=bg.height*s;c.drawImage(bg,(W2-dw)*T.pos[0],(H2-dh)*T.pos[1],dw,dh)}
+  let g=c.createLinearGradient(0,0,0,H2);g.addColorStop(0,"rgba(19,27,25,.55)");g.addColorStop(.42,"rgba(19,27,25,.35)");g.addColorStop(1,"rgba(19,27,25,.92)");c.fillStyle=g;c.fillRect(0,0,W2,H2);
+  let pad=72*u,y=pad;
+  /* en-tête : logo + nom de l'appli */
+  let logo=await S3FlyImg("icons/icon-512.png"),ls=96*u;
+  if(logo){c.save();c.beginPath();c.roundRect?c.roundRect(pad,y,ls,ls,22*u):c.rect(pad,y,ls,ls);c.clip();c.drawImage(logo,pad,y,ls,ls);c.restore()}
+  c.fillStyle="#F3F0E8";c.font=ff("700",46,!0);c.textBaseline="middle";c.fillText("Chasse & Pêche 360°",pad+(logo?ls+24*u:0),y+ls/2);
+  c.textBaseline="alphabetic";
+  /* mention légale de partenariat (loi du 9 juin 2023) */
+  if(o.collab){c.font=ff("600",24);let t="Collaboration commerciale",tw=c.measureText(t).width+28*u;c.fillStyle="rgba(243,240,232,.92)";c.fillRect(W2-pad-tw,y+ls/2-22*u,tw,44*u);c.fillStyle="#131B19";c.fillText(t,W2-pad-tw+14*u,y+ls/2+8*u)}
+  /* bas, de bas en haut : adresse, code + tarif à gauche, QR à droite ; puis le message au-dessus */
+  let headerBottom=y+ls,urlY=H2-pad*0.55,bottom=urlY-34*u;
+  let qs=(F.id==="carre"?280:F.id==="portrait"?320:360)*u,qx=W2-pad-qs,qy=bottom-qs;
+  let hasQR=S3FlyQR(c,S3FlyUrl(o.code),qx,qy,qs);
+  if(hasQR){c.fillStyle="#FFFFFF";c.font=ff("600",24);c.textAlign="center";c.fillText("Scannez pour vous inscrire",qx+qs/2,qy-16*u);c.textAlign="left"}
+  let colW=W2-pad*2-(hasQR?qs+44*u:0);
+  c.font=ff("600",27);let promo=S3FlyWrap(c,"Avec mon code, tarif Fondateurs la 1re année : Combo 29,99\u00a0€ au lieu de 44,99\u00a0€, Chasse ou Pêche 19,99\u00a0€ au lieu de 29,99\u00a0€.",colW),plh=36*u;
+  let py=bottom-(promo.length-1)*plh;c.fillStyle="#F3F0E8";promo.forEach((l,i)=>c.fillText(l,pad,py+i*plh));
+  let codeH=104*u,codeY=py-27*u-26*u-codeH;
+  let csz=88;c.font=ff("700",csz,!0);while(c.measureText(o.code).width+56*u>colW&&csz>40){csz-=4;c.font=ff("700",csz,!0)}
+  let cw2=c.measureText(o.code).width+56*u;
+  c.fillStyle=T.acc;if(c.roundRect){c.beginPath();c.roundRect(pad,codeY,cw2,codeH,18*u);c.fill()}else c.fillRect(pad,codeY,cw2,codeH);
+  c.fillStyle="#131B19";c.textBaseline="middle";c.fillText(o.code,pad+28*u,codeY+codeH/2+3*u);c.textBaseline="alphabetic";
+  c.font=ff("700",28);c.fillStyle=T.acc2;c.fillText("MON CODE",pad,codeY-14*u);
+  let zoneTop=Math.min(codeY-14*u-28*u,hasQR?qy-16*u-24*u:1e9)-40*u;
+  /* message : titre + sous-titre, posés juste au-dessus de la zone du bas */
+  let hs=F.id==="carre"?76:88,head,sub,lh,slh=40*u,blockH;
+  c.font=ff("500",30);sub=S3FlyWrap(c,"Fil d’actualité, carte, météo, sorties et calculateur de 30° pour la sécurité au poste.",W2-pad*2);
+  for(;;){c.font=ff("700",hs,!0);head=S3FlyWrap(c,o.title||"Rejoignez-moi sur l’appli des chasseurs et des pêcheurs",W2-pad*2);lh=hs*u*1.04;
+    blockH=42*u+head.length*lh+14*u+sub.length*slh;if(zoneTop-blockH>=headerBottom+30*u||hs<=48)break;hs-=6}
+  if(zoneTop-blockH<headerBottom+30*u){sub=[];blockH=42*u+head.length*lh}
+  let yy=zoneTop-blockH;
+  c.fillStyle=T.acc2;c.font=ff("700",28);c.fillText(("Ambassadeur"+(o.name?" · "+o.name:"")).toUpperCase().slice(0,48),pad,yy+28*u);yy+=42*u;
+  c.fillStyle="#F3F0E8";c.font=ff("700",hs,!0);head.forEach(l=>{yy+=lh;c.fillText(l,pad,yy-lh*.18)});
+  yy+=14*u;c.font=ff("500",30);c.fillStyle="#D9D4C7";sub.forEach(l=>{yy+=slh;c.fillText(l,pad,yy-8*u)});
+  c.font=ff("500",22);c.fillStyle="rgba(243,240,232,.75)";c.fillText((typeof S3SiteURL==="string"?S3SiteURL:"").replace(/^https?:\/\//,"").replace(/\/$/,""),pad,urlY);
+  return cv;
+}
+function S3AmbFlyer(code,name){
+  let o={fmt:"carre",theme:"chasse",code,name:name||"",collab:!0,title:""};
+  let cv=e("canvas",{style:{width:"100%",height:"auto",display:"block",borderRadius:"12px",background:"#131b19"}}),busy=0,again=0;
+  async function draw(){if(busy){again=1;return}busy=1;try{await S3FlyDraw(cv,o)}catch{}busy=0;if(again){again=0;draw()}}
+  let seg=(arr,key)=>ke(arr,o[key],v=>{o[key]=v;draw()});
+  let titleIn=e("input.input",{maxLength:70,placeholder:"Rejoignez-moi sur l’appli des chasseurs et des pêcheurs",oninput:ev=>{o.title=ev.target.value.trim();draw()}});
+  let collab=e("label.row",{style:{gap:"8px",alignItems:"center"}},e("input",{type:"checkbox",checked:!0,onchange:ev=>{o.collab=ev.target.checked;draw()}}),e("span.small","Afficher « Collaboration commerciale » sur l’image"));
+  let fname=()=>"chasse-peche-360-"+code.toLowerCase()+"-"+o.fmt+".png";
+  let share=x("Partager l’image",{icon:"send",kind:"primary",onClick:()=>cv.toBlob(async b=>{
+    if(!b)return;let f=new File([b],fname(),{type:"image/png"});
+    try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:"Chasse & Pêche 360°",text:"Avec mon code "+code+" : "+S3FlyUrl(code)});return}}catch(er){if(er&&er.name==="AbortError")return}
+    let u2=URL.createObjectURL(b),a=e("a",{href:u2,download:fname()});document.body.append(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(u2)},4e3);A("Image enregistrée sur cet appareil.","ok")},"image/png")});
+  let dl=x("Télécharger",{icon:"download",kind:"ghost",onClick:()=>cv.toBlob(b=>{if(!b)return;let u2=URL.createObjectURL(b),a=e("a",{href:u2,download:fname()});document.body.append(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(u2)},4e3)},"image/png")});
+  let dlg=Le({title:"Créer un visuel avec mon code",wide:!0,body:e("div.stack",{style:{gap:"12px"}},
+      e("div.field",{style:{margin:0}},e("label","Format"),seg(S3FlyFormats.map(f=>[f.id,f.label]),"fmt")),
+      e("div.field",{style:{margin:0}},e("label","Ambiance"),seg([["chasse","Chasse"],["peche","Pêche"]],"theme")),
+      e("div.field",{style:{margin:0}},e("label","Titre (facultatif)"),titleIn),
+      collab,
+      e("div",{style:{maxWidth:"420px",margin:"0 auto",width:"100%"}},cv),
+      e("p.tiny.muted",{style:{margin:0}},"Le QR code ouvre l’appli avec votre code déjà rempli. Sur vos réseaux, gardez la mention « Collaboration commerciale » visible pendant toute la publication (loi du 9 juin 2023).")),
+    actions:[x("Fermer",{kind:"ghost",onClick:()=>dlg.close()}),dl,share]});
+  draw();
+}
+/* L'ambassadeur choisit lui-même son code : l'ancien reste valable (QR et flyers déjà publiés) */
+function S3AmbMyCodeDlg(cur){
+  return new Promise(done=>{
+    let inp=e("input.input",{type:"text",value:cur||"",maxLength:16,autocomplete:"off","aria-label":"Mon code",style:{textTransform:"uppercase",fontWeight:700,letterSpacing:"1px"}}),
+      msg=e("p.small.muted",{role:"status",style:{margin:0}},"4 à 16 lettres ou chiffres, sans espace ni accent. Ex. : FLORIAN, SOLOGNE41. Votre ancien code continue de fonctionner (QR codes et visuels déjà publiés)."),res=null,dlg;
+    let go=x("Enregistrer",{kind:"primary",onClick:async()=>{
+      let v=inp.value.toUpperCase().replace(/[^A-Z0-9]/g,"");
+      if(v.length<4||v.length>16){msg.textContent="Le code doit faire entre 4 et 16 lettres ou chiffres.";msg.style.color="var(--danger,#D2513F)";return}
+      go.disabled=!0;let r=await S3Sb("POST","rpc/set_my_amb_code",{p_code:v});go.disabled=!1;
+      if(!r||!r.ok){msg.textContent=(r&&r.json&&r.json.message)||"Enregistrement impossible.";msg.style.color="var(--danger,#D2513F)";return}
+      res=r.json;dlg.close();A("Votre code est maintenant "+res+".","ok");
+    }});
+    inp.addEventListener("input",()=>{let p=inp.selectionStart;inp.value=inp.value.toUpperCase().replace(/[^A-Z0-9]/g,"");try{inp.setSelectionRange(p,p)}catch{}});
+    dlg=Le({title:"Choisir mon code",body:e("div.stack",e("div.field",e("label","Mon code"),inp),msg),actions:[x("Annuler",{kind:"ghost",onClick:()=>dlg.close()}),go],onClose:()=>done(res)});
+  });
 }
 function Il(t){Ot.querySelectorAll("[data-path]").forEach(r=>r.classList.toggle("active",t===r.dataset.path||t.startsWith(r.dataset.path+"/")))}async function Xt(){let t=Li();if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&!/^\/(mentions-legales|cgu|confidentialite|aide|charte-ambassadeur)$/.test(t)&&!t.startsWith("/ambassadeurs")&&!t.startsWith("/articles")&&!t.startsWith("/partage"))return ge("/connexion");if(document.documentElement.dataset.role=w.user&&["admin","moderator"].includes(w.user.role)?"admin":"",w.user&&["admin","moderator"].includes(w.user.role)&&(t==="/connexion"||!location.hash||location.hash==="#"||location.hash==="#/")||w.user&&["admin","moderator"].includes(w.user.role)&&!/^\/(admin|articles|securite|ambassadeurs|communaute|profil|mentions-legales|cgu|confidentialite|aide|charte-ambassadeur)/.test(t))return ge(StartPath());if(w.user&&t==="/connexion")return ge("/communaute");if(w.season==="peche"&&t==="/angle-30")return ge("/securite");let r=Yr(t);if(typeof un=="function")try{un()}catch{}if(un=null,t==="/connexion"){Ot=null;S3SheetClose(!0);let n=await r.loader();W(Gi),un=await n.default(Gi,{});return}if(!w.user){Ot=null;document.documentElement.dataset.role="";await Need3(t);let n=await r.loader(),c=e("main.content",{id:"content",tabindex:-1}),h=e("header.topbar.guest-top",e("a.tb-brand",{href:"#/communaute"},S3Mark(),e("span.brand-name","Chasse & P\xEAche 360\xB0")),e("div.spacer"),x("Articles",{kind:"ghost",size:"sm",href:"#/articles"}),e("button.btn.sm.tonal.guest-install",{type:"button",hidden:!0,onclick:()=>S3Install(),title:"Installer l\u2019appli"},b("download"),e("span","Installer")),x("Ambassadeurs",{kind:"ghost",size:"sm",href:"#/ambassadeurs"}));B(Gi,e("div.main",h,c,e("div.guest-bar",e("span","Rejoignez la communaut\xE9",e("small","Chasse, p\xEAche et nature, toute l\u2019ann\xE9e")),x("Cr\xE9er un compte",{kind:"ghost",size:"sm",href:"#/connexion?inscription=1"}),x("Se connecter",{kind:"primary",href:"#/connexion"})))),Mt=c;let i=e("div");un=await n.default(i,r.params),B(c,i),S3Deco(t);return}if(Ot||Sl(),Il(t),!r){B(Mt,e("div.empty",e("h3","Page introuvable"),e("p","Ce lien ne m\xE8ne nulle part."),x("Retour \xE0 l\u2019accueil",{kind:"primary",href:"#/accueil"})));return}Mt.classList.toggle("full",t==="/carte"),B(Mt,S3Skel());try{await Need3(t);let n=await r.loader(),i=e("div");un=await n.default(i,r.params),B(Mt,i),Mt.scrollTop=0,window.scrollTo(0,0),S3Deco(t)}catch(n){console.error(n),B(Mt,e("div.empty",b("alert"),e("h3",n.status===403?"Acc\xE8s r\xE9serv\xE9":n.status===404?"\xC9l\xE9ment introuvable":"Chargement impossible"),e("p",n.message),x("R\xE9essayer",{kind:"primary",onClick:Xt})))}}function Ie(){Xt()}async function ht(t){let r=e("p.muted","Localisation en cours\u2026"),n=e("textarea.input",{placeholder:"Pr\xE9cisez si possible : blessure, chute, arme, animal\u2026 (facultatif)",style:{minHeight:"80px"}}),i=[["112","Urgence europ\xE9enne"],["15","SAMU"],["18","Pompiers"],["17","Gendarmerie"]],a=e("div.stack",e("div.panel.danger",e("div.row",b("sos"),e("div.grow",e("b","Alerte imm\xE9diate"),e("div.small","Vos coordonn\xE9es GPS sont envoy\xE9es aux participants de la chasse, aux responsables du territoire et aux pratiquants \xE0 moins de 5 km."))),r),e("div.field",e("label","Message"),n),e("div.grid.g-2",i.map(([u,c])=>e("a.btn",{href:`tel:${u}`},b("phone"),`${u} \xB7 ${c}`)))),s=w.position,o=Le({title:"Envoyer un SOS",body:a,actions:[x("Annuler",{kind:"ghost",onClick:()=>o.close()}),x("Envoyer l\u2019alerte SOS",{kind:"danger",icon:"sos",size:"xl",onClick:l})]});Ee().then(u=>{s=u,r.textContent=`${u.lat.toFixed(5)}, ${u.lng.toFixed(5)}${u.approx?" (position approximative, GPS indisponible)":u.accuracy?` (\xB1 ${Math.round(u.accuracy)} m)`:""}`});async function l(){try{let u=await v.post("/sos",{location:{lat:s.lat,lng:s.lng},text:n.value,huntId:t||void 0});o.close();let c=Le({title:"SOS envoy\xE9",body:e("div.stack",e("p",`${M.plural(u.notified,"personne a \xE9t\xE9 pr\xE9venue","personnes ont \xE9t\xE9 pr\xE9venues")} avec votre position. Restez joignable et, si vous le pouvez, appelez les secours.`),e("div.grid.g-2",i.map(([d,p])=>e("a.btn",{href:`tel:${d}`},b("phone"),`${d} \xB7 ${p}`))),e("a.btn.ghost",{href:`sms:?body=${encodeURIComponent(u.smsFallback)}`},b("send"),"Envoyer ma position par SMS \xE0 un proche")),actions:[x("Voir l\u2019alerte",{kind:"primary",onClick:()=>{c.close(),ge(`/securite/${u.alert.id}`)}})]})}catch{let c=`${s.lat.toFixed(5)}, ${s.lng.toFixed(5)}`;B(a,e("div.panel.danger",e("b","R\xE9seau indisponible : l\u2019alerte n\u2019a pas pu partir par l\u2019application."),e("p",`Appelez le 112 (fonctionne sur tous les r\xE9seaux disponibles) et donnez ces coordonn\xE9es : ${c}`)),e("a.btn.danger.block.xl",{href:"tel:112"},b("phone"),"Appeler le 112"),e("a.btn.block",{href:`sms:?body=${encodeURIComponent("SOS "+w.user.name+" "+c)}`},b("send"),"Envoyer ma position par SMS"))}}}function Ml(){j.on("rt:notification",t=>{w.unread.notifications++,j.emit("unread");let r=t.kind==="sos"?"sos":t.kind==="hunt-start"?"warn":"info";if(A(t.text,r,{title:{sos:"Alerte SOS","hunt-start":"D\xE9but de traque","hunt-end":"Fin de traque",message:"Message"}[t.kind],timeout:t.kind==="sos"?0:6e3,action:t.link?e("a.link-more",{href:t.link},"Ouvrir"):null}),t.kind==="sos"||t.kind.startsWith("hunt-"))try{navigator.vibrate&&navigator.vibrate(t.kind==="sos"?[400,200,400,200,400]:[300,150,300])}catch{}}),j.on("rt:message:badge",()=>{Li().startsWith("/messages")||(w.unread.messages++,j.emit("unread"))})}async function Ps(){try{let[t,r]=await Promise.all([v.get("/notifications"),v.get("/conversations")]);w.unread.notifications=t.filter(n=>!n.read).length,w.unread.messages=r.reduce((n,i)=>n+i.unread,0),j.emit("unread")}catch{}}async function Vn(t,r){_n(t),We(r);let ss2=r&&r.profile==="pecheur"?"peche":r&&r.profile==="chasseur"?"chasse":null;ss2&&ss2!==w.season&&(w.season=ss2,Pe.set("season",ss2),document.documentElement.dataset.season=ss2),Ot=null,Ei(),Ai(),Ps(),Dn(),ge(StartPath()),Xt()}function Oi(t=!1){window.cp360Sb&&window.cp360Sb.onLogout();_n(null),We(null),Wr(),Ot=null,t&&A("Votre session a expir\xE9. Reconnectez-vous.","warn"),ge("/connexion"),Xt()}async function $l(){try{await(window.cp360Db&&window.cp360Db.bootSafe(4e3))}catch{}try{await(window.cp360Sb&&window.cp360Sb.boot())}catch{}if(Ml(),w.token)try{We(await v.get("/auth/me")),Ei(),Ai(),Ps(),Dn()}catch(t){t.status!==0?_n(null):A("Hors ligne : donn\xE9es en cache.","warn")}Xt(),Ti()&&A(`${Ti()} saisie(s) en attente de synchronisation.`,"warn")}var te,xl,Gi,Ot,Mt,un,Ye=H(()=>{X(),ie(),re(),Fe(),ae(),Hi(),document.documentElement.dataset.season=w.season,document.documentElement.dataset.theme=w.theme,te=t=>()=>wl(`./views/${t}.js`),Z("/connexion",te("auth")),Z("/accueil",te("home")),Z("/carte",te("map")),Z("/meteo",te("weather")),Z("/securite",te("safety")),Z("/securite/:id",te("safety")),Z("/angle-30",te("ang30")),Z("/angle-30-carte",te("angle30")),Z("/battues",te("hunts")),Z("/battues/:id",te("hunt")),Z("/territoires",te("territories")),Z("/territoires/:id",te("territory")),Z("/prelevements",te("harvests")),Z("/carnet",te("logbook")),Z("/tableau-de-chasse",te("bag")),Z("/spots",te("spots")),Z("/reglementation",te("regulations")),Z("/communaute",te("feed")),Z("/ambassadeurs",te("ambassadors")),Z("/ambassadeurs/:id",te("ambassadors")),Z("/articles",te("articles")),Z("/articles/:id",te("articles")),Z("/messages",te("messages")),Z("/messages/:id",te("messages")),Z("/salaison",te("salaison")),Z("/recettes",te("recipes")),Z("/recettes/:id",te("recipe")),Z("/bourse",te("market")),Z("/gestion",te("gestion")),Z("/gestion/:section",te("gestion")),Z("/journee",te("journee")),Z("/partage-journee/:data",te("partagejournee")),Z("/chien-de-sang",te("sang")),Z("/annonces-chasse",te("annonces")),Z("/annuaire",te("directory")),Z("/profil",te("profile")),Z("/profil/:id",te("person")),Z("/abonnement",te("plans")),Z("/notifications",te("notifications")),Z("/amis",te("amis")),Z("/suivi",te("suivi")),Z("/sortie",te("sortie")),Z("/historique/:act",te("hist")),Z("/sortie-detail/:id",te("histd")),Z("/sortie/:act",te("sortie")),Z("/reglementation/:domain",te("regulations")),Z("/questions",te("qa")),Z("/groupes",te("qa")),Z("/niveaux-eau",te("eau")),Z("/partage/:data",te("share")),Z("/pro",te("pro")),Z("/pro/:id",te("pro")),Z("/admin",te("admin2")),Z("/admin/:section",te("admin2")),xl=LaunchNav([{group:"Communaut\xE9",items:[["/communaute","Fil d\u2019actualit\xE9","users"],["/amis","Amis","heart"],["/ambassadeurs","Ambassadeurs","crown"],["/articles","Articles","book"],["/questions","Entraide & groupes","users"],["/messages","Messagerie","chat","messages"]]},{group:"Terrain",items:[["/accueil","Accueil","home"],["/carte","Carte terrain","map"],["/meteo","M\xE9t\xE9o terrain","weather"],["/securite","S\xE9curit\xE9 & alertes","shield"],["/suivi","Suivi en direct","locate"]]},{group:"Chasse",season:"chasse",items:[["/battues","Chasse","flag"],["/angle-30","Viseur 30\xB0","target"],["/angle-30-carte","Calculateur 30\xB0 (carte)","map"],["/sortie/chasse","Sortie chasse","clock"],["/historique/chasse","Historique des sorties","book"],["/territoires","Territoires & postes","building"],["/reglementation/chasse","R\xE9glementation chasse","law"],["/prelevements","Pr\xE9l\xE8vements","tag"],["/tableau-de-chasse","Tableau de chasse","book"],["/chien-de-sang","Chien de sang","shield"]]},{group:"P\xEAche",season:"peche",items:[["/carnet","Carnet de prises","book"],["/spots","Mes spots","pin"],["/sortie/peche","Sortie p\xEAche","clock"],["/historique/peche","Historique des sorties","book"],["/reglementation/peche","R\xE9glementation p\xEAche","law"],["/niveaux-eau","Niveaux d\u2019eau","drop"]]},{group:"Cuisine & commerce",items:[["/recettes","Recettes","chef"],["/salaison","Salaison & s\xE9chage","drop"],["/bourse","Bourse de proximit\xE9","swap"],["/annonces-chasse","Annonces de chasse","flag"],["/annuaire","Annuaire","store"]]}]),Gi=document.getElementById("app"),Ot=null,Mt=null,un=null,window.addEventListener("hashchange",Xt),window.cp360={openSOS:ht},j.on("premium",t=>{let r=Le({title:"Fonctionnalit\xE9 Premium",body:e("div.stack",e("p",{style:{margin:0}},t.error),e("p.muted.small","La s\xE9curit\xE9 (SOS, calculateur 30\xB0, chasses visibles) reste gratuite pour tous.")),actions:[x("Plus tard",{kind:"ghost",onClick:()=>r.close()}),x("Voir les offres",{kind:"primary",icon:"crown",onClick:()=>{r.close(),ge("/abonnement")}})]})}),j.on("unauthorized",()=>Oi(!0)),j.on("outbox:flushed",t=>A(`${M.plural(t,"saisie hors ligne synchronis\xE9e","saisies hors ligne synchronis\xE9es")}.`,"ok")),$l()}),Ut=Oe(),{seed:No}=tr(),Vo=Tt(),{connectClient:Ho}=ii(),Mi="cp360.demo.db.v1";Vo.init(null);var Si=!1;try{let t=localStorage.getItem(Mi);if(t){let r=JSON.parse(t);for(let n of Object.keys(r))Ut[n]&&Ut[n].load&&Ut[n].load(r[n]);Si=!0}}catch{Si=!1}Si||No();var Ii=!1,$i=["users","territories","stands","hunts","harvests","tags","catches","spots","regulations","posts","comments","conversations","messages","recipes","listings","directory","partners","alerts","notifications","articles","reports","audits","announcements","ambassadors","questions","groups","friendships","fstatus","livesessions","huntads","terrshares","gestion","huntgx","gxreqs"];$i.forEach(t=>{Ut[t].onChange=()=>{Ii=!0}});function Nr(){if(window.__sbWipe||!Ii)return;Ii=!1;let t={};$i.forEach(r=>{t[r]=Ut[r].dump()});try{localStorage.setItem(Mi,JSON.stringify(t))}catch{}}window.cp360Sb=(()=>{
 const URL="https://frizrkjunbezywnhpjas.supabase.co",KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaXpya2p1bmJlenl3bmhwamFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwMjIyMzIsImV4cCI6MjEwNzU5ODIzMn0.hRUae36TKq4aMOn9iO8iXsvXPgYUbyZ-xGLkMdtg0h4",SK="cp360.sb.session",QK="cp360.sb.queue";

@@ -138,24 +138,30 @@ async function S3AmbPage(t){
 /* Code personnel : tarif Fondateurs pour les personnes qui s’inscrivent avec, compteur d’inscrits */
 function S3AmbCodeBox(){
   let box=e("div.stack.amb-code",{style:{gap:"10px"}},e("p.small.muted",{style:{margin:0}},"Chargement…"));
+  S3AmbCodeFill(box);
+  return box;
+}
+function S3AmbCodeFill(box){
   S3Sb("POST","rpc/my_amb_code",{}).then(r=>{
     W(box);
     let c=r&&r.ok&&r.json;
     box.append(e("div.row",{style:{gap:"10px",alignItems:"center",flexWrap:"wrap"}},e("span.launch-chip.pio","Combo 360° offert"),e("span.small","tant que vous êtes ambassadeur")));
     if(!c||!c.code){box.append(e("p.small.muted",{style:{margin:0}},"Votre code est en préparation. Revenez dans un instant."));return}
-    let url=location.origin+location.pathname+"#/communaute?invite="+c.code;
+    let url=S3FlyUrl(c.code);
     box.append(
       e("div.amb-code-row",e("code",c.code),e("span.small",(c.signups||0)+" inscrit"+((c.signups||0)>1?"s":"")+" avec votre code")),
+      e("div.row.wrap",{style:{gap:"8px"}},
+        x("Créer un visuel avec QR code",{icon:"camera",kind:"primary",onClick:()=>S3AmbFlyer(c.code,(S3Amb&&S3Amb.name)||(w.user&&w.user.name)||"")}),
+        x("Choisir mon code",{kind:"ghost",onClick:async()=>{let nc=await S3AmbMyCodeDlg(c.code);if(nc){W(box);box.append(e("p.small.muted",{style:{margin:0}},"Chargement…"));S3AmbCodeFill(box)}}})),
       e("p.small",{style:{margin:0}},"Les personnes qui s’inscrivent avec votre code ont le tarif Fondateurs, même quand les 500 places sont parties."),
       e("div.row.wrap",{style:{gap:"8px"}},
-        x("Partager mon code",{icon:"send",kind:"primary",onClick:async()=>{
+        x("Partager mon lien",{icon:"send",kind:"ghost",onClick:async()=>{
           let res=await S3ShareData({text:"Rejoins-moi sur Chasse & Pêche 360°, l’appli des chasseurs et des pêcheurs. Avec mon code "+c.code+" tu as le tarif Fondateurs :",url,title:"Chasse & Pêche 360°"});
           if(res==="copied")A("Lien copié : collez-le dans un message ou en bio.","ok");
         }}),
         x("Copier le lien",{kind:"ghost",onClick:async()=>{try{await navigator.clipboard.writeText(url);A("Lien copié.","ok")}catch{A(url,"info")}}})),
       e("p.tiny.muted",{style:{margin:0}},"Rappel : le Combo offert est un avantage. Quand vous parlez de l’appli sur vos réseaux, indiquez « Collaboration commerciale » ou « Partenariat » (loi du 9 juin 2023 sur l’influence commerciale). ",e("a",{href:"#/charte-ambassadeur"},"Lire la charte ambassadeur"),"."));
   }).catch(()=>{W(box);box.append(e("p.small.muted",{style:{margin:0}},"Code indisponible pour le moment."))});
-  return box;
 }
 async function S3AmbList(list,id){
   let r=await S3Sb("GET","amb_posts?ambassador_id=eq."+encodeURIComponent(id)+"&select=id,url,title,published_on&order=created_at.desc&limit=300");
