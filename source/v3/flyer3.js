@@ -36,33 +36,66 @@ async function S3FlyDraw(cv,o){
   c.fillStyle="#F3F0E8";c.font=ff("700",46,!0);c.textBaseline="middle";c.fillText("Chasse & Pêche 360°",pad+(logo?ls+24*u:0),y+ls/2);
   c.textBaseline="alphabetic";
   /* mention légale de partenariat (loi du 9 juin 2023) */
-  if(o.collab){c.font=ff("600",24);let t="Collaboration commerciale",tw=c.measureText(t).width+28*u;c.fillStyle="rgba(243,240,232,.92)";c.fillRect(W2-pad-tw,y+ls/2-22*u,tw,44*u);c.fillStyle="#131B19";c.fillText(t,W2-pad-tw+14*u,y+ls/2+8*u)}
-  /* bas, de bas en haut : adresse, code + tarif à gauche, QR à droite ; puis le message au-dessus */
-  let headerBottom=y+ls,urlY=H2-pad*0.55,bottom=urlY-34*u;
-  let qs=(F.id==="carre"?280:F.id==="portrait"?320:360)*u,qx=W2-pad-qs,qy=bottom-qs;
-  let hasQR=S3FlyQR(c,S3FlyUrl(o.code),qx,qy,qs);
-  if(hasQR){c.fillStyle="#FFFFFF";c.font=ff("600",24);c.textAlign="center";c.fillText("Scannez pour vous inscrire",qx+qs/2,qy-16*u);c.textAlign="left"}
-  let colW=W2-pad*2-(hasQR?qs+44*u:0);
-  c.font=ff("600",27);let promo=S3FlyWrap(c,"Avec mon code, tarif Fondateurs la 1re année : Combo 29,99\u00a0€ au lieu de 44,99\u00a0€, Chasse ou Pêche 19,99\u00a0€ au lieu de 29,99\u00a0€.",colW),plh=36*u;
-  let py=bottom-(promo.length-1)*plh;c.fillStyle="#F3F0E8";promo.forEach((l,i)=>c.fillText(l,pad,py+i*plh));
-  let codeH=104*u,codeY=py-27*u-26*u-codeH;
-  let csz=88;c.font=ff("700",csz,!0);while(c.measureText(o.code).width+56*u>colW&&csz>40){csz-=4;c.font=ff("700",csz,!0)}
-  let cw2=c.measureText(o.code).width+56*u;
-  c.fillStyle=T.acc;if(c.roundRect){c.beginPath();c.roundRect(pad,codeY,cw2,codeH,18*u);c.fill()}else c.fillRect(pad,codeY,cw2,codeH);
-  c.fillStyle="#131B19";c.textBaseline="middle";c.fillText(o.code,pad+28*u,codeY+codeH/2+3*u);c.textBaseline="alphabetic";
-  c.font=ff("700",28);c.fillStyle=T.acc2;c.fillText("MON CODE",pad,codeY-14*u);
-  let zoneTop=Math.min(codeY-14*u-28*u,hasQR?qy-16*u-24*u:1e9)-40*u;
-  /* message : titre + sous-titre, posés juste au-dessus de la zone du bas */
-  let hs=F.id==="carre"?76:88,head,sub,lh,slh=40*u,blockH;
-  c.font=ff("500",30);sub=S3FlyWrap(c,"Fil d’actualité, carte, météo, sorties et calculateur de 30° pour la sécurité au poste.",W2-pad*2);
-  for(;;){c.font=ff("700",hs,!0);head=S3FlyWrap(c,o.title||"Rejoignez-moi sur l’appli des chasseurs et des pêcheurs",W2-pad*2);lh=hs*u*1.04;
-    blockH=42*u+head.length*lh+14*u+sub.length*slh;if(zoneTop-blockH>=headerBottom+30*u||hs<=48)break;hs-=6}
-  if(zoneTop-blockH<headerBottom+30*u){sub=[];blockH=42*u+head.length*lh}
-  let yy=zoneTop-blockH;
-  c.fillStyle=T.acc2;c.font=ff("700",28);c.fillText(("Ambassadeur"+(o.name?" · "+o.name:"")).toUpperCase().slice(0,48),pad,yy+28*u);yy+=42*u;
-  c.fillStyle="#F3F0E8";c.font=ff("700",hs,!0);head.forEach(l=>{yy+=lh;c.fillText(l,pad,yy-lh*.18)});
-  yy+=14*u;c.font=ff("500",30);c.fillStyle="#D9D4C7";sub.forEach(l=>{yy+=slh;c.fillText(l,pad,yy-8*u)});
-  c.font=ff("500",22);c.fillStyle="rgba(243,240,232,.75)";c.fillText((typeof S3SiteURL==="string"?S3SiteURL:"").replace(/^https?:\/\//,"").replace(/\/$/,""),pad,urlY);
+  let nameW=(c.font=ff("700",46,!0),c.measureText("Chasse & Pêche 360°").width),extraH=0;
+  if(o.collab){c.font=ff("600",24);let t="Collaboration commerciale",tw=c.measureText(t).width+28*u,bx=W2-pad-tw,by=y+ls/2-22*u;
+    if(bx<pad+ls+24*u+nameW+24*u){bx=pad;by=y+ls+18*u;extraH=62*u}
+    c.fillStyle="rgba(243,240,232,.92)";c.fillRect(bx,by,tw,44*u);c.fillStyle="#131B19";c.fillText(t,bx+14*u,by+30*u)}
+  let headerBottom=y+ls+extraH,site=(typeof S3SiteURL==="string"?S3SiteURL:"").replace(/^https?:\/\//,"").replace(/\/$/,""),N=" ";
+  /* Textes adaptés à chaque format */
+  const TX={
+    carre:{title:"L’appli des chasseurs et des pêcheurs",sub:"",promo:"Avec mon code, le Combo à 29,99"+N+"€ au lieu de 44,99"+N+"€ la 1re année."},
+    portrait:{title:"Rejoignez-moi sur l’appli des chasseurs et des pêcheurs",sub:"Sorties, carte, météo et sécurité au poste, réunis dans une seule appli.",promo:"Avec mon code, tarif Fondateurs la 1re année : Combo 29,99"+N+"€ au lieu de 44,99"+N+"€, Chasse ou Pêche 19,99"+N+"€ au lieu de 29,99"+N+"€."},
+    story:{title:"Rejoignez-moi sur l’appli des chasseurs et des pêcheurs !",sub:"",promo:"Tarif Fondateurs avec mon code : Combo 29,99"+N+"€ au lieu de 44,99"+N+"€"},
+    a5:{title:"L’appli des chasseurs et des pêcheurs",list:["Fil d’actualité et communauté","Carte, territoires, météo et lune","Sorties suivies et bouton SOS","Calculateur d’angle de 30° au poste"],promo:"Avec mon code, tarif Fondateurs la 1re année : Combo 29,99"+N+"€ au lieu de 44,99"+N+"€ · Chasse ou Pêche 19,99"+N+"€ au lieu de 29,99"+N+"€"}
+  }[F.id];
+  let title=o.title||TX.title,amb=("Ambassadeur"+(o.name?" · "+o.name:"")).toUpperCase().slice(0,48);
+  let pill=(cx,cy0,h,align)=>{let csz=88;c.font=ff("700",csz,!0);while(c.measureText(o.code).width+56*u>W2-pad*2&&csz>40){csz-=4;c.font=ff("700",csz,!0)}
+    let w=c.measureText(o.code).width+56*u,x0=align==="center"?cx-w/2:cx;c.fillStyle=T.acc;if(c.roundRect){c.beginPath();c.roundRect(x0,cy0,w,h,18*u);c.fill()}else c.fillRect(x0,cy0,w,h);
+    c.fillStyle="#131B19";c.textBaseline="middle";c.textAlign="left";c.fillText(o.code,x0+28*u,cy0+h/2+3*u);c.textBaseline="alphabetic";return w};
+  if(F.id==="carre"||F.id==="portrait"){
+    /* Publication : code + tarif à gauche, QR à droite, message au-dessus */
+    let urlY=H2-pad*0.55,bottom=urlY-34*u,qs=(F.id==="carre"?280:320)*u,qx=W2-pad-qs,qy=bottom-qs;
+    let hasQR=S3FlyQR(c,S3FlyUrl(o.code),qx,qy,qs);
+    if(hasQR){c.fillStyle="#FFFFFF";c.font=ff("600",24);c.textAlign="center";c.fillText("Scannez pour vous inscrire",qx+qs/2,qy-16*u);c.textAlign="left"}
+    let colW=W2-pad*2-(hasQR?qs+44*u:0);
+    c.font=ff("600",28);let promo=S3FlyWrap(c,TX.promo,colW),plh=37*u;
+    let py=bottom-(promo.length-1)*plh;c.fillStyle="#F3F0E8";promo.forEach((l,i)=>c.fillText(l,pad,py+i*plh));
+    let codeH=104*u,codeY=py-28*u-26*u-codeH;pill(pad,codeY,codeH,"left");
+    c.font=ff("700",28);c.fillStyle=T.acc2;c.fillText("MON CODE",pad,codeY-14*u);
+    let zoneTop=Math.min(codeY-14*u-28*u,hasQR?qy-16*u-24*u:1e9)-40*u;
+    let hs=F.id==="carre"?80:88,head,sub=[],lh,slh=40*u,blockH;
+    if(TX.sub){c.font=ff("500",30);sub=S3FlyWrap(c,TX.sub,W2-pad*2)}
+    for(;;){c.font=ff("700",hs,!0);head=S3FlyWrap(c,title,W2-pad*2);lh=hs*u*1.04;blockH=42*u+head.length*lh+(sub.length?14*u+sub.length*slh:0);if(zoneTop-blockH>=headerBottom+30*u||hs<=48)break;hs-=6}
+    if(zoneTop-blockH<headerBottom+30*u){sub=[];blockH=42*u+head.length*lh}
+    let yy=zoneTop-blockH;
+    c.fillStyle=T.acc2;c.font=ff("700",28);c.fillText(amb,pad,yy+28*u);yy+=42*u;
+    c.fillStyle="#F3F0E8";c.font=ff("700",hs,!0);head.forEach(l=>{yy+=lh;c.fillText(l,pad,yy-lh*.18)});
+    if(sub.length){yy+=14*u;c.font=ff("500",30);c.fillStyle="#D9D4C7";sub.forEach(l=>{yy+=slh;c.fillText(l,pad,yy-8*u)})}
+    c.font=ff("500",22);c.fillStyle="rgba(243,240,232,.75)";c.fillText(site,pad,urlY);
+  }else{
+    /* Story et affiche : une colonne centrée, de haut en bas ; tailles réduites si besoin pour tout faire tenir */
+    let story=F.id==="story",cx=W2/2,maxW=W2-pad*2;
+    let top=story?Math.max(headerBottom+50*u,250*u):headerBottom+60*u,bot=story?H2-250*u:H2-pad*0.8;
+    let qs0=(story?420:560),hs0=(story?88:100),k=1,items,total;
+    for(let it2=0;it2<14;it2++){
+      items=[];let add=(h,draw,gap)=>items.push({h,draw,gap:gap||0});
+      add(34*u,yy=>{c.fillStyle=T.acc2;c.font=ff("700",30);c.textAlign="center";c.fillText(amb,cx,yy+30*u)});
+      let hs=Math.round(hs0*k);c.font=ff("700",hs,!0);let head=S3FlyWrap(c,title,maxW),lh=hs*u*1.04;
+      add(head.length*lh,yy=>{c.fillStyle="#F3F0E8";c.font=ff("700",hs,!0);c.textAlign="center";head.forEach((l,i)=>c.fillText(l,cx,yy+(i+1)*lh-lh*.18))},18*u);
+      if(TX.list){let fs=Math.round(36*Math.min(1,k+.1)),lh2=fs*1.45*u;add(TX.list.length*lh2,yy=>{c.font=ff("500",fs);c.fillStyle="#E6E1D5";c.textAlign="center";TX.list.forEach((l,i)=>c.fillText(l,cx,yy+(i+1)*lh2-12*u))},30*u)}
+      let qs=qs0*k*u;
+      add(qs+50*u,yy=>{c.fillStyle="#FFFFFF";c.font=ff("600",30);c.textAlign="center";c.fillText(story?"Scannez ou utilisez mon code":"Scannez pour vous inscrire",cx,yy+30*u);S3FlyQR(c,S3FlyUrl(o.code),cx-qs/2,yy+50*u,qs)},40*u);
+      let codeH=112*u;add(40*u+codeH,yy=>{c.font=ff("700",28);c.fillStyle=T.acc2;c.textAlign="center";c.fillText("MON CODE",cx,yy+28*u);pill(cx,yy+40*u,codeH,"center")},34*u);
+      c.font=ff("600",32);let promo=S3FlyWrap(c,TX.promo,maxW*(story?.88:1)),plh=42*u;
+      add(promo.length*plh,yy=>{c.font=ff("600",32);c.fillStyle="#F3F0E8";c.textAlign="center";promo.forEach((l,i)=>c.fillText(l,cx,yy+(i+1)*plh-10*u))},24*u);
+      add(36*u,yy=>{c.font=ff(story?"500":"600",story?24:30);c.fillStyle="rgba(243,240,232,.8)";c.textAlign="center";c.fillText(site,cx,yy+30*u)},story?28*u:20*u);
+      total=items.reduce((a2,it)=>a2+it.h+it.gap,0);
+      if(total<=bot-top)break;k*=.93;
+    }
+    let free=Math.max(0,bot-top-total),yy=top+free*.12,qi=TX.list?3:2;
+    items.forEach((it,i)=>{yy+=it.gap+(i===qi?free*.5:0);it.draw(yy);yy+=it.h});
+    c.textAlign="left";
+  }
   return cv;
 }
 function S3AmbFlyer(code,name){
@@ -70,7 +103,7 @@ function S3AmbFlyer(code,name){
   let cv=e("canvas",{style:{width:"100%",height:"auto",display:"block",borderRadius:"12px",background:"#131b19"}}),busy=0,again=0;
   async function draw(){if(busy){again=1;return}busy=1;try{await S3FlyDraw(cv,o)}catch{}busy=0;if(again){again=0;draw()}}
   let seg=(arr,key)=>ke(arr,o[key],v=>{o[key]=v;draw()});
-  let titleIn=e("input.input",{maxLength:70,placeholder:"Rejoignez-moi sur l’appli des chasseurs et des pêcheurs",oninput:ev=>{o.title=ev.target.value.trim();draw()}});
+  let titleIn=e("input.input",{maxLength:70,placeholder:"Laissez vide : titre adapté au format",oninput:ev=>{o.title=ev.target.value.trim();draw()}});
   let collab=e("label.row",{style:{gap:"8px",alignItems:"center"}},e("input",{type:"checkbox",checked:!0,onchange:ev=>{o.collab=ev.target.checked;draw()}}),e("span.small","Afficher « Collaboration commerciale » sur l’image"));
   let fname=()=>"chasse-peche-360-"+code.toLowerCase()+"-"+o.fmt+".png";
   let share=x("Partager l’image",{icon:"send",kind:"primary",onClick:()=>cv.toBlob(async b=>{
