@@ -93,11 +93,25 @@ function A30SweepSolve(P,sides,Hend){
   let b=best;return {ok:b.L.c>=.5&&b.R.c>=.5&&b.L.ctr+b.s*aL<b.R.ctr+b.s*aR,s:b.s,cL:b.L.c,cR:b.R.c,PcL:b.L.ctr,PcR:b.R.ctr,edge:b.s<.72||b.s>1.42};
 }
 /* Dessin du panorama annoté */
+/* Incruste les deux photos (plus nettes) dans le panorama, à l'endroit où elles ont été retrouvées, bords fondus */
+function A30SweepPhotos(c,pz,sides,cw,ch,sc,dpr){
+  let R=Math.PI/180,s=pz.s,X=wd=>(wd-pz.cmin)*pz.ppd*sc;
+  ["L","R"].forEach(sd=>{let st=sides[sd],Pc=sd==="L"?pz.PcL:pz.PcR;if(!st||!st.img||Pc==null)return;
+    try{let tmp=document.createElement("canvas");tmp.width=Math.max(1,Math.round(cw*dpr));tmp.height=Math.max(1,Math.round(ch*dpr));let tc=tmp.getContext("2d");tc.setTransform(dpr,0,0,dpr,0,0);
+      let fp=(st.W/2)/A30PhotoTan(st),k=s*pz.ppd*180/Math.PI*sc,N=Math.max(24,Math.min(160,Math.round(st.W/24))),x0=1e9,x1=-1e9;
+      for(let i=0;i<N;i++){let xa=st.W*i/N,xb=st.W*(i+1)/N,aa=Math.atan((xa-st.W/2)/fp),ab=Math.atan((xb-st.W/2)/fp),am=(aa+ab)/2,da=X(Pc+s*aa/R),db=X(Pc+s*ab/R),dh=st.H*Math.cos(am)/fp*k;
+        tc.drawImage(st.img,xa,0,xb-xa,st.H,da,ch/2-dh/2,db-da+.6,dh);x0=Math.min(x0,da);x1=Math.max(x1,db)}
+      if(!(x1>x0))return;let f=Math.min(.25,Math.max(10,(x1-x0)*.07)/(x1-x0)),g=tc.createLinearGradient(x0,0,x1,0);
+      g.addColorStop(0,"rgba(0,0,0,0)");g.addColorStop(f,"#000");g.addColorStop(1-f,"#000");g.addColorStop(1,"rgba(0,0,0,0)");
+      tc.globalCompositeOperation="destination-in";tc.fillStyle=g;tc.fillRect(0,0,cw,ch);
+      c.drawImage(tmp,0,0,cw,ch)}catch{}});
+}
 function A30SweepDraw(cv,pz,sides,m,cw){
   let ppd=pz.ppd,sw=(pz.cmax-pz.cmin)*ppd,sc=cw/sw,ch=Math.round(pz.can.height*sc),dpr=Math.min(2,window.devicePixelRatio||1);
   cv.width=Math.round(cw*dpr),cv.height=Math.round(ch*dpr),cv.style.width=cw+"px",cv.style.height=ch+"px";
   let c=cv.getContext("2d");c.setTransform(dpr,0,0,dpr,0,0);c.fillStyle="#131b19";c.fillRect(0,0,cw,ch);
   c.drawImage(pz.can,(pz.cmin-A30SW.w0)*ppd,0,sw,pz.can.height,0,0,cw,ch);
+  if(!pz.noPh)A30SweepPhotos(c,pz,sides,cw,ch,sc,dpr);
   let s=pz.s,PL=pz.PcL+s*A30PhA0(sides.L),PR=pz.PcR+s*A30PhA0(sides.R),ex=s*(30+m),YL=PL+ex,YR=PR-ex,X=wd=>(wd-pz.cmin)*ppd*sc,zone=(YR-YL)/s,between=(PR-PL)/s;
   let red="rgba(210,81,63,.34)",grn="rgba(63,122,85,.30)";
   if(YL<YR){c.fillStyle=red;c.fillRect(0,0,Math.max(0,X(YL)),ch);c.fillRect(X(YR),0,Math.max(0,cw-X(YR)),ch);c.fillStyle=grn;c.fillRect(X(YL),0,X(YR)-X(YL),ch)}
@@ -117,8 +131,70 @@ function A30Landscape(txt){
   i.innerHTML='<svg width="64" height="44" viewBox="0 0 64 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="46" height="26" rx="5"/><circle cx="48" cy="25" r="1.6" fill="currentColor"/><path d="M14 7c6-5 16-5 22 0"/><path d="M32 3l4 4-5 2"/></svg>';
   return e("div.row",{style:{gap:"12px",alignItems:"center",padding:"10px 12px",borderRadius:"12px",background:"rgba(47,111,143,.10)",color:"var(--ink,#1d2a27)"}},i,e("div.small",txt));
 }
-function A30Photo(host,m0,back){
-  let m=+Pe.get("ang30:marge",0)||m0||0,sides={L:null,R:null},step="L";
+/* ----- Historique des repères 30° : enregistré sur cet appareil (photos comprises), rien n'est envoyé ----- */
+const A30H={db:"cp360-a30",st:"reperes",max:50};
+function A30Idb(){return new Promise((ok,ko)=>{try{let r=indexedDB.open(A30H.db,1);r.onupgradeneeded=()=>{r.result.objectStoreNames.contains(A30H.st)||r.result.createObjectStore(A30H.st,{keyPath:"id"})};r.onsuccess=()=>ok(r.result);r.onerror=()=>ko(r.error)}catch(er){ko(er)}})}
+async function A30HDo(mode,fn){let db=await A30Idb();return new Promise((ok,ko)=>{let t=db.transaction(A30H.st,mode),q2=fn(t.objectStore(A30H.st));t.oncomplete=()=>{ok(q2&&"result" in q2?q2.result:void 0);db.close()};t.onerror=t.onabort=()=>{ko(t.error);db.close()}})}
+const A30HList=async()=>((await A30HDo("readonly",o=>o.getAll()))||[]).sort((a,b)=>b.at-a.at);
+const A30HPut=r=>A30HDo("readwrite",o=>o.put(r));
+const A30HDel=id=>A30HDo("readwrite",o=>o.delete(id));
+function A30Blob(src,w,h,q){return new Promise(ok=>{try{let cv=document.createElement("canvas");cv.width=w;cv.height=h;cv.getContext("2d").drawImage(src,0,0,w,h);cv.toBlob(b=>ok(b),"image/jpeg",q||.86)}catch{ok(null)}})}
+async function A30PackSide(st){
+  if(!st)return null;
+  if(!st.pack){let sc=Math.min(1,2000/Math.max(st.W,st.H)),w=Math.round(st.W*sc),h=Math.round(st.H*sc);st.pack={blob:await A30Blob(st.img,w,h),W:w,H:h,sc}}
+  return {blob:st.pack.blob,W:st.pack.W,H:st.pack.H,x:st.x==null?null:st.x*st.pack.sc,f35:st.f35,lensSrc:st.lensSrc};
+}
+async function A30PackPano(pz){
+  if(!pz)return null;
+  if(!pz.pack){let sx=Math.round((pz.cmin-A30SW.w0)*pz.ppd),sw=Math.max(1,Math.round((pz.cmax-pz.cmin)*pz.ppd)),cv=document.createElement("canvas");cv.width=sw;cv.height=pz.can.height;cv.getContext("2d").drawImage(pz.can,sx,0,sw,pz.can.height,0,0,sw,pz.can.height);
+    pz.pack=await new Promise(ok=>cv.toBlob(b=>ok(b),"image/jpeg",.85))}
+  return {blob:pz.pack,cmin:pz.cmin,cmax:pz.cmax,ppd:pz.ppd,h:pz.can.height,s:pz.s,PcL:pz.PcL,PcR:pz.PcR,conf:pz.conf,edge:pz.edge,noPh:!!pz.noPh};
+}
+async function A30Unpack(rec){
+  let bm=async b=>{try{return await createImageBitmap(b)}catch{return await new Promise((ok,ko)=>{let im=new Image();im.onload=()=>ok(im);im.onerror=ko;im.src=URL.createObjectURL(b)})}};
+  let side=async d=>d&&d.blob?{img:await bm(d.blob),W:d.W,H:d.H,x:d.x,f35:d.f35,lensSrc:d.lensSrc,pack:{blob:d.blob,W:d.W,H:d.H,sc:1}}:null;
+  let out={L:await side(rec.L),R:await side(rec.R),pano:null};
+  if(rec.pano&&rec.pano.blob){let p=rec.pano,im=await bm(p.blob),pc=document.createElement("canvas");pc.width=Math.round((A30SW.w1-A30SW.w0)*p.ppd);pc.height=p.h;let c=pc.getContext("2d");c.fillStyle="#131b19";c.fillRect(0,0,pc.width,pc.height);c.drawImage(im,Math.round((p.cmin-A30SW.w0)*p.ppd),0);
+    out.pano={can:pc,ppd:p.ppd,cmin:p.cmin,cmax:p.cmax,s:p.s,PcL:p.PcL,PcR:p.PcR,conf:p.conf,edge:p.edge,noPh:p.noPh,pack:p.blob}}
+  return out;
+}
+function A30HDate(t){try{return new Date(t).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})+" à "+new Date(t).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}catch{return ""}}
+/* Liste de l'historique, affichée sous « Commencer avec des photos » */
+function A30HistBox(host,m,back){
+  let box=e("div.stack",{style:{gap:"8px",marginTop:"14px",display:"none"}});
+  (async()=>{
+    let list;try{list=await A30HList()}catch{return}
+    if(!list.length)return;
+    let urls=[];
+    let rows=list.map(r=>{
+      let th=e("img",{alt:"",style:{width:"84px",height:"56px",objectFit:"cover",borderRadius:"8px",flex:"none",background:"#131b19"}});
+      let b0=(r.pano&&r.pano.blob)||(r.L&&r.L.blob);if(b0){let u=URL.createObjectURL(b0);urls.push(u);th.src=u}
+      let sub=[A30HDate(r.at)];if(r.zone!=null)sub.push(r.zone>0?"zone de "+Math.round(r.zone)+"°":"pas de zone");if(r.m)sub.push("marge "+r.m+"°");
+      let del=x("Supprimer",{kind:"ghost",size:"sm",onClick:async()=>{if(del.dataset.ok!=="1"){del.dataset.ok="1";del.lastChild&&(del.lastChild.textContent="Confirmer");setTimeout(()=>{del.dataset.ok="";del.lastChild&&(del.lastChild.textContent="Supprimer")},4000);return}
+        try{await A30HDel(r.id);row.remove();if(!box.querySelector(".a30h-row"))box.style.display="none"}catch{A("Suppression impossible ici.","warn")}}});
+      let row=e("div.a30h-row",{style:{display:"flex",flexDirection:"column",gap:"8px",padding:"10px 0",borderTop:"1px solid var(--line,#E2DDD1)"}},
+        e("div",{style:{display:"flex",gap:"12px",alignItems:"center"}},th,e("div",{style:{minWidth:0,flex:"1"}},e("div",{style:{fontWeight:600}},r.name||"Repères sans nom"),e("div.small.muted",sub.join(" · ")))),
+        e("div",{style:{display:"flex",gap:"8px",flexWrap:"wrap"}},x("Revoir",{kind:"primary",size:"sm",onClick:()=>{urls.forEach(u=>URL.revokeObjectURL(u));A30Photo(host,m,back,r)}}),del));
+      return row});
+    W(box);box.append(e("b",{style:{fontSize:"15px"}},"Mes repères enregistrés"),e("div.small.muted","Sur cet appareil uniquement : revoyez vos photos, vos lignes et votre panorama."),e("div",rows));box.style.display="";
+  })();
+  return box;
+}
+function A30Photo(host,m0,back,rec){
+  let m=+Pe.get("ang30:marge",0)||m0||0,sides={L:null,R:null},step="L",rid=null,rname="",rat=0,saved=null;
+  /* Enregistrement automatique dans l'historique dès qu'un résultat est affiché (et à chaque modification) */
+  let saveT=0;
+  async function persist(){
+    try{if(!sides.L||!sides.R||sides.L.x==null||sides.R.x==null)return;
+      rid=rid||("r"+Date.now().toString(36)+Math.random().toString(36).slice(2,6));rat=rat||Date.now();
+      let zone=null;if(sides.pano){try{let s2=sides.pano.s,PL=sides.pano.PcL+s2*A30PhA0(sides.L),PR=sides.pano.PcR+s2*A30PhA0(sides.R);zone=(PR-PL)/s2-60-2*m}catch{}}
+      let r={id:rid,at:rat,upd:Date.now(),name:rname,m,zone,L:await A30PackSide(sides.L),R:await A30PackSide(sides.R),pano:await A30PackPano(sides.pano)};
+      await A30HPut(r);saved=Date.now();
+      let all=await A30HList();for(let o of all.slice(A30H.max))await A30HDel(o.id);
+      let st=host.querySelector(".a30h-state");st&&(st.textContent="Enregistré dans l’historique de cet appareil.");
+    }catch(er){let st=host.querySelector(".a30h-state");st&&(st.textContent="Historique indisponible ici (stockage bloqué) : partagez l’image pour la garder.")}
+  }
+  const persistSoon=()=>{clearTimeout(saveT);saveT=setTimeout(persist,400)};
   const lensOpts=[["13","Ultra grand-angle (13 mm)"],["24","Principal 24 mm"],["26","Principal 26 mm"],["28","Principal 28 mm"],["35","Principal 35 mm"]];
   function pickInput(capture,onFile){let i=e("input",{type:"file",accept:"image/*",hidden:!0,onchange:ev=>{let f=ev.target.files[0];ev.target.value="";f&&onFile(f)}});capture&&i.setAttribute("capture","environment");document.body.append(i);i.click();setTimeout(()=>i.remove(),60000)}
   async function load(f){
@@ -271,8 +347,9 @@ function A30Photo(host,m0,back){
   function result(){
     let cvL=e("canvas",{style:{display:"block",width:"100%",borderRadius:"12px"}}),cvR=e("canvas",{style:{display:"block",width:"100%",borderRadius:"12px"}}),gl=e("div.stack",{style:{gap:"6px"}},e("b","Côté gauche : à partir de la ligne jaune"),cvL),gr=e("div.stack",{style:{gap:"6px"}},e("b","Côté droit : jusqu’à la ligne jaune"),cvR);
     let pz=sides.pano,pcv=e("canvas",{style:{display:"block",width:"100%",borderRadius:"12px"}}),pinfo=e("div.small");
+    let phT=pz?x(pz.noPh?"Incruster les photos":"Voir le film seul",{kind:"ghost",size:"sm",onClick:()=>{pz.noPh=!pz.noPh;view()}}):null;
     let pblock=pz?e("div.stack",{style:{gap:"6px"}},e("b","Vue d’ensemble filmée"),pcv,pinfo,
-        e("div.row",{style:{gap:"8px",flexWrap:"wrap"}},x("Refilmer la zone",{icon:"camera",kind:"ghost",size:"sm",onClick:()=>{step="sweep";view()}}),x("Retirer le panorama",{kind:"ghost",size:"sm",onClick:()=>{sides.pano=null;view()}}))):
+        e("div.row",{style:{gap:"8px",flexWrap:"wrap"}},phT,x("Refilmer la zone",{icon:"camera",kind:"ghost",size:"sm",onClick:()=>{step="sweep";view()}}),x("Retirer le panorama",{kind:"ghost",size:"sm",onClick:()=>{sides.pano=null;view()}}))):
       e("div.panel.stack",{style:{gap:"8px"}},e("b","Facultatif : filmer la zone pour voir l’ensemble"),
         e("div.small","Partez de l’obstacle de gauche et tournez lentement jusqu’à celui de droite. L’appli assemble le film en panorama, y retrouve vos deux photos et y place les deux lignes jaunes, avec la largeur de la zone de tir."),
         x("Filmer la zone",{icon:"camera",kind:"ghost",onClick:()=>{step="sweep";view()}}));
@@ -280,17 +357,22 @@ function A30Photo(host,m0,back){
       e("div.panel",{style:{background:"#3F7A55",color:"#fff",borderColor:"transparent"}},
         e("div.display",{style:{fontSize:"24px",fontWeight:700}},"Votre zone de tir : entre les deux lignes jaunes"),
         e("div.small",{style:{marginTop:"4px"}},(m?"30° réglementaires + "+m+"° de marge":"30° réglementaires exacts")+". Choisissez un repère fixe sur chaque ligne (arbre, piquet, souche) : au poste, tirez seulement entre ces deux repères.")),
+      e("div.field",{style:{margin:0}},e("label","Nom du poste ou du lieu (facultatif)"),e("input.input",{value:rname,placeholder:"ex. : Poste 4, battue du Grand Bois",maxLength:80,oninput:ev=>{rname=ev.target.value;persistSoon()}}),e("div.tiny.muted.a30h-state",{style:{marginTop:"4px"}},"Enregistrement dans l’historique…")),
       pblock,
       e("div.grid.g-2",gl,gr),
       e("div.row",{style:{gap:"8px",flexWrap:"wrap"}},x("Partager l’image des repères",{icon:"download",kind:"primary",onClick:share}),x("Refaire la photo de gauche",{kind:"ghost",onClick:()=>{step="L";view()}}),x("Refaire la photo de droite",{kind:"ghost",onClick:()=>{step="R";view()}})),
       e("p.tiny.muted",{style:{margin:0}},"La méthode photo n’utilise ni boussole ni gyroscope : rien ne dérive. Elle suppose une photo prise téléphone droit, sans zoom, avec l’objectif indiqué. Aide visuelle : elle ne remplace ni les consignes du chef de ligne, ni l’identification de la cible et de l’arrière-plan."),
       x("Terminer",{kind:"ghost",size:"block",onClick:back})));
     requestAnimationFrame(()=>{if(pz){let r=A30SweepDraw(pcv,pz,sides,m,pcv.parentElement.clientWidth||340);
-        pinfo.textContent="Entre les deux obstacles : "+Math.round(r.between)+"°. "+(r.zone>0?"Zone de tir : "+Math.round(r.zone)+"° de large (en vert).":"Il n’y a pas de zone de tir : il faut au moins "+(60+2*m)+"° entre les obstacles.")+" Le panorama sert à voir l’ensemble ; les lignes exactes sont celles des photos."+(pz.edge||pz.conf<.65?" Assemblage peu sûr : refilmez plus lentement si les lignes ne tombent pas aux mêmes repères que sur les photos.":"");
+        pinfo.textContent="Entre les deux obstacles : "+Math.round(r.between)+"°. "+(r.zone>0?"Zone de tir : "+Math.round(r.zone)+"° de large (en vert).":"Il n’y a pas de zone de tir : il faut au moins "+(60+2*m)+"° entre les obstacles.")+" Le panorama sert à voir l’ensemble"+(pz.noPh?"":" (vos deux photos y sont incrustées, plus nettes)")+" ; les lignes exactes sont celles des photos."+(pz.edge||pz.conf<.65?" Assemblage peu sûr : refilmez plus lentement si les lignes ne tombent pas aux mêmes repères que sur les photos.":"");
         if(r.zone<=0)pinfo.style.color="var(--danger,#D2513F)"}
       A30PhotoDraw(cvL,sides.L,"L",m,cvL.parentElement.clientWidth||340);A30PhotoDraw(cvR,sides.R,"R",m,cvR.parentElement.clientWidth||340)});
+    persistSoon();
   }
-  view();
+  if(rec){rid=rec.id;rname=rec.name||"";rat=rec.at;m=rec.m||0;step="done";
+    C(host,e("p.small.muted","Ouverture de vos repères…"));
+    A30Unpack(rec).then(o=>{sides.L=o.L;sides.R=o.R;sides.pano=o.pano;if(!sides.L||!sides.R){step="L"}view()}).catch(()=>{A("Ces repères n’ont pas pu être ouverts.","warn");back()});
+  }else view();
 }
 /* ----- Sur ordinateur : le calculateur de 30° n'est pas proposé (il se fait au poste, avec l'appareil photo d'un téléphone ou d'une tablette) ----- */
 function A30IsDesk(){try{return matchMedia("(hover:hover) and (pointer:fine)").matches&&!(navigator.maxTouchPoints>0)&&window.innerWidth>=1024}catch{return !1}}
