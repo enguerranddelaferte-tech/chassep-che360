@@ -62,6 +62,7 @@ async function S3AlbBox(uid){
       pb.disabled=!0;msg.textContent="Préparation de la photo…";
       try{
         let d=await S3AlbCompress(file.files[0]);
+        if(vis.value==="public"&&typeof S3PhFromData=="function"){msg.textContent="Envoi de la photo…";d=(await S3PhFromData(d))||d}
         let r=await S3Sb("POST","albums",{owner_id:w.user.id,kind:"photo",photo:d,caption:cap.value.trim(),visibility:vis.value},{Prefer:"return=minimal"});
         if(r.ok){A("Photo ajoutée à l’album."),file.value="",cap.value="",msg.textContent="";load()}
         else msg.textContent=r.status===401||r.status===403?"Votre session a expiré : reconnectez-vous.":"Ajout impossible pour le moment.";

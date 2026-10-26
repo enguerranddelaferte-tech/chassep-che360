@@ -21,7 +21,7 @@ function S3ShCheck(file){
     v.onloadedmetadata=()=>{
       URL.revokeObjectURL(url);
       let w2=v.videoWidth,h2=v.videoHeight,ratio=h2/Math.max(1,w2);
-      if(v.duration>S3ShMax.sec+.5)return ko("Vidéo trop longue : 3 minutes maximum.");
+      if(v.duration>S3VidMaxSec()+.5)return ko(S3VidTooLong());
       if(!(ratio>=S3ShMax.ratioMin&&ratio<=S3ShMax.ratioMax))return ko("Format vertical requis : 9:16 (ou 3:4). Votre vidéo est en paysage ou dans un autre format.");
       if(Math.min(w2,h2)<S3ShMax.minSide)return ko("Résolution trop faible : 720 px minimum sur le petit côté.");
       ok(v.duration);
@@ -118,7 +118,8 @@ async function S3ShPage(t){
     rows.forEach(s=>C(feed,S3ShCard(s,names,!!(w.user&&w.user.id===s.owner_id),load)));
   };
   if(w.user)form=S3ShForm(load);
-  C(t,q({title:"Vidéos courtes",subtitle:"Publiées par les membres : vidéos verticales, 3 minutes maximum."}),form||null,feed);
+  try{typeof S3AmbCheck=="function"&&S3AmbCheck()}catch{}
+  C(t,q({title:"Vidéos courtes",subtitle:"Publiées par les membres : vidéos verticales, 1 minute maximum (plus longues pour les ambassadeurs)."}),form||null,feed);
   load();
 }
 function S3ShForm(done,inModal){

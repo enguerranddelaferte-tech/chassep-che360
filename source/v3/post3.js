@@ -5,7 +5,13 @@ function S3Media(src,alt,eager){
   if(/^offline-video:/.test(src))return e("div.offline-video",b("clock"),e("span","Vidéo en attente d’envoi : elle apparaîtra dès le retour du réseau."));
   let isVid=/^data:video\//.test(src)||(S3VidRe.test(src)&&!/^data:image\//.test(src));
   if(isVid)return e("video",{src:src,controls:true,playsinline:true,preload:"metadata",style:{width:"100%",borderRadius:"12px"}});
-  return e("img",{src:src,alt:alt||"",loading:eager?"eager":"lazy"});
+  if(typeof S3PhIsUrl=="function"&&S3PhIsUrl(src)){
+    let full=S3PhFull(src),im=e("img",{src:S3PhThumb(src),alt:alt||"",loading:eager?"eager":"lazy",decoding:"async",style:{cursor:"zoom-in"}});
+    im.onerror=()=>{if(im.src!==full){im.onerror=null;im.src=full}};
+    im.addEventListener("click",ev=>{if(ev.target.closest("a,button"))return;ev.stopPropagation();S3PhView(full)});
+    return im;
+  }
+  return e("img",{src:src,alt:alt||"",loading:eager?"eager":"lazy",decoding:"async"});
 }
 function S3VidDur(file){
   return new Promise(res=>{
@@ -36,7 +42,8 @@ async function S3PhotoPick(file,gr,st){
   if(!window.cp360Sb||!window.cp360Sb.on||!window.cp360Sb.on()){st("Connectez-vous pour publier une vidéo.");return null;}
   if(file.size>S3ShMax.bytes){st("Vidéo trop lourde : 300 Mo maximum avant compression.");return null;}
   let dur=await S3VidDur(file);
-  if(dur>S3ShMax.sec+.5){st("Vidéo trop longue : 3 minutes maximum.");return null;}
+  try{typeof S3AmbCheck=="function"&&await S3AmbCheck()}catch{}
+  if(dur>S3VidMaxSec()+.5){st(S3VidTooLong());return null;}
   if(!navigator.onLine){try{let mk=await S3OffKeep(file);st("Hors ligne : la vidéo est gardée sur le téléphone et partira au retour du réseau. Vous pouvez publier.");return mk}catch{st("Hors ligne : impossible de garder la vidéo sur cet appareil.");return null}}
   window.__s3VidBusy=true;
   try{
