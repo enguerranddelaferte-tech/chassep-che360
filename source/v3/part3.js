@@ -4,7 +4,7 @@
       entre une date de début et de fin, avec compteurs d'affichages et de clics (sans donnée personnelle). */
 const S3PartCats=[["armurerie","Armurerie"],["peche","Articles de pêche"],["traiteur","Venaison & traiteur"],["guide","Guide"],["veterinaire","Vétérinaire"],["taxidermiste","Taxidermiste"]];
 const S3PartDemo=new Set(["Armurerie de Sologne","Pêche & Loire","Venaison du Beuvron","Guide pêche Loire Nature","Clinique vétérinaire des Bruyères","Taxidermie Solognote","Chasse & Nature Center","Le Moulinet Solognot","Boucherie gibier Martin","Sologne Aventure Guides","Magimix","Lava","OptiVision","Rivière Outdoor"]);
-const S3PartMods=[["angle30","Calculateur 30°","/angle-30"],["meteo","Météo terrain","/meteo"],["tenue","Météo · Comment s’habiller","/meteo:tenue"],["carnet","Carnet de pêche","/carnet"],["recettes","Recettes","/recettes"],["annuaire","Annuaire des pros","/annuaire"],["carte","Carte","/carte"],["communaute","Fil d’actualité","/communaute"]];
+const S3PartMods=[["angle30","Calculateur 30°","/angle-30"],["meteo","Météo terrain","/meteo"],["carnet","Carnet de pêche","/carnet"],["recettes","Recettes","/recettes"],["annuaire","Annuaire des pros","/annuaire"],["carte","Carte","/carte"],["communaute","Fil d’actualité","/communaute"]];
 function S3PartReal(){try{return !!(window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on())}catch{return !1}}
 /* En ligne, les fiches et marques de démonstration ne sont plus montrées */
 function S3PartIsDemo(x){return !!x&&(x.demo||S3PartDemo.has(x.name)||S3PartDemo.has(x.sponsor))}
