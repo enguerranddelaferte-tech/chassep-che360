@@ -506,7 +506,8 @@ const S3FEAT=[
 const S3FeatKey="cp360.modules.v1";
 var S3FeatOff=(()=>{try{let v=JSON.parse(localStorage.getItem(S3FeatKey)||"null");if(v&&Array.isArray(v.off))return new Set(v.off)}catch{}return new Set(S3FEAT.filter(f=>f.off).map(f=>f.id))})();
 function S3FeatOf(p){p=(p||"").split("?")[0];let best=null;S3FEAT.forEach(f=>f.paths.forEach(x2=>{(p===x2||p.startsWith(x2+"/"))&&(!best||x2.length>best[1].length)&&(best=[f,x2])}));return best&&best[0]}
-function S3FeatDemo(){try{return!(window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on())}catch{return!0}}
+/* En ligne comme en démo : les fonctions « Plus tard » restent visibles et utilisables, avec une mention */
+function S3FeatDemo(){return!0}
 /* En démonstration, tout reste visible : les fonctions prévues pour plus tard portent simplement une mention */
 function S3ModOk(p){if(w.user&&S3Adm(w.user)||S3FeatDemo())return!0;let f=S3FeatOf(p);return!f||!S3FeatOff.has(f.id)}
 function S3FeatStyle(){
@@ -533,7 +534,7 @@ async function S3FeatLoad(){
 function S3FeatGuard(p){
   S3FeatStyle();
   if(S3FeatDemo()){let f=S3FeatOf(p);if(f&&S3FeatOff.has(f.id)&&!(w.user&&S3Adm(w.user))&&Mt){let pg=Mt.querySelector(".page");
-    if(pg&&!pg.querySelector(".feat-demo")){let ban=e("div.feat-demo",e("b","Prévue pour plus tard"),e("span","Cette fonction n’est pas encore ouverte aux membres. Elle reste visible ici pour la démonstration."));let h=pg.querySelector(".page-head");h?h.after(ban):pg.prepend(ban)}}return!1}
+    if(pg&&!pg.querySelector(".feat-demo")){let ban=e("div.feat-demo",e("b","Prévue pour plus tard"),e("span","Cette fonction est en cours de finalisation : vous pouvez déjà l’essayer, elle sera officiellement lancée prochainement."));let h=pg.querySelector(".page-head");h?h.after(ban):pg.prepend(ban)}}return!1}
   if(!S3ModOk(p)){A("Cette fonction arrive bientôt dans l’appli.");ge("/accueil");return!0}
   return!1
 }
@@ -541,11 +542,11 @@ function S3FeatGuard(p){
 function S3FeatPage(t){
   if(!w.user||!S3Adm(w.user)){C(t,q({title:"Fonctions de l’appli"}),e("p.muted","Réservé à l’équipe."));return}
   let real=!!(window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on()),sel=new Set(S3FeatOff),dirty=!1,bar;
-  let count=()=>{let n=S3FEAT.filter(f=>sel.has(f.id)).length;return n?`${n} fonction${n>1?"s":""} masquée${n>1?"s":""}`:"Tout est visible"};
+  let count=()=>{let n=S3FEAT.filter(f=>sel.has(f.id)).length;return n?`${n} fonction${n>1?"s":""} en « Plus tard »`:"Tout est lancé"};
   let row=f=>{
     let st=e("span.feat-st"),sw=e("button.feat-sw",{type:"button",role:"switch","aria-label":f.label}),
-      paint=()=>{let on=!sel.has(f.id);sw.setAttribute("aria-checked",String(on));st.textContent=on?"Visible":"Masquée";st.className="feat-st"+(on?" on":"");r.classList.toggle("is-off",!on)},
-      r=e("div.feat-row",e("span.feat-txt",e("b",f.label,f.off?e("span.feat-later","prévue pour plus tard"):null),e("span.small.muted",f.hint)),st,sw);
+      paint=()=>{let on=!sel.has(f.id);sw.setAttribute("aria-checked",String(on));st.textContent=on?"Lancée":"Plus tard";st.className="feat-st"+(on?" on":"");r.classList.toggle("is-off",!on)},
+      r=e("div.feat-row",e("span.feat-txt",e("b",f.label,null),e("span.small.muted",f.hint)),st,sw);
     sw.onclick=()=>{sel.has(f.id)?sel.delete(f.id):sel.add(f.id);paint();dirty=!0;bar.classList.add("show");sum.textContent=count()};
     paint();return r};
   let secs=[];S3FEAT.forEach(f=>{let g=secs.find(x2=>x2[0]===f.sec);g?g[1].push(f):secs.push([f.sec,[f]])});
@@ -554,11 +555,11 @@ function S3FeatPage(t){
     let off=[...sel];
     if(real){let r=await S3Sb("POST","app_settings?on_conflict=key",{key:"modules",value:{off},updated_at:new Date().toISOString()},{Prefer:"resolution=merge-duplicates,return=minimal"});
       if(!r||!r.ok){A("Enregistrement impossible : vérifiez la connexion.","err");return}}
-    S3FeatApply(off,!1);dirty=!1;bar.classList.remove("show");A(real?"Fonctions mises à jour pour tous les membres.":"Fonctions mises à jour (démo : sur cet appareil).","ok");
+    S3FeatApply(off,!1);dirty=!1;bar.classList.remove("show");A(real?"Mis à jour pour tous les membres.":"Mis à jour (démo : sur cet appareil).","ok");
   },save=()=>x("Enregistrer",{icon:"check",kind:"primary",onClick:doSave});
   bar=e("div.feat-bar",e("span",sum," · modifications non enregistrées"),save());
-  C(t,q({title:"Fonctions de l’appli",subtitle:"Ce que les membres voient, rangé comme dans leur menu. Une fonction masquée reste dans l’appli : on la rallume d’un clic, sans mise à jour."}),
-    e("p.small.muted",{style:{margin:"0 0 12px"}},"Toujours visibles : accueil, fil d’actualité, profil, amis, ambassadeurs, sécurité, réglementation, abonnement. L’équipe (admin) voit tout."),
+  C(t,q({title:"Fonctions de l’appli",subtitle:"Rangé comme dans le menu des membres. Une fonction en « Plus tard » reste visible et utilisable, avec une mention dans le menu et un bandeau sur sa page. Basculez-la sur « Lancée » le jour de sa sortie."}),
+    e("p.small.muted",{style:{margin:"0 0 12px"}},"Toujours lancées : accueil, fil d’actualité, profil, amis, ambassadeurs, sécurité, réglementation, abonnement."),
     ...secs.map(([name,list])=>k({title:"Menu « "+name+" »"},e("div.feat-list",list.map(row)))),
     e("div.row",{style:{gap:"8px"}},save()),bar);
 }
@@ -566,8 +567,8 @@ function S3FeatAdminLink(p){
   if(!(p==="/admin"||p==="/admin/tableau")||!w.user||!S3Adm(w.user)||!Mt)return;
   let pg=Mt.querySelector(".page");if(!pg||pg.querySelector(".feat-admin"))return;
   let n=S3FEAT.filter(f=>S3FeatOff.has(f.id)).length;
-  let box=k({cls:"feat-admin",title:"Fonctions de l’appli"},e("p.small.muted",{style:{margin:"0 0 10px"}},n?`${n} fonction${n>1?"s":""} masquée${n>1?"s":""} pour les membres (lancement progressif).`:"Toutes les fonctions sont visibles."),
-    x("Choisir les fonctions visibles",{icon:"eye",kind:"primary",onClick:()=>{location.hash="#/admin/fonctions"}}));
+  let box=k({cls:"feat-admin",title:"Fonctions de l’appli"},e("p.small.muted",{style:{margin:"0 0 10px"}},n?`${n} fonction${n>1?"s":""} affichée${n>1?"s":""} « Plus tard » pour les membres (lancement progressif).`:"Toutes les fonctions sont lancées."),
+    x("Gérer les fonctions",{icon:"eye",kind:"primary",onClick:()=>{location.hash="#/admin/fonctions"}}));
   let h=pg.querySelector(".page-head");h?h.after(box):pg.prepend(box);
 }
 
