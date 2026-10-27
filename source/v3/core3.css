@@ -770,3 +770,13 @@ html.kb-open .tabbar{transform:translateY(110%)}
 
 /* Ordinateur : pas de calculateur de 30° dans les menus */
 html.is-desk a[href="#/angle-30"],html.is-desk a[href="#/angle-30-carte"]{display:none!important}
+
+/* Partenaires : bandeau « Présenté par » et logos de l'annuaire */
+.part-band{display:flex;align-items:center;gap:12px;margin:0 0 14px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--surface,#fff);color:inherit;text-decoration:none}
+.part-band img{width:40px;height:40px;object-fit:contain;border-radius:8px;background:#fff;flex:none}
+.part-band .part-txt{display:flex;flex-direction:column;min-width:0;flex:1}
+.part-band .part-by{font-size:14px}
+.part-band .part-sub{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.part-band .part-tag{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 8px;flex:none}
+a.part-band:hover{border-color:var(--line-strong)}
+.dir-logo{width:36px;height:36px;object-fit:contain;border-radius:8px;background:#fff;flex:none}

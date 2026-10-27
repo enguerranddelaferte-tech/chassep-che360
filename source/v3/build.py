@@ -36,7 +36,7 @@ bundle=rep(bundle,'},p,d.el,m)','},p,d.el,s==="login"?null:S3ConsentEl(),m)')
 # mesure d'audience : refus possible
 bundle=rep(bundle,'function track(kind){if(!on())return;','function track(kind){if(!on())return;try{if(localStorage.getItem("cp360.noTrack")==="1")return}catch{}')
 bundle=rep(bundle,'e("article.panel.post",e("div.post-head",oe(t.author,44),e("div.grow",e("a",{href:`#/profil/${t.author.id}`','e("article.panel.post",{dataset:{pid:t.id||""}},e("div.post-head",oe(t.author,44),e("div.grow",e("a",{href:`#/profil/${t.author.id}`')
-shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()+'\n'+open(B+'v3/notif3.js').read()+'\n'+open(B+'v3/offline3.js').read()+'\n'+open(B+'v3/launch3.js').read()+'\n'+open(B+'v3/legal3.js').read()+'\n'+open(B+'v3/pages3.js').read()+'\n'+open(B+'v3/ops3.js').read()+'\n'+open(B+'v3/mod3.js').read()+'\n'+open(B+'v3/photo30.js').read()+'\n'+open(B+'v3/qr3.js').read()+'\n'+open(B+'v3/media3.js').read()+'\n'+open(B+'v3/flyer3.js').read()
+shell=open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()+'\n'+open(B+'v3/notif3.js').read()+'\n'+open(B+'v3/offline3.js').read()+'\n'+open(B+'v3/launch3.js').read()+'\n'+open(B+'v3/legal3.js').read()+'\n'+open(B+'v3/pages3.js').read()+'\n'+open(B+'v3/ops3.js').read()+'\n'+open(B+'v3/mod3.js').read()+'\n'+open(B+'v3/photo30.js').read()+'\n'+open(B+'v3/qr3.js').read()+'\n'+open(B+'v3/media3.js').read()+'\n'+open(B+'v3/part3.js').read()+'\n'+open(B+'v3/flyer3.js').read()
 home=open(B+'v3/home3.js').read()
 # 0b. publications : photo/vidéo depuis le téléphone, lecteur vidéo dans le fil
 bundle=rep(bundle,'accept:"image/*",capture:"environment",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await Gr($)),S())}','accept:l.video?"image/*,video/*":"image/*",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await S3PhotoPick($,Gr)),S())}')
@@ -46,6 +46,14 @@ bundle=rep(bundle,'t.photo?e("div.photo",e("img",{src:t.photo,alt:"",loading:"ea
 bundle=rep(bundle,'if(ups.length){for(let i=0;i<ups.length;i+=40){','for(const x of ups){try{if(window.cp360Media){const nr=await window.cp360Media(n,x[2],Ut[n]&&Ut[n].items.get(x[1]));if(nr!==x[2]){q.get(x[0])===x[2]&&q.set(x[0],nr);x[2]=nr}}}catch{}}if(ups.length){for(let i=0;i<ups.length;i+=40){')
 # Relecture complète toutes les 30 min au lieu de 3 min (les changements arrivent toujours toutes les 20 s)
 bundle=rep(bundle,'const full=tick%9===0','const full=tick%90===0')
+# Partenaires : fiches et marques de démonstration masquées en ligne, logo dans l'annuaire
+DEMO='!(typeof S3PartReal=="function"&&S3PartReal()&&S3PartIsDemo(%s))'
+bundle=rep(bundle,'let T=$=>G.directory.insert({partner:!1,offer:null,rating:4.5,...$})','let T=$=>G.directory.insert({partner:!1,offer:null,rating:4.5,demo:!0,...$})')
+bundle=rep(bundle,'G.partners.insert({name:','G.partners.insert({demo:!0,name:',count=4)
+bundle=rep(bundle,'l=be.directory.all(u=>(!n||n==="tous"||u.category===n)&&(!i||In(u.name+" "+u.city).includes(In(i))))','l=be.directory.all(u=>(!n||n==="tous"||u.category===n)&&(!i||In(u.name+" "+u.city).includes(In(i)))&&'+DEMO%'u'+')')
+bundle=rep(bundle,'n.sponsor?k({cls:"tint"}','n.sponsor&&'+DEMO%'n'+'?k({cls:"tint"}')
+bundle=rep(bundle,'o=z.partners.all()','o=z.partners.all(p=>'+DEMO%'p'+')')
+bundle=rep(bundle,'e("span.ic",{style:{color:c.partner?"var(--gold)":null}},b("store"))','c.logo?e("img.dir-logo",{src:c.logo,alt:"",loading:"lazy"}):e("span.ic",{style:{color:c.partner?"var(--gold)":null}},b("store"))')
 # Fil : pages de 10, page suivante chargée automatiquement en arrivant en bas
 bundle=rep(bundle,'let o=s.slice(0,15),nx=s.length>15?o[o.length-1].createdAt:null','let o=s.slice(0,10),nx=s.length>10?o[o.length-1].createdAt:null')
 bundle=rep(bundle,'B(a,n?x("Voir plus",{kind:"ghost",onClick:()=>s(!1)}):null)','B(a,n?x("Voir plus",{kind:"ghost",onClick:()=>s(!1)}):null),n&&typeof S3AutoMore=="function"&&S3AutoMore(a,()=>s(!1))')
