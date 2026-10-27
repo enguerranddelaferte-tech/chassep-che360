@@ -26,10 +26,14 @@ const S3FEAT=[
 const S3FeatKey="cp360.modules.v1";
 var S3FeatOff=(()=>{try{let v=JSON.parse(localStorage.getItem(S3FeatKey)||"null");if(v&&Array.isArray(v.off))return new Set(v.off)}catch{}return new Set(S3FEAT.filter(f=>f.off).map(f=>f.id))})();
 function S3FeatOf(p){p=(p||"").split("?")[0];let best=null;S3FEAT.forEach(f=>f.paths.forEach(x2=>{(p===x2||p.startsWith(x2+"/"))&&(!best||x2.length>best[1].length)&&(best=[f,x2])}));return best&&best[0]}
-function S3ModOk(p){if(w.user&&S3Adm(w.user))return!0;let f=S3FeatOf(p);return!f||!S3FeatOff.has(f.id)}
+function S3FeatDemo(){try{return!(window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on())}catch{return!0}}
+/* En démonstration, tout reste visible : les fonctions prévues pour plus tard portent simplement une mention */
+function S3ModOk(p){if(w.user&&S3Adm(w.user)||S3FeatDemo())return!0;let f=S3FeatOf(p);return!f||!S3FeatOff.has(f.id)}
 function S3FeatStyle(){
   let st=document.getElementById("s3-feat-css");st||(st=document.createElement("style"),st.id="s3-feat-css",document.head.append(st));
   if(w.user&&S3Adm(w.user)){st.textContent="";return}
+  if(S3FeatDemo()){let sel=[];S3FEAT.filter(f=>S3FeatOff.has(f.id)).forEach(f=>f.paths.forEach(x2=>sel.push(`.nav-link[data-path="${x2}"]::after`,`.nav-link[data-path^="${x2}/"]::after`)));
+    st.textContent=sel.length?sel.join(",")+'{content:"Plus tard";margin-left:auto;flex:none;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:999px;border:1px dashed currentColor;opacity:.75}':"";return}
   let sel=[];S3FEAT.filter(f=>S3FeatOff.has(f.id)).forEach(f=>f.paths.forEach(x2=>sel.push(`a[href="#${x2}"]`,`a[href^="#${x2}/"]`,`a[href^="#${x2}?"]`)));
   st.textContent=sel.length?sel.join(",")+"{display:none!important}":"";
 }
@@ -48,6 +52,8 @@ async function S3FeatLoad(){
 /* Appelé après chaque changement de page */
 function S3FeatGuard(p){
   S3FeatStyle();
+  if(S3FeatDemo()){let f=S3FeatOf(p);if(f&&S3FeatOff.has(f.id)&&!(w.user&&S3Adm(w.user))&&Mt){let pg=Mt.querySelector(".page");
+    if(pg&&!pg.querySelector(".feat-demo")){let ban=e("div.feat-demo",e("b","Prévue pour plus tard"),e("span","Cette fonction n’est pas encore ouverte aux membres. Elle reste visible ici pour la démonstration."));let h=pg.querySelector(".page-head");h?h.after(ban):pg.prepend(ban)}}return!1}
   if(!S3ModOk(p)){A("Cette fonction arrive bientôt dans l’appli.");ge("/accueil");return!0}
   return!1
 }

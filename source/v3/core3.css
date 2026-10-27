@@ -805,3 +805,5 @@ a.part-band:hover{border-color:var(--line-strong)}
 .feat-bar.show{display:flex}
 @media (max-width:520px){.feat-st{display:none}}
 @media (max-width:899px){.feat-bar{bottom:calc(76px + env(safe-area-inset-bottom,0px))}.feat-bar>span{font-size:14px}}
+.feat-demo{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin:0 0 14px;padding:10px 14px;border:1px dashed var(--accent,#D95A10);border-radius:12px;background:color-mix(in srgb,var(--accent,#D95A10) 8%,transparent);font-size:14px}
+.feat-demo b{color:var(--accent,#D95A10)}
