@@ -27,7 +27,9 @@ function S3EarlyRoutes(){
   try{A30DeskRoutes()}catch{}
   Z("/admin/annuaire",()=>Promise.resolve({default:t=>S3PartDirPage(t)}));
   Z("/admin/emplacements",()=>Promise.resolve({default:t=>S3PartPlacePage(t)}));
-  try{["/admin/annuaire","/admin/emplacements"].forEach(p=>{let i=Jr.findIndex(r=>r.pattern===p);if(i>0)Jr.unshift(Jr.splice(i,1)[0])})}catch{}
+  Z("/admin/fonctions",()=>Promise.resolve({default:t=>S3FeatPage(t)}));
+  try{S3FeatLoad()}catch{}
+  try{["/admin/annuaire","/admin/emplacements","/admin/fonctions"].forEach(p=>{let i=Jr.findIndex(r=>r.pattern===p);if(i>0)Jr.unshift(Jr.splice(i,1)[0])})}catch{}
 }
 async function S3AmbCheck(){
   if(!w.user||!window.cp360Sb||!window.cp360Sb.on||!window.cp360Sb.on()){S3Amb.id=null;return null}

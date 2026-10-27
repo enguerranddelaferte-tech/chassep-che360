@@ -6,6 +6,7 @@ function S3Groups(all){
   !IsLaunch()&&u&&u.isManager&&!adm&&(gs=[...gs,{group:"Espace pro",items:[["/pro","Tableau de bord territoire","chart"]]}]);
   typeof S3Amb<"u"&&S3Amb.id&&u&&(gs=[...gs,{group:"Ambassadeur",items:[["/espace-ambassadeur","Mon espace ambassadeur","play"]]}]);
   window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on()&&!(typeof S3Amb<"u"&&S3Amb.id)&&(gs=[...gs,{group:"Vidéos",items:[["/courts","Vidéos courtes","play"]]}]);
+  gs=gs.map(g=>({...g,items:g.items.filter(i=>S3ModOk(i[0]))})).filter(g=>g.items.length);
   return all?gs:gs.filter(g=>!g.season||g.season===w.season)
 }
 function S3Find(p){
@@ -247,13 +248,14 @@ function S3Palette(){
 
 /* ----- Décor de page : sur-titre, titre de barre ----- */
 function S3Deco(p){
+  try{if(S3FeatGuard(p))return}catch{}
   let f=S3Find(p),ph=Mt&&Mt.querySelector(".page-head .titles");
   if(ph&&f&&!ph.querySelector(".eyebrow")){let h1=ph.querySelector("h1");h1&&h1.before(e("div.eyebrow",f.group))}
   if(S3.title){let h=Mt&&Mt.querySelector(".page-head h1");S3.title.firstChild.textContent=f?f.label:h?h.textContent:"Chasse & Pêche 360°",S3.title.lastChild.textContent=f?f.group:""}
   document.title=(f?f.label+" · ":"")+"Chasse & Pêche 360°";
   try{S3PushInject(p)}catch{}
   try{S3AmbInject(p)}catch{}
-  try{S3AlbInject(p)}catch{}try{S3AmbBadges()}catch{}try{S3RoleSync()}catch{}try{S3LaunchDeco(p);S3LBadges()}catch{}try{if(p==="/profil")S3AcctBox()}catch{}try{S3RegNote(p)}catch{}try{S3LaunchAdmin(p)}catch{}try{S3PartInject(p);S3PartAdminLinks(p)}catch{}try{S3ModQueue(p);S3ModMark()}catch{}if(!window.__s3oa){window.__s3oa=1;setTimeout(()=>{try{S3OAuthFinish()}catch{}},300)}
+  try{S3AlbInject(p)}catch{}try{S3AmbBadges()}catch{}try{S3RoleSync()}catch{}try{S3LaunchDeco(p);S3LBadges()}catch{}try{if(p==="/profil")S3AcctBox()}catch{}try{S3RegNote(p)}catch{}try{S3LaunchAdmin(p)}catch{}try{S3PartInject(p);S3PartAdminLinks(p)}catch{}try{S3FeatAdminLink(p)}catch{}try{S3ModQueue(p);S3ModMark()}catch{}if(!window.__s3oa){window.__s3oa=1;setTimeout(()=>{try{S3OAuthFinish()}catch{}},300)}
   try{S3ShareWatch();S3ShareInject()}catch{}
   try{S3InstallUI()}catch{}
 }
