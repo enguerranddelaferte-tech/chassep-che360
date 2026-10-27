@@ -789,3 +789,6 @@ a.part-band:hover{border-color:var(--line-strong)}
 .feat-txt{display:flex;flex-direction:column;flex:1;min-width:0}
 .feat-st{font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);flex:none}
 .feat-st.on{color:var(--ok,#2E7D4F);border-color:currentColor}
+/* Visiteur non connecté : pas de menu latéral, la photo d'en-tête part du bord gauche ; barre du haut sur une seule ligne sur téléphone */
+@media(min-width:900px){:root[data-banniere=on]:not([data-theme=contrast]):not([data-role=admin]) body:has(.guest-top)::after{left:0}}
+@media (max-width:520px){.guest-top{flex-wrap:nowrap}.guest-top a[href="#/ambassadeurs"]{display:none}}
