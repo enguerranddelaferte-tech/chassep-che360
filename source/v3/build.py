@@ -92,6 +92,8 @@ bundle=rep(bundle,'window.addEventListener("load",()=>{window.L||setTimeout(()=>
 # 6. pas de service worker (inexistant dans un artefact)
 bundle=rep(bundle,'"serviceWorker"in navigator&&location.protocol!=="file:"&&!window.cp360Demo&&navigator.serviceWorker.register("/sw.js").catch(()=>{}),','')
 # 7. images : chargement paresseux par défaut
+# Connexion en ligne (vraie base) : pas de comptes de démonstration ni de boutons Apple/Google (pas encore branchés)
+bundle=rep(bundle,'C(a,e("div.row",{style:{margin:"18px 0",color:"var(--muted)"}},e("hr.sep.grow"),e("span.small","ou"),e("hr.sep.grow")),e("div.grid.g-2",l("apple","Continuer avec Apple"),l("google","Continuer avec Google")),e("div",{style:{marginTop:"28px"}},','window.cp360Sb&&window.cp360Sb.on()||C(a,e("div.row",{style:{margin:"18px 0",color:"var(--muted)"}},e("hr.sep.grow"),e("span.small","ou"),e("hr.sep.grow")),e("div.grid.g-2",l("apple","Continuer avec Apple"),l("google","Continuer avec Google")),e("div",{style:{marginTop:"28px"}},')
 bundle=rep(bundle,'s=document.createElement(i||"div");','s=document.createElement(i||"div");i==="img"&&(s.loading="lazy",s.decoding="async");')
 open(B+'v3/bundle3.js','w').write(bundle)
 
