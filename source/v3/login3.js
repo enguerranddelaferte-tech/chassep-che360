@@ -95,3 +95,14 @@ document.addEventListener("click",ev=>{
   if(!a||a.closest(".login-modal"))return;
   if(S3LoginOpen(/inscription/.test(a.getAttribute("href"))?"register":"login")){ev.preventDefault();ev.stopPropagation()}
 },true);
+/* Après une déconnexion : on revient sur le fil d'actualité (visible sans compte) et on propose de se reconnecter.
+   En ligne, la page se recharge pour vider les données du compte : la fenêtre s'ouvre après le rechargement. */
+function S3AfterLogout(){
+  let live=!!(window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on());
+  try{history.replaceState(null,"",location.pathname+location.search+"#/communaute")}catch{location.hash="#/communaute"}
+  if(live){try{sessionStorage.setItem("cp360.afterLogout","1")}catch{}}
+  Xt();
+  live||setTimeout(()=>{try{S3LoginOpen("login")}catch{}},350);
+}
+(function(){let f=null;try{f=sessionStorage.getItem("cp360.afterLogout");sessionStorage.removeItem("cp360.afterLogout")}catch{}
+  if(f)setTimeout(function go(n){if(typeof w!=="undefined"&&!w.user&&document.querySelector(".page")){try{S3LoginOpen("login")}catch{}}else if(n<20)setTimeout(()=>go(n+1),250)},600,0)})();
