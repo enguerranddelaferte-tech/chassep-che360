@@ -792,3 +792,16 @@ a.part-band:hover{border-color:var(--line-strong)}
 /* Visiteur non connecté : pas de menu latéral, la photo d'en-tête part du bord gauche ; barre du haut sur une seule ligne sur téléphone */
 @media(min-width:900px){:root[data-banniere=on]:not([data-theme=contrast]):not([data-role=admin]) body:has(.guest-top)::after{left:0}}
 @media (max-width:520px){.guest-top{flex-wrap:nowrap}.guest-top a[href="#/ambassadeurs"]{display:none}}
+/* Interrupteurs (Admin › Fonctions de l'appli) */
+.feat-row{cursor:default}
+.feat-row.is-off .feat-txt b{color:var(--muted)}
+.feat-later{margin-left:8px;font-size:11px;font-weight:600;color:var(--muted);border:1px dashed var(--line-strong,var(--line));border-radius:999px;padding:1px 7px;vertical-align:middle}
+.feat-sw{position:relative;width:52px;height:30px;flex:none;border:0;border-radius:999px;background:var(--line-strong,#c9c4b8);cursor:pointer;transition:background .2s;padding:0}
+.feat-sw::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s}
+.feat-sw[aria-checked=true]{background:var(--ok,#2E7D4F)}
+.feat-sw[aria-checked=true]::after{transform:translateX(22px)}
+.feat-sw:focus-visible{outline:3px solid var(--accent,#D95A10);outline-offset:2px}
+.feat-bar{position:sticky;bottom:12px;display:none;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:10px 12px 10px 16px;border-radius:14px;background:var(--ink,#131b19);color:var(--on-ink,#fff);box-shadow:0 10px 30px -12px rgba(0,0,0,.5)}
+.feat-bar.show{display:flex}
+@media (max-width:520px){.feat-st{display:none}}
+@media (max-width:899px){.feat-bar{bottom:calc(76px + env(safe-area-inset-bottom,0px))}.feat-bar>span{font-size:14px}}

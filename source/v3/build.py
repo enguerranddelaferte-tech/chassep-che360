@@ -94,6 +94,14 @@ bundle=rep(bundle,'"serviceWorker"in navigator&&location.protocol!=="file:"&&!wi
 # 7. images : chargement paresseux par défaut
 # Déconnexion : retour sur le fil d'actualité (chargé en visiteur) avec la fenêtre de connexion, au lieu de rester sur une page privée vide
 bundle=rep(bundle,'Reconnectez-vous.","warn"),ge("/connexion"),Xt()}','Reconnectez-vous.","warn"),S3AfterLogout()}')
+# En ligne, visiteur non connecté : lecture publique de la vraie base (clé anonyme) au lieu des données de démonstration
+bundle=rep(bundle,'async function rest(method,path,body,extra){const tk=await bearer();if(!tk)return{ok:!1,status:401,json:null};','async function rest(method,path,body,extra){const tk=await bearer()||(method==="GET"?KEY:null);if(!tk)return{ok:!1,status:401,json:null};')
+bundle=rep(bundle,'track("open");if(!ses)return info.state;','track("open");if(!ses){try{await Promise.race([pullAll(!0),new Promise(z=>setTimeout(z,8e3))])}catch{}return info.state}')
+# En ligne : les ambassadeurs viennent uniquement de la vraie base (plus de profils de démonstration fusionnés)
+bundle=rep(bundle,'const MERGE=["recipes","directory","partners","articles","ambassadors"]','const MERGE=["recipes","directory","partners","articles"]')
+# En ligne : pas d'ambassadeurs de démonstration (Camille, Léa…), seulement les fiches réelles
+bundle=rep(bundle,'!_.ambassadors.count()&&!window.__ambS&&(','!_.ambassadors.count()&&!window.__ambS&&!(window.cp360Sb&&window.cp360Sb.on())&&(')
+bundle=rep(bundle,'.filter(d=>!["amb_feliew","amb_marius","amb_chassehd"].includes(d.id))),K.get("/ambassadors"','.filter(d=>!["amb_feliew","amb_marius","amb_chassehd"].includes(d.id)).filter(d=>!(window.cp360Sb&&window.cp360Sb.on())||d.real||!AmbData.some(a=>a.id===d.id))),K.get("/ambassadors"')
 # Connexion en ligne (vraie base) : pas de comptes de démonstration ni de boutons Apple/Google (pas encore branchés)
 bundle=rep(bundle,'C(a,e("div.row",{style:{margin:"18px 0",color:"var(--muted)"}},e("hr.sep.grow"),e("span.small","ou"),e("hr.sep.grow")),e("div.grid.g-2",l("apple","Continuer avec Apple"),l("google","Continuer avec Google")),e("div",{style:{marginTop:"28px"}},','window.cp360Sb&&window.cp360Sb.on()||C(a,e("div.row",{style:{margin:"18px 0",color:"var(--muted)"}},e("hr.sep.grow"),e("span.small","ou"),e("hr.sep.grow")),e("div.grid.g-2",l("apple","Continuer avec Apple"),l("google","Continuer avec Google")),e("div",{style:{marginTop:"28px"}},')
 bundle=rep(bundle,'s=document.createElement(i||"div");','s=document.createElement(i||"div");i==="img"&&(s.loading="lazy",s.decoding="async");')

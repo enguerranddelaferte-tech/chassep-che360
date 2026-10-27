@@ -4,24 +4,24 @@
    Rien n’est supprimé : on la rallume d’un clic, sans mise à jour.
    Réglage enregistré dans la base (table app_settings, clé « modules ») ; en démo, sur l’appareil. */
 const S3FEAT=[
-  {id:"territoires",label:"Territoires & gestion de territoire",hint:"Territoires, postes, calendrier, membres, plan de chasse, espace pro",paths:["/territoires","/gestion","/pro"],off:!0},
-  {id:"battues",label:"Organisation de battues",hint:"Battues, traques, journée de chasse",paths:["/battues","/journee","/partage-journee"],off:!0},
-  {id:"suivi",label:"Suivi en direct (GPS)",hint:"Position partagée en temps réel",paths:["/suivi"],off:!0},
-  {id:"bourse",label:"Bourse & annonces de chasse",hint:"Petites annonces entre membres, annonces de chasse",paths:["/bourse","/annonces-chasse"],off:!0},
-  {id:"chien",label:"Chien de sang",hint:"Recherche au sang",paths:["/chien-de-sang"],off:!0},
-  {id:"groupes",label:"Entraide & groupes",hint:"Questions, groupes de discussion",paths:["/questions","/groupes"],off:!0},
-  {id:"salaison",label:"Salaison & séchage",hint:"Calculateur de salaison",paths:["/salaison"],off:!0},
-  {id:"eau",label:"Niveaux d’eau",hint:"Hauteurs et débits des rivières",paths:["/niveaux-eau"],off:!0},
-  {id:"angle30",label:"Viseur & calculateur 30°",hint:"Sécurité au tir",paths:["/angle-30","/angle-30-carte"]},
-  {id:"sorties",label:"Sorties & historique",hint:"Sortie en cours, historique, détail",paths:["/sortie","/historique","/sortie-detail"]},
-  {id:"tableau",label:"Tableau de chasse",hint:"Bilan de la saison",paths:["/tableau-de-chasse"]},
-  {id:"carnet",label:"Carnet de pêche & spots",hint:"Prises, spots personnels",paths:["/carnet","/spots"]},
-  {id:"meteo",label:"Météo terrain",hint:"",paths:["/meteo"]},
-  {id:"carte",label:"Carte terrain",hint:"",paths:["/carte"]},
-  {id:"recettes",label:"Recettes",hint:"",paths:["/recettes"]},
-  {id:"annuaire",label:"Annuaire des pros",hint:"",paths:["/annuaire"]},
-  {id:"articles",label:"Articles",hint:"",paths:["/articles"]},
-  {id:"messages",label:"Messagerie",hint:"",paths:["/messages"]}
+  {id:"messages",sec:"Communauté",label:"Messagerie",hint:"Menu : Messagerie",paths:["/messages"]},
+  {id:"articles",sec:"Communauté",label:"Articles",hint:"Menu : Articles",paths:["/articles"]},
+  {id:"groupes",sec:"Communauté",label:"Entraide & groupes",hint:"Menu : Entraide & groupes (questions, groupes de discussion)",paths:["/questions","/groupes"],off:!0},
+  {id:"carte",sec:"Terrain",label:"Carte terrain",hint:"Menu : Carte terrain",paths:["/carte"]},
+  {id:"meteo",sec:"Terrain",label:"Météo terrain",hint:"Menu : Météo terrain",paths:["/meteo"]},
+  {id:"suivi",sec:"Terrain",label:"Suivi en direct (GPS)",hint:"Menu : Suivi en direct (position partagée en temps réel)",paths:["/suivi"],off:!0},
+  {id:"angle30",sec:"Chasse",label:"Viseur & calculateur 30°",hint:"Menu : Viseur 30°, Calculateur 30° (carte)",paths:["/angle-30","/angle-30-carte"]},
+  {id:"battues",sec:"Chasse",label:"Organisation de battues",hint:"Menu : Chasse (battues, traques, journée de chasse)",paths:["/battues","/journee","/partage-journee"],off:!0},
+  {id:"territoires",sec:"Chasse",label:"Territoires & gestion de territoire",hint:"Menu : Mes territoires, Gestion de territoire, Espace pro",paths:["/territoires","/gestion","/pro"],off:!0},
+  {id:"tableau",sec:"Chasse",label:"Tableau de chasse",hint:"Menu : Tableau de chasse",paths:["/tableau-de-chasse"]},
+  {id:"chien",sec:"Chasse",label:"Chien de sang",hint:"Menu : Chien de sang",paths:["/chien-de-sang"],off:!0},
+  {id:"carnet",sec:"Pêche",label:"Carnet de pêche & spots",hint:"Menu : Carnet de prises, Mes spots",paths:["/carnet","/spots"]},
+  {id:"eau",sec:"Pêche",label:"Niveaux d’eau",hint:"Menu : Niveaux d’eau",paths:["/niveaux-eau"],off:!0},
+  {id:"sorties",sec:"Chasse et Pêche",label:"Sorties & historique",hint:"Menus Chasse et Pêche : Sortie, Historique des sorties",paths:["/sortie","/historique","/sortie-detail"]},
+  {id:"recettes",sec:"Cuisine & commerce",label:"Recettes",hint:"Menu : Recettes",paths:["/recettes"]},
+  {id:"salaison",sec:"Cuisine & commerce",label:"Salaison & séchage",hint:"Menu : Salaison & séchage",paths:["/salaison"],off:!0},
+  {id:"bourse",sec:"Cuisine & commerce",label:"Bourse & annonces de chasse",hint:"Menu : Bourse de proximité, Annonces de chasse",paths:["/bourse","/annonces-chasse"],off:!0},
+  {id:"annuaire",sec:"Cuisine & commerce",label:"Annuaire des pros",hint:"Menu : Annuaire",paths:["/annuaire"]}
 ];
 const S3FeatKey="cp360.modules.v1";
 var S3FeatOff=(()=>{try{let v=JSON.parse(localStorage.getItem(S3FeatKey)||"null");if(v&&Array.isArray(v.off))return new Set(v.off)}catch{}return new Set(S3FEAT.filter(f=>f.off).map(f=>f.id))})();
@@ -54,22 +54,27 @@ function S3FeatGuard(p){
 /* ---------- Admin ---------- */
 function S3FeatPage(t){
   if(!w.user||!S3Adm(w.user)){C(t,q({title:"Fonctions de l’appli"}),e("p.muted","Réservé à l’équipe."));return}
-  let real=!!(window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on()),sel=new Set(S3FeatOff);
-  let row=f=>{let cb=e("input",{type:"checkbox",checked:!sel.has(f.id),onchange:()=>{cb.checked?sel.delete(f.id):sel.add(f.id);st.textContent=cb.checked?"Visible":"Masquée";st.className="feat-st"+(cb.checked?" on":"")}}),
-      st=e("span.feat-st"+(sel.has(f.id)?"":".on"),sel.has(f.id)?"Masquée":"Visible");
-    return e("label.feat-row",cb,e("span.feat-txt",e("b",f.label),f.hint?e("span.small.muted",f.hint):null),st)};
-  let later=S3FEAT.filter(f=>f.off),core=S3FEAT.filter(f=>!f.off);
-  let save=x("Enregistrer",{icon:"check",kind:"primary",onClick:async()=>{
+  let real=!!(window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.on()),sel=new Set(S3FeatOff),dirty=!1,bar;
+  let count=()=>{let n=S3FEAT.filter(f=>sel.has(f.id)).length;return n?`${n} fonction${n>1?"s":""} masquée${n>1?"s":""}`:"Tout est visible"};
+  let row=f=>{
+    let st=e("span.feat-st"),sw=e("button.feat-sw",{type:"button",role:"switch","aria-label":f.label}),
+      paint=()=>{let on=!sel.has(f.id);sw.setAttribute("aria-checked",String(on));st.textContent=on?"Visible":"Masquée";st.className="feat-st"+(on?" on":"");r.classList.toggle("is-off",!on)},
+      r=e("div.feat-row",e("span.feat-txt",e("b",f.label,f.off?e("span.feat-later","prévue pour plus tard"):null),e("span.small.muted",f.hint)),st,sw);
+    sw.onclick=()=>{sel.has(f.id)?sel.delete(f.id):sel.add(f.id);paint();dirty=!0;bar.classList.add("show");sum.textContent=count()};
+    paint();return r};
+  let secs=[];S3FEAT.forEach(f=>{let g=secs.find(x2=>x2[0]===f.sec);g?g[1].push(f):secs.push([f.sec,[f]])});
+  let sum=e("b",count());
+  let doSave=async()=>{
     let off=[...sel];
     if(real){let r=await S3Sb("POST","app_settings?on_conflict=key",{key:"modules",value:{off},updated_at:new Date().toISOString()},{Prefer:"resolution=merge-duplicates,return=minimal"});
       if(!r||!r.ok){A("Enregistrement impossible : vérifiez la connexion.","err");return}}
-    S3FeatApply(off,!1);A(real?"Fonctions mises à jour pour tous les membres.":"Fonctions mises à jour (démo : sur cet appareil).","ok");
-  }});
-  C(t,q({title:"Fonctions de l’appli",subtitle:"Ce que les membres voient. Une fonction masquée reste dans l’appli : on la rallume d’un clic, sans mise à jour."}),
-    k({title:"Prévues pour plus tard",sub:"Masquées au lancement"},e("div.feat-list",later.map(row))),
-    k({title:"Cœur de l’appli",sub:"Visibles au lancement"},e("div.feat-list",core.map(row))),
-    e("p.small.muted","Toujours visibles : accueil, fil d’actualité, profil, amis, ambassadeurs, sécurité, réglementation, abonnement. L’équipe (admin) voit tout."),
-    e("div.row",{style:{gap:"8px"}},save));
+    S3FeatApply(off,!1);dirty=!1;bar.classList.remove("show");A(real?"Fonctions mises à jour pour tous les membres.":"Fonctions mises à jour (démo : sur cet appareil).","ok");
+  },save=()=>x("Enregistrer",{icon:"check",kind:"primary",onClick:doSave});
+  bar=e("div.feat-bar",e("span",sum," · modifications non enregistrées"),save());
+  C(t,q({title:"Fonctions de l’appli",subtitle:"Ce que les membres voient, rangé comme dans leur menu. Une fonction masquée reste dans l’appli : on la rallume d’un clic, sans mise à jour."}),
+    e("p.small.muted",{style:{margin:"0 0 12px"}},"Toujours visibles : accueil, fil d’actualité, profil, amis, ambassadeurs, sécurité, réglementation, abonnement. L’équipe (admin) voit tout."),
+    ...secs.map(([name,list])=>k({title:"Menu « "+name+" »"},e("div.feat-list",list.map(row)))),
+    e("div.row",{style:{gap:"8px"}},save()),bar);
 }
 function S3FeatAdminLink(p){
   if(!(p==="/admin"||p==="/admin/tableau")||!w.user||!S3Adm(w.user)||!Mt)return;
