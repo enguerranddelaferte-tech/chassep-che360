@@ -253,7 +253,7 @@ function S3Deco(p){
   document.title=(f?f.label+" · ":"")+"Chasse & Pêche 360°";
   try{S3PushInject(p)}catch{}
   try{S3AmbInject(p)}catch{}
-  try{S3AlbInject(p)}catch{}try{S3AmbBadges()}catch{}try{S3RoleSync()}catch{}try{S3LaunchDeco(p);S3LBadges()}catch{}try{if(p==="/profil")S3AcctBox()}catch{}try{S3RegNote(p)}catch{}try{S3LaunchAdmin(p)}catch{}try{S3PartInject(p);S3PartAdminLinks(p)}catch{}try{S3ModQueue(p);S3ModMark()}catch{}if(!window.__s3oa){window.__s3oa=1;setTimeout(()=>{try{S3OAuthFinish()}catch{}},300)}
+  try{S3AlbInject(p)}catch{}try{S3AmbBadges()}catch{}try{S3RoleSync()}catch{}try{S3LaunchDeco(p);S3LBadges()}catch{}try{if(p==="/profil")S3AcctBox()}catch{}try{S3RegNote(p)}catch{}try{S3LaunchAdmin(p)}catch{}try{S3PartInject(p);S3PartAdminLinks(p)}catch{}try{S3WearInject(p)}catch{}try{S3ModQueue(p);S3ModMark()}catch{}if(!window.__s3oa){window.__s3oa=1;setTimeout(()=>{try{S3OAuthFinish()}catch{}},300)}
   try{S3ShareWatch();S3ShareInject()}catch{}
   try{S3InstallUI()}catch{}
 }
