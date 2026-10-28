@@ -807,3 +807,15 @@ a.part-band:hover{border-color:var(--line-strong)}
 @media (max-width:899px){.feat-bar{bottom:calc(76px + env(safe-area-inset-bottom,0px))}.feat-bar>span{font-size:14px}}
 .feat-demo{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin:0 0 14px;padding:10px 14px;border:1px dashed var(--accent,#D95A10);border-radius:12px;background:color-mix(in srgb,var(--accent,#D95A10) 8%,transparent);font-size:14px}
 .feat-demo b{color:var(--accent,#D95A10)}
+/* Admin : fréquentation */
+.aud-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.aud-tile{display:flex;flex-direction:column;gap:2px;padding:12px;border:1px solid var(--line);border-radius:12px}
+.aud-tile b{font-size:26px;line-height:1.1}
+.aud-tile span{font-size:13px;color:var(--muted)}
+.aud-chart{display:flex;align-items:flex-end;gap:6px;height:130px;margin-top:14px;padding:6px 0 0}
+.aud-col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px;min-width:0}
+.aud-col i{display:block;width:100%;max-width:28px;background:var(--accent,#D95A10);border-radius:5px 5px 2px 2px;opacity:.85}
+.aud-n{font-size:11px;color:var(--muted);line-height:1}
+.aud-d{font-size:11px;color:var(--muted);line-height:1}
+.aud-me{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;color:var(--muted);cursor:pointer}
+@media (max-width:620px){.aud-tiles{grid-template-columns:repeat(2,1fr)}}
