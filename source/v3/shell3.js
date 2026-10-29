@@ -350,3 +350,39 @@ function S3PushInject(p){
     Mt.querySelectorAll(".page-head .actions .btn").forEach(bt=>{/Activer les alertes/.test(bt.textContent)&&bt.remove()})}
   if(p==="/profil"){let pg=Mt.querySelector(".page");if(pg&&!pg.querySelector(".push-card")){let h=pg.querySelector(".page-head");h&&h.after(S3PushCard())}}
 }
+
+/* ----- Barres qui se cachent quand on fait défiler (téléphone et tablette) ----- */
+(function(){
+  let last=0,acc=0,raf=0;const R=document.documentElement;
+  const set=on=>{R.classList.contains("bars-hidden")!==on&&R.classList.toggle("bars-hidden",on)};
+  const S3Wide=()=>matchMedia("(min-width:900px) and (min-height:561px)").matches;
+  const blocked=()=>S3Wide()||R.classList.contains("nav-open")||R.classList.contains("kb-open")||!!document.querySelector(".modal-back,.login-back,.sheet.open,.palette-back");
+  addEventListener("scroll",()=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=0;
+    const y=Math.max(0,scrollY),d=y-last;last=y;
+    if(blocked()||y<70){set(!1);acc=0;return}
+    if(innerHeight+y>=document.documentElement.scrollHeight-4){return}
+    acc=(d>0)===(acc>0)?acc+d:d;
+    if(acc>28)set(!0);else if(acc<-18)set(!1)})},{passive:!0});
+  addEventListener("hashchange",()=>{set(!1);acc=0});
+  addEventListener("resize",()=>{S3Wide()&&set(!1)});
+})();
+
+/* ----- Taille d'affichage : Confortable / Compact / Très compact -----
+   Sur téléphone (appli ou site ouvert directement), on règle le zoom de l'écran : tout devient plus petit, barres comprises.
+   Ailleurs (ordinateur, aperçu intégré), on réduit le contenu des pages. Réglage gardé sur l'appareil. */
+const S3ZoomKey="cp360.zoom",S3ZoomOpts=[["1","Confortable"],["0.9","Compact"],["0.8","Très compact"]];
+function S3ZoomGet(){try{let z=localStorage.getItem(S3ZoomKey);return S3ZoomOpts.some(o=>o[0]===z)?z:"1"}catch{return"1"}}
+function S3ZoomApply(z){
+  z=z||S3ZoomGet();const R=document.documentElement,m=document.querySelector('meta[name="viewport"]');
+  let viaScreen=!!m&&window.top===window&&matchMedia("(pointer:coarse)").matches;
+  if(viaScreen){m.setAttribute("content","width=device-width, initial-scale="+z+", viewport-fit=cover");delete R.dataset.zoomcss;R.style.removeProperty("--zoom")}
+  else if(z==="1"){delete R.dataset.zoomcss;R.style.removeProperty("--zoom")}
+  else{R.dataset.zoomcss="1";R.style.setProperty("--zoom",z)}
+}
+function S3ZoomField(){
+  let cur=S3ZoomGet();
+  return e("div.field",{style:{marginTop:"12px"}},e("label","Taille d’affichage"),
+    ke(S3ZoomOpts,cur,z=>{try{localStorage.setItem(S3ZoomKey,z)}catch{}S3ZoomApply(z);A(z==="1"?"Affichage confortable.":"Affichage plus compact : vous voyez plus de choses à l’écran.","ok")}),
+    e("p.small.muted",{style:{margin:"6px 0 0"}},"Rend les textes et les cases plus petits pour voir plus de choses. Réglage propre à cet appareil."))
+}
+try{S3ZoomApply()}catch{}

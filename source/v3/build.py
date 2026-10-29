@@ -111,6 +111,8 @@ bundle=rep(bundle,'localStorage.setItem("cp360."+t,','localStorage.setItem((/\/d
 bundle=rep(bundle,'Mi="cp360.demo.db.v1"','Mi=/\/demo\//.test(location.pathname)?"cp360d.demo.db.v1":"cp360.demo.db.v1"')
 # Statistiques : identifiant de visiteur anonyme conservé d'une visite à l'autre (et plus seulement le temps d'un onglet)
 bundle=rep(bundle,'let sid=sessionStorage.getItem("cp360.sid");const fresh=!sid;fresh&&(sid=(crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2)+Date.now()),sessionStorage.setItem("cp360.sid",sid));if(kind==="open"&&!fresh&&sessionStorage.getItem("cp360.tr"))return;','let sid=localStorage.getItem("cp360.vid");sid||(sid="v-"+(crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2)+Date.now()),localStorage.setItem("cp360.vid",sid));if(kind==="open"&&sessionStorage.getItem("cp360.tr"))return;')
+# Taille d'affichage dans Profil › Affichage
+bundle=rep(bundle,'w.theme,c=>{Ln(c),v.patch("/auth/me",{settings:{theme:c}}).catch(()=>{})})),','w.theme,c=>{Ln(c),v.patch("/auth/me",{settings:{theme:c}}).catch(()=>{})})),S3ZoomField(),')
 # Connexion en ligne (vraie base) : pas de comptes de démonstration ni de boutons Apple/Google (pas encore branchés)
 bundle=rep(bundle,'C(a,e("div.row",{style:{margin:"18px 0",color:"var(--muted)"}},e("hr.sep.grow"),e("span.small","ou"),e("hr.sep.grow")),e("div.grid.g-2",l("apple","Continuer avec Apple"),l("google","Continuer avec Google")),e("div",{style:{marginTop:"28px"}},','window.cp360Sb&&window.cp360Sb.on()||C(a,e("div.row",{style:{margin:"18px 0",color:"var(--muted)"}},e("hr.sep.grow"),e("span.small","ou"),e("hr.sep.grow")),e("div.grid.g-2",l("apple","Continuer avec Apple"),l("google","Continuer avec Google")),e("div",{style:{marginTop:"28px"}},')
 bundle=rep(bundle,'s=document.createElement(i||"div");','s=document.createElement(i||"div");i==="img"&&(s.loading="lazy",s.decoding="async");')
@@ -130,6 +132,11 @@ def mincss(c):
     c=re.sub(r';}','}',c)
     return c.strip()
 css=mincss(leaflet_css)+mincss(legacy)+mincss(ux)+mincss(core)+pw
+# Écran court à l'horizontale (téléphone, y compris avec la taille d'affichage réduite) : on garde la présentation mobile
+_n=css.count('@media(min-width:900px){')+css.count('@media(min-width:900px) and')
+css=css.replace('@media(min-width:900px){','@media(min-width:900px) and (min-height:561px){').replace('@media(min-width:900px) and (max-width:1100px)','@media(min-width:900px) and (min-height:561px) and (max-width:1100px)')
+css=css.replace('@media(max-width:899px){','@media (max-width:899px),(max-height:560px){').replace('@media (max-width:899px){','@media (max-width:899px),(max-height:560px){')
+assert _n>=4 and '@media(min-width:900px){' not in css
 # polices
 fonts='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap"><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="dns-prefetch" href="https://api.open-meteo.com"><link rel="dns-prefetch" href="https://data.geopf.fr">'
 icon=grab(r'(<link rel="icon"[^>]*>)')

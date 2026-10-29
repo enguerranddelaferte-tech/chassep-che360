@@ -829,40 +829,28 @@ a.part-band:hover{border-color:var(--line-strong)}
 }
 
 /* ----- Orientation : téléphone à l'horizontale (paysage) -----
-   La barre d'onglets passe sur le côté gauche, la barre du haut s'affine : l'écran garde sa hauteur pour le contenu. */
-@media (orientation:landscape) and (max-height:560px) and (max-width:1099px){
-  :root{--topbar:50px;--tabbar:0px;--rail:76px}
-  .shell{padding-left:calc(var(--rail) + env(safe-area-inset-left,0px))}
-  .topbar{padding-left:12px}
+   Barre du haut affinée, boutons d'action dans la page, fenêtres centrées, connexion en deux colonnes. */
+@media (orientation:landscape) and (max-height:560px) and (max-width:1399px){
+  :root{--topbar:50px}
   .tb-brand .brand-mark{width:34px;height:34px}
   .tb-title b{font-size:17px}
   .tb-title span{display:none}
   .topbar .season button{min-height:32px}
-  .tabbar{top:0;right:auto;bottom:0;width:calc(var(--rail) + env(safe-area-inset-left,0px));
-    grid-template-columns:1fr;grid-template-rows:repeat(5,minmax(0,1fr));align-items:center;
-    padding:calc(6px + env(safe-area-inset-top,0px)) 6px calc(6px + env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-left,0px));
-    border-top:0;border-right:1px solid var(--line);box-shadow:8px 0 24px -18px rgba(19,27,25,.4)}
-  .tabbar a,.tabbar button.tab{min-height:0;height:100%;gap:2px;font-size:10.5px}
-  .tabbar svg{width:22px;height:22px}
-  .tabbar a.active::before{top:22%;bottom:22%;left:-6px;right:auto;width:3px;height:auto;border-radius:0 3px 3px 0}
-  .tabbar .tab-sos{width:52px;height:52px;margin:0;font-size:15px;border-width:3px}
-  .tabbar .tab-badge{top:2px}
-  html.kb-open .tabbar{transform:translateX(-110%)}
-  .content{padding-top:14px;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
-  /* Les boutons d'action restent dans la page au lieu d'une barre fixe en bas */
+  .tabbar a,.tabbar button.tab{min-height:46px}
+  .tabbar .tab-sos{width:54px;height:54px;margin-top:-16px}
+  .content{padding-top:14px}
   .shell .content>div>.page>.page-head>.actions{position:static;padding:0;background:none;border:0;-webkit-backdrop-filter:none;backdrop-filter:none;flex-wrap:wrap;overflow:visible}
   .shell .content>div>.page>.page-head>.actions .btn{flex:0 0 auto;min-height:42px}
-  .shell .content:has(>div>.page>.page-head>.actions){padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
+  .shell .content:has(>div>.page>.page-head>.actions){padding-bottom:calc(var(--tabbar) + 40px + env(safe-area-inset-bottom,0px))}
   .page-head{margin-bottom:12px}
   :root[data-banniere=on]:not([data-theme=contrast]):not([data-role=admin]) body::after{height:min(70vh,300px)}
-  .feat-bar{bottom:calc(12px + env(safe-area-inset-bottom,0px))}
-  .modal{max-height:calc(100dvh - 12px)}
   .modal-back{place-items:center;padding:6px}
-  .modal{border-radius:var(--r-xl);width:min(620px,100%);border:1px solid var(--line-strong)}
+  .modal{max-height:calc(100dvh - 12px);border-radius:var(--r-xl);width:min(620px,100%);border:1px solid var(--line-strong)}
   .modal::before{display:none}
   .sheet-panel{max-width:640px;margin:0 auto;width:100%}
   .sidebar{width:min(60vw,330px)}
-  /* Page de connexion : visuel et formulaire côte à côte */
+}
+@media (orientation:landscape) and (max-height:560px) and (max-width:1399px){
   .auth{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);min-height:100dvh}
   .auth-side{position:sticky;top:0;height:100dvh;overflow-y:auto;padding:18px 22px;justify-content:flex-start;gap:10px;border-right:1px solid var(--line)}
   .auth-side>*{flex:none}
@@ -870,4 +858,24 @@ a.part-band:hover{border-color:var(--line-strong)}
   .auth-side .seasons{margin:16px 0 8px}.auth-side .seasons i{height:22px}
   .auth-form{padding:20px 24px;align-content:start}
 }
-@media (orientation:landscape) and (max-height:420px) and (max-width:1099px){.auth-side h1+p,.auth-side h1~p:not(:last-child){display:none}}
+@media (orientation:landscape) and (max-height:420px) and (max-width:1399px){.auth-side h1+p,.auth-side h1~p:not(:last-child){display:none}}
+
+/* ----- Barres qui se cachent quand on fait défiler (téléphone et tablette) ----- */
+.topbar{transition:transform .25s var(--ease)}
+.shell .content>div>.page>.page-head>.actions{transition:bottom .25s var(--ease)}
+@media (max-width:899px){
+  html.bars-hidden .topbar{transform:translateY(calc(-100% - env(safe-area-inset-top,0px) - 2px))}
+  html.bars-hidden .tabbar{transform:translateY(115%)}
+  html.bars-hidden .shell .content>div>.page>.page-head>.actions{bottom:0}
+  html.bars-hidden .feat-bar{bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+  /* Le SOS reste à portée, en petit */
+  .sos-fab{opacity:0;pointer-events:none;transform:scale(.6);transition:opacity .2s,transform .2s}
+  html.bars-hidden:not([data-role=admin]) .sos-fab svg{display:none}
+  html.bars-hidden:not([data-role=admin]) .sos-fab{display:grid;place-items:center;opacity:1;pointer-events:auto;transform:none;width:50px;height:50px;min-height:0;padding:0;border-radius:50%;font-size:13px;letter-spacing:.04em;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  html.bars-hidden:not([data-role=admin]):has(.page-head>.actions) .sos-fab{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
+@media (prefers-reduced-motion:reduce){.topbar,.tabbar{transition:none}}
+
+/* ----- Taille d'affichage (réglage du profil) : repli quand le zoom de l'écran n'est pas réglable ----- */
+:root[data-zoomcss] .content{zoom:var(--zoom,1)}
+:root[data-zoomcss] .content:has(.map-page){zoom:1}
