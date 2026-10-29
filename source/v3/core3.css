@@ -819,3 +819,55 @@ a.part-band:hover{border-color:var(--line-strong)}
 .aud-d{font-size:11px;color:var(--muted);line-height:1}
 .aud-me{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;color:var(--muted);cursor:pointer}
 @media (max-width:620px){.aud-tiles{grid-template-columns:repeat(2,1fr)}}
+
+/* ----- Orientation : téléphone étroit (portrait) ----- */
+@media (max-width:420px){
+  .topbar{gap:6px}
+  .topbar .season button{padding:0 10px;gap:5px;font-size:13.5px;letter-spacing:.02em}
+  .topbar .season button svg{width:16px;height:16px}
+  .topbar .icon-btn{width:40px;min-width:40px}
+}
+
+/* ----- Orientation : téléphone à l'horizontale (paysage) -----
+   La barre d'onglets passe sur le côté gauche, la barre du haut s'affine : l'écran garde sa hauteur pour le contenu. */
+@media (orientation:landscape) and (max-height:560px) and (max-width:1099px){
+  :root{--topbar:50px;--tabbar:0px;--rail:76px}
+  .shell{padding-left:calc(var(--rail) + env(safe-area-inset-left,0px))}
+  .topbar{padding-left:12px}
+  .tb-brand .brand-mark{width:34px;height:34px}
+  .tb-title b{font-size:17px}
+  .tb-title span{display:none}
+  .topbar .season button{min-height:32px}
+  .tabbar{top:0;right:auto;bottom:0;width:calc(var(--rail) + env(safe-area-inset-left,0px));
+    grid-template-columns:1fr;grid-template-rows:repeat(5,minmax(0,1fr));align-items:center;
+    padding:calc(6px + env(safe-area-inset-top,0px)) 6px calc(6px + env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-left,0px));
+    border-top:0;border-right:1px solid var(--line);box-shadow:8px 0 24px -18px rgba(19,27,25,.4)}
+  .tabbar a,.tabbar button.tab{min-height:0;height:100%;gap:2px;font-size:10.5px}
+  .tabbar svg{width:22px;height:22px}
+  .tabbar a.active::before{top:22%;bottom:22%;left:-6px;right:auto;width:3px;height:auto;border-radius:0 3px 3px 0}
+  .tabbar .tab-sos{width:52px;height:52px;margin:0;font-size:15px;border-width:3px}
+  .tabbar .tab-badge{top:2px}
+  html.kb-open .tabbar{transform:translateX(-110%)}
+  .content{padding-top:14px;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
+  /* Les boutons d'action restent dans la page au lieu d'une barre fixe en bas */
+  .shell .content>div>.page>.page-head>.actions{position:static;padding:0;background:none;border:0;-webkit-backdrop-filter:none;backdrop-filter:none;flex-wrap:wrap;overflow:visible}
+  .shell .content>div>.page>.page-head>.actions .btn{flex:0 0 auto;min-height:42px}
+  .shell .content:has(>div>.page>.page-head>.actions){padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
+  .page-head{margin-bottom:12px}
+  :root[data-banniere=on]:not([data-theme=contrast]):not([data-role=admin]) body::after{height:min(70vh,300px)}
+  .feat-bar{bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+  .modal{max-height:calc(100dvh - 12px)}
+  .modal-back{place-items:center;padding:6px}
+  .modal{border-radius:var(--r-xl);width:min(620px,100%);border:1px solid var(--line-strong)}
+  .modal::before{display:none}
+  .sheet-panel{max-width:640px;margin:0 auto;width:100%}
+  .sidebar{width:min(60vw,330px)}
+  /* Page de connexion : visuel et formulaire côte à côte */
+  .auth{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);min-height:100dvh}
+  .auth-side{position:sticky;top:0;height:100dvh;overflow-y:auto;padding:18px 22px;justify-content:flex-start;gap:10px;border-right:1px solid var(--line)}
+  .auth-side>*{flex:none}
+  .auth-side h1{font-size:clamp(30px,6.5vh,46px)}
+  .auth-side .seasons{margin:16px 0 8px}.auth-side .seasons i{height:22px}
+  .auth-form{padding:20px 24px;align-content:start}
+}
+@media (orientation:landscape) and (max-height:420px) and (max-width:1099px){.auth-side h1+p,.auth-side h1~p:not(:last-child){display:none}}
