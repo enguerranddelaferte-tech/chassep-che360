@@ -363,7 +363,18 @@ function S3PushInject(p){
     if(innerHeight+y>=document.documentElement.scrollHeight-4){return}
     acc=(d>0)===(acc>0)?acc+d:d;
     if(acc>28)set(!0);else if(acc<-18)set(!1)})},{passive:!0});
-  addEventListener("hashchange",()=>{set(!1);acc=0});
+  /* Carte : en la déplaçant au doigt, les barres s'effacent et la carte passe en plein écran ; une touche sur la carte les fait revenir */
+  const fit=()=>{[40,320].forEach(t=>setTimeout(()=>dispatchEvent(new Event("resize")),t))};
+  let md=null;
+  document.addEventListener("pointerdown",ev=>{let m=ev.target.closest&&ev.target.closest(".content .leaflet-container");md=m&&ev.isPrimary?{x:ev.clientX,y:ev.clientY,moved:!1,ctl:!!ev.target.closest(".leaflet-control,.leaflet-marker-icon,.leaflet-popup,button,a,input,select")}:null},{capture:!0,passive:!0});
+  document.addEventListener("pointermove",ev=>{if(!md||md.moved||md.ctl)return;if(Math.hypot(ev.clientX-md.x,ev.clientY-md.y)>14){md.moved=!0;if(!blocked()&&!R.classList.contains("bars-hidden")){set(!0);fit()}}},{capture:!0,passive:!0});
+  document.addEventListener("pointerup",ev=>{if(md&&!md.moved&&!md.ctl&&R.classList.contains("bars-hidden")){set(!1);fit()}md=null},{capture:!0,passive:!0});
+  /* Pages qui défilent dans un cadre intérieur (listes, panneaux) */
+  const inner=new WeakMap;
+  document.addEventListener("scroll",ev=>{let t=ev.target;if(!t||t===document||!t.closest||!t.closest(".content")||t.closest(".chat,.shorts-feed,.leaflet-container,.modal,.sheet,.feat-bar")||t.scrollHeight<=t.clientHeight+40)return;
+    let y=t.scrollTop,l=inner.get(t)||0,d=y-l;inner.set(t,y);if(!d)return;if(blocked()||y<40){set(!1);return}
+    if(d>24)set(!0);else if(d<-16)set(!1)},{capture:!0,passive:!0});
+  addEventListener("hashchange",()=>{let was=R.classList.contains("bars-hidden");set(!1);acc=0;was&&fit()});
   addEventListener("resize",()=>{S3Wide()&&set(!1)});
 })();
 
