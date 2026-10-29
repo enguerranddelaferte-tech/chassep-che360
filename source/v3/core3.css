@@ -868,8 +868,6 @@ a.part-band:hover{border-color:var(--line-strong)}
   html.bars-hidden .tabbar{transform:translateY(115%)}
   html.bars-hidden .shell .content>div>.page>.page-head>.actions{bottom:0}
   html.bars-hidden .feat-bar{bottom:calc(12px + env(safe-area-inset-bottom,0px))}
-  /* Carte en plein écran pendant qu'on la déplace */
-  html.bars-hidden .content .map-page{position:fixed;inset:0;height:auto;z-index:400}
   /* Le SOS reste à portée, en petit */
   .sos-fab{opacity:0;pointer-events:none;transform:scale(.6);transition:opacity .2s,transform .2s}
   html.bars-hidden:not([data-role=admin]) .sos-fab svg{display:none}
