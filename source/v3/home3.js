@@ -9,7 +9,7 @@ async function ka(t){
   if(!PE&&o.sun&&o.sun.huntStart){let a=new Date(o.sun.huntStart).getTime(),z=new Date(o.sun.huntEnd).getTime(),st=now<a?"Tir pas encore autorisé":now>z?"Tir terminé pour aujourd’hui":"Tir autorisé maintenant";
     win=e("div.shoot-window",b("clock"),e("div.grow",e("b",`${M.time(o.sun.huntStart)} → ${M.time(o.sun.huntEnd)}`),e("div.small.muted","Horaires de tir du jour à votre position")),L(st,now<a||now>z?"warn":"ok"))}
   if(PE){let fi=+o.fishingIndex||0;win=e("div.shoot-window",b("fish"),e("div.grow",e("b",`Activité du poisson : ${fi}/100`),e("div",{style:{marginTop:"6px"}},dt(fi,100,fi>=66?"ok":fi>=40?"warn":"danger"))))}
-  let cond=k({title:"Conditions terrain",sub:o.source==="simulation"?"estimation hors ligne":"Open-Meteo",action:e("a.link-more",{href:"#/meteo"},"Détail",b("chevron"))},
+  let cond=k({title:"Conditions terrain",sub:o.source==="simulation"?"estimation hors ligne":"MET Norway",action:e("a.link-more",{href:"#/meteo"},"Détail",b("chevron"))},
     e("div.hero-weather",e("div.big",`${Math.round(o.temp)}°`),e("div.grow",e("b",{style:{fontSize:"18px"}},o.label),e("div.row.small",{style:{gap:"6px",marginTop:"4px"}},Rt(o.windDir),e("span",`Vent ${o.windLabel} · ${o.wind} km/h`)))),
     e("div.wx-strip",
       e("div",e("b",`${o.gusts}`,e("small"," km/h")),e("span","Rafales")),
