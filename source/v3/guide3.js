@@ -42,7 +42,7 @@ const S3GUIDE=[
    tip:"Filmez à la verticale : la vidéo occupera tout l’écran.",link:["/courts","Voir les vidéos"]},
   {id:"amis",sec:"communaute",t:"Amis",plan:"Gratuit",added:"2026-11-02",
    what:"Retrouvez vos compagnons de chasse ou de pêche et suivez leurs publications.",
-   steps:["Menu › Amis, puis recherchez un membre par son nom.","Touchez « Ajouter en ami » : il reçoit votre demande et l’accepte de son côté.","Le filtre « Amis » du fil n’affiche plus que leurs publications."],
+   steps:["Menu › Amis, onglet « Trouver » : recherchez un membre par son nom.","Touchez « Ajouter en ami » : il reçoit votre demande et l’accepte de son côté.","Le filtre « Amis » du fil n’affiche plus que leurs publications."],
    ex:"Luc ajoute les membres de son ACCA en amis et ne rate plus leurs tableaux du week-end.",link:["/amis","Mes amis"]},
   {id:"messages",sec:"communaute",feat:"messages",t:"Messagerie",plan:"Gratuit",added:"2026-11-02",
    what:"Écrivez en privé à un membre, ou créez une conversation de groupe.",
@@ -118,7 +118,7 @@ const S3GUIDE=[
   /* Pêche */
   {id:"carnet",sec:"peche",feat:"carnet",t:"Carnet de prises",plan:"20 prises gratuites · illimité et statistiques en Premium Pêche",added:"2026-11-02",
    what:"Le carnet du pêcheur, rempli tout seul : position, météo, pression et lune s’ajoutent automatiquement.",
-   steps:["Mode Pêche › barre du bas › Carnet, puis « Noter une prise ».","Espèce, taille, poids, leurre, et une photo si vous voulez.","Le reste se remplit seul, même sans réseau."],
+   steps:["Mode Pêche › barre du bas › Carnet, puis « Nouvelle prise ».","Espèce, taille, poids, leurre, et une photo si vous voulez.","Le reste se remplit seul, même sans réseau."],
    ex:"Sophie note son brochet : 86 cm, 4,2 kg, au leurre souple. L’appli ajoute 14 °C, pression en hausse, premier quartier de lune.",link:["/carnet","Mon carnet"]},
   {id:"spots",sec:"peche",feat:"carnet",t:"Mes spots",plan:"5 spots gratuits · illimités et confidentiels en Premium Pêche",added:"2026-11-02",
    what:"Vos coins de pêche enregistrés sur la carte, à retrouver facilement.",
