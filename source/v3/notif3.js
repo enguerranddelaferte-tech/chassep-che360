@@ -7,12 +7,13 @@ function S3NfLive(){return !!(window.cp360Sb&&window.cp360Sb.on&&window.cp360Sb.
 /* Ambassadeurs suivis : le choix local (bouton Suivre) est recopié en base pour recevoir les alertes */
 async function S3FollowSync(){
   if(!S3NfLive()||!w.user)return;
-  let uid=w.user.id,local=(Pe.get("ambFollow",[])||[]).slice().sort();
+  let uid=w.user.id,FAKE=/^amb_(feliew|marius|chassehd|camille|hugo|ines|lea|mathis)$/,raw=Pe.get("ambFollow",[])||[],local=raw.filter(a=>!FAKE.test(a)).sort();
+  if(local.length!==raw.length)Pe.set("ambFollow",local);
   if(S3Nf.pulled!==uid){
     S3Nf.pulled=uid;
     let r=await S3Sb("GET","amb_follows?select=amb_id");
     if(r&&r.ok&&Array.isArray(r.json)){
-      let srv=r.json.map(x2=>x2.amb_id),merged=[...new Set([...local,...srv])].sort();
+      let srv=r.json.map(x2=>x2.amb_id).filter(a=>!FAKE.test(a)),merged=[...new Set([...local,...srv])].sort();
       if(merged.join()!==local.join()){Pe.set("ambFollow",merged);local=merged}
       S3Nf.synced=srv.slice().sort().join("|");
     }

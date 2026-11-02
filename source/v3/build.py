@@ -100,6 +100,10 @@ bundle=rep(bundle,'track("open");if(!ses)return info.state;','track("open");if(!
 # En ligne : les ambassadeurs viennent uniquement de la vraie base (plus de profils de démonstration fusionnés)
 bundle=rep(bundle,'const MERGE=["recipes","directory","partners","articles","ambassadors"]','const MERGE=[]')
 bundle=rep(bundle,'ArtSeed=()=>{if(window.__artS||se.articles.count())return;','ArtSeed=()=>{if(window.__artS||se.articles.count()||window.cp360Sb&&window.cp360Sb.on())return;')
+bundle=rep(bundle,'function AdmSeed(){if(window.__admS||','function AdmSeed(){if(window.cp360Sb&&window.cp360Sb.on()||window.__admS||')
+bundle=rep(bundle,'function FrSeed(){if(window.__frS||','function FrSeed(){if(window.cp360Sb&&window.cp360Sb.on()||window.__frS||')
+bundle=rep(bundle,'function HdSeed(){if(window.__hdS||','function HdSeed(){if(window.cp360Sb&&window.cp360Sb.on()||window.__hdS||')
+bundle=rep(bundle,'function QaSeed(){if(window.__qaS||','function QaSeed(){if(window.cp360Sb&&window.cp360Sb.on()||window.__qaS||')
 # Vraie base : plus aucun contenu d'exemple (articles, recettes, annuaire, partenaires), même hors ligne
 bundle=rep(bundle,'if(!ses){try{if(Ut.users.items.has("u_marc"))','if(!ses){try{if(Ut.users.items.has("u_marc")||Ut.articles.items.size||Ut.recipes.items.size||Ut.directory.items.size||Ut.partners.items.size)')
 bundle=rep(bundle,'e("p.small.muted",{style:{margin:0}},"Seule la cha\\xEEne','!(window.cp360Sb&&window.cp360Sb.on())&&e("p.small.muted",{style:{margin:0}},"Seule la cha\\xEEne')
