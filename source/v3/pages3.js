@@ -1,7 +1,7 @@
 /* ----- Pages d’information (3.0) : CGU et conditions de vente, confidentialité, aide, charte ambassadeur ----- */
 /* Format des sections : [titre, bloc, bloc…] ; un bloc est un texte (paragraphe) ou un tableau de textes (liste). */
 function S3DocPage(t,title,sub,secs,note){
-  let todo=s=>{let parts=String(s).split(/(\[[^\]]+\])/g);return parts.map(p=>/^\[/.test(p)?e("span.legal-todo",p):p)};
+  let todo=s=>{let parts=String(s).split(/(\[\[[^\]]+\]\]|\[[^\]]+\])/g);return parts.map(p=>/^\[\[/.test(p)?(([l,h])=>e("a",{href:h},l))(p.slice(2,-2).split("|")):/^\[/.test(p)?e("span.legal-todo",p):p)};
   let blk=b2=>Array.isArray(b2)?e("ul.legal-ul",b2.map(li=>e("li",...todo(li)))):e("p",...todo(b2));
   C(t,q({title,subtitle:sub},
     e("div.legal",
@@ -9,7 +9,7 @@ function S3DocPage(t,title,sub,secs,note){
       secs.map(([h,...bs])=>e("section.legal-sec",{id:"s-"+S3AmbSlug(h)},e("h2",h),...bs.map(blk))),
       e("p.small.muted",{style:{margin:0}},
         e("a",{href:"#/mentions-legales"},"Mentions légales")," · ",e("a",{href:"#/cgu"},"Conditions d’utilisation")," · ",
-        e("a",{href:"#/confidentialite"},"Confidentialité")," · ",e("a",{href:"#/aide"},"Aide")))));
+        e("a",{href:"#/confidentialite"},"Confidentialité")," · ",e("a",{href:"#/aide"},"Aide")," · ",e("a",{href:"#/guide"},"Guide de l’appli")))));
 }
 const S3CguMaj="23 octobre 2026";
 function S3CguPage(t){
@@ -99,6 +99,8 @@ function S3PrivPage(t){
 }
 function S3HelpPage(t){
   S3DocPage(t,"Aide","Les réponses aux questions les plus fréquentes",[
+    ["Le guide de l’appli",
+     "Chaque fonction expliquée pas à pas, avec un exemple : ouvrez le [[guide|#/guide]]. Il s’enrichit à chaque nouvelle fonction."],
     ["Installer l’appli sur mon téléphone",
      ["iPhone : ouvrez le site dans Safari, touchez le bouton Partager puis « Sur l’écran d’accueil ».",
       "Android : dans Chrome, touchez le menu ⋮ puis « Installer l’application », ou le bouton « Installer » de l’appli.",
@@ -107,8 +109,6 @@ function S3HelpPage(t){
      "Acceptez les notifications quand l’appli le propose, ou dans Notifications et alertes. Sur iPhone, elles ne fonctionnent qu’avec l’appli installée sur l’écran d’accueil (iOS 16.4 ou plus récent)."],
     ["Passer du mode chasse au mode pêche",
      "Utilisez le bouton Chasse / Pêche en haut du menu. Les menus, la carte et les couleurs s’adaptent à la saison choisie."],
-    ["Créer mon territoire",
-     "Menu Chasse › Territoires & postes, puis « Nouveau territoire » : dessinez le contour sur la carte, ajoutez vos postes et zones interdites. Vous pouvez aussi importer un plan ou une photo du territoire."],
     ["Le calculateur et le viseur 30°",
      "Depuis votre poste, ils montrent l’angle de 30° à respecter avec vos voisins de ligne. C’est une aide visuelle : les consignes du directeur de chasse priment toujours."],
     ["Le bouton SOS",

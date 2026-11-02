@@ -22,6 +22,7 @@ function S3EarlyRoutes(){
   Z("/cgu",()=>Promise.resolve({default:t=>S3CguPage(t)}));
   Z("/confidentialite",()=>Promise.resolve({default:t=>S3PrivPage(t)}));
   Z("/aide",()=>Promise.resolve({default:t=>S3HelpPage(t)}));
+  Z("/guide",()=>Promise.resolve({default:t=>S3GuidePage(t)}));
   Z("/charte-ambassadeur",()=>Promise.resolve({default:t=>S3CharterPage(t)}));
   try{S3ShRegister()}catch{}
   try{A30DeskRoutes()}catch{}

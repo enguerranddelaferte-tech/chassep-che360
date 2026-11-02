@@ -879,3 +879,27 @@ a.part-band:hover{border-color:var(--line-strong)}
 /* ----- Taille d'affichage (réglage du profil) : repli quand le zoom de l'écran n'est pas réglable ----- */
 :root[data-zoomcss] .content{zoom:var(--zoom,1)}
 :root[data-zoomcss] .content:has(.map-page){zoom:1}
+/* Guide de l’appli */
+.gd{display:flex;flex-direction:column;gap:14px;max-width:820px}
+.gd-search{width:100%}
+.gd-chips{display:flex;flex-wrap:wrap;gap:6px}
+.gd-chip{border:1px solid var(--border,rgba(0,0,0,.15));background:var(--surface-2);color:var(--text);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}
+.gd-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.gd-list{display:flex;flex-direction:column;gap:22px}
+.gd-sec{display:flex;flex-direction:column;gap:8px}
+.gd-sec>h2{font-size:18px;margin:4px 0 2px}
+.gd-card{border:1px solid var(--border,rgba(0,0,0,.12));border-radius:var(--r-sm,12px);background:var(--surface);overflow:hidden}
+.gd-card>summary{list-style:none;display:flex;align-items:center;gap:10px;padding:14px 16px;cursor:pointer;font-weight:600}
+.gd-card>summary::-webkit-details-marker{display:none}
+.gd-card>summary::after{content:"";margin-left:auto;flex:none;width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);opacity:.55;transition:transform .2s}
+.gd-card[open]>summary::after{transform:rotate(225deg)}
+.gd-t{flex:1;min-width:0}
+.gd-new{flex:none;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:999px;background:var(--accent);color:#fff}
+.gd-body{padding:0 16px 16px;display:flex;flex-direction:column;gap:10px;line-height:1.5}
+.gd-body p{margin:0}
+.gd-body h4{margin:4px 0 0;font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-2)}
+.gd-plan{font-size:13px;font-weight:600;color:var(--accent)}
+.gd-steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.gd-ex{display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:var(--r-sm,12px);background:var(--surface-2);border-left:3px solid var(--accent)}
+.gd-tip{font-size:14px;color:var(--text-2)}
+.gd-soon{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:var(--r-sm,12px);border:1px dashed var(--border,rgba(0,0,0,.2))}

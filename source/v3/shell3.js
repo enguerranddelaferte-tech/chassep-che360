@@ -56,7 +56,7 @@ function Sl(){
       inst,
       adm?null:e("a.nav-link",{href:"#/abonnement",title:"Offres & abonnement",dataset:{path:"/abonnement"}},b("crown"),e("span","Offres & abonnement")),
       e("a.nav-link",{href:"#/notifications",title:"Notifications",dataset:{path:"/notifications"}},b("bell"),e("span","Notifications et alertes")),
-      e("div.sb-legal",e("a",{href:"#/aide"},"Aide")," · ",e("a",{href:"#/cgu"},"CGU")," · ",e("a",{href:"#/confidentialite"},"Confidentialité")," · ",e("a",{href:"#/mentions-legales"},"Mentions légales")),
+      e("div.sb-legal",e("a",{href:"#/guide"},"Guide")," · ",e("a",{href:"#/aide"},"Aide")," · ",e("a",{href:"#/cgu"},"CGU")," · ",e("a",{href:"#/confidentialite"},"Confidentialité")," · ",e("a",{href:"#/mentions-legales"},"Mentions légales")),
       e("div.side-user",
         e("a.side-user-link",{href:"#/profil",title:"Mon profil",dataset:{path:"/profil"}},oe(u,34),e("div",e("b",u.name),e("div.tiny.muted",S3Role(u)))),
         e("button.icon-btn",{type:"button","aria-label":"Thème jour / nuit",title:"Thème jour / nuit",dataset:{themeIc:"1"},onclick:S3Theme},b(w.theme==="dark"?"sun":"moon")),
