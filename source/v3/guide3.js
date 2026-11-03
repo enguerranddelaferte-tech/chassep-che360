@@ -71,7 +71,7 @@ const S3GUIDE=[
    what:"En cas d’accident, un geste suffit : l’alerte part avec votre position GPS.",
    steps:["Touchez le bouton SOS, toujours au centre de la barre du bas.","Touchez « Envoyer l’alerte SOS » : elle part avec votre position.","Elle prévient les participants de la chasse, les responsables du territoire et les pratiquants à moins de 5 km."],
    ex:"Pendant une traque, un participant fait une chute grave : son voisin de poste déclenche le SOS, les autres chasseurs savent où le rejoindre.",
-   tip:"Appelez aussi le 112 : l’appli ne prévient pas les secours.",link:["/securite","Ouvrir la sécurité"]},
+   tip:"Appelez aussi le 112 : l’appli ne prévient pas les secours. Sans réseau, l’appli vous le dit et propose le 112 et un SMS de votre position ; l’alerte part dès le retour du réseau.",link:["/securite","Ouvrir la sécurité"]},
   {id:"sortie",sec:"securite",feat:"sorties",t:"Sortie : prévenir un proche",plan:"Gratuit pour tous",added:"2026-11-02",
    what:"Avant de partir seul, dites où vous allez et quand vous rentrez. Si vous ne rentrez pas, votre proche est prévenu.",
    steps:["Accueil › « Sortie » (en mode chasse ou pêche).","Indiquez le lieu, avec ou sans chien, l’heure de retour prévue et le proche à prévenir, puis « Démarrer la sortie ».","À l’heure prévue, l’appli vous demande de confirmer que vous êtes rentré ou de prolonger la sortie ; touchez « Je suis rentré » à votre retour."],
@@ -92,7 +92,7 @@ const S3GUIDE=[
    what:"La carte IGN pour se repérer, avec votre position.",
    steps:["Barre du bas › Carte.","Touchez le bouton de position pour vous centrer.","Changez de couche : IGN pour tous ; photo aérienne, cadastre, vent animé et cartes hors ligne en Premium ; bathymétrie en pêche."],
    ex:"Avant la battue, Luc affiche la photo aérienne et le cadastre pour voir les limites des parcelles.",
-   tip:"Avec Premium, téléchargez une zone pour l’avoir sans réseau au fond des bois.",link:["/carte","Ouvrir la carte"]},
+   tip:"Avec Premium, « Zone hors ligne » garde le secteur affiché sur le téléphone, pour l’avoir sans réseau au fond des bois. Les zones gardées se suppriment une par une.",link:["/carte","Ouvrir la carte"]},
   {id:"meteo",sec:"terrain",feat:"meteo",t:"Météo terrain et horaires de tir",plan:"Gratuit · détail et vent animé en Premium",added:"2026-11-02",
    what:"Le temps à votre position, utile au chasseur et au pêcheur.",
    steps:["Menu › Météo terrain.","Vent et rafales, pression et sa tendance, lune, lever et coucher du soleil, prévisions heure par heure.","En chasse : le début et la fin du tir du jour. En pêche : un indice d’activité du poisson."],
@@ -146,9 +146,10 @@ const S3GUIDE=[
    steps:["Acceptez les notifications quand l’appli le propose.","Réglez-les dans Menu › Notifications et alertes.","Sur iPhone, elles ne marchent qu’avec l’appli installée sur l’écran d’accueil (iOS 16.4 ou plus récent)."],
    ex:"Sophie ne garde que les messages et les alertes sécurité pour ne pas être dérangée.",link:["/notifications","Mes notifications"]},
   {id:"horsligne",sec:"compte",t:"Sans réseau",plan:"Gratuit",added:"2026-11-02",
-   what:"Au bois ou au bord de l’eau, l’appli continue de fonctionner.",
-   steps:["Publiez, ajoutez une prise ou un prélèvement comme d’habitude.","Une pastille indique ce qui attend d’être envoyé.","Tout part automatiquement au retour du réseau, vidéos comprises."],
-   ex:"Pas une barre de réseau à l’étang : Luc note trois prises, elles s’envoient sur le chemin du retour."},
+   what:"Au bois ou au bord de l’eau, l’appli continue de fonctionner, à condition de l’avoir ouverte une fois avec du réseau.",
+   steps:["Publiez, ajoutez une prise ou un prélèvement comme d’habitude : une pastille indique ce qui attend, tout part au retour du réseau, vidéos comprises.","Météo : l’appli garde les dernières prévisions reçues et les affiche avec leur heure. Sans prévision gardée, elle l’indique, sans rien inventer.","Carte : avant de partir, ouvrez la carte sur votre secteur et touchez « Zone hors ligne » (Premium). Les zones gardées sont listées et se suppriment une par une.","SOS sans réseau : l’appli le dit clairement, propose d’appeler le 112 et d’envoyer votre position par SMS, puis envoie l’alerte toute seule au retour du réseau."],
+   ex:"Pas une barre de réseau à l’étang : Luc note trois prises, elles s’envoient sur le chemin du retour.",
+   tip:"Préparez la veille, avec du réseau : ouvrez la météo et téléchargez la zone de carte de votre sortie."},
   {id:"offres",sec:"compte",t:"Offres et abonnements",plan:"Gratuit, Premium Chasse, Premium Pêche, Combo 360°",added:"2026-11-02",
    what:"La sécurité est gratuite pour tous. Les offres Premium ajoutent les cartes avancées, l’illimité et les statistiques.",
    steps:["Gratuit : SOS, viseur 30°, sortie, communauté, carte IGN, 20 prises ou prélèvements, 5 spots, recettes, annuaire.","Premium Chasse ou Premium Pêche : 29,99 € par an.","Combo 360° : les deux réunis, 44,99 € par an.","Menu › Abonnement pour comparer et souscrire."],
@@ -159,7 +160,7 @@ const S3GUIDE=[
    steps:["Menu › Mon profil › « Supprimer mon compte ».","Confirmez : tout ce que vous avez créé est effacé, définitivement."],
    ex:"",link:["/confidentialite","Vos données"]}
 ];
-const S3GuideMaj="2 novembre 2026";
+const S3GuideMaj="3 novembre 2026";
 /* « Nouveau » : seulement pour les fonctions sorties après le lancement (mi-janvier 2027), pendant 45 jours */
 const S3GuideLaunch="2027-01-15";
 function S3GuideNew(g){try{return String(g.added)>S3GuideLaunch&&Date.now()-new Date(g.added).getTime()<45*864e5}catch{return!1}}
