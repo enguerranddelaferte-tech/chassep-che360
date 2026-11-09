@@ -29,8 +29,8 @@ def cut(s,start,end,new):
 # salaison : dosages affinés (sel nitrité, contrôle du dosage, saumure)
 bundle=cut(bundle,'var SalPresets=','var ArtAct=',open(B+'v3/sal3.js').read())
 bundle=rep(bundle,'preset:"maison",ep:"4",forme:"plate"}','preset:"maison",ep:"4",forme:"plate",nit:"0",nitPct:"0.6",bm:"litre",bw:"1",bp:"9",bv:"1000",bep:"3"}')
-bundle=rep(bundle,'if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&','if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&!/^\\/(mentions-legales|cgu|confidentialite|aide|guide|charte-ambassadeur)$/.test(t)&&')
-bundle=rep(bundle,'!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil)/.test(t)','!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil|mentions-legales|cgu|confidentialite|aide|guide|charte-ambassadeur)/.test(t)')
+bundle=rep(bundle,'if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&','if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&!/^\\/(mentions-legales|cgu|confidentialite|aide|guide|telecharger|charte-ambassadeur)$/.test(t)&&')
+bundle=rep(bundle,'!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil)/.test(t)','!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil|mentions-legales|cgu|confidentialite|aide|guide|telecharger|charte-ambassadeur)/.test(t)')
 bundle=rep(bundle,'onsubmit:async f=>{if(f.preventDefault(),p.hidden=!0,!!d.validate()){','onsubmit:async f=>{if(f.preventDefault(),p.hidden=!0,!!d.validate()&&(s==="login"||S3ConsentOk(f.target))){')
 bundle=rep(bundle,'},p,d.el,m)','},p,d.el,s==="login"?null:S3ConsentEl(),m)')
 # mesure d'audience : refus possible
@@ -120,7 +120,7 @@ bundle=rep(bundle,'Mi="cp360.demo.db.v1"','Mi=/\/demo\//.test(location.pathname)
 # Statistiques : identifiant de visiteur anonyme conservé d'une visite à l'autre (et plus seulement le temps d'un onglet)
 bundle=rep(bundle,'let sid=sessionStorage.getItem("cp360.sid");const fresh=!sid;fresh&&(sid=(crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2)+Date.now()),sessionStorage.setItem("cp360.sid",sid));if(kind==="open"&&!fresh&&sessionStorage.getItem("cp360.tr"))return;','let sid=localStorage.getItem("cp360.vid");sid||(sid="v-"+(crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2)+Date.now()),localStorage.setItem("cp360.vid",sid));if(kind==="open"&&sessionStorage.getItem("cp360.tr"))return;')
 # Taille d'affichage dans Profil › Affichage
-bundle=rep(bundle,'w.theme,c=>{Ln(c),v.patch("/auth/me",{settings:{theme:c}}).catch(()=>{})})),','w.theme,c=>{Ln(c),v.patch("/auth/me",{settings:{theme:c}}).catch(()=>{})})),S3ZoomField(),')
+bundle=rep(bundle,'w.theme,c=>{Ln(c),v.patch("/auth/me",{settings:{theme:c}}).catch(()=>{})})),','w.theme,c=>{Ln(c),v.patch("/auth/me",{settings:{theme:c}}).catch(()=>{})})),S3ZoomField(),S3BlockedField(),')
 # Météo : prévisions MET Norway (CC BY 4.0) via le relais Supabase « meteo » (cache), au lieu d'Open-Meteo (non commercial)
 bundle=cut(bundle,'async function WxFetch(t,r){','const HbC={}','async function WxFetch(t,r){const o=await WxJson(`https://frizrkjunbezywnhpjas.supabase.co/functions/v1/meteo?lat=${(+t).toFixed(4)}&lon=${(+r).toFixed(4)}`,8000);if(!o||!o.current||!Array.isArray(o.hourly)||!o.hourly.length)throw new Error(o&&o.error||"m\\xE9t\\xE9o indisponible");o.nowcast=WxNow({},{time:o.hourly[0].time},o.hourly,0);return o}')
 bundle=rep(bundle,'const p=["Open-Meteo"];return n.model==="AROME"?p.push("M\\xE9t\\xE9o-France AROME 1,5 km"):p.push("mod\\xE8le standard"),','const p=["Donn\\xE9es MET Norway (CC BY 4.0)"];return n.gustsEstimated&&p.push("rafales estim\\xE9es"),')
@@ -143,6 +143,11 @@ bundle=rep(bundle,'ze("wind.overlay")&&v.get(`/weather?lat=${w.position.lat}&lng
 bundle=rep(bundle,'w0=await v.get(`/weather?lat=${c.lat}&lng=${c.lng}`),cu=w0.current;','w0=await v.get(`/weather?lat=${c.lat}&lng=${c.lng}`);if(w0.source==="none")throw 0;let cu=w0.current;')
 bundle=rep(bundle,'await fetch(c,{mode:"no-cors"})','await fetch(c+"&cp360z=1",{mode:"no-cors"})')
 bundle=rep(bundle,'I.textContent=`${fe} tuiles enregistr\\xE9es. Cette zone reste consultable sans r\\xE9seau.`,setTimeout(()=>O.close(),1800)','I.textContent=`${fe} morceaux de carte enregistr\\xE9s : cette zone reste consultable sans r\\xE9seau.`,S3ZoneSave(l,U,fe),C(h.parentNode,S3ZoneList(l))')
+
+# Bloquer un membre
+bundle=rep(bundle,'s=se.posts.all(l=>(!n||n==="tous"','s=se.posts.all(l=>!S3BlockedHas(t.user,l.authorId)&&(!n||n==="tous"')
+bundle=rep(bundle,'comments:n.map(i=>({...i,author:_t(se.users.get(i.authorId))}))','comments:n.filter(i=>!S3BlockedHas(r,i.authorId)).map(i=>({...i,author:_t(se.users.get(i.authorId))}))')
+bundle=rep(bundle,'x("Signaler",{kind:"ghost",size:"sm",icon:"alert",onClick:()=>RepSend("post",t.id)}):null','x("Signaler",{kind:"ghost",size:"sm",icon:"alert",onClick:()=>RepSend("post",t.id)}):null,w.user&&t.author.id!==w.user.id?x("Bloquer",{kind:"ghost",size:"sm",icon:"lock",onClick:()=>S3Block(t.author)}):null')
 
 # Appli des stores : vraie base
 bundle=rep(bundle,'return /github\\.io$/.test(location.hostname)||lsGet("cp360.sb")==="1"','return /github\\.io$/.test(location.hostname)||lsGet("cp360.sb")==="1"||!!(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform())')

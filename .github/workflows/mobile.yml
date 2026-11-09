@@ -48,6 +48,8 @@ jobs:
         run: |
           mkdir -p ../out
           cp android/app/build/outputs/apk/debug/app-debug.apk "../out/ChassePeche360-test-${{ github.run_number }}.apk"
+          # même fichier sous un nom fixe : le lien de téléchargement reste le même à chaque version
+          cp android/app/build/outputs/apk/debug/app-debug.apk ../out/ChassePeche360.apk
       - uses: actions/upload-artifact@v4
         with:
           name: android-apk
@@ -60,7 +62,7 @@ jobs:
           gh release delete android-test --yes --cleanup-tag || true
           gh release create android-test out/*.apk --prerelease --target "${{ github.sha }}" \
             --title "Appli Android de test (build ${{ github.run_number }})" \
-            --notes "APK de test à installer sur un téléphone Android (autoriser l'installation d'applis de cette source). Construit depuis ${{ github.sha }}."
+            --notes "APK de test à installer sur un téléphone Android (autoriser l'installation d'applis de cette source). Lien fixe : https://github.com/${{ github.repository }}/releases/download/android-test/ChassePeche360.apk. Construit depuis ${{ github.sha }}."
 
   ios:
     runs-on: macos-15

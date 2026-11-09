@@ -109,3 +109,25 @@ function S3ZoneList(map){
         map?x("Voir",{size:"sm",kind:"ghost",onClick:()=>{try{map.fitBounds([[z.b[0],z.b[1]],[z.b[2],z.b[3]]])}catch{}}}):null,
         x("Supprimer",{size:"sm",kind:"ghost",icon:"trash",onClick:async()=>{await S3ZoneDelete(z.id);A("Zone supprimée de ce téléphone.");draw()}})))})};
   draw();return box}
+
+/* Bloquer un membre (exigé par Apple pour les contenus publiés par les membres) :
+   la liste est gardée dans les réglages du compte ; ses publications et commentaires disparaissent du fil. */
+function S3BlockedList(u){try{let L=u&&u.settings&&u.settings.blocked;return Array.isArray(L)?L.filter(x2=>x2&&x2.id):[]}catch{return[]}}
+function S3BlockedHas(u,id){return!!id&&S3BlockedList(u).some(x2=>x2.id===id)}
+async function S3BlockSave(L){
+  if(!w.user)return;w.user.settings={...(w.user.settings||{}),blocked:L};
+  try{await v.patch("/auth/me",{settings:{blocked:L}})}catch{}
+  try{window.dispatchEvent(new HashChangeEvent("hashchange"))}catch{}}
+async function S3Block(a){
+  if(!w.user||!a||!a.id||a.id===w.user.id)return;
+  if(!await ve({title:`Bloquer ${a.name||"ce membre"} ?`,text:"Vous ne verrez plus ses publications ni ses commentaires. Il n’en est pas prévenu. Vous pourrez le débloquer dans Mon profil, rubrique Affichage. Pour un contenu choquant, utilisez aussi « Signaler ».",confirm:"Bloquer",danger:!0}))return;
+  let L=S3BlockedList(w.user).filter(x2=>x2.id!==a.id);L.push({id:a.id,name:a.name||"Membre"});
+  await S3BlockSave(L);A(`${a.name||"Ce membre"} est bloqué.`,"ok")}
+function S3BlockedField(){
+  let box=e("div.field");
+  let draw=()=>{let L=S3BlockedList(w.user);W(box);
+    C(box,e("label","Membres bloqués"),
+      L.length?e("div.stack",{style:{gap:"6px"}},L.map(m=>e("div.row",{style:{gap:"8px",alignItems:"center"}},e("span.grow",m.name),
+        x("Débloquer",{size:"sm",kind:"ghost",onClick:async()=>{await S3BlockSave(S3BlockedList(w.user).filter(z=>z.id!==m.id));A(`${m.name} est débloqué.`);draw()}})))):
+      e("div.small.muted","Aucun. Pour bloquer un membre, touchez « Bloquer » sous l’une de ses publications."))};
+  draw();return box}

@@ -61,10 +61,11 @@ const S3GUIDE=[
    what:"Votre vitrine : vos plus belles photos et vos vidéos YouTube ou Instagram, sur votre profil.",
    steps:["Profil › Album, puis « Ajouter à l’album ».","Une photo (compressée automatiquement) ou un lien vidéo YouTube / Instagram.","Choisissez pour chacune : publique ou privée."],
    ex:"Inès range dans son album les photos de ses plus belles recettes de gibier.",link:["/profil","Mon album"]},
-  {id:"signaler",sec:"communaute",t:"Charte et signalement",plan:"Gratuit",added:"2026-11-02",
+  {id:"signaler",sec:"communaute",t:"Charte, signalement et blocage",plan:"Gratuit",added:"2026-11-02",
    what:"Une communauté sûre : respect de tous, pas de photo choquante, pas de spot exact sans floutage.",
-   steps:["Sous une publication, un commentaire ou un profil : « Signaler ».","Choisissez le motif ; l’équipe examine le signalement.","Les photos publiées passent aussi par une modération automatique."],
-   ex:"Un membre publie la position exacte d’un poste : Paul le signale, l’équipe retire la publication.",link:["/cgu","Lire les règles"]},
+   steps:["Sous une publication, un commentaire ou un profil : « Signaler ».","Choisissez le motif ; l’équipe examine le signalement.","Un membre vous importune ? Sous l’une de ses publications, « Bloquer » : vous ne voyez plus ses publications ni ses commentaires, et il n’en est pas prévenu.","Pour débloquer : Mon profil, rubrique Affichage, « Membres bloqués »."],
+   ex:"Un membre publie la position exacte d’un poste : Paul le signale, l’équipe retire la publication.",
+   tip:"Les photos publiées passent aussi par une modération automatique.",link:["/cgu","Lire les règles"]},
 
   /* Sécurité */
   {id:"sos",sec:"securite",t:"Le bouton SOS",plan:"Gratuit pour tous",added:"2026-11-02",
@@ -160,7 +161,7 @@ const S3GUIDE=[
    steps:["Menu › Mon profil › « Supprimer mon compte ».","Confirmez : tout ce que vous avez créé est effacé, définitivement."],
    ex:"",link:["/confidentialite","Vos données"]}
 ];
-const S3GuideMaj="3 novembre 2026";
+const S3GuideMaj="9 novembre 2026";
 /* « Nouveau » : seulement pour les fonctions sorties après le lancement (mi-janvier 2027), pendant 45 jours */
 const S3GuideLaunch="2027-01-15";
 function S3GuideNew(g){try{return String(g.added)>S3GuideLaunch&&Date.now()-new Date(g.added).getTime()<45*864e5}catch{return!1}}
