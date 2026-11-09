@@ -29,8 +29,8 @@ def cut(s,start,end,new):
 # salaison : dosages affinés (sel nitrité, contrôle du dosage, saumure)
 bundle=cut(bundle,'var SalPresets=','var ArtAct=',open(B+'v3/sal3.js').read())
 bundle=rep(bundle,'preset:"maison",ep:"4",forme:"plate"}','preset:"maison",ep:"4",forme:"plate",nit:"0",nitPct:"0.6",bm:"litre",bw:"1",bp:"9",bv:"1000",bep:"3"}')
-bundle=rep(bundle,'if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&','if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&!/^\\/(mentions-legales|cgu|confidentialite|aide|guide|telecharger|charte-ambassadeur)$/.test(t)&&')
-bundle=rep(bundle,'!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil)/.test(t)','!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil|mentions-legales|cgu|confidentialite|aide|guide|telecharger|charte-ambassadeur)/.test(t)')
+bundle=rep(bundle,'if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&','if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&!/^\\/(mentions-legales|cgu|confidentialite|aide|guide|telecharger|installer|charte-ambassadeur)$/.test(t)&&')
+bundle=rep(bundle,'!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil)/.test(t)','!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil|mentions-legales|cgu|confidentialite|aide|guide|telecharger|installer|charte-ambassadeur)/.test(t)')
 bundle=rep(bundle,'onsubmit:async f=>{if(f.preventDefault(),p.hidden=!0,!!d.validate()){','onsubmit:async f=>{if(f.preventDefault(),p.hidden=!0,!!d.validate()&&(s==="login"||S3ConsentOk(f.target))){')
 bundle=rep(bundle,'},p,d.el,m)','},p,d.el,s==="login"?null:S3ConsentEl(),m)')
 # mesure d'audience : refus possible

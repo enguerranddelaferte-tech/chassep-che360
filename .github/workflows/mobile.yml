@@ -3,10 +3,8 @@
 # - iPhone : vérification que l'appli se compile (sans signature ; la publication demandera le compte Apple).
 name: Applis mobiles
 
+# En pause : seulement à la demande (onglet Actions › Applis mobiles › Run workflow).
 on:
-  push:
-    branches: [main]
-    paths: ["index.html", "sw.js", "mobile/**", ".github/workflows/mobile.yml"]
   workflow_dispatch:
 
 permissions:

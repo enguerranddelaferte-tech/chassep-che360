@@ -24,6 +24,7 @@ function S3EarlyRoutes(){
   Z("/aide",()=>Promise.resolve({default:t=>S3HelpPage(t)}));
   Z("/guide",()=>Promise.resolve({default:t=>S3GuidePage(t)}));
   Z("/telecharger",()=>Promise.resolve({default:t=>S3DownloadPage(t)}));
+  Z("/installer",()=>Promise.resolve({default:t=>S3DownloadPage(t)}));
   S3Native()&&Z("/abonnement",()=>Promise.resolve({default:t=>S3NativeOffer(t)}));
   Z("/charte-ambassadeur",()=>Promise.resolve({default:t=>S3CharterPage(t)}));
   try{S3ShRegister()}catch{}

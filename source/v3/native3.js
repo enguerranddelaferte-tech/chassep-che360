@@ -39,21 +39,21 @@ function S3NativeOffer(t){
       e("p.small.muted",{style:{margin:0}},"Les abonnements ne sont pas encore proposés dans l’application mobile."))));
 }
 
-/* Page « Télécharger l’appli » (#/telecharger), ouverte à tous : le lien à envoyer.
-   Android : l’APK de test (lien fixe de la release GitHub « android-test »).
-   iPhone : pas d’installation hors App Store possible ; on installe l’appli web sur l’écran d’accueil. */
-const S3ApkURL="https://github.com/enguerranddelaferte-tech/chassep-che360/releases/download/android-test/ChassePeche360.apk";
+/* Page « Installer l’appli » (#/telecharger ou #/installer), ouverte à tous : le lien à envoyer.
+   L’appli web (PWA) s’installe depuis le navigateur, sur Android, iPhone et ordinateur. */
 function S3DownloadPage(t){
-  let ua=navigator.userAgent||"",ios=/iPhone|iPad|iPod/i.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1),android=/Android/i.test(ua);
-  let and=k({title:"Android"},e("div.stack",{style:{gap:"10px"}},
-    e("p",{style:{margin:0}},"Téléchargez l’appli, puis ouvrez le fichier. Android demande d’autoriser l’installation depuis cette source : acceptez, puis « Installer »."),
-    x("Télécharger l’appli Android",{kind:"primary",icon:"download",href:S3ApkURL}),
-    e("p.small.muted",{style:{margin:0}},"Version de test, en attendant Google Play. Si Android affiche « Appli inconnue », touchez « Plus de détails » puis « Installer quand même ».")));
-  let iph=k({title:"iPhone"},e("div.stack",{style:{gap:"10px"}},
-    e("p",{style:{margin:0}},"L’appli iPhone arrive sur l’App Store au lancement. En attendant, installez-la depuis Safari :"),
-    e("ol",{style:{margin:0,paddingLeft:"22px"}},e("li","Ouvrez ce lien dans Safari."),e("li","Touchez Partager, puis « Sur l’écran d’accueil »."),e("li","Ouvrez l’appli depuis son icône.")),
-    x("Ouvrir l’appli",{kind:ios?"primary":"ghost",href:"#/communaute"})));
-  C(t,q({title:"Télécharger l’appli",subtitle:"Chasse & Pêche 360° sur votre téléphone"},
-    e("div.stack",{style:{maxWidth:"640px"}},ios?iph:and,ios?and:iph,
-      android||ios?null:e("p.small.muted",{style:{margin:0}},"Sur ordinateur : bouton « Installer l’appli » en haut de l’écran (Chrome, Edge)."))));
+  let ios=typeof S3IsIOS=="function"?S3IsIOS():/iPhone|iPad|iPod/i.test(navigator.userAgent),android=/Android/i.test(navigator.userAgent),done=typeof S3Standalone=="function"&&S3Standalone();
+  let step=(n,txt)=>e("div.row",{style:{gap:"12px",alignItems:"flex-start"}},e("b",{style:{minWidth:"22px",color:"var(--accent)"}},n),e("span",txt));
+  let andr=k({title:"Android"},e("div.stack",{style:{gap:"8px"}},
+    step("1","Ouvrez ce lien dans Chrome."),step("2","Touchez « Installer l’appli » ci-dessus, ou le menu ⋮ puis « Installer l’application »."),step("3","L’icône Chasse & Pêche 360° apparaît avec vos applications.")));
+  let iph=k({title:"iPhone"},e("div.stack",{style:{gap:"8px"}},
+    step("1","Ouvrez ce lien dans Safari."),step("2","Touchez Partager (le carré avec une flèche), puis « Sur l’écran d’accueil »."),step("3","Touchez « Ajouter » : l’appli s’ouvre ensuite depuis son icône, en plein écran.")));
+  let pc=k({title:"Ordinateur"},e("p",{style:{margin:0}},"Dans Chrome ou Edge, touchez « Installer l’appli » ci-dessus, ou l’icône d’installation dans la barre d’adresse."));
+  C(t,q({title:"Installer l’appli",subtitle:"Chasse & Pêche 360° sur votre téléphone, sans passer par un store"},
+    e("div.stack",{style:{maxWidth:"640px"}},
+      done?e("div.panel",e("b","L’appli est déjà installée sur cet appareil.")):e("div.stack",{style:{gap:"10px"}},
+        x("Installer l’appli",{kind:"primary",icon:"download",onClick:()=>{typeof S3Install=="function"?S3Install():null}}),
+        e("p.small.muted",{style:{margin:0}},"Gratuite, quelques secondes, rien à télécharger depuis un store. Elle se met à jour toute seule.")),
+      ios?iph:android?andr:pc,ios?andr:iph,ios||android?pc:andr,
+      x("Ouvrir l’appli sans l’installer",{kind:"ghost",href:"#/communaute"}))));
 }
