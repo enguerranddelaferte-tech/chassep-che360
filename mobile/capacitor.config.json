@@ -1,0 +1,26 @@
+{
+  "appId": "fr.chassepeche360.app",
+  "appName": "Chasse & Pêche 360°",
+  "webDir": "www",
+  "backgroundColor": "#F3F0E8",
+  "android": {
+    "allowMixedContent": false
+  },
+  "ios": {
+    "contentInset": "never",
+    "limitsNavigationsToAppBoundDomains": false
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false,
+      "launchShowDuration": 4000,
+      "backgroundColor": "#F3F0E8",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "overlaysWebView": false,
+      "backgroundColor": "#F3F0E8",
+      "style": "DARK"
+    }
+  }
+}

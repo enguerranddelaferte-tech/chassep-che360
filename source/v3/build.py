@@ -36,7 +36,7 @@ bundle=rep(bundle,'},p,d.el,m)','},p,d.el,s==="login"?null:S3ConsentEl(),m)')
 # mesure d'audience : refus possible
 bundle=rep(bundle,'function track(kind){if(!on())return;','function track(kind){if(!on())return;try{if(localStorage.getItem("cp360.noTrack")==="1")return}catch{}')
 bundle=rep(bundle,'e("article.panel.post",e("div.post-head",oe(t.author,44),e("div.grow",e("a",{href:`#/profil/${t.author.id}`','e("article.panel.post",{dataset:{pid:t.id||""}},e("div.post-head",oe(t.author,44),e("div.grow",e("a",{href:`#/profil/${t.author.id}`')
-shell=open(B+'v3/feat3.js').read()+'\n'+open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()+'\n'+open(B+'v3/notif3.js').read()+'\n'+open(B+'v3/offline3.js').read()+'\n'+open(B+'v3/launch3.js').read()+'\n'+open(B+'v3/legal3.js').read()+'\n'+open(B+'v3/pages3.js').read()+'\n'+open(B+'v3/guide3.js').read()+'\n'+open(B+'v3/secu3.js').read()+'\n'+open(B+'v3/ops3.js').read()+'\n'+open(B+'v3/mod3.js').read()+'\n'+open(B+'v3/photo30.js').read()+'\n'+open(B+'v3/qr3.js').read()+'\n'+open(B+'v3/media3.js').read()+'\n'+open(B+'v3/part3.js').read()+'\n'+open(B+'v3/flyer3.js').read()+'\n'+open(B+'v3/aud3.js').read()
+shell=open(B+'v3/feat3.js').read()+'\n'+open(B+'v3/shell3.js').read()+'\n'+open(B+'v3/amb3.js').read()+'\n'+open(B+'v3/album3.js').read()+'\n'+open(B+'v3/share3.js').read()+'\n'+open(B+'v3/shorts3.js').read()+'\n'+open(B+'v3/post3.js').read()+'\n'+open(B+'v3/login3.js').read()+'\n'+open(B+'v3/notif3.js').read()+'\n'+open(B+'v3/offline3.js').read()+'\n'+open(B+'v3/launch3.js').read()+'\n'+open(B+'v3/legal3.js').read()+'\n'+open(B+'v3/pages3.js').read()+'\n'+open(B+'v3/guide3.js').read()+'\n'+open(B+'v3/secu3.js').read()+'\n'+open(B+'v3/native3.js').read()+'\n'+open(B+'v3/ops3.js').read()+'\n'+open(B+'v3/mod3.js').read()+'\n'+open(B+'v3/photo30.js').read()+'\n'+open(B+'v3/qr3.js').read()+'\n'+open(B+'v3/media3.js').read()+'\n'+open(B+'v3/part3.js').read()+'\n'+open(B+'v3/flyer3.js').read()+'\n'+open(B+'v3/aud3.js').read()
 home=open(B+'v3/home3.js').read()
 # 0b. publications : photo/vidéo depuis le téléphone, lecteur vidéo dans le fil
 bundle=rep(bundle,'accept:"image/*",capture:"environment",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await Gr($)),S())}','accept:l.video?"image/*,video/*":"image/*",hidden:!0,onchange:async F=>{let $=F.target.files[0];$&&(p(await S3PhotoPick($,Gr)),S())}')
@@ -143,6 +143,9 @@ bundle=rep(bundle,'ze("wind.overlay")&&v.get(`/weather?lat=${w.position.lat}&lng
 bundle=rep(bundle,'w0=await v.get(`/weather?lat=${c.lat}&lng=${c.lng}`),cu=w0.current;','w0=await v.get(`/weather?lat=${c.lat}&lng=${c.lng}`);if(w0.source==="none")throw 0;let cu=w0.current;')
 bundle=rep(bundle,'await fetch(c,{mode:"no-cors"})','await fetch(c+"&cp360z=1",{mode:"no-cors"})')
 bundle=rep(bundle,'I.textContent=`${fe} tuiles enregistr\\xE9es. Cette zone reste consultable sans r\\xE9seau.`,setTimeout(()=>O.close(),1800)','I.textContent=`${fe} morceaux de carte enregistr\\xE9s : cette zone reste consultable sans r\\xE9seau.`,S3ZoneSave(l,U,fe),C(h.parentNode,S3ZoneList(l))')
+
+# Appli des stores : vraie base
+bundle=rep(bundle,'return /github\\.io$/.test(location.hostname)||lsGet("cp360.sb")==="1"','return /github\\.io$/.test(location.hostname)||lsGet("cp360.sb")==="1"||!!(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform())')
 
 # CSS
 legacy=filt(app_css)

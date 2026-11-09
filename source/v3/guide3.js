@@ -164,7 +164,7 @@ const S3GuideMaj="3 novembre 2026";
 /* « Nouveau » : seulement pour les fonctions sorties après le lancement (mi-janvier 2027), pendant 45 jours */
 const S3GuideLaunch="2027-01-15";
 function S3GuideNew(g){try{return String(g.added)>S3GuideLaunch&&Date.now()-new Date(g.added).getTime()<45*864e5}catch{return!1}}
-function S3GuideList(){return S3GUIDE.filter(g=>!g.feat||!(typeof S3FeatOff<"u"&&S3FeatOff.has(g.feat)))}
+function S3GuideList(){return S3GUIDE.filter(g=>(!g.feat||!(typeof S3FeatOff<"u"&&S3FeatOff.has(g.feat)))&&!(g.id==="offres"&&typeof S3Native=="function"&&S3Native()))}
 function S3GuidePage(t){
   let list=S3GuideList(),st={q:"",sec:"tous"},box=e("div.gd-list"),
     norm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""),

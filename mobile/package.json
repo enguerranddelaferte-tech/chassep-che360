@@ -1,0 +1,23 @@
+{
+  "name": "chassepeche360-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Applis Android et iPhone de Chasse & Pêche 360°, construites avec Capacitor à partir de la même appli web (index.html à la racine du dépôt).",
+  "scripts": {
+    "www": "node scripts/prepare-www.mjs",
+    "native": "node scripts/native-config.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/app": "^7.0.0",
+    "@capacitor/browser": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/ios": "^7.0.0",
+    "@capacitor/splash-screen": "^7.0.0",
+    "@capacitor/status-bar": "^7.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^7.0.0"
+  }
+}
