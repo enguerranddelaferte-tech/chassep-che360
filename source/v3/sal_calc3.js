@@ -3,13 +3,13 @@ var SalPresets=[
  {id:"magret",label:"Magret",sel:2.8,sucre:1,poivre:.5,perte:30,nit:"0",note:"Magret de canard ou d’oie : 2,5 à 3 % de sel, sous vide (environ 2,5 jours pour 3 cm), puis 2 à 3 semaines de séchage. Le sel nitrité est facultatif pour un séchage aussi court."},
  {id:"filet",label:"Filet de cervidé",sel:2.8,sucre:1,poivre:.3,perte:38,nit:"1",note:"Chevreuil, biche, cerf façon bresaola : 2,5 à 3 % de sel dont une part de sel nitrité, car le séchage dure 3 à 5 semaines. Genièvre, laurier, thym : 0,2 à 0,5 % au goût."},
  {id:"noix",label:"Noix de sanglier",sel:3,sucre:.5,poivre:.4,perte:35,nit:"1",note:"Noix, épaule roulée ou « coppa » de sanglier : 3 % de sel avec sel nitrité, séchage de plusieurs semaines. Analyse trichine obligatoire avant toute préparation crue."},
- {id:"saucisson",label:"Saucisson",sel:2.6,sucre:.4,poivre:.3,perte:38,nit:"1",note:"Mêlée gibier + gras de porc : 26 g de sel par kilo de mêlée dont 20 g de sel nitrité au plus, 3 à 5 g de dextrose (ou de sucre) pour la fermentation, 3 g de poivre."}];
+ {id:"saucisson",label:"Saucisson",sel:2.6,sucre:.4,poivre:.3,perte:38,nit:"1",note:"Mêlée gibier + gras de porc : 26 g de sel par kilo de mêlée dont 20 g de sel nitrité au plus, 3 à 5 g de sucre pour la fermentation, 3 g de poivre."}];
 /* Nitrite : depuis le 9 octobre 2025, 80 mg/kg au plus, exprimés en ion nitrite (règlement UE 2023/2108),
    soit environ 120 mg de nitrite de sodium : 20 g de sel nitrité à 0,6 % par kilo. Le reste du sel en sel fin. */
 var SalNitMax=80;
 function SalNitPerKg(pct){let p=SalNum(pct)||.6;return SalNitMax/.667/(p*10)}
 function SalCalc(st){
- let ings=[["sel","Sel","var(--muted)"],["sucre","Sucre ou dextrose","var(--gold)"],["poivre","Poivre","var(--text)"]],out={},pin={};
+ let ings=[["sel","Sel","var(--muted)"],["sucre","Sucre","var(--gold)"],["poivre","Poivre","var(--text)"]],out={},pin={};
  let wIn=e("input.input",{id:"sal-w",type:"number",inputmode:"decimal",min:"0",step:"any",value:st.w,"aria-label":"Poids de la pièce",oninput:z=>{st.w=z.target.value;up()}});
  let unitBox=e("div");
  let ru=()=>B(unitBox,ke([["kg","kg"],["g","g"]],st.unit,u=>{if(u===st.unit)return;let v=SalNum(wIn.value);if(v)wIn.value=u==="g"?String(Math.round(v*1e3)):String(+(v/1e3).toFixed(3));st.w=wIn.value;st.unit=u;up()}));
@@ -32,7 +32,7 @@ function SalCalc(st){
  let target=e("b.display",{style:{fontSize:"34px",lineHeight:"1"}},"0 g"),gauge=e("i",{style:{left:"0%"}}),gw=e("div.sal-gauge",gauge),status=e("div.small",{style:{minHeight:"22px"}});
  let eIn=e("input.input",{id:"sal-ep",type:"number",inputmode:"decimal",min:"0",step:"0.5",value:st.ep,style:{width:"110px"},oninput:z=>{st.ep=z.target.value;ud()}});
  let dOut=e("b.display",{style:{fontSize:"34px",lineHeight:"1"}},"0 jour"),dF=e("div.small.muted"),fLbl=e("label",{for:"sal-ep"}),fBox=e("div");
- let rf=()=>{B(fBox,ke([["plate","Pièce plate"],["ronde","Pièce ronde"]],st.forme,f=>{st.forme=f;rf();ud()}));fLbl.textContent=st.forme==="ronde"?"Rayon (cm)":"Épaisseur (cm)"};
+ let rf=()=>{B(fBox,ke([["plate","Pièce plate"],["ronde","Pièce ronde"]],st.forme,f=>{st.forme=f;rf();ud()}));fLbl.textContent=st.forme==="ronde"?"Diamètre (cm)":"Épaisseur (cm)"};
  function ud(){let v=SalNum(st.ep),d=v?v/2+1:0,ds=d.toLocaleString("fr-FR",{maximumFractionDigits:1});dOut.textContent=v?ds+(d>=2?" jours":" jour"):"—";dF.textContent=v?`${v.toLocaleString("fr-FR")} cm ÷ 2 + 1 = ${ds} j au minimum`:"Mesurez la pièce au plus épais.";SalSave(st)}
  rf();ud();
  rp();
@@ -89,7 +89,7 @@ function SalCalc(st){
    k({title:"Durée de salaison",sub:"à dose fixe : épaisseur ÷ 2 + 1, en jours"},
     e("div.row.wrap",{style:{gap:"16px",alignItems:"flex-end"}},fBox,e("div.field",fLbl,eIn),e("div",e("div.small.muted","Temps de salaison"),dOut)),
     e("div",{style:{marginTop:"10px"}},dF),
-    e("p.small.muted",{style:{margin:"8px 0 0"}},"Pièce plate (magret, filet aplati) : mesurez l’épaisseur. Pièce ronde (noix, filet roulé) : mesurez le rayon. Au réfrigérateur entre 0 et 4 °C, en retournant chaque jour. À dose fixe, quelques jours de plus ne salent pas davantage : dans le doute, prolongez jusqu’à ce que la pièce soit ferme à cœur.")),
+    e("p.small.muted",{style:{margin:"8px 0 0"}},"Pièce plate (magret, filet aplati) : mesurez l’épaisseur. Pièce ronde (noix, filet roulé) : mesurez le diamètre. Au réfrigérateur entre 0 et 4 °C, en retournant chaque jour. À dose fixe, quelques jours de plus ne salent pas davantage : dans le doute, prolongez jusqu’à ce que la pièce soit ferme à cœur.")),
    k({title:"Saumure",sub:"poisson avant fumage, pièces à fumer"},SalBrine(st))),
   e("div.sal-tip",e("b","Bon à savoir : "),"la salaison à dose fixe ne sale jamais trop, puisque tout le sel pesé est absorbé. Pesez au gramme près, et au dixième de gramme pour le sel nitrité, les épices et les petites pièces.")
  )
