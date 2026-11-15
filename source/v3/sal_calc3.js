@@ -1,9 +1,5 @@
 var SalPresets=[
- {id:"maison",label:"Ma recette",sel:4,sucre:2,poivre:1,perte:35,nit:"0",note:"Votre dosage : 4 % de sel, 2 % de sucre, 1 % de poivre. C’est un dosage salé pour une salaison à dose fixe : la plupart des recettes visent 2,5 à 3 % de sel."},
- {id:"magret",label:"Magret",sel:2.8,sucre:1,poivre:.5,perte:30,nit:"0",note:"Magret de canard ou d’oie : 2,5 à 3 % de sel, sous vide (environ 2,5 jours pour 3 cm), puis 2 à 3 semaines de séchage. Le sel nitrité est facultatif pour un séchage aussi court."},
- {id:"filet",label:"Filet de cervidé",sel:2.8,sucre:1,poivre:.3,perte:38,nit:"1",note:"Chevreuil, biche, cerf façon bresaola : 2,5 à 3 % de sel dont une part de sel nitrité, car le séchage dure 3 à 5 semaines. Genièvre, laurier, thym : 0,2 à 0,5 % au goût."},
- {id:"noix",label:"Noix de sanglier",sel:3,sucre:.5,poivre:.4,perte:35,nit:"1",note:"Noix, épaule roulée ou « coppa » de sanglier : 3 % de sel avec sel nitrité, séchage de plusieurs semaines. Analyse trichine obligatoire avant toute préparation crue."},
- {id:"saucisson",label:"Saucisson",sel:2.6,sucre:.4,poivre:.3,perte:38,nit:"1",note:"Mêlée gibier + gras de porc : 26 g de sel par kilo de mêlée dont 20 g de sel nitrité au plus, 3 à 5 g de sucre pour la fermentation, 3 g de poivre."}];
+ {id:"maison",label:"Ma recette",sel:4,sucre:2,poivre:1,perte:35,nit:"0",note:"Votre dosage : 4 % de sel, 2 % de sucre, 1 % de poivre. C’est un dosage salé pour une salaison à dose fixe : la plupart des recettes visent 2,5 à 3 % de sel."}];
 /* Nitrite : depuis le 9 octobre 2025, 80 mg/kg au plus, exprimés en ion nitrite (règlement UE 2023/2108),
    soit environ 120 mg de nitrite de sodium : 20 g de sel nitrité à 0,6 % par kilo. Le reste du sel en sel fin. */
 var SalNitMax=80;
