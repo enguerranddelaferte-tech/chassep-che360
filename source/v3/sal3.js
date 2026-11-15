@@ -23,7 +23,26 @@ function SalCalc(st){
  rn();
  let tot=e("b","0 g"),note=e("p.small.muted",{style:{margin:"10px 0 0"}}),chk=e("div.sal-chk");
  let presetBox=e("div");
- let rp=()=>{B(presetBox,Je(SalPresets.map(p=>[p.id,p.label]),st.preset,id=>{let p=SalPresets.find(z=>z.id===id);if(!p)return;st.preset=id;ings.forEach(([k2])=>{st[k2]=String(p[k2]);pin[k2].value=st[k2]});st.perte=String(p.perte);pIn.value=st.perte;st.nit="0";rn();rp();up()}));let p=SalPresets.find(z=>z.id===st.preset);note.textContent=p?p.note:"Dosage personnalisé."};
+ /* réglages personnels : gardés dans le compte de la personne (réglages privés), visibles d’elle seule */
+ let myP=()=>{try{let L=w.user&&w.user.settings&&w.user.settings.salPresets;return Array.isArray(L)?L.filter(z=>z&&z.id&&z.label):[]}catch{return[]}};
+ let allP=()=>[...SalPresets,...myP()];
+ let myBox=e("div.sal-my",{style:{marginTop:"10px"}});
+ function saveP(L,sel){if(!w.user)return;w.user.settings={...(w.user.settings||{}),salPresets:L};v.patch("/auth/me",{settings:{salPresets:L}}).catch(()=>A("Réglage gardé sur cet appareil : il sera enregistré au retour du réseau."));sel!==void 0&&(st.preset=sel);rp();rm()}
+ function rm(){
+  if(!w.user){B(myBox,e("p.small.muted",{style:{margin:0}},"Connectez-vous pour enregistrer vos propres réglages."));return}
+  let nm=e("input.input",{type:"text",maxlength:"40",placeholder:"Nom du réglage, ex. Coppa de sanglier","aria-label":"Nom du réglage",style:{flex:"1",minWidth:"0"}});
+  let save=()=>{let n=nm.value.trim();if(!n){nm.focus();A("Donnez un nom à votre réglage.");return}
+   let L=myP().filter(z=>z.label.toLowerCase()!==n.toLowerCase());if(L.length>=20){A("20 réglages au plus : supprimez-en un d’abord.");return}
+   let o={id:"u"+Date.now().toString(36),label:n,sel:String(st.sel),sucre:String(st.sucre),poivre:String(st.poivre),perte:String(st.perte),note:`Votre réglage : ${st.sel} % de sel, ${st.sucre} % de sucre, ${st.poivre} % de poivre.`};
+   L.push(o);saveP(L,o.id);A(`Réglage « ${n} » enregistré dans votre compte.`,"ok")};
+  nm.addEventListener("keydown",z=>{z.key==="Enter"&&(z.preventDefault(),save())});
+  let mine=myP();
+  B(myBox,e("div.row",{style:{gap:"8px",alignItems:"center"}},nm,x("Enregistrer ce réglage",{kind:"ghost",size:"sm",icon:"plus",onClick:save})),
+   mine.length?e("div.stack",{style:{gap:"4px",marginTop:"8px"}},mine.map(z=>e("div.row",{style:{gap:"8px",alignItems:"center"}},e("span.grow.small",`${z.label} · ${z.sel} / ${z.sucre} / ${z.poivre} %`),
+     x("Supprimer",{kind:"ghost",size:"sm",icon:"trash",onClick:async()=>{if(!await ve({title:`Supprimer « ${z.label} » ?`,text:"Ce réglage sera retiré de votre compte.",confirm:"Supprimer",danger:!0}))return;saveP(myP().filter(y=>y.id!==z.id),st.preset===z.id?"":void 0)}})))):null,
+   e("p.small.muted",{style:{margin:"6px 0 0"}},"Vos réglages sont enregistrés dans votre compte : vous seul les voyez."))}
+ rm();
+ let rp=()=>{B(presetBox,Je(allP().map(p=>[p.id,p.label]),st.preset,id=>{let p=allP().find(z=>z.id===id);if(!p)return;st.preset=id;ings.forEach(([k2])=>{st[k2]=String(p[k2]);pin[k2].value=st[k2]});st.perte=String(p.perte);pIn.value=st.perte;st.nit="0";rn();rp();up()}));let p=allP().find(z=>z.id===st.preset);note.textContent=p?(p.note||"Votre réglage enregistré."):"Dosage personnalisé."};
  let pIn=e("input.input",{id:"sal-perte",type:"number",inputmode:"decimal",min:"0",max:"70",step:"1",value:st.perte,style:{width:"90px"},oninput:z=>{st.perte=z.target.value;up()}});
  let nIn=e("input.input",{id:"sal-now",type:"number",inputmode:"decimal",min:"0",step:"any",placeholder:"ex. 1 050",value:st.now,oninput:z=>{st.now=z.target.value;up()}});
  let target=e("b.display",{style:{fontSize:"34px",lineHeight:"1"}},"0 g"),gauge=e("i",{style:{left:"0%"}}),gw=e("div.sal-gauge",gauge),status=e("div.small",{style:{minHeight:"22px"}});
@@ -67,7 +86,7 @@ function SalCalc(st){
   e("div.grid.g-2",
    k({title:"Doses de salaison",sub:"en % du poids de la pièce parée"},
     e("div.field",e("label",{for:"sal-w"},"Poids de la pièce parée"),e("div.sal-w",wIn,unitBox)),
-    e("div",{style:{margin:"14px 0 6px"}},e("div.small.muted",{style:{marginBottom:"6px"}},"Préréglages"),presetBox),
+    e("div",{style:{margin:"14px 0 6px"}},e("div.small.muted",{style:{marginBottom:"6px"}},"Préréglages"),presetBox,myBox),
     e("div.sal-res",rows),
     e("div.sal-total",e("span",{style:{fontWeight:600}},"Mélange total"),tot),
     chk,
