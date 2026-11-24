@@ -903,3 +903,6 @@ a.part-band:hover{border-color:var(--line-strong)}
 .gd-ex{display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:var(--r-sm,12px);background:var(--surface-2);border-left:3px solid var(--accent)}
 .gd-tip{font-size:14px;color:var(--text-2)}
 .gd-soon{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:var(--r-sm,12px);border:1px dashed var(--border,rgba(0,0,0,.2))}
+
+/* Bêta ouverte */
+.tb-brand::after,.sb-brand-row .brand::after,.guest-top .brand::after{content:"Bêta";flex:none;font:700 10.5px/1 var(--font-body,system-ui);text-transform:uppercase;letter-spacing:.06em;padding:4px 7px;border-radius:999px;background:var(--accent);color:#fff;margin-left:2px}

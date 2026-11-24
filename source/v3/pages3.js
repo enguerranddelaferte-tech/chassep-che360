@@ -9,11 +9,16 @@ function S3DocPage(t,title,sub,secs,note){
       secs.map(([h,...bs])=>e("section.legal-sec",{id:"s-"+S3AmbSlug(h)},e("h2",h),...bs.map(blk))),
       e("p.small.muted",{style:{margin:0}},
         e("a",{href:"#/mentions-legales"},"Mentions légales")," · ",e("a",{href:"#/cgu"},"Conditions d’utilisation")," · ",
-        e("a",{href:"#/confidentialite"},"Confidentialité")," · ",e("a",{href:"#/aide"},"Aide")," · ",e("a",{href:"#/guide"},"Guide de l’appli")))));
+        e("a",{href:"#/confidentialite"},"Confidentialité")," · ",e("a",{href:"#/aide"},"Aide")," · ",e("a",{href:"#/guide"},"Guide de l’appli")," · ",e("a",{href:"#/contact"},"Contact")))));
 }
-const S3CguMaj="23 octobre 2026";
+const S3CguMaj="24 novembre 2026";
 function S3CguPage(t){
   S3DocPage(t,"Conditions d’utilisation et de vente","Version du "+S3CguMaj,[
+    ["Version bêta",
+     ["L’appli est en version bêta : elle est ouverte à tous pour être testée avant son lancement officiel.",
+      "Des fonctions peuvent changer, être ajoutées ou retirées, et des erreurs peuvent survenir. Merci de nous les signaler depuis la page [[Contact|#/contact]].",
+      "Vos comptes, publications et saisies sont conservés au lancement officiel : la bêta n’est pas remise à zéro.",
+      "Pendant la bêta, aucun paiement n’est demandé."]],
     ["1. Objet",
      "Les présentes conditions encadrent l’utilisation de l’application Chasse & Pêche 360° (ci-après « l’appli »), éditée par [nom de la structure] (voir les mentions légales), et la souscription de ses abonnements. Créer un compte vaut acceptation de ces conditions."],
     ["2. Accès et compte",
@@ -26,7 +31,8 @@ function S3CguPage(t){
       "Pas de photo choquante ni d’animal blessé exhibé.",
       "Ne publiez jamais la position exacte d’un spot ou d’un poste sans l’avoir floutée.",
       "Sont interdits : les contenus illicites, le braconnage ou l’incitation à enfreindre la réglementation, les injures, le harcèlement, la publicité non autorisée, l’usurpation d’identité.",
-      "Chaque contenu peut être signalé avec le bouton « Signaler ». L’équipe peut retirer un contenu, et suspendre ou fermer un compte en cas de manquement grave ou répété, après avoir indiqué le motif."]],
+      "Chaque contenu peut être signalé avec le bouton « Signaler », et chaque membre peut en bloquer un autre.",
+      "L’équipe peut retirer un contenu, et suspendre ou fermer un compte en cas de manquement grave ou répété. L’auteur est informé de la décision et de son motif, et peut la contester depuis la page [[Contact|#/contact]]."]],
     ["4. Sécurité : ce que l’appli fait et ne fait pas",
      ["Le bouton SOS prévient les personnes autour de vous ; il ne remplace pas un appel au 112, à faire dans tous les cas d’urgence.",
       "Le calculateur et le viseur 30° sont une aide : ils ne remplacent ni la vigilance du tireur, ni les consignes du directeur de chasse.",
@@ -52,7 +58,7 @@ function S3CguPage(t){
     ["11. Données personnelles",
      "Le traitement de vos données est décrit dans la politique de confidentialité. Vous pouvez supprimer votre compte à tout moment depuis Mon profil."],
     ["12. Réclamations et médiation",
-     "Pour toute réclamation, écrivez à [adresse e-mail de contact]. Si aucune solution n’est trouvée, vous pouvez recourir gratuitement au médiateur de la consommation : [nom et site du médiateur — à désigner]."],
+     "Pour toute réclamation, écrivez-nous depuis la page [[Contact|#/contact]] ou à [adresse e-mail de contact]. Si aucune solution n’est trouvée, vous pouvez recourir gratuitement au médiateur de la consommation : [nom et site du médiateur — à désigner]."],
     ["13. Modification et droit applicable",
      "Ces conditions peuvent évoluer ; vous serez informé de toute modification importante avant son entrée en vigueur. Elles sont soumises au droit français."]
   ],"Certaines informations sur l’éditeur et le médiateur seront ajoutées dès leur réception.");
@@ -60,7 +66,7 @@ function S3CguPage(t){
 function S3PrivPage(t){
   S3DocPage(t,"Politique de confidentialité","Version du "+S3CguMaj,[
     ["Qui est responsable",
-     "Le responsable du traitement est [nom de la structure], éditeur de Chasse & Pêche 360°. Contact pour toute question sur vos données : [adresse e-mail de contact]."],
+     "Le responsable du traitement est [nom de la structure], éditeur de Chasse & Pêche 360°. Contact pour toute question sur vos données : la page [[Contact|#/contact]] ou [adresse e-mail de contact]."],
     ["Ce que nous collectons",
      ["Compte : nom, adresse e-mail, mot de passe (stocké chiffré, nous ne le voyons jamais), mode de connexion (e-mail, Google ou Facebook).",
       "Profil : profil chasseur ou pêcheur, ville, département, présentation, photo, et les numéros de permis ou de carte de pêche si vous choisissez de les saisir.",
@@ -69,7 +75,8 @@ function S3PrivPage(t){
       "Position : seulement si vous l’activez, pendant une sortie, un suivi en direct ou une alerte SOS.",
       "Notifications : l’adresse technique de votre appareil, si vous acceptez les notifications.",
       "Analyse des photos : les photos publiées dans le fil sont analysées par notre service de modération (modèle de reconnaissance d’images CLIP, sous licence libre MIT), hébergé sur un serveur séparé. Il repère par exemple une espèce protégée probable, une image choquante ou de la nudité ; la publication est alors vérifiée par l’équipe. La photo n’est pas conservée par ce service : seuls les éléments repérés sont enregistrés avec la publication.",
-      "Mesure d’audience : à l’ouverture de l’appli, le pays, le type d’appareil, la page et un identifiant de session effacé à la fermeture de l’onglet. Vous pouvez la refuser depuis Mon profil."]],
+      "Mesure d’audience : à l’ouverture de l’appli, le type d’appareil, la page ouverte et un identifiant aléatoire gardé sur votre appareil 13 mois au plus, qui sert seulement à compter les visiteurs. Ces statistiques restent anonymes et internes. Vous pouvez les refuser dans Mon profil (case « Mesure d’audience »).",
+      "Contact : les messages que vous nous envoyez depuis la page Contact."]],
     ["Pourquoi et sur quelle base",
      ["Fournir le service, gérer le compte et les abonnements : exécution du contrat.",
       "Partager votre position pendant une sortie ou un SOS, envoyer des notifications : votre consentement, que vous pouvez retirer à tout moment dans l’appli ou les réglages du téléphone.",
@@ -83,13 +90,14 @@ function S3PrivPage(t){
      ["Compte et contenus : tant que le compte existe. Ils sont effacés quand vous le supprimez.",
       "Journal de mesure d’audience : 13 mois au plus.",
       "Rapports d’erreurs techniques : 90 jours au plus.",
+      "Messages de contact et signalements : 1 an après leur traitement.",
       "Données de facturation, à l’ouverture du paiement : 10 ans, comme l’exige la loi."]],
     ["Stockage sur votre appareil",
      "L’appli enregistre sur votre appareil vos préférences (thème, saison, page d’ouverture), votre session de connexion et les saisies faites hors ligne. Aucun cookie publicitaire ni traceur tiers n’est utilisé."],
     ["Vos droits",
      ["Accès, rectification, effacement, opposition, limitation et portabilité de vos données.",
       "Effacement immédiat : Mon profil › Supprimer mon compte.",
-      "Pour les autres demandes, écrivez à [adresse e-mail de contact] ; réponse sous un mois.",
+      "Pour les autres demandes, écrivez-nous depuis la page [[Contact|#/contact]] ou à [adresse e-mail de contact] ; réponse sous un mois.",
       "Vous pouvez adresser une réclamation à la CNIL (cnil.fr)."]],
     ["Mineurs",
      "L’appli est réservée aux personnes d’au moins 15 ans."],

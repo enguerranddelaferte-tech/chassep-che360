@@ -29,8 +29,8 @@ def cut(s,start,end,new):
 # salaison : dosages affinés (sel nitrité, contrôle du dosage, saumure)
 bundle=cut(bundle,'var SalPresets=','var ArtAct=',open(B+'v3/sal3.js').read())
 bundle=rep(bundle,'preset:"maison",ep:"4",forme:"plate"}','preset:"maison",ep:"4",forme:"plate",nit:"0",nitPct:"0.6",bm:"litre",bw:"1",bp:"9",bv:"1000",bep:"3"}')
-bundle=rep(bundle,'if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&','if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&!/^\\/(mentions-legales|cgu|confidentialite|aide|guide|telecharger|installer|charte-ambassadeur)$/.test(t)&&')
-bundle=rep(bundle,'!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil)/.test(t)','!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil|mentions-legales|cgu|confidentialite|aide|guide|telecharger|installer|charte-ambassadeur)/.test(t)')
+bundle=rep(bundle,'if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&','if(!w.user&&t!=="/connexion"&&t!=="/communaute"&&!/^\\/(mentions-legales|cgu|confidentialite|aide|guide|telecharger|installer|contact|charte-ambassadeur)$/.test(t)&&')
+bundle=rep(bundle,'!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil)/.test(t)','!/^\\/(admin|articles|securite|ambassadeurs|communaute|profil|mentions-legales|cgu|confidentialite|aide|guide|telecharger|installer|contact|charte-ambassadeur)/.test(t)')
 bundle=rep(bundle,'onsubmit:async f=>{if(f.preventDefault(),p.hidden=!0,!!d.validate()){','onsubmit:async f=>{if(f.preventDefault(),p.hidden=!0,!!d.validate()&&(s==="login"||S3ConsentOk(f.target))){')
 bundle=rep(bundle,'},p,d.el,m)','},p,d.el,s==="login"?null:S3ConsentEl(),m)')
 # mesure d'audience : refus possible
@@ -151,6 +151,15 @@ bundle=rep(bundle,'x("Signaler",{kind:"ghost",size:"sm",icon:"alert",onClick:()=
 
 # Appli des stores : vraie base
 bundle=rep(bundle,'return /github\\.io$/.test(location.hostname)||lsGet("cp360.sb")==="1"','return /github\\.io$/.test(location.hostname)||lsGet("cp360.sb")==="1"||!!(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform())')
+
+# Bêta ouverte : messages de contact dans les signalements, identifiant de visite renouvelé après 13 mois
+bundle=rep(bundle,'L(z.targetType==="article"?"Article":"Publication","accent")','L(z.targetType==="article"?"Article":z.targetType==="contact"?"Message de contact":"Publication","accent")')
+bundle=rep(bundle,'details:String(t.body.details||"").slice(0,300),userId:t.user.id,status:"open"','details:String(t.body.details||"").slice(0,t.body.targetType==="contact"?3000:300),userId:t.user.id,status:"open"')
+bundle=rep(bundle,'sid||(sid="v-"','(()=>{try{let at=+localStorage.getItem("cp360.vidAt")||0;if(!sid||Date.now()-at>395*864e5){sid=null;localStorage.setItem("cp360.vidAt",String(Date.now()))}}catch{}})(),sid||(sid="v-"')
+
+bundle=rep(bundle,'z.target?e("a",{href:z.target.link,style:{display:"block",fontWeight:600,margin:"8px 0 4px",textDecoration:"none"}},z.target.title):e("div.small.muted",{style:{margin:"8px 0"}},"Contenu d\\xE9j\\xE0 supprim\\xE9")','z.targetType==="contact"?null:z.target?e("a",{href:z.target.link,style:{display:"block",fontWeight:600,margin:"8px 0 4px",textDecoration:"none"}},z.target.title):e("div.small.muted",{style:{margin:"8px 0"}},"Contenu d\\xE9j\\xE0 supprim\\xE9")')
+bundle=rep(bundle,'e("div.tiny.muted",`Signal\\xE9 par ${z.reporter?z.reporter.name:"un membre"}','e("div.tiny.muted",`${z.targetType==="contact"?"Envoy\\xE9 par":"Signal\\xE9 par"} ${z.reporter?z.reporter.name:"un membre"}')
+bundle=rep(bundle,'x("Classer sans suite",{kind:"ghost",size:"sm",onClick:()=>cl2(z.id,!1)})','x(z.targetType==="contact"?"Marquer comme trait\\xE9":"Classer sans suite",{kind:"ghost",size:"sm",onClick:()=>cl2(z.id,!1)})')
 
 # CSS
 legacy=filt(app_css)

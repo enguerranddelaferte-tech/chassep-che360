@@ -1,7 +1,7 @@
 /* ----- Mentions légales (3.0) et suppression du compte ----- */
 /* Les champs « à compléter » seront remplis dès réception du nom de la structure et du SIRET. */
 const S3Legal={
-  maj:"23 octobre 2026",
+  maj:"24 novembre 2026",
   editeur:"[Nom de la structure — en cours d’immatriculation]",
   forme:"[Forme juridique — à compléter]",
   siege:"[Adresse du siège — à compléter]",
@@ -28,7 +28,7 @@ function S3LegalPage(t){
         e("p","Les photos, vidéos et textes publiés par les membres restent leur propriété. En les publiant, chaque membre autorise leur affichage dans l’application, et garantit en détenir les droits.")),
       sec("Contenus des membres et signalements",
         e("p","Les membres sont responsables de ce qu’ils publient. Tout contenu illicite ou contraire à la charte de la communauté peut être signalé avec le bouton « Signaler » présent sur chaque publication. L’équipe examine les signalements et retire les contenus concernés."),
-        e("p","Pour toute autre demande (autorités, ayants droit), écrivez à l’adresse de contact indiquée ci-dessus.")),
+        e("p","Pour toute autre demande (autorités, ayants droit) : la page ",e("a",{href:"#/contact"},"Contact")," ou l’adresse de contact indiquée ci-dessus. C’est notre point de contact unique au sens du règlement européen sur les services numériques ; langues acceptées : français et anglais.")),
       sec("Informations de réglementation",
         e("p","Les dates d’ouverture, quotas, angles de tir et autres règles affichés dans l’application sont donnés à titre indicatif. Seuls les arrêtés préfectoraux, les règlements des fédérations et les textes officiels font foi. Vérifiez-les avant chaque sortie.")),
       sec("Données personnelles",

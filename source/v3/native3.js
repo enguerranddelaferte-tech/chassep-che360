@@ -41,6 +41,28 @@ function S3NativeOffer(t){
 
 /* Page « Installer l’appli » (#/telecharger ou #/installer), ouverte à tous : le lien à envoyer.
    L’appli web (PWA) s’installe depuis le navigateur, sur Android, iPhone et ordinateur. */
+/* Page Contact (#/contact), ouverte à tous : point de contact unique pour les membres et les autorités
+   (règlement européen sur les services numériques, art. 11 et 12). Les messages arrivent dans Admin › Signalements. */
+function S3ContactPage(t){
+  let mail=typeof S3Legal<"u"?S3Legal.contact:"",todo=/^\[/.test(mail),box=e("div.stack");
+  let form=()=>{
+    if(!w.user){B(box,e("p",{style:{margin:0}},"Connectez-vous pour nous écrire depuis l’appli, ou utilisez l’adresse e-mail ci-dessous."),x("Se connecter",{kind:"primary",href:"#/connexion"}));return}
+    let subj=e("select.input",{"aria-label":"Sujet"},["Question","Bug ou problème","Idée","Contester une décision de modération","Données personnelles","Autorités ou ayants droit","Autre"].map(o=>e("option",o)));
+    let txt=e("textarea.input",{rows:"6",maxlength:"3000",placeholder:"Votre message","aria-label":"Message"});
+    let btn=x("Envoyer",{kind:"primary",icon:"send",onClick:async()=>{
+      let m=txt.value.trim();if(m.length<5){A("Écrivez votre message.");txt.focus();return}
+      btn.disabled=!0;
+      try{await v.post("/content-reports",{targetType:"contact",targetId:w.user.id,reason:"Contact : "+subj.value,details:m});
+        B(box,e("div.panel",e("b","Message envoyé."),e("p",{style:{margin:"4px 0 0"}},"Nous vous répondons par e-mail, à l’adresse de votre compte.")))}
+      catch{btn.disabled=!1;A("Envoi impossible pour le moment. Réessayez dans un instant.","warn")}}});
+    B(box,e("div.field",e("label","Sujet"),subj),e("div.field",e("label","Message"),txt),btn)};
+  form();
+  C(t,q({title:"Contact",subtitle:"Une question, un bug, une idée, une demande sur vos données"},
+    e("div.stack",{style:{maxWidth:"640px"}},
+      k({title:"Écrire à l’équipe"},box),
+      k({title:"Par e-mail"},e("p",{style:{margin:0}},todo?e("span.legal-todo",mail):e("a",{href:"mailto:"+mail},mail))),
+      e("p.small.muted",{style:{margin:0}},"Point de contact unique pour les membres et les autorités, au sens du règlement européen sur les services numériques. Langues acceptées : français et anglais. Pour un contenu précis, le bouton « Signaler » sous la publication est le plus rapide."))));
+}
 function S3DownloadPage(t){
   let ios=typeof S3IsIOS=="function"?S3IsIOS():/iPhone|iPad|iPod/i.test(navigator.userAgent),android=/Android/i.test(navigator.userAgent),done=typeof S3Standalone=="function"&&S3Standalone();
   let step=(n,txt)=>e("div.row",{style:{gap:"12px",alignItems:"flex-start"}},e("b",{style:{minWidth:"22px",color:"var(--accent)"}},n),e("span",txt));
