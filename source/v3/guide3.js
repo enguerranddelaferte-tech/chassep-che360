@@ -155,7 +155,7 @@ const S3GUIDE=[
    what:"La sécurité est gratuite pour tous. Les offres Premium ajoutent les cartes avancées, l’illimité et les statistiques.",
    steps:["Gratuit : SOS, viseur 30°, sortie, communauté, carte IGN, 20 prises ou prélèvements, 5 spots, recettes, annuaire.","Premium Chasse ou Premium Pêche : 29,99 € par an.","Combo 360° : les deux réunis, 44,99 € par an.","Menu › Abonnement pour comparer et souscrire."],
    ex:"Marc chasse et pêche : il prend le Combo plutôt que deux Premium, et économise 15 € par an.",
-   tip:"Les 30 premiers inscrits sont Pionniers (1 an de Combo offert), les 500 premiers Fondateurs (tarifs de lancement).",link:["/abonnement","Voir les offres"]},
+   tip:"Bêta : 4 semaines d’utilisation et 3 avis envoyés depuis Contact font de vous un Pionnier (Combo à 19,99 €/an à vie au lancement). Les 500 premiers inscrits sont Fondateurs.",link:["/abonnement","Voir les offres"]},
   {id:"supprimer",sec:"compte",t:"Supprimer son compte",plan:"Gratuit",added:"2026-11-02",
    what:"Vous pouvez partir quand vous voulez.",
    steps:["Menu › Mon profil › « Supprimer mon compte ».","Confirmez : tout ce que vous avez créé est effacé, définitivement."],

@@ -11,6 +11,21 @@ function S3ErrSend(msg,src){
 window.addEventListener("error",ev=>S3ErrSend(ev.message,(ev.filename||"").split("/").pop()+":"+ev.lineno+":"+ev.colno));
 window.addEventListener("unhandledrejection",ev=>{let r=ev.reason;if(r&&(r.status===401||r.status===403||r.status===0))return;S3ErrSend(r&&r.message?r.message:String(r),r&&r.stack?String(r.stack).split("\n")[1]:"promise")});
 
+/* Admin : avancement des bêta-testeurs vers le statut Pionnier */
+function S3BetaAdmin(){
+  let wrap=e("details.beta-admin",{style:{marginTop:"14px"}},e("summary.small","Bêta-testeurs : avancement vers Pionnier (4 semaines + 3 avis)"));
+  let list=e("div.list",e("p.small.muted","Chargement…"));wrap.append(list);
+  let load=()=>S3Sb("POST","rpc/beta_candidates",{}).then(r=>{
+    let rows=r&&r.ok&&Array.isArray(r.json)?r.json:[];
+    B(list,rows.length?rows.map(u=>e("div.list-row",e("div.grow",e("div.t",u.name||"Membre"),e("div.s",(u.weeks||0)+" sem. d’activité · "+(u.avis||0)+" avis"+(u.tier?" · "+(u.tier==="pionnier"?"Pionnier":"Fondateur"):""))),
+      u.tier==="pionnier"?e("span.launch-chip.pio","Pionnier"):x("Nommer Pionnier",{kind:"ghost",size:"sm",onClick:async()=>{
+        if(!await ve({title:"Nommer "+(u.name||"ce membre")+" Pionnier ?",text:"Badge, 3 invitations et Combo à 19,99 €/an à vie au lancement. Le membre est prévenu par une notification.",confirm:"Nommer Pionnier"}))return;
+        let r2=await S3Sb("POST","rpc/admin_make_pionnier",{uid:u.user_id});
+        r2&&r2.ok?(A("Statut Pionnier donné.","ok"),load()):A("Action impossible pour le moment.","warn")}}))):e("p.small.muted","Aucun compte."))
+  }).catch(()=>B(list,e("p.small.muted","Liste indisponible.")));
+  wrap.addEventListener("toggle",()=>{wrap.open&&!wrap.dataset.l&&(wrap.dataset.l="1",load())});
+  return wrap;
+}
 /* Encart « Lancement » sur le tableau de bord admin */
 async function S3LaunchAdmin(p){
   if(!(p==="/admin"||p==="/admin/tableau")||!w.user||!S3Adm(w.user)||!Mt)return;
@@ -26,7 +41,7 @@ async function S3LaunchAdmin(p){
     e("div.amb-stats",{style:{marginTop:"12px"}},
       tile(s.users,"comptes",s.today?"+"+s.today+" aujourd’hui":null),
       tile(s.week,"sur 7 jours"),
-      tile(Math.max(0,30-s.pioneers)+" / 30","places Pionnier libres"),
+      tile(s.pioneers,"Pionniers","bêta-testeurs actifs"),
       tile(Math.max(0,500-s.pioneers-s.founders)+" / 500","places Fondateurs libres"),
       tile(s.invites_used,"invitations utilisées"),
       tile(s.errors7,"erreurs sur 7 jours")),
@@ -35,6 +50,7 @@ async function S3LaunchAdmin(p){
       e("div.list",s.by_code.map(c=>e("div.list-row",e("div.grow",e("div.t",c.name),e("div.s","code "+c.code)),e("b",String(c.n)))))):null,
     (s.last_errors||[]).length?e("details",{style:{marginTop:"14px"}},e("summary.small","Dernières erreurs chez les utilisateurs"),
       e("div.list",s.last_errors.map(x2=>e("div.list-row",e("div.grow",e("div.t",{style:{fontWeight:500,fontSize:"14px"}},x2.msg),e("div.s",new Date(x2.at).toLocaleString("fr-FR")+" · "+(x2.path||""))))))):null);
+  box.append(S3BetaAdmin());
   let svc=e("div.small.svc-state",{style:{marginTop:"12px"}},"Service de modération des photos : vérification…");box.append(svc);
   S3Sb("POST","rpc/moderation_service_status",{}).then(r2=>{
     let v=r2&&r2.ok&&r2.json;if(!v){svc.textContent="Service de modération des photos : état indisponible.";return}

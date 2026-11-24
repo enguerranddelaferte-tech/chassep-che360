@@ -47,8 +47,9 @@ function S3ContactPage(t){
   let mail=typeof S3Legal<"u"?S3Legal.contact:"",todo=/^\[/.test(mail),box=e("div.stack");
   let form=()=>{
     if(!w.user){B(box,e("p",{style:{margin:0}},"Connectez-vous pour nous écrire depuis l’appli, ou utilisez l’adresse e-mail ci-dessous."),x("Se connecter",{kind:"primary",href:"#/connexion"}));return}
-    let subj=e("select.input",{"aria-label":"Sujet"},["Question","Bug ou problème","Idée","Contester une décision de modération","Données personnelles","Autorités ou ayants droit","Autre"].map(o=>e("option",o)));
-    let txt=e("textarea.input",{rows:"6",maxlength:"3000",placeholder:"Votre message","aria-label":"Message"});
+    let subj=e("select.input",{"aria-label":"Sujet"},["Avis sur la bêta","Question","Bug ou problème","Idée","Contester une décision de modération","Données personnelles","Autorités ou ayants droit","Autre"].map(o=>e("option",o)));
+    if(!/[?&]sujet=avis/.test(location.hash))subj.value="Question";
+    let txt=e("textarea.input",{rows:"6",maxlength:"3000",placeholder:subj.value==="Avis sur la bêta"?"Ce qui vous plaît, ce qui manque, ce qui vous gêne…":"Votre message","aria-label":"Message"});
     let btn=x("Envoyer",{kind:"primary",icon:"send",onClick:async()=>{
       let m=txt.value.trim();if(m.length<5){A("Écrivez votre message.");txt.focus();return}
       btn.disabled=!0;
